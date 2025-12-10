@@ -2,7 +2,8 @@ let allCharacters = [];
 
 async function loadData() {
   try {
-    const res = await fetch('data/characters.json');
+    const res = await fetch('../../public/data/characters.json');
+    
     if (!res.ok) {
       throw new Error('데이터 로드 실패: ' + res.status);
     }

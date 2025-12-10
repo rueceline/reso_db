@@ -2,7 +2,8 @@ let equipmentData = [];
 
 async function loadEquipment() {
   try {
-    const res = await fetch('data/equipment.json');
+    const res = await fetch('../../public/data/equipment.json')
+    
     if (!res.ok) {
       throw new Error(`데이터 로드 실패: ${res.status}`);
     }
