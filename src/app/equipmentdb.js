@@ -74,21 +74,33 @@ function renderList(list) {
   tbody.innerHTML = '';
 
   if (!list.length) {
-    tbody.innerHTML = '<tr><td colspan="7" class="loading">조건에 맞는 장비가 없습니다.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" class="loading">조건에 맞는 장비가 없습니다.</td></tr>';
     return;
   }
 
   list.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
+      <td class="equip-image">
+        <img src="../../public/assets/2.png" class="equip-img">
+      </td>
+
       <td class="equipment-name">${formatName(item.name)}</td>
-      <td><span class="rarity-badge rarity-${item.rarity.toLowerCase()}">${item.rarity}</span></td>
+      
+      <td>
+        <span class="rarity-badge rarity-${item.rarity.toLowerCase()}">
+          ${item.rarity}
+        </span>
+      </td>
+
       <td>${item.faction}</td>
       <td>${item.type}</td>
+
       <td>
         <div class="stat-label">${item.stat_type}</div>
         <div class="stat-range">${item.min_value} ~ ${item.max_value}</div>
       </td>
+
       <td class="equipment-effect">${formatMultiline(item.effect)}</td>
       <td class="equipment-source">${formatMultiline(item.source)}</td>
     `;
@@ -96,6 +108,7 @@ function renderList(list) {
     tbody.appendChild(tr);
   });
 }
+
 
 function formatName(name) {
   return name.split('\n').map(part => `<span>${part}</span>`).join('<br>');
