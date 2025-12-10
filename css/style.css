@@ -355,3 +355,160 @@ body {
     gap: 6px;
   }
 }
+
+/* Equipment DB */
+.db-hero {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(14, 165, 233, 0.04));
+  margin-bottom: 16px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.filter-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.9);
+  margin-bottom: 12px;
+}
+
+.filter-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.result-count {
+  font-size: 12px;
+  color: var(--text-soft);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.filter-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-control label {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.filter-control select {
+  background: rgba(31, 41, 55, 0.6);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+}
+
+.equipment-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.equipment-table-wrapper {
+  overflow-x: auto;
+}
+
+.equipment-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.equipment-table th,
+.equipment-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  vertical-align: top;
+}
+
+.equipment-table th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.equipment-table tr:hover td {
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.equipment-name {
+  font-weight: 600;
+}
+
+.rarity-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid transparent;
+}
+
+.rarity-ur {
+  color: #e5d3ff;
+  background: rgba(168, 85, 247, 0.16);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.rarity-ssr {
+  color: #ffe1a4;
+  background: rgba(251, 191, 36, 0.16);
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.rarity-sr {
+  color: #a5f3fc;
+  background: rgba(14, 165, 233, 0.14);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.rarity-r {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.16);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+
+.stat-range {
+  font-weight: 600;
+}
+
+.equipment-effect,
+.equipment-source {
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 20px 0;
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>장비 데이터베이스 | Reso Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="logo">
+        <span>RESO</span> TOOLS
+      </div>
+      <div class="lang-switch">
+        <a class="ghost-btn" href="index.html">← 메인으로</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="db-hero">
+        <div>
+          <p class="hero-tagline">장비 데이터베이스</p>
+          <h1 class="hero-title">Equipment DB</h1>
+          <p class="hero-sub">
+            레어리티, 세력, 장비 종류별로 빠르게 필터링하고 주요 스탯과 효과를 확인할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="filter-panel">
+        <div class="filter-title-row">
+          <h2 class="feature-title">필터</h2>
+          <div id="equipmentCount" class="result-count">로딩 중...</div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-control">
+            <label for="rarityFilter">레어리티</label>
+            <select id="rarityFilter"></select>
+          </div>
+          <div class="filter-control">
+            <label for="factionFilter">세력</label>
+            <select id="factionFilter"></select>
+          </div>
+          <div class="filter-control">
+            <label for="typeFilter">종류</label>
+            <select id="typeFilter"></select>
+          </div>
+        </div>
+      </section>
+
+      <section class="equipment-section">
+        <div class="equipment-table-wrapper">
+          <table class="equipment-table">
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>레어리티</th>
+                <th>세력</th>
+                <th>종류</th>
+                <th>주요 스탯</th>
+                <th>효과</th>
+                <th>획득처</th>
+              </tr>
+            </thead>
+            <tbody id="equipmentList">
+              <tr>
+                <td colspan="7" class="loading">데이터를 불러오는 중...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/equipmentdb.js"></script>
+</body>
+</html>
