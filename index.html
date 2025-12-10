@@ -4,73 +4,61 @@
   <meta charset="utf-8">
   <title>Reso DB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="logo">
+        <span>RESO</span> DB
+      </div>
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --bg-elevated: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text: #e5e7eb;
-      --text-soft: #9ca3af;
-      --border: #1f2937;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-    }
+      <nav class="menu">
+        <button class="menu-item active" data-section="characters">
+          <div class="menu-icon">C</div>
+          <span>캐릭터</span>
+        </button>
+        <button class="menu-item" data-section="equipment">
+          <div class="menu-icon">E</div>
+          <span>장비</span>
+        </button>
+        <button class="menu-item" data-section="items">
+          <div class="menu-icon">I</div>
+          <span>아이템</span>
+        </button>
+        <button class="menu-item" data-section="tools">
+          <div class="menu-icon">T</div>
+          <span>도구</span>
+        </button>
+      </nav>
+    </header>
 
-    * {
-      box-sizing: border-box;
-    }
+    <main>
+      <section class="hero">
+        <div class="hero-section-label" id="current-section-label">현재 메뉴</div>
+        <div class="hero-section-value" id="current-section-value">캐릭터 DB</div>
+        <p class="hero-sub" id="current-section-desc">
+          캐릭터 능력치, 속성, 역할별로 검색하고 필터링할 수 있는 데이터베이스입니다.
+        </p>
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
+        <div class="hero-grid">
+          <div class="hero-card">
+            <strong>구조</strong>
+            앞으로 캐릭터 / 장비 / 아이템 / 도구를 각각 별도 HTML or 모듈로 분리해서 구현할 예정입니다.
+          </div>
+          <div class="hero-card">
+            <strong>데이터 소스</strong>
+            실제 데이터는 엑셀 시트 기반으로 작성 후 JSON으로 변환해서 public / data 하위에 배치할 수 있습니다.
+          </div>
+          <div class="hero-card">
+            <strong>상태</strong>
+            현재는 메인 메뉴만 구성된 초기 버전입니다. 각 메뉴별 상세 페이지는 차차 추가합니다.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 16px 40px;
-    }
-
-    /* 상단 바 */
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      padding: 10px 14px;
-      background: rgba(15, 23, 42, 0.85);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      backdrop-filter: blur(12px);
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .nav-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      p
+  <script src="scripts/main.js"></script>
+</body>
+</html>
