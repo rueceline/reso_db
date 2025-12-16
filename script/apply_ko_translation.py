@@ -1,25 +1,36 @@
 import os
 import json
-from datetime import datetime
-
 
 # ============================================================
-# 고정 경로
+# 적용 규칙
+# - Factory = 파일명(확장자 제거) 예: TextFactory.json -> TextFactory
+# - Field   = JSON key
+# - ConfigLanguage.json의 Factory/Field 매핑을 유지해서, 해당 field의 "문자열 value"만 치환
+# - 매칭은 exact match (+ 줄바꿈 정규화)만 사용
+#
+# 로그
+# - untranslated_report.txt:
+#   * MAPPED_FIELD_MISS: 매핑 대상 field인데 value가 매핑에 없음 (번역 누락/원문 불일치 가능)
+#   * UNMAPPED_FIELD_HAN: 매핑 대상이 아닌 field에서 한자 문자열 발견 (탐색/매핑 범위 재검토용)
 # ============================================================
-DATA_DIR = r"./public/data"
-KR_DIR = os.path.join(DATA_DIR, "KR")
-CONFIG_PATH = os.path.join(KR_DIR, "ConfigLanguage.json")
 
-LUA_DIR = r"./scripts/lua"  # 참고용(이번 스크립트에서 직접 파싱하진 않음)
+DATA_DIR_CANDIDATES = [r"./public/data", r"./data"]
+KR_SUBDIR_NAME = "KR"
+CONFIG_NAME = "ConfigLanguage.json"
 
-OUT_LOG_DIR = r"./scripts/output_apply_ko"
+SCRIPT_DIR = r"./script"   # 사용자가 지정: ./script
+OUT_LOG_DIR = os.path.join(SCRIPT_DIR, "output_apply_ko")
 OUT_SUMMARY = os.path.join(OUT_LOG_DIR, "summary.txt")
-OUT_UNTRANSLATED = os.path.join(OUT_LOG_DIR, "untranslated_strings.txt")
+OUT_UNTRANSLATED = os.path.join(OUT_LOG_DIR, "untranslated_report.txt")  # json-lines
 
 
-# ============================================================
-# Helpers
-# ============================================================
+def pick_data_dir():
+    for d in DATA_DIR_CANDIDATES:
+        if os.path.isdir(d):
+            return d
+    return DATA_DIR_CANDIDATES[0]
+
+
 def ensure_dir(path):
     if not os.path.exists(path):
         os.makedirs(path, exist_ok=True)
@@ -31,172 +42,289 @@ def load_json(path):
 
 
 def save_json(path, obj):
+    ensure_dir(os.path.dirname(path))
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
 
 
+def norm_text(s):
+    return s.replace("\r\n", "\n").replace("\r", "\n")
+
+
 def looks_like_han(s):
     for ch in s:
-        code = ord(ch)
-        if 0x4E00 <= code <= 0x9FFF:
+        o = ord(ch)
+        if 0x4E00 <= o <= 0x9FFF:
             return True
     return False
 
 
-def normalize_translation_map(cfg_obj):
-    # flat: { "中": "韩" }
-    if isinstance(cfg_obj, dict):
-        flat_like = True
+# UNMAPPED_FIELD_HAN 로그에서 제외할 필드들
+# - 식별자/경로/임시 문자열 등: 번역 대상이 아니고 한자 포함이 정상일 수 있음
+EXCLUDE_FIELDS_FOR_UNMAPPED_LOG = {
+    "idCN",
+    "mod",
+    "tempdescription",
+    "temptypeStr",
+    "typeStr",
+}
 
-        for k, v in cfg_obj.items():
-            if not isinstance(k, str):
-                flat_like = False
-                break
 
-            if not (isinstance(v, str) or v is None):
-                flat_like = False
-                break
+def load_configlanguage(cfg_path):
+    """
+    기대 구조:
+    {
+      "TextFactory": {
+        "text": { "中文": "한국어", ... },
+        ...
+      },
+      ...
+    }
+    """
+    cfg = load_json(cfg_path)
+    if not isinstance(cfg, dict):
+        return {}
 
-        if flat_like:
-            out = {}
-            for zh, ko in cfg_obj.items():
-                if isinstance(zh, str) and isinstance(ko, str) and ko != "":
-                    out[zh] = ko
-            return out
+    # 줄바꿈 normalize 버전도 같이 넣어줘서 매칭률을 올림(Factory/Field 구조 유지)
+    for fac, fac_obj in list(cfg.items()):
+        if not isinstance(fac_obj, dict):
+            continue
 
-        # nested: { factory: { field: [[a,b], ...] } }
-        out = {}
-
-        for fac_obj in cfg_obj.values():
-            if not isinstance(fac_obj, dict):
+        for field, mapping in list(fac_obj.items()):
+            if not isinstance(mapping, dict):
                 continue
 
-            for pairs in fac_obj.values():
-                if not isinstance(pairs, list):
+            add = {}
+            for zh, ko in mapping.items():
+                if not isinstance(zh, str) or not isinstance(ko, str) or ko == "":
                     continue
 
-                for pair in pairs:
-                    if not (isinstance(pair, list) and len(pair) == 2):
-                        continue
+                nzh = norm_text(zh)
+                nko = norm_text(ko)
+                if nzh != zh and nzh not in mapping:
+                    add[nzh] = nko
 
-                    zh = pair[0]
-                    ko = pair[1]
+            if len(add) > 0:
+                mapping.update(add)
 
-                    if isinstance(zh, str) and isinstance(ko, str) and ko != "":
-                        out[zh] = ko
-
-        return out
-
-    return {}
+    return cfg
 
 
-def translate_any_value(value, tr_map, untranslated_set, stats):
-    # JSON 구조 유지, 문자열 value만 치환(정확히 일치하는 경우만)
-    if isinstance(value, dict):
+def factory_name_from_relpath(rel_path):
+    base = os.path.basename(rel_path)
+    name = os.path.splitext(base)[0]
+    return name
+
+
+def should_skip_input(rel_path):
+    rp = rel_path.replace("\\", "/").lower()
+    if rp.startswith(KR_SUBDIR_NAME.lower() + "/"):
+        return True
+    if rp.endswith("/" + CONFIG_NAME.lower()):
+        return True
+    if rp.endswith(CONFIG_NAME.lower()):
+        return True
+    if "/.git/" in rp:
+        return True
+    return False
+
+
+def iter_json_files(data_dir):
+    for root, _, files in os.walk(data_dir):
+        for fn in files:
+            if not fn.lower().endswith(".json"):
+                continue
+            full = os.path.join(root, fn)
+            rel = os.path.relpath(full, data_dir)
+            if should_skip_input(rel):
+                continue
+            yield full, rel
+
+
+def path_join(parent, key_or_index):
+    if parent == "":
+        return str(key_or_index)
+
+    return parent + "." + str(key_or_index)
+
+
+def translate_node(node, fac_maps, factory, current_key, json_path, untranslated_rows, stats):
+    """
+    fac_maps: dict[fieldName] -> dict[zh->ko]
+    current_key: 현재 노드가 "어떤 key의 값인지" (dict recursion에서 전달)
+    json_path: 사람이 찾기 위한 간단 경로 문자열
+    """
+    if isinstance(node, dict):
         out = {}
-        for k, v in value.items():
-            out[k] = translate_any_value(v, tr_map, untranslated_set, stats)
+        for k, v in node.items():
+            out[k] = translate_node(
+                v,
+                fac_maps,
+                factory,
+                k,
+                path_join(json_path, k),
+                untranslated_rows,
+                stats,
+            )
         return out
 
-    if isinstance(value, list):
-        return [translate_any_value(x, tr_map, untranslated_set, stats) for x in value]
+    if isinstance(node, list):
+        out_list = []
+        for i, v in enumerate(node):
+            out_list.append(
+                translate_node(
+                    v,
+                    fac_maps,
+                    factory,
+                    current_key,
+                    path_join(json_path, i),
+                    untranslated_rows,
+                    stats,
+                )
+            )
+        return out_list
 
-    if isinstance(value, str):
-        if value in tr_map:
-            stats["replaced"] += 1
-            return tr_map[value]
+    if isinstance(node, str):
+        # 1) 매핑 대상 field인 경우만 치환 시도
+        if isinstance(current_key, str) and current_key in fac_maps:
+            m = fac_maps[current_key]
 
-        if looks_like_han(value):
-            untranslated_set.add(value)
+            if node in m:
+                stats["replaced"] += 1
+                return m[node]
 
-        return value
+            nn = norm_text(node)
+            if nn in m:
+                stats["replaced"] += 1
+                return m[nn]
 
-    return value
+            # 치환 실패 + 한자 포함이면 "매핑 대상 필드에서 누락"으로 기록
+            if looks_like_han(node):
+                untranslated_rows.append({
+                    "reason": "MAPPED_FIELD_MISS",
+                    "factory": factory,
+                    "field": current_key,
+                    "path": json_path,
+                    "zh": node,
+                })
+
+            return node
+
+        # 2) 매핑 대상이 아닌 필드에서 한자 문자열 발견 (탐색/범위 점검용)
+        if looks_like_han(node):
+            if isinstance(current_key, str) and current_key in EXCLUDE_FIELDS_FOR_UNMAPPED_LOG:
+                return node
+
+
+            untranslated_rows.append({
+                "reason": "UNMAPPED_FIELD_HAN",
+                "factory": factory,
+                "field": current_key if isinstance(current_key, str) else "",
+                "path": json_path,
+                "zh": node,
+            })
+
+        return node
+
+    return node
 
 
 def main():
-    ensure_dir(KR_DIR)
+    data_dir = pick_data_dir()
+    kr_dir = os.path.join(data_dir, KR_SUBDIR_NAME)
+    cfg_path = os.path.join(kr_dir, CONFIG_NAME)
+
+    ensure_dir(kr_dir)
     ensure_dir(OUT_LOG_DIR)
 
-    if not os.path.exists(DATA_DIR):
-        raise FileNotFoundError(f"DATA_DIR not found: {DATA_DIR}")
+    if not os.path.exists(cfg_path):
+        raise FileNotFoundError(f"ConfigLanguage.json not found: {cfg_path}")
 
-    if not os.path.exists(CONFIG_PATH):
-        raise FileNotFoundError(f"ConfigLanguage.json not found: {CONFIG_PATH}")
+    cfg = load_configlanguage(cfg_path)
 
-    cfg_obj = load_json(CONFIG_PATH)
-    tr_map = normalize_translation_map(cfg_obj)
-
-    untranslated_set = set()
-    per_file = []
-    total_replaced = 0
     ok = 0
     fail = 0
+    total_replaced = 0
+    per_file = []
+    untranslated_rows = []
+    no_factory_map_files = 0
 
-    # 대상: public/data/*.json (KR 폴더 내부 제외)
-    names = []
-    for name in os.listdir(DATA_DIR):
-        if name.lower().endswith(".json"):
-            names.append(name)
+    for in_path, rel in iter_json_files(data_dir):
+        fac = factory_name_from_relpath(rel)
+        out_path = os.path.join(kr_dir, rel)
 
-    names.sort()
-
-    for fname in names:
-        in_path = os.path.join(DATA_DIR, fname)
-
-        # ConfigLanguage는 이미 KR에 있으므로 변환 대상에서 제외
-        if fname.lower() == "configlanguage.json":
+        fac_obj = cfg.get(fac)
+        if not isinstance(fac_obj, dict):
+            # factory 매핑이 없으면 파일 복사(번역 없음)
+            try:
+                obj = load_json(in_path)
+                save_json(out_path, obj)
+                ok += 1
+                per_file.append((rel, 0, "NO_FACTORY_MAP"))
+                no_factory_map_files += 1
+            except Exception as e:
+                fail += 1
+                per_file.append((rel, f"FAIL: {e}", "NO_FACTORY_MAP"))
             continue
 
-        out_path = os.path.join(KR_DIR, fname)
+        fac_maps = {}
+        for field, mapping in fac_obj.items():
+            if isinstance(field, str) and isinstance(mapping, dict):
+                fac_maps[field] = mapping
 
         try:
             obj = load_json(in_path)
-
             stats = {"replaced": 0}
-            tr_obj = translate_any_value(obj, tr_map, untranslated_set, stats)
-
+            tr_obj = translate_node(
+                obj,
+                fac_maps,
+                fac,
+                None,
+                "",
+                untranslated_rows,
+                stats,
+            )
             save_json(out_path, tr_obj)
 
             ok += 1
             total_replaced += stats["replaced"]
-            per_file.append((fname, stats["replaced"]))
+            per_file.append((rel, stats["replaced"], "OK"))
 
         except Exception as e:
             fail += 1
-            per_file.append((fname, f"FAIL: {e}"))
+            per_file.append((rel, f"FAIL: {e}", "ERR"))
 
+    # untranslated log (json-lines 스타일로 단순 저장)
+    # 사람이 grep/search 하기 쉽게 1줄 1개 레코드
     with open(OUT_UNTRANSLATED, "w", encoding="utf-8") as f:
-        for s in sorted(untranslated_set):
-            f.write(s)
+        for row in untranslated_rows:
+            f.write(json.dumps(row, ensure_ascii=False))
             f.write("\n")
 
     with open(OUT_SUMMARY, "w", encoding="utf-8") as f:
-        f.write("== INPUT ==\n")
-        f.write(f"DATA_DIR = {os.path.abspath(DATA_DIR)}\n")
-        f.write(f"KR_DIR   = {os.path.abspath(KR_DIR)}\n")
-        f.write(f"CONFIG   = {os.path.abspath(CONFIG_PATH)}\n")
-        f.write(f"LUA_DIR  = {os.path.abspath(LUA_DIR)} (reference only)\n\n")
+        f.write("== APPLY KO (FACTORY/FIELD AWARE) SUMMARY ==\n")
+        f.write(f"data_dir = {os.path.abspath(data_dir)}\n")
+        f.write(f"kr_dir   = {os.path.abspath(kr_dir)}\n")
+        f.write(f"config   = {os.path.abspath(cfg_path)}\n\n")
 
-        f.write("== RULE ==\n")
+        f.write("== POLICY ==\n")
         f.write("- Keep JSON structure\n")
-        f.write("- Translate string values by exact match only\n")
-        f.write("- If not matched: keep original, collect untranslated(Han-containing)\n\n")
+        f.write("- Factory=file name, Field=json key\n")
+        f.write("- Translate only string values under mapped fields\n")
+        f.write("- Exact match (+ newline-normalized)\n\n")
 
         f.write("== STATS ==\n")
-        f.write(f"created_at = {datetime.now().isoformat(timespec='seconds')}\n")
-        f.write(f"translation_entries = {len(tr_map)}\n")
         f.write(f"ok = {ok}\n")
         f.write(f"fail = {fail}\n")
+        f.write(f"no_factory_map_files = {no_factory_map_files}\n")
         f.write(f"total_replaced = {total_replaced}\n")
-        f.write(f"untranslated_unique = {len(untranslated_set)}\n\n")
+        f.write(f"untranslated_rows = {len(untranslated_rows)}\n\n")
 
         f.write("== PER FILE ==\n")
-        for name, v in per_file:
-            f.write(f"- {name}: {v}\n")
+        for name, v, tag in per_file:
+            f.write(f"- {name}: {v} ({tag})\n")
 
-    # 콘솔엔 경로만
-    print(os.path.abspath(KR_DIR))
+    print(os.path.abspath(kr_dir))
     print(os.path.abspath(OUT_SUMMARY))
     print(os.path.abspath(OUT_UNTRANSLATED))
 

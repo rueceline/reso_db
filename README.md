@@ -66,7 +66,7 @@ npx rsns-unpack .\public\data .\public\data\KR
 번역 파일을 이용해 한국어가 적용된 JSON 파일을 생성합니다.
 
 ```bat
-python scripts/apply_ko_translation.py
+python script/apply_ko_translation.py
 ```
 
 ---

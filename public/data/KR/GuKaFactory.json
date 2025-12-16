@@ -1,0 +1,2669 @@
+[
+  {
+    "id": 4294867297,
+    "idCN": "GuKaFactory测试品",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "",
+    "des": "",
+    "tipsPath": "",
+    "iconPath": "",
+    "x": 1,
+    "y": 1,
+    "HoleList": [],
+    "upgradeCostList": [],
+    "skillList": []
+  },
+  {
+    "id": 60200001,
+    "idCN": "魔女/咕卡1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "썩지 않는 사과",
+    "des": "이 새빨간 열매는 나뭇가지에서 떨어지는 순간에 영원이 머물러 있습니다.",
+    "longDes": "이 새빨간 열매는 나뭇가지에서 떨어지는 순간에 영원이 머물러 있습니다. 멈춰진 시간이 껍질 아래에서 흐르고 있습니다.\\n'수공예 수업에서 이걸 만들어서 제출했어. 내가 직접 만든 거라고 했지만 선생님은 믿지 않으셨어.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa1",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa1",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa1_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 1,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303149
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200003,
+    "idCN": "魔女/咕卡3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "별사탕",
+    "des": "사탕 봉지를 뜯을 땐 꼭 조심해야 합니다.",
+    "longDes": "사탕 봉지를 뜯을 때 나는 소리 때문에 방 안에 있는 불청객이 놀랄 수도 있으니 먹을 땐 꼭 조심하세요.\\n'...너무 많이 먹으면 무서운 사람을 만나게 된단다...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa3",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa3",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa1_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 1,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12301850
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200002,
+    "idCN": "魔女/咕卡2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "좋은 꿈 캔들",
+    "des": "좋은 꿈을 산산조각 내어 향초에 섞어 넣었습니다.",
+    "longDes": "좋은 꿈을 산산조각 내어 향초에 섞어 넣었습니다. 마음이 편안해지는 향기를 맡으면서 잠에 들면 행복한 다른 세상으로 갈 수 있을까요?\\n'...엄마, 잠 들기 전에 이야기 하나 더 들려주면 안 돼?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa2",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa2",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa1_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 1,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303469
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200004,
+    "idCN": "魔女/咕卡4",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소원병",
+    "des": "유리병 안에 시들지 않는 소원이 들어 있습니다.",
+    "longDes": "유리병 안에 무엇이 숨겨져 있을까요? 시들 수 있는 꽃일까요, 아니면 이룰 수 없는 소원일까요?\\n'또 깨졌네... 괜찮아, 새로운 소원병을 하나 더 만들자!'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa4",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa4",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa1_4",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 1,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303468
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200005,
+    "idCN": "魔女/咕卡5",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "버섯 티컵",
+    "des": "마녀가 사용하는 것과 같은 티컵이라고 합니다.",
+    "longDes": "마녀가 사용하는 것과 같은 버섯 티컵입니다. 애니메이션 영화와 굿즈에서 자주 등장합니다! 이 티컵으로 따뜻한 물을 많이 마셔보세요!\\n'...상점에서 한참이나 울어서 엄마가 사줬어. 근데 마셔보니까 별로 특별한 건 없었어.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa5",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa5",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa2_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303446
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200006,
+    "idCN": "魔女/咕卡6",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "별 헤어핀",
+    "des": "시선을 사로잡는 색상 조합과 귀여운 디자인으로 많은 인기를 얻고 있습니다.",
+    "longDes": "색상이 화려하고 디자인이 귀여운 머리핀으로, 단조로운 일상에 생기를 더해줍니다.\\n'내가 싫어하는 사람이 똑같은 머리핀을 산 후부터는 더 이상 안 달고 다녔어. 정말 짜증나.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa6",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa6",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa2_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303443
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200007,
+    "idCN": "魔女/咕卡7",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "깃털펜",
+    "des": "아름다운 깃털펜으로, 굉장히 가볍습니다.",
+    "longDes": "가볍고 아름다운 깃털펜입니다. 포장지에 '검붉은 보석에 상상할 수 없는 거대한 힘이 깃들어 있다'고 쓰여 있습니다.\\n'살 때는 정말 기뻤는데... 사고 보니까 그냥 평범한 펜이어서 금방 질렸어.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa11",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa7",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa2_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303444
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200008,
+    "idCN": "魔女/咕卡8",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "추억의 목줄",
+    "des": "강아지는 이미 떠나고, 과거에 사용했던 목줄만 남아 있습니다.",
+    "longDes": "서랍 가장 깊은 곳에 보관된 목걸이에는 이미 떠난 강아지의 이름이 새겨져 있습니다. 다시 사용되지 않을 물건, 꺼내서 보는 것만으로도 마음이 아픕니다.\\n'근데 네 모습이 잘 기억나지 않아.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa7",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa8",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa3_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol3_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303453
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200009,
+    "idCN": "魔女/咕卡9",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "마녀의 칼날",
+    "des": "축복받은 수정 칼날은 저주받은 영혼을 가둘 수 있습니다.",
+    "longDes": "축복받은 수정 칼날은 주로 영혼 소환 의식에 사용되며, 혈육의 피를 묻히면 고인의 목소리를 들을 수 있습니다.\\n'책에서 본 암흑 마법이야... 한번도 안 써봤는데, 효과가 있을까?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa8",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa9",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa3_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol3_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303473
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200010,
+    "idCN": "魔女/咕卡10",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "은방울꽃",
+    "des": "요정 교향악단이 서식하는 곳입니다.",
+    "longDes": "달빛 아래 피어난 새하얀 꽃잎, 밤의 장막이 드리워지면 꽃잎 속에서 잠자던 요정 교향악단이 연주를 시작합니다.\\n'요정도 지역 대회에서 1등을 못해 엄마에게 혼날까?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa9",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa10",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa3_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol3_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303447
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200011,
+    "idCN": "魔女/咕卡11",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "달 레코드 플레이어",
+    "des": "달 모양의 변화에 따라 음색이 변하는 신기한 레코드 플레이어입니다.",
+    "longDes": "레코드 표면에 조수간만의 패턴이 새겨져 있으며, 달 모양의 변화에 따라 음색도 변합니다.\\n'부드러운 자장가가 언제부터 이렇게 날카로워진거지?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa10",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa11",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa3_4",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol3_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 1,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303452
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200012,
+    "idCN": "魔女/咕卡12",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "크리스탈 볼",
+    "des": "작은 볼 안에 은하의 비밀이 숨겨져 있습니다.",
+    "longDes": "점술의 필수 도구로, 우주의 비밀이 이 아름다운 볼 안에 담겨져 있습니다.\\n'마녀는 자신의 미래를 예견할 수 있을까? 그럴 수 없다면 점술을 배우는 게 무슨 의미가 있지?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa12",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa12",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 2,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303439
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200013,
+    "idCN": "魔女/咕卡13",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "아네모네 목걸이",
+    "des": "봄바람이 불어와 깊게 잠든 마음을 깨워주길 기다립니다.",
+    "longDes": "엄마의 목걸이입니다. 너무 예뻐서 몰래 꺼내 목에 걸고 거울을 보곤 합니다.\\n'이건... 아네모네잖아? 흠... 불길한... 장식품이야...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa13",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa13",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303445
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200014,
+    "idCN": "魔女/咕卡14",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "올빼미 장식품",
+    "des": "마호가니를 깎아서 만든 밤의 수호자입니다. 가족의 아름다운 꿈을 지켜줍니다.",
+    "longDes": "어려서부터 집에는 항상 나무로 만든 이 올빼미 장식품이 놓여 있었습니다. 좋은 향기가 나서 맡으면 마음이 편안해집니다.\\n'밤중에 거실에서 간식을 몰래 먹다가 보면 좀 무서울 수도 있어...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa14",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa14",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_3",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303472
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200015,
+    "idCN": "魔女/咕卡15",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "기념품 빗",
+    "des": "엄마가 사주신 빗입니다.",
+    "longDes": "불꽃놀이 공연이 끝나고, 성곽 광장을 떠나 인파를 따라 목적 없이 걸어가던 중, 엄마가 갑자기 길가의 쇼윈도를 가리키며 '저거 살까?'라고 말했습니다.'머리 잘 빗고 학교에 가자.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa15",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa15",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_4",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_4",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303450
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200016,
+    "idCN": "魔女/咕卡16",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "마녀의 일기",
+    "des": "마녀의 일기입니다. 허락 없이 열어보면 저주를 받게 됩니다.",
+    "longDes": "마녀의 일기입니다. 허락 없이 열어보면 저주를 받게 됩니다. 하지만 아무리 봐도 문방구에서 살 수 있는 평범한 노트에 싸구려 장식을 추가한 것 같습니다.\\n'마녀가 글자 사이에서 잉태되었고, 그것이 모든 것의 시작이었다.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa16",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa16",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_5",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 2,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303436
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200017,
+    "idCN": "魔女/咕卡17",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "장미 머리핀",
+    "des": "마지막 꽃잎이 시들때면 마녀의 고통도 잊혀지게 될까요?",
+    "longDes": "비 내린 후의 장미 한 송이를 꺾어 살짝 다듬으면 아쉬움이 머리카락을 따라 흘러내려 한 방물의 피눈물로 응결됩니다.\\n'이건 너무 성숙해 보여... 네가 어른이 되면 그때 달아줄게. 응?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa17",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa17",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa4_6",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol4_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303454
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200018,
+    "idCN": "魔女/咕卡18",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "부서진 마법 거울",
+    "des": "거울아, 거울아, 내게 말해줘...",
+    "longDes": "거울은 태어날 때부터 부서진 게 아닙니다. 더 이상 쓸모가 없어졌기 때문에, 질문에 답할 수도 없고, 아쉬움을 채워줄 수도 없기에 부서지고 말았습니다.\\n'아니야... 이건 내가 원하던 답이 아니야...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa18",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa18",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 3,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303458
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200019,
+    "idCN": "魔女/咕卡19",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "바쿠 안대",
+    "des": "축복을 받은 안대입니다. 잘 자, 좋은 꿈 꿔~",
+    "longDes": "달빛이 흐르는 밤이면 바쿠가 숲에서 나와 아이들의 악몽을 먹는다는 전설이 있습니다. 제국에서 전해져 내려온 이야기일까요?\\n'내 악몽을 가져가지 않으면 안될까? 다시 만나고 싶은 사람이 있어.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa19",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa19",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303456
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200020,
+    "idCN": "魔女/咕卡20",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "잊혀진 닻",
+    "des": "녹슨 닻 모양의 펜던트, 쓰고 짠 눈물에 푹 적어 있습니다.",
+    "longDes": "녹슨 닻 모양의 펜던트, 쓰고 짠 물에 푹 젖어 있습니다. 그건 바닷물일까요, 아니면 그리움의 눈물일까요?\\n'엄마, 바다는 얼마나 멀리 있어? 엄마, 아빠는 언제 집에 와?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa20",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa20",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5_3",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      },
+      {
+        "startX": 2,
+        "startY": 3,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303467
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200021,
+    "idCN": "魔女/咕卡21",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "마법 물약",
+    "des": "사랑과 눈물이 혼합된 마법 물약, 향기로운 냄새를 풍깁니다.",
+    "longDes": "엄마는 정교한 이 병을 높은 곳에 두었습니다. 저런 곳에 감춰둔 걸 보면 분명 마법이 깃들어 있는 물약일 것입니다.\\n'근데 향기나 너무 좋아.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa21",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa21",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_4",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5_4",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303475
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200022,
+    "idCN": "魔女/咕卡22",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "점술 도구",
+    "des": "이 타로 카드는 달빛을 엮어 만들었습니다.",
+    "longDes": "정교한 이 카드 세트는 점술 도구보다 일종의 기념품처럼 생겼습니다. 스프레드 결과는 더 이상 중요하지 않습니다. 중요한 것은 점술에 집중하는 과정입니다.\\n'카드를 몇 장 잃어버려서 손바닥이 화끈거리도록 얻어맞았어.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa23",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa22",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_5",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5-5",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 2
+      },
+      {
+        "startX": 3,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12301851
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200023,
+    "idCN": "魔女/咕卡23",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "마법 빗자루",
+    "des": "이건 마녀가 타고 다니는 빗자루... 어, 빛이 나네? ",
+    "longDes": "영화 속 마녀가 타고 다니는 빗자루를 모티브로 제작한 굿즈입니다. 대체 누구의 아이디어일까요?\\n'마녀는 밤에 가출하기 어려울 것 같아.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa24",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa23",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_6",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5-6",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303437
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200024,
+    "idCN": "魔女/咕卡24",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "드림캐처",
+    "des": "바람이 불 때면 아름답지 않은 모든 것들이 흩어집니다.",
+    "longDes": "악의는 아침 햇살과 함께 사라지고, 바람이 불 때면 아름다운 것들만 남게 될 것입니다. 이는 고대 제국에서 전해 내려온 지혜입니다.\\n'잡힌 악몽들은 어디에 갔을까?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa22",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa24",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa5_7",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol5-7",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303457
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200025,
+    "idCN": "魔女/咕卡25",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "은열쇠",
+    "des": "이 열쇠에는 암호문이 새겨져 있는 것 같습니다.",
+    "longDes": "이 열쇠에는 암호문이 새겨져 있지만, 해독이 불가합니다. 혹은 그냥 평범한 은으로 된 열쇠일 뿐일까요?\\n'만물이 하나가 된다...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa25",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa25",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa6_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 4,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 1,
+        "xLength": 2,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 3,
+        "xLength": 2,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303476
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200026,
+    "idCN": "魔女/咕卡26",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "뜨거운 촛대",
+    "des": "집으로 돌아가는 길을 밝혀주길 바랍니다.",
+    "longDes": "집에 도착하기 전까지 꺼지지 않는 촛대입니다. 조심스럽게 잡고, 불빛에 이끌려 날아오는 나방을 조심하세요.\\n'너무 추워... 너무 무서워... 엄마...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa26",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa26",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa6_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 4,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 4,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303470
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200027,
+    "idCN": "魔女/咕卡27",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "날개 브로치",
+    "des": "가장 아름다운 순간에 영원히 멈춰버렸습니다.",
+    "longDes": "나비의 날개 위에 햇빛의 굴절로 인한 파문이 흐르고 있습니다. 그 아름다움은 이 순간에 영원히 고정되었습니다.\\n'원래는 졸업 선물로 주려고 했던 거야.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa27",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa27",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa6_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_3",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 3,
+        "xLength": 2,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 2,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303451
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200028,
+    "idCN": "魔女/咕卡28",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "종이학",
+    "des": "보내지 못한 편지를 접어 만든 종이학입니다.",
+    "longDes": "편지 종이로 접은 장난스러운 종이학입니다. 아마도 너무 장난스러워서 편지를 전달하는 도중에 항상 딴생각을 하느라, 편지가 그리워하는 사람의 손에 전달되지 못한 것일 수도 있습니다.\\n'101개, 102개...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa28",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa28",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa6_4",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_4",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 2
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303460
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200029,
+    "idCN": "魔女/咕卡29",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "어린이 카메라",
+    "des": "누군가가 잃어버린 귀여운 스티커가 붙은 카메라입니다.",
+    "longDes": "한때 어린이들 사이에서 인기를 끌었던 카메라로, 성능이 뛰어나진 않지만 휴대하기 편리해 아이들의 사진 촬영 취미를 키우는 데 매우 적합합니다.\\n'이쪽이야! 웃어봐! 엄마... 웃어보라니까...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa29",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa29",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa6_5",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_5",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 2,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303471
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200030,
+    "idCN": "魔女/咕卡30",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "검은 고양이",
+    "des": "검은 고양이는 마녀의 가장 좋은 파트너입니다.",
+    "longDes": "마녀 시리즈의 애니메이션과 영화에서 검은 고양이는 항상 파트너의 역할을 맡아왔습니다. 가끔은 장난을 치기도 하고, 가끔은 사람을 무시하기도 하지만, 정말로 위험한 순간에는 가장 먼저 나타납니다.\\n'나도 저런 파트너가 있었으면 좋겠는데... 고양이가 아니라도 괜찮아... 무엇이든 상관없어...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa33",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa33",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa9_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol9",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303455
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200031,
+    "idCN": "魔女/咕卡31",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "'보물'",
+    "des": "예쁘게 장식된... 메달인가요?",
+    "longDes": "실크로 정성스럽게 장식된 메달에 1위의 영광이 새겨져 있습니다. 아름답지만 무겁기도 합니다.\\n'더 이상 메달을 얻을 수 없다고 해도, 여전히 사랑받는 아이가 될 수 있을까요?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa30",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa30",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa7_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol7_2",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 4,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 3,
+        "yLength": 1
+      },
+      {
+        "startX": 4,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303459
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200032,
+    "idCN": "魔女/咕卡32",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고양이 병정",
+    "des": "병정 모자를 쓴 샴고양이, 출격!",
+    "longDes": "병정 모자를 쓴 샴고양이, 태엽을 감으면 야옹야옹 승전가를 부릅니다.\\n'최근에 다락방 안쪽에서 찾아냈어. 오랫동안 안 놀았는데, 아직도 소리가 나오네?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa32",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa32",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa8_1",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol8",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 4,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 4,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 4,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303438
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200033,
+    "idCN": "魔女/咕卡33",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "감미로운 실로폰",
+    "des": "무지개색의 음표를 연주해 보세요.",
+    "longDes": "호두나무로 만든 실로폰 몸체에 무지개색 건반이 박혀 있습니다. 단순히 두드리는 것만으로도 감동적인 멜로디를 연주할 수 있습니다.\\n'음악 재능이 전혀 없는 사람이라도 자신감을 찾을 수 있어. 정말 따뜻한 악기야.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa31",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa31",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa7_2",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol7_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303449
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200034,
+    "idCN": "魔女/咕卡34",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "만드라고라",
+    "des": "반항의 울음소리로 당신의 모든 고통을 없애줍니다.",
+    "longDes": "극강의 치유 능력을 지닌 신비로운 약초라고 전해지며, 방어적인 움직임은 토양의 품을 떠나는 것을 거부하는 듯합니다.\\n'사람이든 풀이든, 어머니를 떠날 때면 모두 엉엉 우는 거야.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa34",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa34",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa7_3",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol7_3",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [
+      {
+        "startX": 1,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      },
+      {
+        "startX": 3,
+        "startY": 3,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303477
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200035,
+    "idCN": "魔女/咕卡35",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고양이 폭탄",
+    "des": "예술은 폭발이다냥!",
+    "longDes": "부직포로 만든 귀여운 분홍 고양이 폭탄입니다! 단순한 장난감일 뿐이며, 누구에게도 실질적인 피해를 입히지 않습니다!\\n'사실은 스트레스 해소용 장난감이야... 공부가 안될 때 마음껏 주물러도 돼. 어차피 진짜로 폭발하지는 않으니까.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa35",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa35",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa35",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol2_1",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 1,
+    "y": 2,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303722
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200036,
+    "idCN": "魔女/咕卡36",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "암흑 마법 지팡이",
+    "des": "정교한 공예로 제작된 마법 지팡이로, 모든 연령층이 사용할 수 있습니다.",
+    "longDes": "흑월 랜드에서만 구매 가능한 마법 지팡이로, 유원지 내 일부 장치와 연동 효과가 있으며 가격이 매우 비쌉니다.\\n'너무 멋있어. 다른 아이들은 다 가지고 있네... 나도 갖고 싶지만, 참아야겠지. 엄마에게 혼날 테니까.'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa36",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa36",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa36",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_6",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 3,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303723
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200037,
+    "idCN": "魔女/咕卡37",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "우주비행의 꿈",
+    "des": "삐빅삐빅, 발사~",
+    "longDes": "작고 귀여운 비행기 모형 장난감, 공원에서 부모들이 아이들과 같이 노는 모습을 볼 수 있습니다. 항공우주 산업이 완전히 중단된 지금, 우주비행의 꿈은 책 속의 이야기일 뿐입니다.\\n'사람이 정말 하늘로 날아갈 수 있어?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa37",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa37",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa37",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol3_3",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 2,
+    "HoleList": [
+      {
+        "startX": 2,
+        "startY": 1,
+        "xLength": 1,
+        "yLength": 1
+      }
+    ],
+    "skillList": [
+      {
+        "skillId": 12303705
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200038,
+    "idCN": "魔女/咕卡38",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "스노우볼",
+    "des": "따뜻한 꿈을 영원히 간직하세요.",
+    "longDes": "벽난로 옆에서 낮잠을 자고, 이불 속에서 따뜻한 꿈을 꿉니다. 다가오는 봄을 기대하고, 봄이 되면 눈을 그리워합니다.\\n'눈사람이 녹지 않도록 하는 방법은 없을까?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa38",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa38",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa38",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol9",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303706
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200039,
+    "idCN": "魔女/咕卡39",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "화산 장식품",
+    "des": "왜 조금 맛있어 보일까요?",
+    "longDes": "화산 분출의 순간을 포착한 장식품은 이상하게 귀여운 느낌이 있습니다. 전원을 연결하면 향기를 내뿜으며, 가열 기능도 있습니다.\\n'놀이공원의 상품 개발 부서는 매일 무슨 생각을 하고 있는 걸까...'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa39",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa39",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa39",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol6_6",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 2,
+    "y": 3,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303817
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  },
+  {
+    "id": 60200040,
+    "idCN": "魔女/咕卡40",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "손끝의 빛",
+    "des": "이 흔들리는 빛은 바로...",
+    "longDes": "동전이 공중으로 던져져 회전하기 시작하는 순간, 자신이 원하는 것이 무엇인지 깨닫게 될 것입니다.\\n'어느 애니메이션의 명대사였던 것 같은데, 정확히 기억이 안 나. 주인공도 마녀였나?'",
+    "tipsPath": "UI/Witches/Guka/GuKaUI/Big/GuKa40",
+    "iconPath": "UI/Witches/Guka/GuKaUI/Small/GuKa40",
+    "gukaImg": "UI/Witches/Guka/GuKaUI/GuKaImg/GuKa40",
+    "symbol": "UI/Witches/Guka/GuKaUI/Symbol/Symbol9",
+    "imgXOffset": 0,
+    "imgYOffset": 0,
+    "x": 3,
+    "y": 3,
+    "HoleList": [],
+    "skillList": [
+      {
+        "skillId": 12303818
+      }
+    ],
+    "upgradeCostList": [
+      {
+        "id": 80305380
+      },
+      {
+        "id": 80305683
+      },
+      {
+        "id": 80305694
+      },
+      {
+        "id": 80305695
+      },
+      {
+        "id": 80305696
+      },
+      {
+        "id": 80305697
+      },
+      {
+        "id": 80305698
+      },
+      {
+        "id": 80305699
+      },
+      {
+        "id": 80305700
+      }
+    ],
+    "convertItem": [
+      {
+        "id": 11400659,
+        "num": 50
+      }
+    ],
+    "maxLv": 10
+  }
+]

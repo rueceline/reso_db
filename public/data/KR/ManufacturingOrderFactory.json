@@ -1,0 +1,5950 @@
+[
+  {
+    "id": 60300001,
+    "idCN": "组队订单-金箔",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "금박 주문",
+    "des": "",
+    "requireItemList": [
+      {
+        "id": 82900102,
+        "num": 600
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 10000
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 100000
+      },
+      {
+        "id": 11400612,
+        "num": 100
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900004,
+    "timeLimit": 129600,
+    "isTeam": true
+  },
+  {
+    "id": 60300002,
+    "idCN": "普通订单/精密零件1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "정밀 부품",
+    "des": "합금 재료의 분기별 가격 상승률이 지나치게 높아, 추후 비용 급등을 방지하기 위해 콜룸바 상회에서는 정밀 부품 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700180,
+        "num": 54
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 6561
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 65610
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900011,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300006,
+    "idCN": "普通订单/诱饵气球1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 풍선",
+    "des": "최근 철도 주변에서 대규모 베툴라 생물체의 이동이 발견됨에 따라 열차팀의 정상 통행을 보장하기 위해 콜룸바 상회에서는 미끼 풍선 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11400049,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 8100
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 81000
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900006,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300003,
+    "idCN": "普通订单/修格里严选礼包1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "슈그리스 선물세트",
+    "des": "곧 시작되는 축제 프로모션을 지원하고, 증정품 또는 판매 상품으로 충분한 재고를 확보하기 위해 콜룸바 마케팅 부서는 슈그리스 선물세트 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900188,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 12234
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 122342
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900024,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300004,
+    "idCN": "普通订单/金箔1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "금박",
+    "des": "금값 변동의 영향으로, 금박 가격이 가까운 시일 내에 상승할 것으로 예상됩니다. 현재 비용을 고정하고 생산 계획이 순조롭게 진행될 수 있도록 콜룸바 상회에서는 금박 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900102,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 15552
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 155520
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900004,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300005,
+    "idCN": "普通订单/黄铜线圈1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "황동 코일",
+    "des": "다음 분기의 생산 주문을 완료하고, 최근 원자재 시장 가격 변동에 대응하여 충분한 재고를 확보하기 위해 콜룸바 제조 부서에서는 황동 코일 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900177,
+        "num": 160
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 15120
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 151200
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900027,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300007,
+    "idCN": "普通订单/铁轨用特种钢材1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레일용 특수 강재",
+    "des": "본파이어 시티의 주요 철도 프로젝트가 원활히 진행될 수 있도록 콜룸바는 철도연맹과 협력 계약을 체결했으며, 즉시 레일용 특수 강재 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900084,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 11664
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 116640
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900029,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300008,
+    "idCN": "普通订单/桦树原质1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "베툴라 원액",
+    "des": "무기 생산 라인의 원활한 운행을 보장하기 위해 아니타 테크는 콜룸바 상회에 베툴라 원액 %d개를 주문했습니다.",
+    "requireItemList": [
+      {
+        "id": 11700066,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 10800
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 108000
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900005,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300009,
+    "idCN": "普通订单/仙人掌汁1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선인장즙",
+    "des": "콜룸바 소속 열차팀이 선인장 제품을 긴급히 필요로 함에 따라 신선한 선인장즙 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700006,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 11880
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 118800
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900019,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300010,
+    "idCN": "普通订单/漆黑涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "블랙 코팅제",
+    "des": "순수한 검은색 효과에 대한 콜룸바의 수요를 충족시키고, 빛 반사를 줄여야 하는 특수 제품에 적용하기 위해 블랙 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700165,
+        "num": 20
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 12299
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 122985
+      },
+      {
+        "id": 11400612,
+        "num": 2
+      },
+      {
+        "id": 11400106,
+        "num": 20
+      }
+    ],
+    "requireProduction": 84900009,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300011,
+    "idCN": "普通订单/诱饵爆炸气球1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 폭탄 풍선",
+    "des": "베툴라 생명체의 공격에 대처하기 위해 콜룸바 상회에서는 미끼 폭탄 풍선 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11400069,
+        "num": 18
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 36450
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 364500
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900013,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300012,
+    "idCN": "普通订单/镀金零件1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "도금 부품",
+    "des": "정밀 설비의 안전적인 작동과 핵심 연결부의 성능을 보장하기 위해 콜룸바 상회에서는 전도성과 항산화 특성이 뛰어난 도금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700181,
+        "num": 18
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 21870
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 218700
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900007,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300013,
+    "idCN": "普通订单/年货大礼包1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "특산품 종합 선물세트",
+    "des": "예상되는 명절 소비 수요의 급증에 대비하여 온/오프라인 판매 채널의 명절 상품 공급을 보장하기 위해 콜룸바 소매 부서에서는 특산품 종합 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900109,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 18714
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 187142
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900021,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300014,
+    "idCN": "普通订单/海角水产礼盒1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "케이프시 선물세트",
+    "des": "소비자들의 케이프시 수산물에 대한 높은 신뢰도를 고려하여, 다가오는 판매 성수기에 충분한 공급을 보장하기 위해 케이프시 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900187,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 16796
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 167962
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900022,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300015,
+    "idCN": "普通订单/银制列车工艺品1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "실버 열차 공예품",
+    "des": "은제 공예품의 안정적인 시장 수요와 열차 테마의 매력을 고려하여, 다가오는 판매 성수기에 충분한 공급을 유지하기 위해 실버 열차 공예품 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900237,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 21060
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 210600
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900113,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300016,
+    "idCN": "普通订单/纯金线材1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 코일",
+    "des": "정밀 산업 주문의 급증과 원자재 가격 상승 추세에 대응하기 위해 콤룸바 부서에서는 순금 코일 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900170,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 31104
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 311040
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900008,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300017,
+    "idCN": "普通订单/高导电容1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고전도 콘덴서",
+    "des": "고급 전자제품에 대한 수요가 지속적으로 확대함에 따라 콜룸바 핵심 제품의 안정적인 생산량을 보장하기 위해 고전도 콘덴서 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700187,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 17496
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 174960
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900032,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300018,
+    "idCN": "普通订单/石墨烯1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀",
+    "des": "콜룸바의 배터리 기술과 복합 소재 분야에서의 혁신 프로젝트를 지원하기 위해 그래핀 %d개를 구매하여 실험과 초기 생산 테스트에 사용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900032,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 12442
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 124416
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900014,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300019,
+    "idCN": "普通订单/精钢1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "철강",
+    "des": "콜룸바 상회의 지속적으로 증가하는 주문을 충족하고 생산 라인의 안정적인 운행을 보장하기 위해 철강 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900162,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 14796
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 147960
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900028,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300020,
+    "idCN": "普通订单/高导热陶瓷1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고열전도 세라믹",
+    "des": "기존 방열 소재를 대체하고 생산 비용 절감과 제품 방열 성능 향상을 위해 콜룸바는 고열전도 세라믹 %d개를 구매하여 차세대 제품의 연구·생산에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900199,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 14092
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 140918
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900030,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300021,
+    "idCN": "普通订单/噪音髓液1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 수액",
+    "des": "소음 수액이 베툴라 생명체에 대해 가지는 특수한 억제 효과를 고려하여, 열차장이 베툴라 생명체의 위협에 대응할 수 있도록, 소음 수액 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700149,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 12960
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 129600
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900016,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300022,
+    "idCN": "普通订单/玄武岩纤维1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "현무암 섬유",
+    "des": "기존 유리섬유 소재를 대체하고 아니타 테크의 복합재 제품 강도 및 내식성을 향상시키기 위해, 콤룸바 상회에 현무암 섬유 %d개를 주문하여 건축, 자동차, 항공우주 등 분야의 응용 개발에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900238,
+        "num": 100
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 14864
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 148635
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900086,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300023,
+    "idCN": "普通订单/青绿涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "에메랄드 코팅제",
+    "des": "콜룸바의 다음 시즌 가정 제품 라인의 색상 수요를 충족하고, 제품의 매출을 향상시키기 위해, 에메랄드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700008,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 18533
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 185328
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900033,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300024,
+    "idCN": "普通订单/孔雀绿涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "피콕 그린 코팅제",
+    "des": "콜룸바 제품 라인의 업그레이드에 맞춰, 일부 고객의 독특한 색상 수요를 충족시키기 위해, 피콕 그린 코팅제 %d개를 구매하여 고급스러운 질감과 예술적 분위기를 가진 벽면 장식을 제작할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700264,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 21384
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 213840
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900148,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300025,
+    "idCN": "普通订单/静谧蓝涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "세레니티 코팅제",
+    "des": "편안하고 안정적인 스타일에 대한 시장 수요에 대응하고, 차분한 분위기 연출이 필요한 실내 디자인에 활용하기 위해, 세레니티 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700265,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 22118
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 221184
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900149,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300026,
+    "idCN": "普通订单/竞速黄涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레이싱 옐로 코팅제",
+    "des": "콜룸바 열차 코팅 업무의 색상 수요를 충족하고, 더 역동적이고 활기찬 시각 효과를 제공하기 위해, 레이싱 옐로 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700266,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 15120
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 151200
+      },
+      {
+        "id": 11400612,
+        "num": 3
+      },
+      {
+        "id": 11400106,
+        "num": 30
+      }
+    ],
+    "requireProduction": 84900150,
+    "timeLimit": 43200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300027,
+    "idCN": "普通订单/纯金零件1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 부품",
+    "des": "콜룸바 고급 장비 제조 부서에서 정밀 제품의 뛰어난 품질과 소장 가치를 보장하기 위해, 순금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700182,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 58320
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 583200
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900012,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300028,
+    "idCN": "普通订单/水产甄选礼盒1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "수산물 선물세트",
+    "des": "명절 기간 선물에 대한 수요 급증에 대비하여, 콜룸바 온/오프라인 채널의 공급을 보장하고, 기업 고객 맞춤형 선물 수요를 충족하기 위해, 수산물 선물세트 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900186,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29756
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 297562
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900023,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300029,
+    "idCN": "普通订单/金制列车工艺品1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "골드 열차 공예품",
+    "des": "콜룸바와 철도연맹의 공동 열차 전시회를 지원하고, 고급 기념품의 판매량을 늘리기 위해 %d개의 골드 열차 공예품을 구매하여 수집가와 철도 애호가들의 수요를 충족시키세요.",
+    "requireItemList": [
+      {
+        "id": 82900236,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 33696
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 336960
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900080,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300030,
+    "idCN": "普通订单/超导线圈1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "초전도 코일",
+    "des": "콜룸바와 아니타 테크의 신형 열차 공동 프로젝트 연구 개발을 추진하고, 핵심 부품의 안정성과 신뢰성을 보장하기 위해, 열차 구동 테스트 및 최적화에 사용할 초전도 코일 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700188,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 43740
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 437400
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900010,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300031,
+    "idCN": "普通订单/石墨烯电池1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀 배터리",
+    "des": "콜룸바 열차팀의 연속 운행 능력을 향상시키고 시장 선도 위치를 유지하기 위해, 그래핀 배터리 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900141,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 31104
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 311040
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900015,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300032,
+    "idCN": "普通订单/钛合金1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 합금",
+    "des": "아니타 발사 센터는 콜룸바 금속 부서에 티타늄 합금 %d개를 주문하여 차세대 우주 탐사기의 제조에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900181,
+        "num": 72
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24494
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 244944
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900031,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300033,
+    "idCN": "普通订单/噪音激酶1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 효소",
+    "des": "소음 효소가 베툴라 생명체에 대해 매우 강력한 억제 효과를 가지고 있고, 신형 무기 제작에 사용될 수 있으므로, 생물 안전 방어, 무기 연구 및 관련 의학 연구를 지원하기 위해 소음 효소 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700159,
+        "num": 20
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 40500
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 405000
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900017,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300034,
+    "idCN": "普通订单/深眠精华1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "심면 에센스",
+    "des": "심면 에센스는 추출이 어렵고 잠재적 응용 가치가 있으므로, 콜룸바 연구 부서는 심면 에센스 %d개를 구매하여 특수 성질 및 응용 가능성을 탐구하려 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700042,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34560
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 345600
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900039,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300035,
+    "idCN": "普通订单/桦石发财树1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "크리스탈 화분",
+    "des": "콜룸바 선물 시리즈의 종류를 늘리고, 일부 고객이 요구하는 특별한 의미와 장식 가치를 가진 제품을 제공하기 위해 크리스탈 화분 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900031,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 39593
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 395928
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900020,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300036,
+    "idCN": "普通订单/形而上粒子1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "형이상 입자",
+    "des": "형이상 입자가 베툴라 생명체에 대해 강력한 억제 효과를 가지므로, 콜룸바 열차팀의 방어 능력을 향상시키기 위해 형이상 입자 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700146,
+        "num": 8
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34668
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 346680
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900090,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300037,
+    "idCN": "普通订单/碳纤维索1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "탄소 섬유 로프",
+    "des": "콜룸바 엔지니어링 프로젝트의 시공 효율성과 안전성을 높이고, 고강도·경량화 요구를 충족시키기 위해, 다리 건설, 고공 작업 및 기타 특수 산업 분야에 활용할 탄소 섬유 로프 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900218,
+        "num": 100
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 28364
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 283635
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900085,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300038,
+    "idCN": "普通订单/霞光红涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선셋 레드 코팅제",
+    "des": "콜룸바 고급 맞춤형 제품의 색상 요구를 충족하고, 따뜻하고 고급스러운 분위기를 연출하는 제품을 만들기 위해 선셋 레드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700003,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24013
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 240127
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900035,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300039,
+    "idCN": "普通订单/暮光紫涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "다크 퍼플 코팅제",
+    "des": "콜룸바의 신규 코팅 맞춤 서비스와 고객의 다양한 수요에 대응하기 위해, 개성 있고 예술적인 장식품 제작용으로 다크 퍼플 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700027,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 30375
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 303750
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900034,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300040,
+    "idCN": "普通订单/钛白涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 화이트 코팅제",
+    "des": "콜룸바의 모든 코팅 제품의 색상 선명도와 커버력을 보장하고, 고품질 화이트 코팅제에 대한 수요를 충족시키기 위해, 티타늄 화이트 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700267,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 28377
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 283770
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900151,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300041,
+    "idCN": "普通订单/皓月银涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "루나실버 코팅제",
+    "des": "콜룸바 열차 제조 부서에서 차량의 외관과 금속 질감을 향상시키기 위해, 열차 외부 코팅 및 관련 내장 부품 장식용으로 루나실버 코팅제 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700268,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29700
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 297000
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900152,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300042,
+    "idCN": "普通订单/熔岩橙涂料1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "라바 오렌지 코팅제",
+    "des": "콜룸바 열정 시리즈의 색상 디자인에 맞춰 제품의 활력과 시각적 임팩트를 강화하기 위해, 관련 제품 코팅용으로 라바 오렌지 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700269,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 38948
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 389480
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900153,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300043,
+    "idCN": "普通订单/航天元器件1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "항공 원자재",
+    "des": "아니타 발사 센터와 콜룸바의 협력 프로젝트가 원활하게 진행되고, 항공우주 장비의 높은 신뢰성과 안정성 요구를 충족시키기 위해, 장비의 제어, 통신 및 에너지 시스템용으로 항공 원자재 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700047,
+        "num": 6
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 79786
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 797858
+      },
+      {
+        "id": 11400612,
+        "num": 8
+      },
+      {
+        "id": 11400106,
+        "num": 80
+      }
+    ],
+    "requireProduction": 84900036,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 5
+  },
+  {
+    "id": 60300044,
+    "idCN": "普通订单/精密零件2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "정밀 부품",
+    "des": "합금 재료의 분기별 가격 상승률이 지나치게 높아, 추후 비용 급등을 방지하기 위해 콜룸바 상회에서는 정밀 부품 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700180,
+        "num": 108
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 13122
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 131220
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900011,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300045,
+    "idCN": "普通订单/诱饵气球2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 풍선",
+    "des": "최근 철도 주변에서 대규모 베툴라 생물체의 이동이 발견됨에 따라 열차팀의 정상 통행을 보장하기 위해 콜룸바 상회에서는 미끼 풍선 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11400049,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 16200
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 162000
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900006,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300046,
+    "idCN": "普通订单/修格里严选礼包2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "슈그리스 선물세트",
+    "des": "곧 시작되는 축제 프로모션을 지원하고, 증정품 또는 판매 상품으로 충분한 재고를 확보하기 위해 콜룸바 마케팅 부서는 슈그리스 선물세트 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900188,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24468
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 244685
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900024,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300047,
+    "idCN": "普通订单/金箔2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "금박",
+    "des": "금값 변동의 영향으로, 금박 가격이 가까운 시일 내에 상승할 것으로 예상됩니다. 현재 비용을 고정하고 생산 계획이 순조롭게 진행될 수 있도록 콜룸바 상회에서는 금박 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900102,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 31104
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 311040
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900004,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300048,
+    "idCN": "普通订单/黄铜线圈2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "황동 코일",
+    "des": "다음 분기의 생산 주문을 완료하고, 최근 원자재 시장 가격 변동에 대응하여 충분한 재고를 확보하기 위해 콜룸바 제조 부서에서는 황동 코일 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900177,
+        "num": 320
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 30240
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 302400
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900027,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300049,
+    "idCN": "普通订单/铁轨用特种钢材2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레일용 특수 강재",
+    "des": "본파이어 시티의 주요 철도 프로젝트가 원활히 진행될 수 있도록 콜룸바는 철도연맹과 협력 계약을 체결했으며, 즉시 레일용 특수 강재 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900084,
+        "num": 160
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 23328
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 233280
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900029,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300050,
+    "idCN": "普通订单/桦树原质2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "베툴라 원액",
+    "des": "무기 생산 라인의 원활한 운행을 보장하기 위해 아니타 테크는 콜룸바 상회에 베툴라 원액 %d개를 주문했습니다.",
+    "requireItemList": [
+      {
+        "id": 11700066,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 21600
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 216000
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900005,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300051,
+    "idCN": "普通订单/仙人掌汁2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선인장즙",
+    "des": "콜룸바 소속 열차팀이 선인장 제품을 긴급히 필요로 함에 따라 신선한 선인장즙 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700006,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 23760
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 237600
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900019,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300052,
+    "idCN": "普通订单/漆黑涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "블랙 코팅제",
+    "des": "순수한 검은색 효과에 대한 콜룸바의 수요를 충족시키고, 빛 반사를 줄여야 하는 특수 제품에 적용하기 위해 블랙 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700165,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24597
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 245970
+      },
+      {
+        "id": 11400612,
+        "num": 4
+      },
+      {
+        "id": 11400106,
+        "num": 40
+      }
+    ],
+    "requireProduction": 84900009,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300053,
+    "idCN": "普通订单/诱饵爆炸气球2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 폭탄 풍선",
+    "des": "베툴라 생명체의 공격에 대처하기 위해 콜룸바 상회에서는 미끼 폭탄 풍선 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11400069,
+        "num": 36
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 72900
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 729000
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900013,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300054,
+    "idCN": "普通订单/镀金零件2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "도금 부품",
+    "des": "정밀 설비의 안전적인 작동과 핵심 연결부의 성능을 보장하기 위해 콜룸바 상회에서는 전도성과 항산화 특성이 뛰어난 도금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700181,
+        "num": 36
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 43740
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 437400
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900007,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300055,
+    "idCN": "普通订单/年货大礼包2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "특산품 종합 선물세트",
+    "des": "예상되는 명절 소비 수요의 급증에 대비하여 온/오프라인 판매 채널의 명절 상품 공급을 보장하기 위해 콜룸바 소매 부서에서는 특산품 종합 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900109,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 37428
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 374285
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900021,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300056,
+    "idCN": "普通订单/海角水产礼盒2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "케이프시 선물세트",
+    "des": "소비자들의 케이프시 수산물에 대한 높은 신뢰도를 고려하여, 다가오는 판매 성수기에 충분한 공급을 보장하기 위해 케이프시 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900187,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 33592
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 335923
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900022,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300057,
+    "idCN": "普通订单/银制列车工艺品2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "실버 열차 공예품",
+    "des": "은제 공예품의 안정적인 시장 수요와 열차 테마의 매력을 고려하여, 다가오는 판매 성수기에 충분한 공급을 유지하기 위해 실버 열차 공예품 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900237,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 42120
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 421200
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900113,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300058,
+    "idCN": "普通订单/纯金线材2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 코일",
+    "des": "정밀 산업 주문의 급증과 원자재 가격 상승 추세에 대응하기 위해 콤룸바 부서에서는 순금 코일 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900170,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 62208
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 622080
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900008,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300059,
+    "idCN": "普通订单/高导电容2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고전도 콘덴서",
+    "des": "고급 전자제품에 대한 수요가 지속적으로 확대함에 따라 콜룸바 핵심 제품의 안정적인 생산량을 보장하기 위해 고전도 콘덴서 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700187,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34992
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 349920
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900032,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300060,
+    "idCN": "普通订单/石墨烯2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀",
+    "des": "콜룸바의 배터리 기술과 복합 소재 분야에서의 혁신 프로젝트를 지원하기 위해 그래핀 %d개를 구매하여 실험과 초기 생산 테스트에 사용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900032,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24883
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 248832
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900014,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300061,
+    "idCN": "普通订单/精钢2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "철강",
+    "des": "콜룸바 상회의 지속적으로 증가하는 주문을 충족하고 생산 라인의 안정적인 운행을 보장하기 위해 철강 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900162,
+        "num": 160
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29592
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 295920
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900028,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300062,
+    "idCN": "普通订单/高导热陶瓷2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고열전도 세라믹",
+    "des": "기존 방열 소재를 대체하고 생산 비용 절감과 제품 방열 성능 향상을 위해 콜룸바는 고열전도 세라믹 %d개를 구매하여 차세대 제품의 연구·생산에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900199,
+        "num": 128
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 28184
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 281837
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900030,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300063,
+    "idCN": "普通订单/噪音髓液2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 수액",
+    "des": "소음 수액이 베툴라 생명체에 대해 가지는 특수한 억제 효과를 고려하여, 열차장이 베툴라 생명체의 위협에 대응할 수 있도록, 소음 수액 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700149,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 25920
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 259200
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900016,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300064,
+    "idCN": "普通订单/玄武岩纤维2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "현무암 섬유",
+    "des": "기존 유리섬유 소재를 대체하고 아니타 테크의 복합재 제품 강도 및 내식성을 향상시키기 위해, 콤룸바 상회에 현무암 섬유 %d개를 주문하여 건축, 자동차, 항공우주 등 분야의 응용 개발에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900238,
+        "num": 200
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29727
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 297270
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900086,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300065,
+    "idCN": "普通订单/青绿涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "에메랄드 코팅제",
+    "des": "콜룸바의 다음 시즌 가정 제품 라인의 색상 수요를 충족하고, 제품의 매출을 향상시키기 위해, 에메랄드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700008,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 37066
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 370656
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900033,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300066,
+    "idCN": "普通订单/孔雀绿涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "피콕 그린 코팅제",
+    "des": "콜룸바 제품 라인의 업그레이드에 맞춰, 일부 고객의 독특한 색상 수요를 충족시키기 위해, 피콕 그린 코팅제 %d개를 구매하여 고급스러운 질감과 예술적 분위기를 가진 벽면 장식을 제작할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700264,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 42768
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 427680
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900148,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300067,
+    "idCN": "普通订单/静谧蓝涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "세레니티 코팅제",
+    "des": "편안하고 안정적인 스타일에 대한 시장 수요에 대응하고, 차분한 분위기 연출이 필요한 실내 디자인에 활용하기 위해, 세레니티 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700265,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 44237
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 442368
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900149,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300068,
+    "idCN": "普通订单/竞速黄涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레이싱 옐로 코팅제",
+    "des": "콜룸바 열차 코팅 업무의 색상 수요를 충족하고, 더 역동적이고 활기찬 시각 효과를 제공하기 위해, 레이싱 옐로 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700266,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 30240
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 302400
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900150,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300069,
+    "idCN": "普通订单/纯金零件2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 부품",
+    "des": "콜룸바 고급 장비 제조 부서에서 정밀 제품의 뛰어난 품질과 소장 가치를 보장하기 위해, 순금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700182,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 116640
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1166400
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900012,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300070,
+    "idCN": "普通订单/水产甄选礼盒2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "수산물 선물세트",
+    "des": "명절 기간 선물에 대한 수요 급증에 대비하여, 콜룸바 온/오프라인 채널의 공급을 보장하고, 기업 고객 맞춤형 선물 수요를 충족하기 위해, 수산물 선물세트 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900186,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 59512
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 595123
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900023,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300071,
+    "idCN": "普通订单/金制列车工艺品2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "골드 열차 공예품",
+    "des": "콜룸바와 철도연맹의 공동 열차 전시회를 지원하고, 고급 기념품의 판매량을 늘리기 위해 %d개의 골드 열차 공예품을 구매하여 수집가와 철도 애호가들의 수요를 충족시키세요.",
+    "requireItemList": [
+      {
+        "id": 82900236,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 67392
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 673920
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900080,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300072,
+    "idCN": "普通订单/超导线圈2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "초전도 코일",
+    "des": "콜룸바와 아니타 테크의 신형 열차 공동 프로젝트 연구 개발을 추진하고, 핵심 부품의 안정성과 신뢰성을 보장하기 위해, 열차 구동 테스트 및 최적화에 사용할 초전도 코일 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700188,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 87480
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 874800
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900010,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300073,
+    "idCN": "普通订单/石墨烯电池2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀 배터리",
+    "des": "콜룸바 열차팀의 연속 운행 능력을 향상시키고 시장 선도 위치를 유지하기 위해, 그래핀 배터리 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900141,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 62208
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 622080
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900015,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300074,
+    "idCN": "普通订单/钛合金2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 합금",
+    "des": "아니타 발사 센터는 콜룸바 금속 부서에 티타늄 합금 %d개를 주문하여 차세대 우주 탐사기의 제조에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900181,
+        "num": 144
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 48989
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 489888
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900031,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300075,
+    "idCN": "普通订单/噪音激酶2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 효소",
+    "des": "소음 효소가 베툴라 생명체에 대해 매우 강력한 억제 효과를 가지고 있고, 신형 무기 제작에 사용될 수 있으므로, 생물 안전 방어, 무기 연구 및 관련 의학 연구를 지원하기 위해 소음 효소 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700159,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 81000
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 810000
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900017,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300076,
+    "idCN": "普通订单/深眠精华2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "심면 에센스",
+    "des": "심면 에센스는 추출이 어렵고 잠재적 응용 가치가 있으므로, 콜룸바 연구 부서는 심면 에센스 %d개를 구매하여 특수 성질 및 응용 가능성을 탐구하려 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700042,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 69120
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 691200
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900039,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300077,
+    "idCN": "普通订单/桦石发财树2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "크리스탈 화분",
+    "des": "콜룸바 선물 시리즈의 종류를 늘리고, 일부 고객이 요구하는 특별한 의미와 장식 가치를 가진 제품을 제공하기 위해 크리스탈 화분 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900031,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 79186
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 791856
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900020,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300078,
+    "idCN": "普通订单/形而上粒子2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "형이상 입자",
+    "des": "형이상 입자가 베툴라 생명체에 대해 강력한 억제 효과를 가지므로, 콜룸바 열차팀의 방어 능력을 향상시키기 위해 형이상 입자 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700146,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 69336
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 693360
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900090,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300079,
+    "idCN": "普通订单/碳纤维索2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "탄소 섬유 로프",
+    "des": "콜룸바 엔지니어링 프로젝트의 시공 효율성과 안전성을 높이고, 고강도·경량화 요구를 충족시키기 위해, 다리 건설, 고공 작업 및 기타 특수 산업 분야에 활용할 탄소 섬유 로프 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900218,
+        "num": 200
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 56727
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 567270
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900085,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300080,
+    "idCN": "普通订单/霞光红涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선셋 레드 코팅제",
+    "des": "콜룸바 고급 맞춤형 제품의 색상 요구를 충족하고, 따뜻하고 고급스러운 분위기를 연출하는 제품을 만들기 위해 선셋 레드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700003,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 48025
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 480254
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900035,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300081,
+    "idCN": "普通订单/暮光紫涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "다크 퍼플 코팅제",
+    "des": "콜룸바의 신규 코팅 맞춤 서비스와 고객의 다양한 수요에 대응하기 위해, 개성 있고 예술적인 장식품 제작용으로 다크 퍼플 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700027,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 60750
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 607500
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900034,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300082,
+    "idCN": "普通订单/钛白涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 화이트 코팅제",
+    "des": "콜룸바의 모든 코팅 제품의 색상 선명도와 커버력을 보장하고, 고품질 화이트 코팅제에 대한 수요를 충족시키기 위해, 티타늄 화이트 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700267,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 56754
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 567540
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900151,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300083,
+    "idCN": "普通订单/皓月银涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "루나실버 코팅제",
+    "des": "콜룸바 열차 제조 부서에서 차량의 외관과 금속 질감을 향상시키기 위해, 열차 외부 코팅 및 관련 내장 부품 장식용으로 루나실버 코팅제 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700268,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 59400
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 594000
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900152,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300084,
+    "idCN": "普通订单/熔岩橙涂料2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "라바 오렌지 코팅제",
+    "des": "콜룸바 열정 시리즈의 색상 디자인에 맞춰 제품의 활력과 시각적 임팩트를 강화하기 위해, 관련 제품 코팅용으로 라바 오렌지 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700269,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 77896
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 778961
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900153,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300085,
+    "idCN": "普通订单/航天元器件2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "항공 원자재",
+    "des": "아니타 발사 센터와 콜룸바의 협력 프로젝트가 원활하게 진행되고, 항공우주 장비의 높은 신뢰성과 안정성 요구를 충족시키기 위해, 장비의 제어, 통신 및 에너지 시스템용으로 항공 원자재 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700047,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 159572
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1595716
+      },
+      {
+        "id": 11400612,
+        "num": 16
+      },
+      {
+        "id": 11400106,
+        "num": 160
+      }
+    ],
+    "requireProduction": 84900036,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 5
+  },
+  {
+    "id": 60300086,
+    "idCN": "普通订单/精密零件3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "정밀 부품",
+    "des": "합금 재료의 분기별 가격 상승률이 지나치게 높아, 추후 비용 급등을 방지하기 위해 콜룸바 상회에서는 정밀 부품 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700180,
+        "num": 162
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 19683
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 196830
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900011,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300087,
+    "idCN": "普通订单/诱饵气球3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 풍선",
+    "des": "최근 철도 주변에서 대규모 베툴라 생물체의 이동이 발견됨에 따라 열차팀의 정상 통행을 보장하기 위해 콜룸바 상회에서는 미끼 풍선 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 11400049,
+        "num": 36
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24300
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 243000
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900006,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300088,
+    "idCN": "普通订单/修格里严选礼包3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "슈그리스 선물세트",
+    "des": "곧 시작되는 축제 프로모션을 지원하고, 증정품 또는 판매 상품으로 충분한 재고를 확보하기 위해 콜룸바 마케팅 부서는 슈그리스 선물세트 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900188,
+        "num": 144
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 36703
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 367027
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900024,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300089,
+    "idCN": "普通订单/金箔3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "금박",
+    "des": "금값 변동의 영향으로, 금박 가격이 가까운 시일 내에 상승할 것으로 예상됩니다. 현재 비용을 고정하고 생산 계획이 순조롭게 진행될 수 있도록 콜룸바 상회에서는 금박 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900102,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 46656
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 466560
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900004,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300090,
+    "idCN": "普通订单/黄铜线圈3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "황동 코일",
+    "des": "다음 분기의 생산 주문을 완료하고, 최근 원자재 시장 가격 변동에 대응하여 충분한 재고를 확보하기 위해 콜룸바 제조 부서에서는 황동 코일 %d개를 구매하려고 합니다.",
+    "requireItemList": [
+      {
+        "id": 82900177,
+        "num": 480
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 45360
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 453600
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900027,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300091,
+    "idCN": "普通订单/铁轨用特种钢材3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레일용 특수 강재",
+    "des": "본파이어 시티의 주요 철도 프로젝트가 원활히 진행될 수 있도록 콜룸바는 철도연맹과 협력 계약을 체결했으며, 즉시 레일용 특수 강재 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900084,
+        "num": 240
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34992
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 349920
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900029,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300092,
+    "idCN": "普通订单/桦树原质3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "베툴라 원액",
+    "des": "무기 생산 라인의 원활한 운행을 보장하기 위해 아니타 테크는 콜룸바 상회에 베툴라 원액 %d개를 주문했습니다.",
+    "requireItemList": [
+      {
+        "id": 11700066,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 32400
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 324000
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900005,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300093,
+    "idCN": "普通订单/仙人掌汁3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선인장즙",
+    "des": "콜룸바 소속 열차팀이 선인장 제품을 긴급히 필요로 함에 따라 신선한 선인장즙 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700006,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 35640
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 356400
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900019,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300094,
+    "idCN": "普通订单/漆黑涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "블랙 코팅제",
+    "des": "순수한 검은색 효과에 대한 콜룸바의 수요를 충족시키고, 빛 반사를 줄여야 하는 특수 제품에 적용하기 위해 블랙 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700165,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 36896
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 368955
+      },
+      {
+        "id": 11400612,
+        "num": 6
+      },
+      {
+        "id": 11400106,
+        "num": 60
+      }
+    ],
+    "requireProduction": 84900009,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 2
+  },
+  {
+    "id": 60300095,
+    "idCN": "普通订单/诱饵爆炸气球3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "미끼 폭탄 풍선",
+    "des": "베툴라 생명체의 공격에 대처하기 위해 콜룸바 상회에서는 미끼 폭탄 풍선 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11400069,
+        "num": 54
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 109350
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1093500
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900013,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300096,
+    "idCN": "普通订单/镀金零件3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "도금 부품",
+    "des": "정밀 설비의 안전적인 작동과 핵심 연결부의 성능을 보장하기 위해 콜룸바 상회에서는 전도성과 항산화 특성이 뛰어난 도금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700181,
+        "num": 54
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 65610
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 656100
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900007,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300097,
+    "idCN": "普通订单/年货大礼包3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "특산품 종합 선물세트",
+    "des": "예상되는 명절 소비 수요의 급증에 대비하여 온/오프라인 판매 채널의 명절 상품 공급을 보장하기 위해 콜룸바 소매 부서에서는 특산품 종합 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900109,
+        "num": 144
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 56143
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 561427
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900021,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300098,
+    "idCN": "普通订单/海角水产礼盒3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "케이프시 선물세트",
+    "des": "소비자들의 케이프시 수산물에 대한 높은 신뢰도를 고려하여, 다가오는 판매 성수기에 충분한 공급을 보장하기 위해 케이프시 선물세트 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900187,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 50388
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 503885
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900022,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300099,
+    "idCN": "普通订单/银制列车工艺品3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "실버 열차 공예품",
+    "des": "은제 공예품의 안정적인 시장 수요와 열차 테마의 매력을 고려하여, 다가오는 판매 성수기에 충분한 공급을 유지하기 위해 실버 열차 공예품 %d개를 사전에 구매하여 비축할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900237,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 63180
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 631800
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900113,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300100,
+    "idCN": "普通订单/纯金线材3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 코일",
+    "des": "정밀 산업 주문의 급증과 원자재 가격 상승 추세에 대응하기 위해 콤룸바 부서에서는 순금 코일 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900170,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 93312
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 933120
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900008,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300101,
+    "idCN": "普通订单/高导电容3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고전도 콘덴서",
+    "des": "고급 전자제품에 대한 수요가 지속적으로 확대함에 따라 콜룸바 핵심 제품의 안정적인 생산량을 보장하기 위해 고전도 콘덴서 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700187,
+        "num": 72
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 52488
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 524880
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900032,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300102,
+    "idCN": "普通订单/石墨烯3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀",
+    "des": "콜룸바의 배터리 기술과 복합 소재 분야에서의 혁신 프로젝트를 지원하기 위해 그래핀 %d개를 구매하여 실험과 초기 생산 테스트에 사용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900032,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 37325
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 373248
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900014,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300103,
+    "idCN": "普通订单/精钢3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "철강",
+    "des": "콜룸바 상회의 지속적으로 증가하는 주문을 충족하고 생산 라인의 안정적인 운행을 보장하기 위해 철강 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900162,
+        "num": 240
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 44388
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 443880
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900028,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300104,
+    "idCN": "普通订单/高导热陶瓷3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "고열전도 세라믹",
+    "des": "기존 방열 소재를 대체하고 생산 비용 절감과 제품 방열 성능 향상을 위해 콜룸바는 고열전도 세라믹 %d개를 구매하여 차세대 제품의 연구·생산에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900199,
+        "num": 192
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 42276
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 422755
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900030,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300105,
+    "idCN": "普通订单/噪音髓液3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 수액",
+    "des": "소음 수액이 베툴라 생명체에 대해 가지는 특수한 억제 효과를 고려하여, 열차장이 베툴라 생명체의 위협에 대응할 수 있도록, 소음 수액 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700149,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 38880
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 388800
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900016,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300106,
+    "idCN": "普通订单/玄武岩纤维3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "현무암 섬유",
+    "des": "기존 유리섬유 소재를 대체하고 아니타 테크의 복합재 제품 강도 및 내식성을 향상시키기 위해, 콤룸바 상회에 현무암 섬유 %d개를 주문하여 건축, 자동차, 항공우주 등 분야의 응용 개발에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900238,
+        "num": 300
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 44591
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 445905
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900086,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300107,
+    "idCN": "普通订单/青绿涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "에메랄드 코팅제",
+    "des": "콜룸바의 다음 시즌 가정 제품 라인의 색상 수요를 충족하고, 제품의 매출을 향상시키기 위해, 에메랄드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700008,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 55598
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 555984
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900033,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300108,
+    "idCN": "普通订单/孔雀绿涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "피콕 그린 코팅제",
+    "des": "콜룸바 제품 라인의 업그레이드에 맞춰, 일부 고객의 독특한 색상 수요를 충족시키기 위해, 피콕 그린 코팅제 %d개를 구매하여 고급스러운 질감과 예술적 분위기를 가진 벽면 장식을 제작할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700264,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 64152
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 641520
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900148,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300109,
+    "idCN": "普通订单/静谧蓝涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "세레니티 코팅제",
+    "des": "편안하고 안정적인 스타일에 대한 시장 수요에 대응하고, 차분한 분위기 연출이 필요한 실내 디자인에 활용하기 위해, 세레니티 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700265,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 66355
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 663552
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900149,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300110,
+    "idCN": "普通订单/竞速黄涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "레이싱 옐로 코팅제",
+    "des": "콜룸바 열차 코팅 업무의 색상 수요를 충족하고, 더 역동적이고 활기찬 시각 효과를 제공하기 위해, 레이싱 옐로 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700266,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 45360
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 453600
+      },
+      {
+        "id": 11400612,
+        "num": 9
+      },
+      {
+        "id": 11400106,
+        "num": 90
+      }
+    ],
+    "requireProduction": 84900150,
+    "timeLimit": 129600,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 3
+  },
+  {
+    "id": 60300111,
+    "idCN": "普通订单/纯金零件3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 부품",
+    "des": "콜룸바 고급 장비 제조 부서에서 정밀 제품의 뛰어난 품질과 소장 가치를 보장하기 위해, 순금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700182,
+        "num": 36
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 174960
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1749600
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900012,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300112,
+    "idCN": "普通订单/水产甄选礼盒3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "수산물 선물세트",
+    "des": "명절 기간 선물에 대한 수요 급증에 대비하여, 콜룸바 온/오프라인 채널의 공급을 보장하고, 기업 고객 맞춤형 선물 수요를 충족하기 위해, 수산물 선물세트 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900186,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 89268
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 892685
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900023,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300113,
+    "idCN": "普通订单/金制列车工艺品3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "골드 열차 공예품",
+    "des": "콜룸바와 철도연맹의 공동 열차 전시회를 지원하고, 고급 기념품의 판매량을 늘리기 위해 %d개의 골드 열차 공예품을 구매하여 수집가와 철도 애호가들의 수요를 충족시키세요.",
+    "requireItemList": [
+      {
+        "id": 82900236,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 101088
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1010880
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900080,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300114,
+    "idCN": "普通订单/超导线圈3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "초전도 코일",
+    "des": "콜룸바와 아니타 테크의 신형 열차 공동 프로젝트 연구 개발을 추진하고, 핵심 부품의 안정성과 신뢰성을 보장하기 위해, 열차 구동 테스트 및 최적화에 사용할 초전도 코일 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700188,
+        "num": 36
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 131220
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1312200
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900010,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300115,
+    "idCN": "普通订单/石墨烯电池3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀 배터리",
+    "des": "콜룸바 열차팀의 연속 운행 능력을 향상시키고 시장 선도 위치를 유지하기 위해, 그래핀 배터리 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900141,
+        "num": 180
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 93312
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 933120
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900015,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300116,
+    "idCN": "普通订单/钛合金3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 합금",
+    "des": "아니타 발사 센터는 콜룸바 금속 부서에 티타늄 합금 %d개를 주문하여 차세대 우주 탐사기의 제조에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900181,
+        "num": 216
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 73483
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 734832
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900031,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300117,
+    "idCN": "普通订单/噪音激酶3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 효소",
+    "des": "소음 효소가 베툴라 생명체에 대해 매우 강력한 억제 효과를 가지고 있고, 신형 무기 제작에 사용될 수 있으므로, 생물 안전 방어, 무기 연구 및 관련 의학 연구를 지원하기 위해 소음 효소 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700159,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 121500
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1215000
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900017,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300118,
+    "idCN": "普通订单/深眠精华3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "심면 에센스",
+    "des": "심면 에센스는 추출이 어렵고 잠재적 응용 가치가 있으므로, 콜룸바 연구 부서는 심면 에센스 %d개를 구매하여 특수 성질 및 응용 가능성을 탐구하려 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700042,
+        "num": 96
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 103680
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1036800
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900039,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300119,
+    "idCN": "普通订单/桦石发财树3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "크리스탈 화분",
+    "des": "콜룸바 선물 시리즈의 종류를 늘리고, 일부 고객이 요구하는 특별한 의미와 장식 가치를 가진 제품을 제공하기 위해 크리스탈 화분 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900031,
+        "num": 180
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 118778
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1187784
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900020,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300120,
+    "idCN": "普通订单/形而上粒子3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "형이상 입자",
+    "des": "형이상 입자가 베툴라 생명체에 대해 강력한 억제 효과를 가지므로, 콜룸바 열차팀의 방어 능력을 향상시키기 위해 형이상 입자 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700146,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 104004
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1040040
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900090,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300121,
+    "idCN": "普通订单/碳纤维索3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "탄소 섬유 로프",
+    "des": "콜룸바 엔지니어링 프로젝트의 시공 효율성과 안전성을 높이고, 고강도·경량화 요구를 충족시키기 위해, 다리 건설, 고공 작업 및 기타 특수 산업 분야에 활용할 탄소 섬유 로프 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900218,
+        "num": 300
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 85091
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 850905
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900085,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300122,
+    "idCN": "普通订单/霞光红涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선셋 레드 코팅제",
+    "des": "콜룸바 고급 맞춤형 제품의 색상 요구를 충족하고, 따뜻하고 고급스러운 분위기를 연출하는 제품을 만들기 위해 선셋 레드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700003,
+        "num": 48
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 72038
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 720382
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900035,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300123,
+    "idCN": "普通订单/暮光紫涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "다크 퍼플 코팅제",
+    "des": "콜룸바의 신규 코팅 맞춤 서비스와 고객의 다양한 수요에 대응하기 위해, 개성 있고 예술적인 장식품 제작용으로 다크 퍼플 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700027,
+        "num": 72
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 91125
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 911250
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900034,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300124,
+    "idCN": "普通订单/钛白涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 화이트 코팅제",
+    "des": "콜룸바의 모든 코팅 제품의 색상 선명도와 커버력을 보장하고, 고품질 화이트 코팅제에 대한 수요를 충족시키기 위해, 티타늄 화이트 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700267,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 85131
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 851310
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900151,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300125,
+    "idCN": "普通订单/皓月银涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "루나실버 코팅제",
+    "des": "콜룸바 열차 제조 부서에서 차량의 외관과 금속 질감을 향상시키기 위해, 열차 외부 코팅 및 관련 내장 부품 장식용으로 루나실버 코팅제 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700268,
+        "num": 120
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 89100
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 891000
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900152,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300126,
+    "idCN": "普通订单/熔岩橙涂料3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "라바 오렌지 코팅제",
+    "des": "콜룸바 열정 시리즈의 색상 디자인에 맞춰 제품의 활력과 시각적 임팩트를 강화하기 위해, 관련 제품 코팅용으로 라바 오렌지 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700269,
+        "num": 72
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 116844
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1168441
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900153,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 4
+  },
+  {
+    "id": 60300127,
+    "idCN": "普通订单/航天元器件3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "항공 원자재",
+    "des": "아니타 발사 센터와 콜룸바의 협력 프로젝트가 원활하게 진행되고, 항공우주 장비의 높은 신뢰성과 안정성 요구를 충족시키기 위해, 장비의 제어, 통신 및 에너지 시스템용으로 항공 원자재 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700047,
+        "num": 18
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 239357
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 2393574
+      },
+      {
+        "id": 11400612,
+        "num": 24
+      },
+      {
+        "id": 11400106,
+        "num": 240
+      }
+    ],
+    "requireProduction": 84900036,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": false,
+    "rarity": 5
+  },
+  {
+    "id": 60300128,
+    "idCN": "组队订单/纯金零件",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "순금 부품",
+    "des": "콜룸바 고급 장비 제조 부서에서 정밀 제품의 뛰어난 품질과 소장 가치를 보장하기 위해, 순금 부품 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700182,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 58320
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 583200
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900012,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300129,
+    "idCN": "组队订单/水产甄选礼盒",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "수산물 선물세트",
+    "des": "명절 기간 선물에 대한 수요 급증에 대비하여, 콜룸바 온/오프라인 채널의 공급을 보장하고, 기업 고객 맞춤형 선물 수요를 충족하기 위해, 수산물 선물세트 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900186,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29756
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 297562
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900023,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300130,
+    "idCN": "组队订单/金制列车工艺品",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "골드 열차 공예품",
+    "des": "콜룸바와 철도연맹의 공동 열차 전시회를 지원하고, 고급 기념품의 판매량을 늘리기 위해 %d개의 골드 열차 공예품을 구매하여 수집가와 철도 애호가들의 수요를 충족시키세요.",
+    "requireItemList": [
+      {
+        "id": 82900236,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 33696
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 336960
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900080,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300131,
+    "idCN": "组队订单/超导线圈",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "초전도 코일",
+    "des": "콜룸바와 아니타 테크의 신형 열차 공동 프로젝트 연구 개발을 추진하고, 핵심 부품의 안정성과 신뢰성을 보장하기 위해, 열차 구동 테스트 및 최적화에 사용할 초전도 코일 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700188,
+        "num": 12
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 43740
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 437400
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900010,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300132,
+    "idCN": "组队订单/石墨烯电池",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "그래핀 배터리",
+    "des": "콜룸바 열차팀의 연속 운행 능력을 향상시키고 시장 선도 위치를 유지하기 위해, 그래핀 배터리 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900141,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 31104
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 311040
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900015,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300133,
+    "idCN": "组队订单/钛合金",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 합금",
+    "des": "아니타 발사 센터는 콜룸바 금속 부서에 티타늄 합금 %d개를 주문하여 차세대 우주 탐사기의 제조에 활용할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900181,
+        "num": 72
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24494
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 244944
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900031,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300134,
+    "idCN": "组队订单/噪音激酶",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "소음 효소",
+    "des": "소음 효소가 베툴라 생명체에 대해 매우 강력한 억제 효과를 가지고 있고, 신형 무기 제작에 사용될 수 있으므로, 생물 안전 방어, 무기 연구 및 관련 의학 연구를 지원하기 위해 소음 효소 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700159,
+        "num": 20
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 40500
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 405000
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900017,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300135,
+    "idCN": "组队订单/深眠精华",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "심면 에센스",
+    "des": "심면 에센스는 추출이 어렵고 잠재적 응용 가치가 있으므로, 콜룸바 연구 부서는 심면 에센스 %d개를 구매하여 특수 성질 및 응용 가능성을 탐구하려 합니다.",
+    "requireItemList": [
+      {
+        "id": 11700042,
+        "num": 32
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34560
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 345600
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900039,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300136,
+    "idCN": "组队订单/桦石发财树",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "크리스탈 화분",
+    "des": "콜룸바 선물 시리즈의 종류를 늘리고, 일부 고객이 요구하는 특별한 의미와 장식 가치를 가진 제품을 제공하기 위해 크리스탈 화분 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900031,
+        "num": 60
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 39593
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 395928
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900020,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300137,
+    "idCN": "组队订单/形而上粒子",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "형이상 입자",
+    "des": "형이상 입자가 베툴라 생명체에 대해 강력한 억제 효과를 가지므로, 콜룸바 열차팀의 방어 능력을 향상시키기 위해 형이상 입자 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700146,
+        "num": 8
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 34668
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 346680
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900090,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300138,
+    "idCN": "组队订单/碳纤维索",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "탄소 섬유 로프",
+    "des": "콜룸바 엔지니어링 프로젝트의 시공 효율성과 안전성을 높이고, 고강도·경량화 요구를 충족시키기 위해, 다리 건설, 고공 작업 및 기타 특수 산업 분야에 활용할 탄소 섬유 로프 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900218,
+        "num": 100
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 28364
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 283635
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900085,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300139,
+    "idCN": "组队订单/霞光红涂料",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "선셋 레드 코팅제",
+    "des": "콜룸바 고급 맞춤형 제품의 색상 요구를 충족하고, 따뜻하고 고급스러운 분위기를 연출하는 제품을 만들기 위해 선셋 레드 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700003,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24013
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 240127
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900035,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300140,
+    "idCN": "组队订单/暮光紫涂料",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "다크 퍼플 코팅제",
+    "des": "콜룸바의 신규 코팅 맞춤 서비스와 고객의 다양한 수요에 대응하기 위해, 개성 있고 예술적인 장식품 제작용으로 다크 퍼플 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700027,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 30375
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 303750
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900034,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300141,
+    "idCN": "组队订单/钛白涂料",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄 화이트 코팅제",
+    "des": "콜룸바의 모든 코팅 제품의 색상 선명도와 커버력을 보장하고, 고품질 화이트 코팅제에 대한 수요를 충족시키기 위해, 티타늄 화이트 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700267,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 28377
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 283770
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900151,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300142,
+    "idCN": "组队订单/皓月银涂料",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "루나실버 코팅제",
+    "des": "콜룸바 열차 제조 부서에서 차량의 외관과 금속 질감을 향상시키기 위해, 열차 외부 코팅 및 관련 내장 부품 장식용으로 루나실버 코팅제 %d개를 구매할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 11700268,
+        "num": 40
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 29700
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 297000
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900152,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300143,
+    "idCN": "组队订单/熔岩橙涂料",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "라바 오렌지 코팅제",
+    "des": "콜룸바 열정 시리즈의 색상 디자인에 맞춰 제품의 활력과 시각적 임팩트를 강화하기 위해, 관련 제품 코팅용으로 라바 오렌지 코팅제 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700269,
+        "num": 24
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 38948
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 389480
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900153,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300144,
+    "idCN": "组队订单/航天元器件",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "항공 원자재",
+    "des": "아니타 발사 센터와 콜룸바의 협력 프로젝트가 원활하게 진행되고, 항공우주 장비의 높은 신뢰성과 안정성 요구를 충족시키기 위해, 장비의 제어, 통신 및 에너지 시스템용으로 항공 원자재 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 11700047,
+        "num": 6
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 79786
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 797858
+      },
+      {
+        "id": 11400612,
+        "num": 8
+      },
+      {
+        "id": 11400106,
+        "num": 80
+      }
+    ],
+    "requireProduction": 84900036,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 5,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300145,
+    "idCN": "特殊订单/特殊征收-钛钢轨条1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄강 레일",
+    "des": "특수 프로젝트의 시공 효율성과 안전성을 향상시키고, 특정 고강도 및 경량화 요구사항을 충족시키기 위해, 현재 각 상회를 대상으로 티타늄강 레일을 징수하고 있습니다.",
+    "requireItemList": [
+      {
+        "id": 82900325,
+        "num": 80
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 68040
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 680400
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900154,
+    "timeLimit": 86400,
+    "isTeam": false,
+    "isSpecial": true,
+    "rarity": 4
+  },
+  {
+    "id": 60300146,
+    "idCN": "特殊订单/特殊征收-钛钢轨条2",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄강 레일",
+    "des": "콜룸바와 아니타 테크의 신형 열차 공동 프로젝트 연구 개발을 추진하고, 핵심 부품의 안정성과 신뢰성을 보장하기 위해, 열차 구동 테스트 및 최적화에 사용할 초전도 코일 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900325,
+        "num": 160
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 136080
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 1360800
+      },
+      {
+        "id": 11400612,
+        "num": 10
+      },
+      {
+        "id": 11400106,
+        "num": 100
+      }
+    ],
+    "requireProduction": 84900154,
+    "timeLimit": 172800,
+    "isTeam": false,
+    "isSpecial": true,
+    "rarity": 4
+  },
+  {
+    "id": 60300147,
+    "idCN": "特殊订单/特殊征收-钛钢轨条3",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "티타늄강 레일",
+    "des": "콜룸바 엔지니어링 프로젝트의 시공 효율성과 안전성을 높이고, 고강도·경량화 요구를 충족시키기 위해, 다리 건설, 고공 작업 및 기타 특수 산업 분야에 활용할 탄소 섬유 로프 %d개를 구매합니다.",
+    "requireItemList": [
+      {
+        "id": 82900325,
+        "num": 240
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 204120
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 2041200
+      },
+      {
+        "id": 11400612,
+        "num": 15
+      },
+      {
+        "id": 11400106,
+        "num": 150
+      }
+    ],
+    "requireProduction": 84900154,
+    "timeLimit": 259200,
+    "isTeam": false,
+    "isSpecial": true,
+    "rarity": 4
+  },
+  {
+    "id": 60300148,
+    "idCN": "组队订单/防弹背心",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "방탄조끼",
+    "des": "불법 행위에 대한 단속과 교정 센터의 범죄자 교육을 강화하기 위해, 콜룸바 상회에서는 방탄조끼 %d개를 구매하여 철도관리국에 지원할 예정입니다.",
+    "requireItemList": [
+      {
+        "id": 82900164,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24598
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 245981
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900082,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300149,
+    "idCN": "组队订单/抗污染防护服",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "오염방지 보호복",
+    "des": "아니타 테크의 작업 안전을 확보하고, 베툴라 공간 탐사 프로젝트를 안정적으로 추진하기 위해, 콜룸바 상회에 오염방지 보호복 %d개를 주문합니다.",
+    "requireItemList": [
+      {
+        "id": 82900173,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 24192
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 241920
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900115,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300150,
+    "idCN": "组队订单/阿妮塔连体衣",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "아니타 점프슈트",
+    "des": "아니타 테크의 직원에게 편안하면서도 기술적 기능을 갖춘 제식 복장을 제공하기 위해, 콜룸바 상회에 아니타 점프슈트 %d개를 주문합니다.",
+    "requireItemList": [
+      {
+        "id": 82900217,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 26516
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 265162
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900083,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300151,
+    "idCN": "组队订单/阿尼塔连体衣1",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "아니타 점프슈트",
+    "des": "아니타 테크의 직원에게 편안하면서도 기술적 기능을 갖춘 제식 복장을 제공하기 위해, 콜룸바 상회에 아니타 점프슈트 %d개를 주문합니다.",
+    "requireItemList": [
+      {
+        "id": 82900217,
+        "num": 64
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 26516
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 265162
+      },
+      {
+        "id": 11400612,
+        "num": 5
+      },
+      {
+        "id": 11400106,
+        "num": 50
+      }
+    ],
+    "requireProduction": 84900083,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 4,
+    "isProductionGet": true
+  },
+  {
+    "id": 60300152,
+    "idCN": "组队订单/宇航服",
+    "mod": "默认",
+    "isInformalData": false,
+    "name": "우주복",
+    "des": "아니타 우주 비행사의 극한 우주 환경에서의 생명 안전과 작업 편의를 보장하고, 향후 발사 임무 가능성에 대비하기 위해, 콜룸바 상회에 우주복 %d개를 주문합니다.",
+    "requireItemList": [
+      {
+        "id": 82900233,
+        "num": 16
+      }
+    ],
+    "moneyList": [
+      {
+        "id": 11400001,
+        "num": 21384
+      }
+    ],
+    "rewardsList": [
+      {
+        "id": 11400001,
+        "num": 213840
+      },
+      {
+        "id": 11400612,
+        "num": 8
+      },
+      {
+        "id": 11400106,
+        "num": 80
+      }
+    ],
+    "requireProduction": 84900141,
+    "timeLimit": 604800,
+    "isTeam": true,
+    "isSpecial": false,
+    "rarity": 5,
+    "isProductionGet": true
+  }
+]

@@ -1,154 +1,121 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reso Tools & DB</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-  <div class="page">
-    <!-- 상단 바 -->
-    <header class="topbar">
-      <div class="logo">
-        <span>RESO</span> TOOLS
+  <div class="bg-overlay"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-title">Reso Tools & DB</span>
+        <span class="brand-sub">게임 데이터 · 팬메이드 DB</span>
       </div>
 
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="kr">KR</button>
-        <button class="lang-btn" data-lang="jp">JP</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="cn">CN</button>
+      <div class="topbar-actions">
+        <!-- 언어/설정 UI는 나중에 붙일 예정 (sstoy 느낌만 유지) -->
+        <button class="pill-btn" type="button" aria-label="Settings" disabled>
+          설정
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- 메인 히어로 영역 -->
-    <main class="main">
-      <section class="hero-main">
-        <div class="hero-main-left">
-          <p class="hero-tagline">게임 데이터 · 빌드 도구 · 위키형 DB</p>
-          <h1 class="hero-title">Reso Tools & Database</h1>
-          <p class="hero-sub">
-            캐릭터, 장비, 아이템 정보를 한 곳에서 관리하고<br>
-            엑셀 시트를 기반으로 쉽게 갱신할 수 있는 팬메이드 툴 모음입니다.
-          </p>
-
-          <div class="hero-actions">
-            <a class="primary-btn" href="./src/page/characterdb.html">
-              캐릭터 DB 열기
-            </a>
-            <a class="ghost-btn" href="./src/page/equipmentdb.html">
-              장비 DB 열기
-            </a>
-            <a class="ghost-btn" href="app.html">
-              전체 도구 보기 (예정)
-            </a>
-          </div>
-
-          <p class="hero-note">
-            ※ 캐릭터 / 장비 / 아이템 / 도구 페이지는 차차 구현해 나가는 구조로 잡아두었습니다.
-          </p>
-        </div>
-
-        <div class="hero-main-right">
-          <div class="hero-card-big">
-            <div class="hero-card-label">데이터 소스</div>
-            <div class="hero-card-title">Excel 시트 → JSON 자동 변환</div>
-            <p>
-              각 카테고리(캐릭터 / 장비 / 아이템)를 엑셀 시트로 관리하고,
-              스크립트로 JSON으로 변환한 뒤 GitHub Pages에 올려서 바로 반영합니다.
-            </p>
-          </div>
-
-          <div class="hero-card-small-grid">
-            <div class="hero-card-small">
-              <div class="hero-card-small-title">엑셀 관리</div>
-              <p>시트에서 필드 추가/수정 후 JSON만 다시 내보내면 됩니다.</p>
-            </div>
-            <div class="hero-card-small">
-              <div class="hero-card-small-title">정적 호스팅</div>
-              <p>GitHub Pages에서 HTML + JS + JSON만으로 동작합니다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 메인 기능 카드 4개 -->
-      <section class="feature-section">
-        <h2 class="feature-title">메인 메뉴</h2>
-        <p class="feature-sub">
-          각 메뉴는 나중에 별도 HTML / JS로 구성해서 sstoy처럼 독립된 툴 페이지로 만들 수 있습니다.
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">레조넌스 데이터베이스</h1>
+        <p class="hero-desc">
+          KR 적용된 JSON(DB 원본) 기반으로 각종 표/검색 페이지를 제공합니다.<br>
+          현재는 UI/연동 구조 정리 단계이며, 이미지/참조 연결은 추후 추가합니다.
         </p>
 
-        <div class="feature-grid">
-          <a class="feature-card" href="./src/page/characterdb.html">
-            <div class="feature-icon">C</div>
-            <div class="feature-text">
-              <div class="feature-name">캐릭터 DB</div>
-              <p>
-                캐릭터 스탯, 속성, 역할, 태그를 기준으로 검색/필터 가능한 데이터베이스.
-                엑셀 시트를 기반으로 JSON을 생성해서 사용합니다.
-              </p>
-            </div>
-          </a>
-
-          <a class="feature-card" href="./src/page/equipmentdb.html">
-            <div class="feature-icon">E</div>
-            <div class="feature-text">
-              <div class="feature-name">장비 DB</div>
-              <p>
-                무기 / 방어구 / 특수 장비 옵션과 추천 캐릭터를 정리하는 페이지.
-                우선 UI 뼈대부터 만들고 나중에 실제 데이터를 연결할 수 있습니다.
-              </p>
-            </div>
-          </a>
-
-          <a class="feature-card" href="itemsdb.html">
-            <div class="feature-icon">I</div>
-            <div class="feature-text">
-              <div class="feature-name">아이템 DB</div>
-              <p>
-                재료, 강화석, 소모품 등 각종 아이템을 한 눈에 볼 수 있는 DB.
-                드랍처와 사용처도 같이 표기하는 용도로 설계할 수 있습니다.
-              </p>
-            </div>
-          </a>
-
-          <a class="feature-card" href="tools.html">
-            <div class="feature-icon">T</div>
-            <div class="feature-text">
-              <div class="feature-name">도구 / 계산기</div>
-              <p>
-                빌드 시뮬레이터, 재화 계산기, 파밍 경로 추천 등 부가적인 도구를 모아두는 영역입니다.
-              </p>
-            </div>
-          </a>
+        <div class="hero-actions">
+          <a class="cta-btn" href="./src/page/equipmentdb.html">장비 DB</a>
+          <a class="cta-btn ghost" href="./src/page/characterdb.html">캐릭터 DB</a>
         </div>
-      </section>
+      </div>
 
-      <!-- 푸터 / 디스클레이머 -->
-      <footer class="footer">
-        <div class="footer-left">
-          <div class="footer-title">Disclaimer</div>
-          <p>
-            이 사이트는 비공식 팬 프로젝트이며, 사용된 모든 이미지 / 데이터 / 텍스트의 저작권은
-            원 개발사/퍼블리셔에게 있습니다. 상업적 목적이 아닌 정보 제공 / 연구 용도로만 사용됩니다.
-          </p>
+      <div class="hero-right">
+        <!-- 미리보기 이미지는 아직 없음: 레이아웃만 유지 -->
+        <div class="preview-placeholder">
+          <div class="preview-title">Preview</div>
+          <div class="preview-sub">assets 준비 전</div>
         </div>
-        <div class="footer-right">
-          <div class="footer-meta">
-            <span>Reso Tools & DB</span>
-            <span class="footer-dot">•</span>
-            <span>Static HTML / JS / JSON</span>
+      </div>
+    </section>
+
+    <!-- Bento Cards -->
+    <section class="features">
+      <div class="bento-grid">
+        <a class="bento-card card-large" href="./src/page/equipmentdb.html">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">DB</div>
+              <div class="card-text-col">
+                <h3>장비 DB</h3>
+                <p>EquipmentFactory 기반 목록/검색</p>
+              </div>
+            </div>
           </div>
-          <div class="footer-meta">
-            <span>GitHub Pages 기반</span>
-          </div>
-        </div>
-      </footer>
-    </main>
-  </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
 
-  <script src="./src/app/main.js" defer></script>
+        <a class="bento-card card-large" href="./src/page/characterdb.html">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">DB</div>
+              <div class="card-text-col">
+                <h3>캐릭터 DB</h3>
+                <p>CharacterFactory 기반 목록/검색</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <!-- 아래 카드는 나중에 페이지가 늘어나면 링크만 바꿔서 확장 -->
+        <a class="bento-card card-wide" href="#" onclick="return false;">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">툴</div>
+              <div class="card-text-col">
+                <h3>추가 도구</h3>
+                <p>예: 강화 계산기 / 파서 리포트</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-wide" href="#" onclick="return false;">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">리소스</div>
+              <div class="card-text-col">
+                <h3>리소스</h3>
+                <p>이미지/아이콘 경로 연결 (추후)</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>Non-commercial fan project.</span>
+    </div>
+  </footer>
+
+  <script src="./src/app/main.js"></script>
 </body>
 </html>

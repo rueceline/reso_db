@@ -1,0 +1,2816 @@
+[
+  {
+    "id": 89500001,
+    "idCN": "RogueBuffFactory测试品",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "",
+    "quality": "Blue",
+    "iconPath": "",
+    "des": "",
+    "intensifyDes": "",
+    "effect": -1,
+    "intensifyEffect": -1,
+    "correspondingTeam": -1
+  },
+  {
+    "id": 89500002,
+    "idCN": "05推力/盈缺/天赋4-石火",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·석화",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ShiHuo",
+    "des": "[성석]이 [중상]/[작열]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303178,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700001,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500003,
+    "idCN": "05推力/盈缺/天赋2-星流",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·유성",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_XingLiu",
+    "des": "[버리기] 명령 사용 시, 카드를 1장 버릴 때마다 [성석]을 1개 시전합니다.\\n[성석]은 체력이 가장 높은 적에게 1단 음에너지를 입히고, 모든 아군의 체력을 1000 감소시킵니다.",
+    "intensifyDes": "",
+    "effect": 12303295,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700001,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500004,
+    "idCN": "05推力/盈缺/天赋5-轰天",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·충돌",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_HongTian",
+    "des": "카드를 1장 버릴 때마다 [성석]이 입히는 피해가 1% 증가합니다.(최대 200%)",
+    "intensifyDes": "",
+    "effect": 12303181,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700001,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500005,
+    "idCN": "05推力/盈缺/天赋1-交辉",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·광휘",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_JiaoHui",
+    "des": "임의 아군의 체력이 90%/70%/50%/30%/10%보다 낮을 경우, [성석]을 1개 시전합니다.(한 명당 5회)\\n[성석]은 체력이 가장 높은 적에게 1단 음에너지를 입히고, 모든 아군의 체력을 1000 감소시킵니다.",
+    "intensifyDes": "",
+    "effect": 12303302,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700001,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500017,
+    "idCN": "05推力/盈缺/天赋3-星露",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·별이슬",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_XingLu",
+    "des": "카드를 1장 뽑을 때마다 [버리기] 명령의 쿨타임이 3초 감소합니다.",
+    "intensifyDes": "",
+    "effect": 12303182,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700001,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500006,
+    "idCN": "05推力/盈缺/蓝-上弦",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·상현",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ShangXian",
+    "des": "카드를 3장 뽑을 때마다 [화염의 운석]을 1개 시전하여 무작위 적에게 1단 화염 피해를 입히고, 동시에 [점화]를 발동합니다.",
+    "intensifyDes": "카드를 2장 뽑을 때마다 [화염의 운석]을 1개 시전하여 무작위 적에게 1단 화염 피해를 입히고, 동시에 [점화]를 발동합니다.",
+    "effect": 12303303,
+    "intensifyEffect": 12303183,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500010,
+    "idCN": "05推力/盈缺/蓝-下弦",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·하현",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_XiaXian",
+    "des": "카드를 3장 버릴 때마다 [번개의 운석]을 1개 시전하여 무작위 적에게 1단 전자기 피해를 입히고, 동시에 [낙뢰]를 발동합니다.",
+    "intensifyDes": "카드를 2장 버릴 때마다 [번개의 운석]을 1개 시전하여 무작위 적에게 1단 전자기 피해를 입히고, 동시에 [낙뢰]를 발동합니다.",
+    "effect": 12303300,
+    "intensifyEffect": 12303184,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500012,
+    "idCN": "05推力/盈缺/蓝-满月",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·만월",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ManYue",
+    "des": "카드를 3장 [소각]할 때마다 [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히고, 동시에 모든 아군의 체력을 2000 회복합니다.",
+    "intensifyDes": "카드를 2장 [소각]할 때마다 [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히고, 동시에 모든 아군의 체력을 2000 회복합니다.",
+    "effect": 12303301,
+    "intensifyEffect": 12303189,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500013,
+    "idCN": "05推力/盈缺/蓝-新月",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·신월",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_XinYue",
+    "des": "카드를 3장 생성할 때마다 [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히고, 동시에 모든 아군의 최대 체력이 2% 증가합니다.",
+    "intensifyDes": "카드를 2장 생성할 때마다 [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히고, 동시에 모든 아군의 최대 체력이 2% 증가합니다.",
+    "effect": 12303298,
+    "intensifyEffect": 12303190,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500014,
+    "idCN": "05推力/盈缺/蓝-月华",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·달빛",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_YueHua",
+    "des": "임의 아군의 체력이 20%보다 낮을 경우, 모든 아군이 5초간 [무적]을 얻고, 동시에 [리더 스킬] 명령을 즉시 활성화합니다.(1회 한정)",
+    "intensifyDes": "임의 아군의 체력이 20%보다 낮을 경우, 모든 아군이 10초간 [무적]을 얻고, 동시에 [리더 스킬]과 [버리기] 명령을 즉시 활성화합니다.(1회 한정)",
+    "effect": 12303299,
+    "intensifyEffect": 12303191,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500015,
+    "idCN": "05推力/盈缺/蓝-偏食",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·부분일식",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_PianShi",
+    "des": "덱에 있는 카드 1장당 모든 아군이 받는 최종 피해가 0.5% 감소합니다.(최대 50%)",
+    "intensifyDes": "덱에 있는 카드 1장당 모든 아군이 받는 최종 피해가 1% 감소합니다.(최대 50%)",
+    "effect": 12303320,
+    "intensifyEffect": 12303192,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500016,
+    "idCN": "05推力/盈缺/紫-斗转",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·이동",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_DouZhuan",
+    "des": "레드카드/퍼플카드를 낼 때 무작위 적에게 카드 보유자가 잃은 체력의 100%만큼 1단 음에너지 피해를 입힙니다.",
+    "intensifyDes": "레드카드/퍼플카드를 낼 때 무작위 적에게 카드 보유자가 잃은 체력의 200%만큼 1단 음에너지 피해를 입힙니다.",
+    "effect": 12303321,
+    "intensifyEffect": 12303179,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500018,
+    "idCN": "05推力/盈缺/紫-潮汐",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·조석",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ChaoXi",
+    "des": "모든 아군의 최대 체력이 10000 증가합니다. 임의 아군의 체력이 50% 이상/미만일 경우, 매초 해당 아군의 체력을 500 감소/회복시킵니다.",
+    "intensifyDes": "모든 아군의 최대 체력이 16000 증가합니다. 임의 아군의 체력이 50% 이상/미만일 경우, 매초 해당 아군의 체력을 800 감소/회복시킵니다.",
+    "effect": 12303316,
+    "intensifyEffect": 12303180,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500019,
+    "idCN": "05推力/盈缺/紫-参横",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·심야",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_CanHeng",
+    "des": "전투 시작 시, 모든 아군이 현재 체력의 50%를 잃고, 카드를 2장 뽑습니다. 동시에 모든 아군의 공격력과 방어력이 15% 증가합니다.",
+    "intensifyDes": "전투 시작 시, 모든 아군이 현재 체력의 50%를 잃고, 카드를 3장 뽑습니다. 동시에 모든 아군의 공격력과 방어력이 25% 증가합니다.",
+    "effect": 12303317,
+    "intensifyEffect": 12303185,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500022,
+    "idCN": "05推力/盈缺/金-烛照",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·촛불",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ZhuZhao",
+    "des": "카드를 7장 버릴 때마다 [기이한 불꽃]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "intensifyDes": "카드를 5장 버릴 때마다 [기이한 불꽃]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "effect": 12303314,
+    "intensifyEffect": 12303204,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500023,
+    "idCN": "05推力/盈缺/金-重光",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·복원",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ChongGuang",
+    "des": "[버리기] 명령 사용 시, [신성]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "intensifyDes": "[버리기] 명령 사용 시, [초신성]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "effect": 12303315,
+    "intensifyEffect": 12303172,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500008,
+    "idCN": "05推力/盈缺/金-亏蚀",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·월식",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_KuiShi",
+    "des": "아군이 비용이 3 이상인 자신의 스킬 카드 사용 시, 자신의 체력을 2% 잃고, [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히며, 동시에 [부식]을 발동합니다.",
+    "intensifyDes": "아군이 비용이 2 이상인 자신의 스킬 카드 사용 시, 자신의 체력을 2% 잃고, [비술의 운석]을 1개 시전하여 무작위 적에게 1단 잔향 피해를 입히며, 동시에 [부식]을 발동합니다.",
+    "effect": 12303187,
+    "intensifyEffect": 12303188,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500011,
+    "idCN": "05推力/盈缺/金-月影",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·월영",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_YueYing",
+    "des": "카드를 1장 버릴 때마다 무작위 아군 1명의 공격력이 0.3% 증가합니다.(최대 30%)",
+    "intensifyDes": "카드를 1장 버릴 때마다 무작위 아군 1명의 공격력이 0.5% 증가합니다.(최대 50%)",
+    "effect": 12303177,
+    "intensifyEffect": 12303368,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500025,
+    "idCN": "局外技能/战斗/01-1攻击力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "탐구의 욕망 Ⅰ",
+    "des": "모든 아군의 공격력이 30 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Gong",
+    "skillEffect": 89900090,
+    "preSkillList": [
+      {
+        "id": 89500035
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500026,
+    "idCN": "局外技能/机制/01解锁额外buff2",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "굳은 결심 Ⅰ",
+    "des": "동일 전술의 추력 2개 획득 시, 해당 전술의 공명 특성1이 활성화됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Shi_1",
+    "skillEffect": 89900025,
+    "preSkillList": [],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500027,
+    "idCN": "局外技能/战斗/00-1回费cd",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "순환·비용",
+    "des": "매초 비용을 0.1 획득합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_FeiYong",
+    "skillEffect": 89900078,
+    "preSkillList": [
+      {
+        "id": 89500162
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500028,
+    "idCN": "局外技能/战斗/02-1防御力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지키려는 마음 Ⅰ",
+    "des": "모든 아군의 방어력이 30 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Fang",
+    "skillEffect": 89900077,
+    "preSkillList": [
+      {
+        "id": 89500035
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500029,
+    "idCN": "局外技能/机制/02解锁额外buff3",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "굳은 결심 Ⅱ",
+    "des": "동일 전술의 추력 3개 획득 시, 해당 전술의 공명 특성2가 활성화됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Shi_2",
+    "skillEffect": 89900025,
+    "preSkillList": [],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500030,
+    "idCN": "局外技能/战斗/05火焰伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·화염",
+    "des": "모든 아군이 입히는 화염 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Huo",
+    "skillEffect": 89900080,
+    "preSkillList": [
+      {
+        "id": 89500161
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500034,
+    "idCN": "局外技能/机制/03解锁额外buff4",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "굳은 결심 Ⅲ",
+    "des": "동일 전술의 추력 4개 획득 시, 해당 전술의 공명 특성3이 활성화됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Shi_3",
+    "skillEffect": 89900025,
+    "preSkillList": [],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500035,
+    "idCN": "局外技能/机制/04解锁额外buff6",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "굳은 결심 Ⅳ",
+    "des": "동일 전술의 추력 6개 획득 시, 해당 전술의 공명 특성4가 활성화됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Shi_4",
+    "skillEffect": 89900025,
+    "preSkillList": [
+      {
+        "id": 89500034
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500024,
+    "idCN": "压力技能/偏执",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "집착",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/pianzhi",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/pianzhi",
+    "des": "모든 적의 체력이 20% 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900108
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500036,
+    "idCN": "局外技能/机制/05解锁复活",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "생존과 멸망",
+    "des": "[플레인의 틈]에 도달 시, [파티원 부활] 기능이 오픈됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Cun",
+    "skillEffect": 89900024,
+    "preSkillList": [
+      {
+        "id": 89500146
+      },
+      {
+        "id": 89500148
+      },
+      {
+        "id": 89500151
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500052,
+    "idCN": "05推力/回生/紫-决死",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·각오",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_JueSi",
+    "des": "임의 아군의 체력이 20%보다 낮을 경우, 모든 적에게 모든 아군의 최대 체력을 합한 숫자의 100%만큼 음에너지 피해를 입히고, 동시에 [부식]을 부여합니다.",
+    "intensifyDes": "임의 아군의 체력이 20%보다 낮을 경우, 모든 적에게 모든 아군의 최대 체력을 합한 숫자의 200%만큼 음에너지 피해를 입히고, 동시에 [부식]을 부여합니다.",
+    "effect": 12303344,
+    "intensifyEffect": 12303220,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500038,
+    "idCN": "05推力/回生/天赋2-正本",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·단정",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_ZhengBen",
+    "des": "[가호] 사용 후, 이번 전투 동안 [가호]의 치유량이 20% 증가합니다.",
+    "intensifyDes": "",
+    "effect": 12303193,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700002,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500040,
+    "idCN": "05推力/回生/天赋4-仁术",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·인술",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_RenShu",
+    "des": "[가호]가 무작위로 [광폭]/[흥분]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303194,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700002,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500042,
+    "idCN": "05推力/回生/紫-盎然",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·발랄",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_AngRan",
+    "des": "매초 모든 아군의 체력을 1% 회복합니다.\\n아군이 [이상] 상태일 경우, 매초 추가로 체력을 1% 회복합니다.",
+    "intensifyDes": "매초 모든 아군의 체력을 1.5% 회복합니다.\\n아군이 [이상] 상태일 경우, 매초 추가로 체력을 1.5% 회복합니다.",
+    "effect": 12303216,
+    "intensifyEffect": 12303335,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500045,
+    "idCN": "05推力/回生/蓝-焕发",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·활기",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_HuanFa",
+    "des": "레드카드를 낼 때, 해당 카드의 비용만큼 무작위 적에게 [점화]를 부여합니다.",
+    "intensifyDes": "레드카드를 내거나 버릴 때, 해당 카드의 비용만큼 무작위 적에게 [점화]를 부여합니다.",
+    "effect": 12303173,
+    "intensifyEffect": 12303328,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500037,
+    "idCN": "05推力/回生/蓝-固本",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·근본",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_GuBen",
+    "des": "블루카드를 낼 때, 해당 카드의 비용만큼 무작위 적에게 [냉동]을 부여합니다.",
+    "intensifyDes": "블루카드를 내거나 버릴 때, 해당 카드의 비용만큼 무작위 적에게 [냉동]을 부여합니다.",
+    "effect": 12303210,
+    "intensifyEffect": 12303323,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500047,
+    "idCN": "05推力/回生/天赋3-清源",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·정돈",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_QingYuan",
+    "des": "[체력 회복] 효과를 가진 카드 사용 시, 모든 아군에게 [정화]를 부여하고, 동시에 모든 적에게 모든 아군의 최대 체력의 합한 숫자의 20%만큼 음에너지 피해를 입힙니다.",
+    "intensifyDes": "",
+    "effect": 12303324,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700002,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500039,
+    "idCN": "05推力/回生/蓝-培元",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·원기",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_PeiYuan",
+    "des": "옐로카드를 낼 때, 해당 카드의 비용만큼 무작위 적에게 [낙뢰]를 부여합니다.",
+    "intensifyDes": "옐로카드를 내거나 버릴 때, 해당 카드의 비용만큼 무작위 적에게 [낙뢰]를 부여합니다.",
+    "effect": 12303207,
+    "intensifyEffect": 12303326,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500049,
+    "idCN": "05推力/回生/紫-激扬",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·격앙",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_JiYang",
+    "des": "퍼플카드를 낼 때, 해당 카드의 비용만큼 모든 적에게 [부식]을 부여합니다.",
+    "intensifyDes": "퍼플카드를 내거나 버릴 때, 해당 카드의 비용만큼 모든 적에게 [부식]을 부여합니다.",
+    "effect": 12303211,
+    "intensifyEffect": 12303342,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500050,
+    "idCN": "05推力/回生/紫-激活",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·발동",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_JiHuo",
+    "des": "[체력 회복] 효과를 가진 카드 사용 시, 모든 아군의 공격력과 방어력이 5 증가합니다.(최대 150)",
+    "intensifyDes": "[체력 회복] 효과를 가진 카드 사용 시, 모든 아군의 공격력과 방어력이 10 증가합니다.(최대 250)",
+    "effect": 12303208,
+    "intensifyEffect": 12303327,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500051,
+    "idCN": "05推力/回生/金-澎湃",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·열정",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_PengPai",
+    "des": "가지고 있는 [추력] 1개당 모든 아군의 최대 체력이 10% 증가합니다.",
+    "intensifyDes": "가지고 있는 [추력] 1개당 모든 아군의 최대 체력이 15% 증가합니다.",
+    "effect": 12303217,
+    "intensifyEffect": 12303336,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500043,
+    "idCN": "05推力/回生/金-弥坚",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·보강",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_MiJian",
+    "des": "임의 아군이 가지고 있는 체력 10000당 입히는 최종 피해가 2% 증가합니다.",
+    "intensifyDes": "임의 아군이 가지고 있는 체력 10000당 입히는 최종 피해가 3% 증가합니다.",
+    "effect": 12303370,
+    "intensifyEffect": 12303226,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500046,
+    "idCN": "05推力/回生/天赋1-仁心",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·인심",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_RenXin",
+    "des": "그린카드의 비용이 1 감소합니다.",
+    "intensifyDes": "",
+    "effect": 12303319,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700002,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500056,
+    "idCN": "05推力/回生/蓝-催化",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·촉진",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_CuiHua",
+    "des": "모든 아군이 받는 치유 효과가 20% 증가합니다.",
+    "intensifyDes": "모든 아군이 받는 치유 효과가 30% 증가합니다.",
+    "effect": 12303205,
+    "intensifyEffect": 12303291,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500048,
+    "idCN": "05推力/回生/天赋5-妙手",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·묘수",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_MiaoShou",
+    "des": "[가호]의 생성 간격이 2초로 감소됩니다.",
+    "intensifyDes": "",
+    "effect": 12303325,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700002,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500058,
+    "idCN": "05推力/回生/金-浑厚",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·중후",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_HunHou",
+    "des": "아군이 스킬 카드를 사용해 피해를 입힐 때, 추가로 자신의 최대 체력의 30%만큼 음에너지 피해를 입힙니다.",
+    "intensifyDes": "아군이 스킬 카드를 사용해 피해를 입힐 때, 추가로 자신의 최대 체력의 50%만큼 음에너지 피해를 입힙니다.",
+    "effect": 12303195,
+    "intensifyEffect": 12303196,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500044,
+    "idCN": "05推力/回生/紫-弥新",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·혁신",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_MiXin",
+    "des": "카드를 1장 생성할 때마다 모든 아군의 체력을 1000 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "intensifyDes": "카드를 1장 생성할 때마다 모든 아군의 체력을 1500 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "effect": 12303201,
+    "intensifyEffect": 12303202,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500053,
+    "idCN": "05推力/回生/紫-韬晦",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·은둔",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_TaoHui",
+    "des": "카드를 1장 버릴 때마다 모든 아군의 체력을 500 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "intensifyDes": "카드를 1장 버릴 때마다 모든 아군의 체력을 1000 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "effect": 12303174,
+    "intensifyEffect": 12303341,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500054,
+    "idCN": "05推力/回生/蓝-温室",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·온실",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_WenShi",
+    "des": "아군이 [실드]를 가지고 있거나 [블록]/[은신]/[무적] 상태일 경우, 매초 체력을 1% 회복합니다.",
+    "intensifyDes": "아군이 [실드]를 가지고 있거나 [블록]/[은신]/[무적] 상태일 경우, 매초 체력을 2% 회복합니다.",
+    "effect": 12303206,
+    "intensifyEffect": 12303290,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500055,
+    "idCN": "05推力/回生/金-反蚀",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·부작용",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_FanShi",
+    "des": "[리더 스킬] 사용 시, 모든 적에게 모든 아군의 최대 체력을 합한 숫자의 30%만큼 음에너지 피해를 입히고, 동시에 [부식] 발동합니다.",
+    "intensifyDes": "[리더 스킬] 사용 시, 모든 적에게 모든 아군의 최대 체력을 합한 숫자의 50%만큼 음에너지 피해를 입히고, 동시에 [부식] 발동합니다.",
+    "effect": 12303176,
+    "intensifyEffect": 12303292,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500057,
+    "idCN": "05推力/回生/蓝-养心",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·수양",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_YangXin",
+    "des": "[체력 회복] 효과를 가진 카드 사용 시, 모든 아군의 최대 체력이 2000 증가합니다.",
+    "intensifyDes": "[체력 회복] 효과를 가진 카드 사용 시, 모든 아군의 최대 체력이 3000 증가합니다.",
+    "effect": 12303209,
+    "intensifyEffect": 12303322,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500059,
+    "idCN": "05推力/捍卫/紫-破釜",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·배수진",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_PoFu",
+    "des": "아군이 [실드]를 1개 생성할 때마다 30% 확률로 [서리 운석] 1개를 시전하여 무작위 적에게 1단 얼음 피해를 입히고, 동시에 [냉동]을 발동합니다.",
+    "intensifyDes": "아군이 [실드]를 1개 생성할 때마다 50% 확률로 [서리 운석] 1개를 시전하여 무작위 적에게 1단 얼음 피해를 입히고, 동시에 [냉동]을 발동합니다.",
+    "effect": 12303349,
+    "intensifyEffect": 12303239,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500060,
+    "idCN": "05推力/捍卫/天赋3-高垒",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·장벽",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_GaoLei",
+    "des": "[튼튼한 성벽]이 모든 아군이 받는 피해의 25%를 방어합니다.",
+    "intensifyDes": "",
+    "effect": 12303224,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500061,
+    "idCN": "05推力/捍卫/蓝-职守",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·충실",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ZhiShou",
+    "des": "전투 시작 시, 모든 아군이 [실드]를 얻습니다. 실드의 내구도는 대상이 잃은 체력의 20%이며, 10초간 지속됩니다.",
+    "intensifyDes": "전투 시작 시, 모든 아군이 [실드]를 얻습니다. 실드의 내구도는 대상이 잃은 체력의 30%이며, 10초간 지속됩니다.",
+    "effect": 12303345,
+    "intensifyEffect": 12303237,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500062,
+    "idCN": "05推力/捍卫/金-星爆",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·성단",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_XingBao",
+    "des": "아군의 [실드]가 사라지거나 폭발할 때, 30% 확률로 [신성]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "intensifyDes": "아군의 [실드]가 사라지거나 폭발할 때, 50% 확률로 [신성]을 1장 생성하여 손으로 가져온 후 즉시 사용합니다.",
+    "effect": 12303229,
+    "intensifyEffect": 12303480,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500063,
+    "idCN": "05推力/捍卫/蓝-坚实",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·확고",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_JianShi",
+    "des": "모든 아군이 가진 [실드]의 내구도가 20% 증가합니다.",
+    "intensifyDes": "모든 아군이 가진 [실드]의 내구도가 30% 증가합니다.",
+    "effect": 12303340,
+    "intensifyEffect": 12303222,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500064,
+    "idCN": "05推力/捍卫/天赋1-永固",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·고정",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_YongGu",
+    "des": "아군이 가진 [실드]의 시간 제한이 해제됩니다.",
+    "intensifyDes": "",
+    "effect": 12303221,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500065,
+    "idCN": "05推力/回生/金-蓬勃",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·생기",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_PengBo",
+    "des": "그린카드를 낼 때, 해당 카드의 비용만큼 무작위 적에게 [작열]을 부여합니다.\\n그린카드를 버릴 때, 해당 카드의 비용만큼 무작위 적에게 [우레]를 부여합니다.",
+    "intensifyDes": "그린카드를 낼 때, 해당 카드의 비용만큼 무작위 적에게 [작열]을 부여합니다.\\n그린카드를 버릴 때, 해당 카드의 비용만큼 무작위 적에게 [우레]를 부여합니다.\\n그린카드를 획득할 때, 해당 카드의 비용만큼 무작위 적에게 [동상]을 부여합니다.",
+    "effect": 12303175,
+    "intensifyEffect": 12303293,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500066,
+    "idCN": "05推力/捍卫/紫-沉舟",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·결단",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ChenZhou",
+    "des": "전투 시작 시, 모든 아군이 현재 체력의 10%를 잃고, 내구도가 잃은 체력의 2배인 [실드]를 얻습니다.(20초간 지속)",
+    "intensifyDes": "전투 시작 시, 모든 아군이 현재 체력의 15%를 잃고, 내구도가 잃은 체력의 2배인 [실드]를 얻습니다.(30초간 지속)",
+    "effect": 12303350,
+    "intensifyEffect": 12303240,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500067,
+    "idCN": "05推力/回生/金-激化",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "회생·격화",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HuiSheng_JiHua",
+    "des": "[리더 스킬] 사용 시, 모든 아군의 체력을 5000 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "intensifyDes": "[리더 스킬] 사용 시, 모든 아군의 체력을 10000 회복하며, 체력 상한을 초과할 수 있습니다.",
+    "effect": 12303343,
+    "intensifyEffect": 12303227,
+    "correspondingTeam": 89700002,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500068,
+    "idCN": "05推力/捍卫/紫-巍峙",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·위엄",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_WeiZhi",
+    "des": "아군이 [실드]를 가지고 있을 때, 입히는 최종 피해가 15% 증가합니다.",
+    "intensifyDes": "아군이 [실드]를 가지고 있을 때, 입히는 최종 피해가 25% 증가합니다.",
+    "effect": 12303359,
+    "intensifyEffect": 12303243,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500069,
+    "idCN": "05推力/捍卫/蓝-补济",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·보급",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_BuJi",
+    "des": "임의 아군이 [실드]를 얻을 때, 체력을 3% 회복하고, 동시에 비용을 0.15 얻습니다.",
+    "intensifyDes": "임의 아군이 [실드]를 얻을 때, 체력을 5% 회복하고, 동시에 비용을 0.25 얻습니다.",
+    "effect": 12303338,
+    "intensifyEffect": 12303230,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500070,
+    "idCN": "05推力/捍卫/紫-压阵",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·제압",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_YaZhen",
+    "des": "[버리기] 명령 사용 시, 앞열의 아군이 [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 20%이며, 10초간 지속됩니다.",
+    "intensifyDes": "[버리기] 명령 사용 시, 모든 아군이 [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 20%이며, 10초간 지속됩니다.",
+    "effect": 12303346,
+    "intensifyEffect": 12303242,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500071,
+    "idCN": "05推力/捍卫/紫-岿固",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·굳건",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_KuiGu",
+    "des": "아군이 [실드]를 가지고 있을 때, 받는 최종 피해가 15% 감소합니다.",
+    "intensifyDes": "아군이 [실드]를 가지고 있을 때, 받는 최종 피해가 25% 감소합니다.",
+    "effect": 12303360,
+    "intensifyEffect": 12303238,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500073,
+    "idCN": "05推力/捍卫/天赋5-决绝",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·단호",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_JueJue",
+    "des": "아군이 [무적] 상태일 경우, 매초 무작위 적에게 현재 [부압]의 100%만큼 1단 음에너지 피해를 입힙니다.",
+    "intensifyDes": "",
+    "effect": 12303225,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500074,
+    "idCN": "05推力/捍卫/天赋4-不朽",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·불후",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_BuXiu",
+    "des": "임의 아군의 체력이 20%보다 낮을 경우, [부압]을 20000포인트 소모하여 무작위 아군 1명에게 [무적]을 2초간 부여합니다. [부압]이 부족하면 발동되지 않으며, 발동 간격은 6초입니다.",
+    "intensifyDes": "",
+    "effect": 12303337,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500075,
+    "idCN": "05推力/捍卫/天赋2-护心",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·결심",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_HuXin",
+    "des": "임의 아군이 빈사 시, 현재 [부압]의 50%를 소모하여 동일한 수치의 내구도를 가진 [음에너지 실드]를 얻습니다.(발동 간격 12초)\\n[음에너지 실드]가 사라질 때, 모든 적에게 현재 [부압]의 500%만큼 음에너지 피해를 입힙니다.",
+    "intensifyDes": "",
+    "effect": 12303334,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500076,
+    "idCN": "05推力/捍卫/金-磅礴",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·압도",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_PangBo",
+    "des": "가지고 있는 [추력] 1개당 모든 아군의 방어력이 15 증가합니다.",
+    "intensifyDes": "가지고 있는 [추력] 1개당 모든 아군의 방어력이 25 증가합니다.",
+    "effect": 12303219,
+    "intensifyEffect": 12303228,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500077,
+    "idCN": "05推力/捍卫/紫-守御",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·방어",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ShouYu",
+    "des": "[리더 스킬] 사용 시, 체력이 가장 낮은 아군 1명이 [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 10%이며, 10초간 지속됩니다.",
+    "intensifyDes": "[리더 스킬] 사용 시, 체력이 가장 낮은 아군 1명이 [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 20%이며, 10초간 지속됩니다.",
+    "effect": 12303351,
+    "intensifyEffect": 12303218,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500078,
+    "idCN": "05推力/捍卫/蓝-执锐",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·무장",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ZhiRui",
+    "des": "블루카드를 낼 때, 모든 아군의 공격력이 0.5% 증가합니다.",
+    "intensifyDes": "블루카드를 낼 때, 모든 아군의 공격력이 1% 증가합니다.",
+    "effect": 12303348,
+    "intensifyEffect": 12303236,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500079,
+    "idCN": "05推力/捍卫/蓝-据守",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·수비",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_JuShou",
+    "des": "임의 아군의 체력이 50%보다 낮을 경우, [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 20%이며, 10초간 지속됩니다.(한 명당 1회)",
+    "intensifyDes": "임의 아군의 체력이 50%보다 낮을 경우, [실드]를 얻습니다. 실드의 내구도는 대상의 최대 체력의 30%이며, 10초간 지속됩니다.(한 명당 1회)",
+    "effect": 12303339,
+    "intensifyEffect": 12303231,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500080,
+    "idCN": "05推力/捍卫/蓝-披坚",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·철갑",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_PiJian",
+    "des": "레드카드를 낼 때, 모든 아군의 방어력이 0.5% 증가합니다.",
+    "intensifyDes": "레드카드를 낼 때, 모든 아군의 방어력이 1% 증가합니다.",
+    "effect": 12303347,
+    "intensifyEffect": 12303223,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500150,
+    "idCN": "局外技能/战斗/03-1生命值提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지속의 갈망 Ⅰ",
+    "des": "모든 아군의 체력이 3000 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Sheng",
+    "skillEffect": 89900094,
+    "preSkillList": [
+      {
+        "id": 89500035
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500149,
+    "idCN": "局外技能/战斗/02-3防御力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지키려는 마음 Ⅲ",
+    "des": "모든 아군의 방어력이 80 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Fang",
+    "skillEffect": 89900093,
+    "preSkillList": [
+      {
+        "id": 89500082
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500148,
+    "idCN": "局外技能/战斗/02-2防御力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지키려는 마음 Ⅱ",
+    "des": "모든 아군의 방어력이 50 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Fang",
+    "skillEffect": 89900092,
+    "preSkillList": [
+      {
+        "id": 89500081
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500147,
+    "idCN": "局外技能/战斗/01-3攻击力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "탐구의 욕망 Ⅲ",
+    "des": "모든 아군의 공격력이 80 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Gong",
+    "skillEffect": 89900091,
+    "preSkillList": [
+      {
+        "id": 89500082
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500146,
+    "idCN": "局外技能/战斗/01-2攻击力提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "탐구의 욕망 Ⅱ",
+    "des": "모든 아군이 공격력이 50 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Gong",
+    "skillEffect": 89900076,
+    "preSkillList": [
+      {
+        "id": 89500081
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500145,
+    "idCN": "局外技能/机制/08行动回合上限1",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "고난의 연속 Ⅰ",
+    "des": "[무의식 잠수]의 최대 행동 턴 수가 1 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Reng",
+    "skillEffect": 89900099,
+    "preSkillList": [
+      {
+        "id": 89500146
+      },
+      {
+        "id": 89500148
+      },
+      {
+        "id": 89500151
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500144,
+    "idCN": "局外技能/机制/11解锁刷新",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "전심전력",
+    "des": "[추력] 선택 시 50포인트의 [더스트]를 사용해 1회 갱신할 수 있습니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Wu",
+    "skillEffect": 89900026,
+    "preSkillList": [
+      {
+        "id": 89500159
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500162,
+    "idCN": "局外技能/机制/12代币获取增加",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "길운",
+    "des": "추가로 10%의 [더스트]를 획득합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_JiYun",
+    "skillEffect": 89900035,
+    "preSkillList": [
+      {
+        "id": 89500021
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500161,
+    "idCN": "局外技能/机制/10行动回合上限2",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "고난의 연속 Ⅱ",
+    "des": "[무의식 잠수]의 최대 행동 턴 수가 1 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Reng",
+    "skillEffect": 89900099,
+    "preSkillList": [
+      {
+        "id": 89500160
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500160,
+    "idCN": "局外技能/机制/09初始代币",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "잉여",
+    "des": "[무의식 잠수] 시작 시, 50포인트의 [더스트]를 획득합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Yu",
+    "skillEffect": 89900020,
+    "preSkillList": [
+      {
+        "id": 89500027
+      },
+      {
+        "id": 89500163
+      },
+      {
+        "id": 89500169
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500159,
+    "idCN": "局外技能/机制/07初始道具",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "철벽방어",
+    "des": "[무의식 잠수] 시작 시, [직감·초월]을 획득합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_YanZheng",
+    "skillEffect": 89900023,
+    "preSkillList": [
+      {
+        "id": 89500155
+      },
+      {
+        "id": 89500156
+      },
+      {
+        "id": 89500157
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500157,
+    "idCN": "局外技能/战斗/09负能伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·음에너지",
+    "des": "모든 아군이 입히는 음에너지 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_FuNeng",
+    "skillEffect": 89900084,
+    "preSkillList": [
+      {
+        "id": 89500154
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500155,
+    "idCN": "局外技能/战斗/07物理伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·물리",
+    "des": "모든 아군이 입히는 물리 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_WuLi",
+    "skillEffect": 89900082,
+    "preSkillList": [
+      {
+        "id": 89500153
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500154,
+    "idCN": "局外技能/战斗/06冰冻伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·얼음",
+    "des": "모든 아군이 입히는 얼음 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Bing",
+    "skillEffect": 89900081,
+    "preSkillList": [
+      {
+        "id": 89500161
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500153,
+    "idCN": "局外技能/战斗/04电磁伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·전자기",
+    "des": "모든 아군이 입히는 전자기 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Dian",
+    "skillEffect": 89900079,
+    "preSkillList": [
+      {
+        "id": 89500161
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500152,
+    "idCN": "局外技能/战斗/03-3生命值提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지속의 갈망 Ⅲ",
+    "des": "모든 아군의 체력이 8000 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Sheng",
+    "skillEffect": 89900095,
+    "preSkillList": [
+      {
+        "id": 89500082
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500151,
+    "idCN": "局外技能/战斗/03-2生命值提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "지속의 갈망 Ⅱ",
+    "des": "모든 아군의 체력이 5000 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Sheng",
+    "skillEffect": 89900027,
+    "preSkillList": [
+      {
+        "id": 89500081
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500156,
+    "idCN": "局外技能/战斗/08混响伤害提高",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "응축·잔향",
+    "des": "모든 아군이 입히는 잔향 피해가 20% 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Hun",
+    "skillEffect": 89900083,
+    "preSkillList": [
+      {
+        "id": 89500030
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500158,
+    "idCN": "局外技能/机制/06解锁额外buff8",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "굳은 결심 Ⅴ",
+    "des": "동일 전술의 추력 8개 획득 시, 해당 전술의 공명 특성5가 활성화됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Shi_5",
+    "skillEffect": 89900025,
+    "preSkillList": [
+      {
+        "id": 89500025
+      },
+      {
+        "id": 89500028
+      },
+      {
+        "id": 89500150
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500163,
+    "idCN": "局外技能/战斗/00-2抽卡cd",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "순환·드로우",
+    "des": "손패 보충 쿨타임이 0.5초 감소합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_ChouKa",
+    "skillEffect": 89900085,
+    "preSkillList": [
+      {
+        "id": 89500162
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500009,
+    "idCN": "05推力/盈缺/紫-星沉",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·하락",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_XingChen",
+    "des": "임의 아군 1명의 체력이 50%보다 낮을 경우, 체력을 50% 회복시키고, 동시에 카드를 3장 뽑습니다(손패 상한 초과 가능). 뽑은 카드의 비용을 합한 만큼 [비술의 운석]을 시전하고, [비술의 운석] 1개당 무작위 적에게 1단 잔향 피해를 입힙니다.(1회 한정)",
+    "intensifyDes": "임의 아군의 체력이 50%보다 낮을 경우, 체력을 100% 회복시키고(체력 상한 초과 가능), 동시에 카드를 3장 뽑습니다(손패 상한 초과 가능). 뽑은 카드의 비용을 합한 만큼 [비술의 운석]을 시전하고, [비술의 운석] 1개당 무작위 적에게 1단 잔향 피해를 입힙니다.(1회 한정)",
+    "effect": 12303312,
+    "intensifyEffect": 12303186,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500020,
+    "idCN": "05推力/盈缺/紫-月晕",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·달무리",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_YueYun",
+    "des": "카드를 1장 버릴 때마다 무작위 아군 1명의 방어력이 0.3% 증가합니다.(최대 30%)",
+    "intensifyDes": "카드를 1장 버릴 때마다 무작위 아군 1명의 방어력이 0.5% 증가합니다.(최대 50%)",
+    "effect": 12303313,
+    "intensifyEffect": 12303197,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500041,
+    "idCN": "05推力/盈缺/紫-环食",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·금환일식",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_HuanShi",
+    "des": "버려진 덱에 있는 카드 1장당 모든 아군이 입히는 최종 피해가 0.5% 증가합니다.(최대 50%)",
+    "intensifyDes": "버려진 덱에 있는 카드 1장당 모든 아군이 입히는 최종 피해가 1% 증가합니다.(최대 50%)",
+    "effect": 12303310,
+    "intensifyEffect": 12303198,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500072,
+    "idCN": "05推力/盈缺/金-助澜",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·조력",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_ZhuLan",
+    "des": "가지고 있는 [추력] 1개당 모든 아군의 공격력이 15 증가합니다.",
+    "intensifyDes": "가지고 있는 [추력] 1개당 모든 아군의 공격력이 25 증가합니다.",
+    "effect": 12303311,
+    "intensifyEffect": 12303203,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500164,
+    "idCN": "05推力/盈缺/金-全食",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "천체·개기일식",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YingQue_QuanShi",
+    "des": "아군의 체력 비율이 낮을수록 입히는/받는 최종 피해가 높아/낮아집니다.(최대 40%)",
+    "intensifyDes": "아군의 체력 비율이 낮을수록 입히는/받는 최종 피해가 높아/낮아집니다.(최대 60%)",
+    "effect": 12303199,
+    "intensifyEffect": 12303318,
+    "correspondingTeam": 89700001,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500007,
+    "idCN": "05推力/捍卫/金-峥嵘",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·웅장",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ZhengRong",
+    "des": "아군의 [실드]가 공격을 받을 때마다, [실드] 내구도의 30%만큼 피해를 반사합니다.",
+    "intensifyDes": "아군의 [실드]가 공격을 받을 때마다, [실드] 내구도의 50%만큼 피해를 반사합니다.",
+    "effect": 12303522,
+    "intensifyEffect": 12303523,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500165,
+    "idCN": "05推力/捍卫/金-涓流",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·물결",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_JuanLiu",
+    "des": "아군이 가지고 있는 [실드] 1개당 매초 비용을 0.03 얻습니다.",
+    "intensifyDes": "아군이 가지고 있는 [실드] 1개당 매초 비용을 0.05 얻습니다.",
+    "effect": 12303524,
+    "intensifyEffect": 12303525,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500166,
+    "idCN": "05推力/捍卫/金-披荆",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·극복",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_PiJing",
+    "des": "임의 아군이 [실드]를 얻을 때 방어력이 0.5% 증가합니다.",
+    "intensifyDes": "임의 아군이 [실드]를 얻을 때 방어력이 1% 증가합니다.",
+    "effect": 12303526,
+    "intensifyEffect": 12303527,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500167,
+    "idCN": "05推力/捍卫/金-斩棘",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "수호·개척",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_ZhanJi",
+    "des": "임의 아군이 [실드]를 얻을 때 공격력이 0.5% 증가합니다.",
+    "intensifyDes": "임의 아군이 [실드]를 얻을 때 공격력이 1% 증가합니다.",
+    "effect": 12303528,
+    "intensifyEffect": 12303529,
+    "correspondingTeam": 89700003,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500169,
+    "idCN": "局外技能/战斗/00-3弃牌cd",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "순환·버리기",
+    "des": "[버기리] 명령의 쿨타임이 2초 감소합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_QiPai",
+    "skillEffect": 89900086,
+    "preSkillList": [
+      {
+        "id": 89500162
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500170,
+    "idCN": "压力技能/忿火",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "격분",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/chahuo",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/chahuo",
+    "des": "모든 적이 입히는 최종 피해가 20% 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900179
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500171,
+    "idCN": "压力技能/铁骨",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "강골",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/tiegu",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/tiegu",
+    "des": "모든 적이 받는 최종 피해가 20% 감소합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900180
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500172,
+    "idCN": "压力技能/威压",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "위압",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/weiya",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/weiya",
+    "des": "[플레인 특이점]과 전투할 때, 아군이 전투 시작 시 [리더 스킬]을 사용할 수 없습니다.(20초간 지속)",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900183
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500173,
+    "idCN": "压力技能/焦灼",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "초조",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/jiaozhuo",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/jiaozhuo",
+    "des": "모든 적의 [일반 공격] 공격 속도가 50% 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900181
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500174,
+    "idCN": "压力技能/束缚",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "구속",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/shufu",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/shufu",
+    "des": "[버리기] 명령을 사용할 수 없으며, 손패 보충 쿨타임이 1초 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900186
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500175,
+    "idCN": "压力技能/荡涤",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "세척",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/dangdi",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/dangdi",
+    "des": "6초마다 1회 발동하며, 모든 적을 [정화]시킵니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900187
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500176,
+    "idCN": "压力技能/不息",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "불멸",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/buxi",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/buxi",
+    "des": "6초마다 1회 발동하며, 모든 적의 체력을 2% 회복합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900188
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500177,
+    "idCN": "压力技能/无余",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "빈손",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/wuyu",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/wuyu",
+    "des": "전투 시작 시 비용을 5 잃습니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900189
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500178,
+    "idCN": "压力技能/蛮悍",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "강직",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/manhan",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/manhan",
+    "des": "전투 시작 시 모든 적이 [슈퍼아머]를 20초간 얻습니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900182
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500179,
+    "idCN": "压力技能/散逸",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "분산",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/sanyi",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/sanyi",
+    "des": "[리더 스킬]을 사용할 때마다 비용이 2 감소합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900190
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500180,
+    "idCN": "压力技能/泄流",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "방출",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/xieliu",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/xieliu",
+    "des": "매초 비용을 0.2 잃습니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900191
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500181,
+    "idCN": "压力技能/绝命",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "절명",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/jueming",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/jueming",
+    "des": "[파티원 부활] 기능을 사용할 수 없으며, 모든 아군의 최대 체력이 20% 감소합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900184
+      },
+      {
+        "id": 89900185
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500031,
+    "idCN": "压力技能/不菲",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "등귀",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/bufei",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/bufei",
+    "des": "[무휴의 상점]의 모든 상품 가격이 20% 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900192
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500032,
+    "idCN": "压力技能/匮竭",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "고갈",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/kuijie",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/kuijie",
+    "des": "[직감]의 최대 보유량이 2개로 감소합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900195
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500033,
+    "idCN": "压力技能/耗散",
+    "mod": "压力技能",
+    "isInformalData": false,
+    "name": "소진",
+    "iconPath": "UI/CubeRogue/DescentIcon/180/haosan",
+    "tipsPath": "UI/CubeRogue/DescentIcon/500/haosan",
+    "des": "추력 강화 시, 필요한 [더스트] 수량이 20% 증가합니다.",
+    "rogueId": 89400002,
+    "buffList": [
+      {
+        "id": 89900193
+      }
+    ],
+    "startTime": "",
+    "endTime": "",
+    "descent": 10
+  },
+  {
+    "id": 89500122,
+    "idCN": "05推力/源流/天赋1-迸涌",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·분사",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_BengYong",
+    "des": "카드를 사용하여 비용을 3 소모할 때마다 [침식탄]을 1개 시전하여 무작위 적에게 1단 음에너지 피해를 입히고,동시에 [부식]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303618,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700006,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500123,
+    "idCN": "05推力/源流/天赋2-沸天",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·비등",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_FeiTian",
+    "des": "카드를 5장 획득할 때마다 [태초의 불]을 시전하여 모든 적에게 1단 화염 피해를 입히고, 동시에 [작열]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303621,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700006,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500124,
+    "idCN": "05推力/源流/天赋3-震天",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·뇌명",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_ZhenTian",
+    "des": "버려진 덱에 카드가 5장 추가될 때마다 [개천의 번개]를 시전하여 모든 적에게 1단 전자기 피해를 입히고, 동시에 [우레]를 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303620,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700006,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500125,
+    "idCN": "05推力/源流/天赋4-凝天",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·응결",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_NingTian",
+    "des": "덱에 카드가 5장 감소될 때마다 [고대의 얼음]을 시전하여 모든 적에게 1단 얼음 피해를 입히고, 동시에 [동상]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303619,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700006,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500126,
+    "idCN": "05推力/源流/天赋5-倾泻",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·폭포",
+    "quality": "Orange",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_QingXie",
+    "des": "덱의 카드가 전부 뽑혀 셔플이 발동될 때마다 카드를 3장 뽑으며, 손패 상한을 초과할 수 있습니다. 뽑은 카드의 비용을 합만 수만큼 [침식탄]을 시전하여 1개당 무작위 적에게 1단 음에너지 피해를 입히고, 동시에 [융해]/[부식]을 발동합니다.",
+    "intensifyDes": "",
+    "effect": 12303622,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700006,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  },
+  {
+    "id": 89500127,
+    "idCN": "05推力/源流/蓝-涌现",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·배출",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_YongXian",
+    "des": "비용 상한이 1 증가하고, 전투 시작 시 비용을 1 얻습니다.",
+    "intensifyDes": "비용 상한이 2 증가하고, 전투 시작 시 비용을 2 얻습니다.",
+    "effect": 12303623,
+    "intensifyEffect": 12303599,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500128,
+    "idCN": "05推力/源流/蓝-奔流",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·하천",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_BenLiu",
+    "des": "손패 보충 쿨타임이 15% 감소합니다.",
+    "intensifyDes": "손패 보충 쿨타임이 25% 감소합니다.",
+    "effect": 12303624,
+    "intensifyEffect": 12303600,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500129,
+    "idCN": "05推力/源流/蓝-洄游",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·회유",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_HuiYou",
+    "des": "옐로카드를 낼 때, 비용을 0.3 얻습니다.",
+    "intensifyDes": "옐로카드를 낼 때, 비용을 0.5 얻습니다.",
+    "effect": 12303625,
+    "intensifyEffect": 12303601,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500130,
+    "idCN": "05推力/源流/蓝-湍流",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·급류",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_TuanLiu",
+    "des": "모든 레드카드의 비용이 1 증가하고, 레드카드가 입히는 피해가 50% 증가합니다.(필살기 제외)",
+    "intensifyDes": "모든 레드카드의 비용이 1 증가하고, 레드카드가 입히는 피해가 80% 증가합니다.(필살기 제외)",
+    "effect": 12303630,
+    "intensifyEffect": 12303606,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500131,
+    "idCN": "05推力/源流/蓝-涡旋",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·회오리",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_WoXuan",
+    "des": "파생 카드의 비용이 1 증가하고, 사용하거나 버릴 때 비용을 0.5 얻습니다.",
+    "intensifyDes": "파생 카드의 비용이 1 증가하고, 사용하거나 버릴 때 비용을 1 얻습니다.",
+    "effect": 12303627,
+    "intensifyEffect": 12303603,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500132,
+    "idCN": "05推力/源流/蓝-漫溢",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·만연",
+    "quality": "Blue",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_ManYi",
+    "des": "덱의 카드가 전부 뽑혀 셔플이 발동될 때마다 비용을 1 얻습니다.",
+    "intensifyDes": "덱의 카드가 전부 뽑혀 셔플이 발동될 때마다 비용을 2 얻습니다.",
+    "effect": 12303628,
+    "intensifyEffect": 12303604,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 50
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500133,
+    "idCN": "05推力/源流/紫-潆洄",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·순환",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_YingHui",
+    "des": "카드를 1장 버릴 때마다 비용을 0.1 얻습니다.",
+    "intensifyDes": "카드를 1장 버릴 때마다 비용을 0.2 얻습니다.",
+    "effect": 12303626,
+    "intensifyEffect": 12303602,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500134,
+    "idCN": "05推力/源流/紫-洪流",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·격류",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_HongLiu",
+    "des": "레드카드를 낼 때, 가지고 있는 비용 1당 입히는 피해가 3% 증가합니다.",
+    "intensifyDes": "레드카드를 낼 때, 가지고 있는 비용 1당 입히는 피해가 5% 증가합니다.",
+    "effect": 12303636,
+    "intensifyEffect": 12303612,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500135,
+    "idCN": "05推力/源流/紫-迭起",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·연속",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_DieQi",
+    "des": "카드를 사용하여 비용을 9 소모할 때마다 카드를 1장 뽑습니다.",
+    "intensifyDes": "카드를 사용하여 비용을 6 소모할 때마다 카드를 1장 뽑습니다.",
+    "effect": 12303631,
+    "intensifyEffect": 12303607,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500136,
+    "idCN": "05推力/源流/紫-渠成",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·성취",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_QuCheng",
+    "des": "손에 있는 카드가 7장일 때, 즉시 [버리기] 명령을 활성화합니다.",
+    "intensifyDes": "손에 있는 카드가 5장일 때, 즉시 [버리기] 명령을 활성화합니다.",
+    "effect": 12303632,
+    "intensifyEffect": 12303608,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500137,
+    "idCN": "05推力/源流/紫-决堤",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·홍수",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_JueDi",
+    "des": "카드를 사용하여 비용을 9 소모할 때마다 모든 아군의 공격력이 1% 증가합니다.",
+    "intensifyDes": "카드를 사용하여 비용을 6 소모할 때마다 모든 아군의 공격력이 1% 증가합니다.",
+    "effect": 12303633,
+    "intensifyEffect": 12303609,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500138,
+    "idCN": "05推力/源流/紫-洋溢",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·풍족",
+    "quality": "Purple",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_YangYi",
+    "des": "카드를 1장 사용할 때마다 비용을 0.1 얻습니다.",
+    "intensifyDes": "카드를 1장 사용할 때마다 비용을 0.2 얻습니다.",
+    "effect": 12303634,
+    "intensifyEffect": 12303610,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 75
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500139,
+    "idCN": "05推力/源流/金-汹涌",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·요동",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_XiongYong",
+    "des": "가지고 있는 [추력] 1개당 매초 비용을 0.02 얻습니다.",
+    "intensifyDes": "가지고 있는 [추력] 1개당 매초 비용을 0.03 얻습니다.",
+    "effect": 12303635,
+    "intensifyEffect": 12303611,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500140,
+    "idCN": "05推力/源流/金-激涌",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·분출",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_JiYong",
+    "des": "아군이[중단]/[기절]/[넉백]/[에어본]/[튕김]/[격파]/[참열]/[열상]/[화상]/[붕괴]/[중상]을 부여할 때 비용을 0.05 얻습니다.",
+    "intensifyDes": "아군이[중단]/[기절]/[넉백]/[에어본]/[튕김]/[격파]/[참열]/[열상]/[화상]/[붕괴]/[중상]을 부여할 때 비용을 0.1 얻습니다.",
+    "effect": 12303629,
+    "intensifyEffect": 12303605,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500141,
+    "idCN": "05推力/源流/金-溯源",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·추적",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_SuYuan",
+    "des": "손패 상한이 1 증가하고, 전투 시작 시 카드를 1장 뽑습니다.",
+    "intensifyDes": "손패 상한이 2 증가하고, 전투 시작 시 카드를 2장 뽑습니다.",
+    "effect": 12303637,
+    "intensifyEffect": 12303613,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500142,
+    "idCN": "05推力/源流/金-怒涛",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·파도",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_NuTao",
+    "des": "전투 시작 시 모든 비용을 소모하고, 소모한 비용 1당 모든 아군이 입히는 최종 피해가 2% 증가합니다.",
+    "intensifyDes": "전투 시작 시 모든 비용을 소모하고, 소모한 비용 1당 모든 아군이 입히는 최종 피해가 3% 증가합니다.",
+    "effect": 12303638,
+    "intensifyEffect": 12303614,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500143,
+    "idCN": "05推力/源流/金-狂潮",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·폭풍",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_KuangChao",
+    "des": "가지고 있는 비용 1당 모든 아군이 입히는 최종 피해가 2% 증가합니다.",
+    "intensifyDes": "가지고 있는 비용 1당 모든 아군이 입히는 최종 피해가 3% 증가합니다.",
+    "effect": 12303639,
+    "intensifyEffect": 12303615,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500182,
+    "idCN": "05推力/源流/金-横溢",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "원천·범람",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/YuanLiu_HengYi",
+    "des": "[리더 스킬] 사용 시 비용을 0.5 얻습니다.",
+    "intensifyDes": "[리더 스킬] 사용 시 비용을 1 얻습니다.",
+    "effect": 12303640,
+    "intensifyEffect": 12303616,
+    "correspondingTeam": 89700006,
+    "intensifyList": [
+      {
+        "id": 11400607,
+        "num": 100
+      }
+    ],
+    "rogueId": 89400002,
+    "isSpecial": false
+  },
+  {
+    "id": 89500021,
+    "idCN": "局外技能/机制/13直觉存放容量增加",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "철벽방어 Ⅰ",
+    "des": "[직감]의 슬롯이 1칸 늘어납니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_JiYun",
+    "skillEffect": 89900066,
+    "preSkillList": [
+      {
+        "id": 89500147
+      },
+      {
+        "id": 89500149
+      },
+      {
+        "id": 89500152
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500081,
+    "idCN": "局外技能/机制/14解锁觉醒",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "통찰",
+    "des": "[플레인의 틈]에 도달 시, [파티원 각성] 기능이 오픈됩니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_Cun",
+    "skillEffect": 89900114,
+    "preSkillList": [
+      {
+        "id": 89500158
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500082,
+    "idCN": "局外技能/机制/15招募人员增加",
+    "mod": "局外技能",
+    "isInformalData": false,
+    "name": "통찰",
+    "des": "[무의식 잠수] 시작 시, 모집 가능한 파티원 수가 1명 증가합니다.",
+    "iconPath": "UI/CubeRogue/Skill/Icon/Icon_YanZheng",
+    "skillEffect": 89900115,
+    "preSkillList": [
+      {
+        "id": 89500036
+      }
+    ],
+    "rogueId": 89400002
+  },
+  {
+    "id": 89500083,
+    "idCN": "测试",
+    "mod": "局内Buff",
+    "isInformalData": false,
+    "name": "테스트",
+    "quality": "Golden",
+    "iconPath": "UI/CubeRogue/TacticsIcon/SkillIcon/HanWei_PangBo",
+    "des": "",
+    "intensifyDes": "",
+    "effect": 12303587,
+    "intensifyEffect": -1,
+    "correspondingTeam": 89700003,
+    "intensifyList": [],
+    "rogueId": 89400002,
+    "isSpecial": true
+  }
+]
