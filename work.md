@@ -35,6 +35,7 @@ plot\m3\
 
 ### 2.2 추출 방식
 
+* https://github.com/RazTools/Studio/releases
 1. UnityCN 지원 툴 실행
 2. 게임 선택: **Resonance (UnityCN Key 자동 적용)**
 3. 폴더 단위로 Import (개별 .asset 선택 ❌)
