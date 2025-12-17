@@ -3360,6 +3360,34 @@
         "sellQuotationMinDown": 0.8,
         "sellQuotationMinUp": 0.95,
         "sellStationList": 86100080
+      },
+      {
+        "buyQuotationMaxDown": 1,
+        "buyQuotationMaxUp": 1.2,
+        "buyQuotationMinDown": 0.5,
+        "buyQuotationMinUp": 0.65,
+        "buyStationList": 86100087,
+        "goodsId": 82900002,
+        "reversalProbability": 86100096,
+        "sellQuotationMaxDown": 1.35,
+        "sellQuotationMaxUp": 1.5,
+        "sellQuotationMinDown": 0.8,
+        "sellQuotationMinUp": 0.95,
+        "sellStationList": 86100088
+      },
+      {
+        "buyQuotationMaxDown": 1,
+        "buyQuotationMaxUp": 1.2,
+        "buyQuotationMinDown": 0.5,
+        "buyQuotationMinUp": 0.65,
+        "buyStationList": 86100463,
+        "goodsId": 82900131,
+        "reversalProbability": 86100096,
+        "sellQuotationMaxDown": 1.35,
+        "sellQuotationMaxUp": 1.5,
+        "sellQuotationMinDown": 0.8,
+        "sellQuotationMinUp": 0.95,
+        "sellStationList": 86100464
       }
     ],
     "RareTradeData": [],
@@ -10337,9 +10365,9 @@
     "idCN": "肉鸽事件/事件选项/废弃车站/下意识到走到交易所",
     "mod": "选项功能",
     "isInformalData": false,
-    "optionName": "거래소를 향해 걸어간다.",
+    "optionName": "下意识到走到交易所",
     "optionDes": "50~100포인트의 [더스트]를 획득한다.",
-    "endDes": "거래소 안에는 바삐 움직이는 견습생도, 항상 자리를 지키던 피쉬도 없었다.",
+    "endDes": "交易所里没有跑来跑去的“黄金坞”，也没有坐镇全场的娃娃鱼，只有大厅中央散落着的些许微尘。",
     "isFinishEvent": false,
     "optionFuncList": [
       {
@@ -10352,9 +10380,9 @@
     "idCN": "肉鸽事件/事件选项/废弃车站/寻找补给",
     "mod": "选项功能",
     "isInformalData": false,
-    "optionName": "보급품을 찾는다",
+    "optionName": "寻找补给",
     "optionDes": "현재 행동 턴의 이동 횟수가 1 증가한다.",
-    "endDes": "휴게소의 시설은 잘 갖춰져 있었지만, 오랫동안 사용하지 않아 먼지가 쌓여 있었다. 당신은 음식을 챙기고 휴게실에서 한잠 푹 잤다. 다시 눈을 떴을 때, 당신은 원래의 통로로 돌아와 있었다.",
+    "endDes": "休息区的设备十分完整，只是由于久未使用而落满了灰尘。你找到了一些食物，在休息区好好睡了一觉。再次睁开眼睛时，你又回到了原来的通道中。",
     "isFinishEvent": false,
     "optionFuncList": [
       {
@@ -10367,9 +10395,9 @@
     "idCN": "肉鸽事件/事件选项/废弃车站/这是家吗？",
     "mod": "选项功能",
     "isInformalData": false,
-    "optionName": "여긴 집일까?",
+    "optionName": "这是家吗？",
     "optionDes": "무작위 <color=#956bf5>보라색</color> [추력]을 1개 획득한다.",
-    "endDes": "어쩐지, 이 역은 묘하게 익숙한 느낌을 주었다. 당신은 꿈속에서 본 적 있는 역을 머릿속으로 그려봤다. 그러나 판단을 내리기도 전에, 주변의 환상은 곧 사라지고, 당신은 다시 통로 속으로 돌아왔다.",
+    "endDes": "不知为何，这个车站给人一种令人熟悉的感觉。你将曾在梦中见过的车站在脑海中描绘……然而，不等你判断，周围的幻象很快消散了，你又回到了通道之中。",
     "isFinishEvent": false,
     "optionFuncList": [
       {
@@ -13600,7 +13628,7 @@
         "isBoss": true
       },
       {
-        "id": 10000641,
+        "id": 10000452,
         "isBoss": true
       }
     ]
@@ -13684,7 +13712,7 @@
     "isInformalData": false,
     "rewardsList": [
       {
-        "id": 11400365,
+        "id": 11400903,
         "num": 1
       }
     ]
@@ -19840,6 +19868,73 @@
       {
         "id": 85500269,
         "num": 1
+      }
+    ]
+  },
+  {
+    "id": 86100463,
+    "idCN": "城市列表/黄金周/岚心城/买入",
+    "mod": "城市列表",
+    "isInformalData": false,
+    "stationList": [
+      {
+        "id": 83000006
+      }
+    ]
+  },
+  {
+    "id": 86100464,
+    "idCN": "城市列表/黄金周/岚心城/卖出",
+    "mod": "城市列表",
+    "isInformalData": false,
+    "stationList": [
+      {
+        "id": 83000010
+      },
+      {
+        "id": 83000029
+      },
+      {
+        "id": 83000014
+      },
+      {
+        "id": 83000052
+      },
+      {
+        "id": 83000002
+      },
+      {
+        "id": 83000003
+      },
+      {
+        "id": 83000053
+      },
+      {
+        "id": 83000004
+      },
+      {
+        "id": 83000026
+      },
+      {
+        "id": 83000001
+      },
+      {
+        "id": 83000012
+      },
+      {
+        "id": 83000017
+      },
+      {
+        "id": 83000030
+      },
+      {
+        "id": 83000023
+      },
+      {
+        "id": 83000018
+      },
+      {
+        "id": 83000020
       }
     ]
   }

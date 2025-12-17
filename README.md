@@ -61,7 +61,7 @@ pnpm add @tsuk1ko/rsns-unpack
 `reso_db` 루트에서 실행:
 
 ```bat
-pnpm exec rsns-unpack .\public\data .\public\data\KR
+pnpm exec rsns-unpack .\public\data\CN .\public\data\KR
 ```
 
 - `public/data` : 원본 게임 데이터
@@ -74,7 +74,7 @@ pnpm exec rsns-unpack .\public\data .\public\data\KR
 번역 파일을 이용해 한국어가 적용된 JSON 파일을 생성합니다.
 
 ```bat
-python script/apply_ko_translation.py
+python scripts/apply_kr_translation.py
 ```
 
 ---

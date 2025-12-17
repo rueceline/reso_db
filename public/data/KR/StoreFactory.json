@@ -173,10 +173,6 @@
         "weight": 1
       },
       {
-        "id": 40200454,
-        "weight": 1
-      },
-      {
         "id": 40200714,
         "weight": 1
       },
@@ -4123,9 +4119,11 @@
     "shopList": [],
     "recommendList": [
       {
+        "andPath": "",
         "comSequence": 1,
         "funcId": 4294967295,
         "id": 82100020,
+        "iosPath": "",
         "isBattlePass": false,
         "name": "크리스탈 트리 재배 키트",
         "otherUI": "",
@@ -4136,9 +4134,11 @@
         "type": "Buy"
       },
       {
+        "andPath": "",
         "comSequence": 1,
         "funcId": 100,
         "id": -1,
+        "iosPath": "",
         "isBattlePass": true,
         "name": "새벽 여정",
         "otherUI": "UI/BP_Quest/BattlePass_Quest",
@@ -4152,28 +4152,45 @@
         "andPath": "",
         "comSequence": 1,
         "funcId": 4294967295,
-        "id": 82101559,
+        "id": 82101609,
         "iosPath": "",
         "isBattlePass": false,
-        "name": "예술의 거장",
+        "name": "무한 보급 패키지",
         "otherUI": "",
-        "png": "UI/Store/Store_big_skin30",
-        "sequence": 4,
-        "storeId": -1,
-        "tabPng": "UI/Store/Store_gift_tab_skin30",
+        "png": "UI/Store/Store_big_wybj7",
+        "sequence": 2,
+        "storeId": 80307398,
+        "tabPng": "UI/Store/Store_gift_tab_week",
         "type": "SkipStore"
       },
       {
+        "andPath": "",
         "comSequence": 1,
         "funcId": 4294967295,
         "id": 82100862,
+        "iosPath": "",
         "isBattlePass": false,
         "name": "슈퍼 캣오퍼스",
         "otherUI": "",
         "png": "UI/Store/Store_big_skin24",
         "sequence": 4,
-        "storeId": -1,
+        "storeId": 80301713,
         "tabPng": "UI/Store/Store_gift_tab_skin24",
+        "type": "SkipStore"
+      },
+      {
+        "andPath": "",
+        "comSequence": 1,
+        "funcId": 4294967295,
+        "id": 82100101,
+        "iosPath": "",
+        "isBattlePass": false,
+        "name": "파천의 드릴 비트 패키지",
+        "otherUI": "",
+        "png": "UI/Store/Store_gift_big_ptzt288",
+        "sequence": 4,
+        "storeId": 80300323,
+        "tabPng": "UI/Store/Store_gift_tab_ptzt288",
         "type": "SkipStore"
       }
     ],
@@ -7893,6 +7910,10 @@
         "weight": 1
       },
       {
+        "id": 40201365,
+        "weight": 1
+      },
+      {
         "id": 40201327,
         "weight": 1
       },
@@ -7996,11 +8017,15 @@
     "pngNotSelect": "",
     "shopList": [
       {
-        "id": 82100128,
+        "id": 82101701,
         "weight": 1
       },
       {
         "id": 82100127,
+        "weight": 1
+      },
+      {
+        "id": 82100128,
         "weight": 1
       },
       {
@@ -8012,11 +8037,11 @@
         "weight": 1
       },
       {
-        "id": 82101559,
+        "id": 82101631,
         "weight": 1
       },
       {
-        "id": 82100862,
+        "id": 82101457,
         "weight": 1
       },
       {
@@ -8024,47 +8049,11 @@
         "weight": 1
       },
       {
-        "id": 82100126,
+        "id": 82100790,
         "weight": 1
       },
       {
-        "id": 82100583,
-        "weight": 1
-      },
-      {
-        "id": 82100580,
-        "weight": 1
-      },
-      {
-        "id": 82100086,
-        "weight": 1
-      },
-      {
-        "id": 82100124,
-        "weight": 1
-      },
-      {
-        "id": 82100117,
-        "weight": 1
-      },
-      {
-        "id": 82100118,
-        "weight": 1
-      },
-      {
-        "id": 82100581,
-        "weight": 1
-      },
-      {
-        "id": 82100034,
-        "weight": 1
-      },
-      {
-        "id": 82100099,
-        "weight": 1
-      },
-      {
-        "id": 82100579,
+        "id": 82100862,
         "weight": 1
       },
       {
@@ -8072,11 +8061,47 @@
         "weight": 1
       },
       {
-        "id": 82100076,
+        "id": 82100241,
         "weight": 1
       },
       {
-        "id": 82100038,
+        "id": 82100274,
+        "weight": 1
+      },
+      {
+        "id": 82100260,
+        "weight": 1
+      },
+      {
+        "id": 82101559,
+        "weight": 1
+      },
+      {
+        "id": 82100296,
+        "weight": 1
+      },
+      {
+        "id": 82100223,
+        "weight": 1
+      },
+      {
+        "id": 82100118,
+        "weight": 1
+      },
+      {
+        "id": 82100124,
+        "weight": 1
+      },
+      {
+        "id": 82100126,
+        "weight": 1
+      },
+      {
+        "id": 82100117,
+        "weight": 1
+      },
+      {
+        "id": 82100099,
         "weight": 1
       },
       {
@@ -8084,7 +8109,15 @@
         "weight": 1
       },
       {
-        "id": 82100028,
+        "id": 82100086,
+        "weight": 1
+      },
+      {
+        "id": 82100068,
+        "weight": 1
+      },
+      {
+        "id": 82100038,
         "weight": 1
       },
       {
@@ -8100,7 +8133,15 @@
         "weight": 1
       },
       {
-        "id": 82100068,
+        "id": 82100076,
+        "weight": 1
+      },
+      {
+        "id": 82100028,
+        "weight": 1
+      },
+      {
+        "id": 82100034,
         "weight": 1
       },
       {
@@ -8783,6 +8824,10 @@
         "weight": 1
       },
       {
+        "id": 40201366,
+        "weight": 1
+      },
+      {
         "id": 40201330,
         "weight": 1
       },
@@ -8994,19 +9039,19 @@
         "weight": 1
       },
       {
-        "id": 40200826,
-        "weight": 1
-      },
-      {
-        "id": 40200830,
-        "weight": 1
-      },
-      {
         "id": 40201344,
         "weight": 1
       },
       {
         "id": 40200715,
+        "weight": 1
+      },
+      {
+        "id": 40200826,
+        "weight": 1
+      },
+      {
+        "id": 40200830,
         "weight": 1
       },
       {
@@ -9043,6 +9088,10 @@
       },
       {
         "id": 40201335,
+        "weight": 1
+      },
+      {
+        "id": 40201369,
         "weight": 1
       },
       {
@@ -9358,10 +9407,6 @@
         "weight": 1
       },
       {
-        "id": 82100802,
-        "weight": 1
-      },
-      {
         "id": 82100480,
         "weight": 1
       },
@@ -9445,14 +9490,6 @@
         "weight": 1
       },
       {
-        "id": 40201373,
-        "weight": 1
-      },
-      {
-        "id": 40201374,
-        "weight": 1
-      },
-      {
         "id": 40200963,
         "weight": 1
       },
@@ -9502,6 +9539,10 @@
       },
       {
         "id": 40201332,
+        "weight": 1
+      },
+      {
+        "id": 40201368,
         "weight": 1
       },
       {
@@ -10868,6 +10909,10 @@
         "weight": 1
       },
       {
+        "id": 40201367,
+        "weight": 1
+      },
+      {
         "id": 40201329,
         "weight": 1
       },
@@ -11003,6 +11048,14 @@
     "pngSelect": "UI/Home/HomeStore/chuang_select",
     "pngNotSelect": "UI/Home/HomeStore/chuang_notselect",
     "shopList": [
+      {
+        "id": 40201615,
+        "weight": 1
+      },
+      {
+        "id": 40201646,
+        "weight": 1
+      },
       {
         "id": 40201606,
         "weight": 1
@@ -11245,14 +11298,6 @@
       },
       {
         "id": 40201231,
-        "weight": 1
-      },
-      {
-        "id": 40201326,
-        "weight": 1
-      },
-      {
-        "id": 40201336,
         "weight": 1
       },
       {
@@ -12332,6 +12377,10 @@
         "weight": 1
       },
       {
+        "id": 40201568,
+        "weight": 1
+      },
+      {
         "id": 40201320,
         "weight": 1
       },
@@ -12422,8 +12471,8 @@
     "capacityType": [],
     "refreshType": "Daily",
     "isTime": false,
-    "startTime": "2025-02-19 15:00:00",
-    "endTime": "2024-03-26 00:00:00",
+    "startTime": "",
+    "endTime": "",
     "currencyShow": [
       {
         "click": "Tips",
@@ -13315,6 +13364,10 @@
     "shopList": [
       {
         "id": 40201564,
+        "weight": 1
+      },
+      {
+        "id": 40201661,
         "weight": 1
       }
     ],

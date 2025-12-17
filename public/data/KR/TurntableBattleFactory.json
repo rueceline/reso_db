@@ -318,9 +318,69 @@
         "spineX": -185,
         "spineY": -274,
         "star": 0
+      },
+      {
+        "bossName": "SCS.01",
+        "buffId": 80306796,
+        "count": 1,
+        "id": 80306797,
+        "spineScale": 0.7,
+        "spineX": 25,
+        "spineY": -357,
+        "star": 0
+      },
+      {
+        "bossName": "Lin",
+        "buffId": 80306913,
+        "count": 1,
+        "id": 80306914,
+        "spineScale": 1.6,
+        "spineX": 4,
+        "spineY": -329,
+        "star": 0
+      },
+      {
+        "bossName": "PCSS.01",
+        "buffId": 80306956,
+        "count": 1,
+        "id": 80306957,
+        "spineScale": 0.5,
+        "spineX": -8,
+        "spineY": -192,
+        "star": 0
+      },
+      {
+        "bossName": "Shizuru the Summer Chaser",
+        "buffId": 80307068,
+        "count": 1,
+        "id": 80307077,
+        "spineScale": 1.6,
+        "spineX": 15,
+        "spineY": -339,
+        "star": 0
+      },
+      {
+        "bossName": "FUS.01",
+        "buffId": 80307696,
+        "count": 1,
+        "id": 80307697,
+        "spineScale": 0.75,
+        "spineX": -84,
+        "spineY": -397,
+        "star": 0
+      },
+      {
+        "bossName": "Ushana",
+        "buffId": 80307739,
+        "count": 1,
+        "id": 80307738,
+        "spineScale": 1.69,
+        "spineX": 3,
+        "spineY": -316,
+        "star": 0
       }
     ],
-    "scoresMax": 9300,
+    "scoresMax": 11100,
     "abyssPeriodList": [
       {
         "id": 87700001
@@ -408,6 +468,24 @@
       },
       {
         "id": 87700131
+      },
+      {
+        "id": 87700134
+      },
+      {
+        "id": 87700138
+      },
+      {
+        "id": 87700142
+      },
+      {
+        "id": 87700145
+      },
+      {
+        "id": 87700147
+      },
+      {
+        "id": 87700158
       }
     ],
     "countDay": 0,

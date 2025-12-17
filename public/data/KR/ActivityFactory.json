@@ -21,7 +21,7 @@
     "isJoin": true,
     "isOnly": -1,
     "questId": 81001199,
-    "taskIndex": 0,
+    "taskIndex": 416,
     "unlockTips": 80600439,
     "isTriggerTime": true,
     "putTime": 14,
@@ -99,17 +99,9 @@
         "id": 40300055
       }
     ],
-    "bannerList": [
-      {
-        "id": 80500122
-      }
-    ],
+    "bannerList": [],
     "bannerCapsuleList": [],
-    "giftList": [
-      {
-        "id": 82100322
-      }
-    ],
+    "giftList": [],
     "joinPlotId": 20700039,
     "joinQuestId": 81000595,
     "sequenceList": [
@@ -418,20 +410,20 @@
     ],
     "openLv": 1,
     "openTradeLv": 0,
-    "showResidueUI": "",
+    "showResidueUI": "UI/Activity/Residue/Group_Construction",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": true,
     "isOnly": -1,
     "questId": 81000311,
-    "taskIndex": 0,
+    "taskIndex": 507,
     "unlockTips": 80600475,
     "isTriggerTime": true,
     "putTime": 21,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2024-10-31 05:00:00",
+    "startTime": "2024-04-25 15:00:00",
     "endTime": "",
     "rewardEndTime": "",
     "replicateNum": 1,
@@ -442,43 +434,64 @@
     "allScheduleRefreshTime": 60,
     "rewardPreviewList": [
       {
-        "id": 11400232
+        "id": 11400005,
+        "isShowNum": true,
+        "num": 500
       },
       {
-        "id": 11400005
+        "id": 11400007,
+        "isShowNum": true,
+        "num": 5
       },
       {
-        "id": 11400007
+        "id": 11400232,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11800245
+        "id": 11800245,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11800315
+        "id": 11800315,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400236
+        "id": 11400236,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400004
+        "id": 11400004,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11700025
+        "id": 11700025,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11700026
+        "id": 11700026,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400217
+        "id": 11400217,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400048
+        "id": 11400048,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400046
-      },
-      {
-        "id": 85000002
+        "id": 11400046,
+        "isShowNum": false,
+        "num": 0
       }
     ],
     "activityStoreList": [],
@@ -1063,45 +1076,24 @@
     "voiceActivity": -1,
     "correspondingCity": [],
     "correspondingBuild": [],
-    "showResidueUI": "",
-    "openTipsType": "normal",
-    "showOpenTipsUI": "",
     "isJoin": false,
-    "isOnly": -1,
     "questId": -1,
-    "unlockTips": -1,
-    "isTriggerTime": false,
-    "putTime": 4294967295,
-    "continueTime": 4294967295,
-    "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-03-05 05:00:00",
-    "endTime": "2025-03-13 04:59:59",
-    "rewardEndTime": "2025-03-13 04:59:59",
-    "replicateNum": 1,
-    "isClearCurrency": false,
-    "clearCurrencyList": [],
-    "isClearAllQuest": false,
-    "isClearPersonalQuest": false,
-    "allScheduleRefreshTime": 60,
+    "startTime": "2024-04-25 05:00:00",
+    "endTime": "2024-05-06 04:59:00",
+    "rewardEndTime": "2024-05-06 04:59:00",
     "rewardPreviewList": [],
     "activityStoreList": [],
-    "bannerList": [],
-    "bannerCapsuleList": [],
-    "giftList": [],
     "joinPlotId": -1,
     "joinQuestId": -1,
     "signinId": 40100005,
-    "city": -1,
     "activityCardPack": -1,
-    "signIcon": "",
+    "signIcon": "UI/Activity/Construction/SignIn/Title/Icon-Title",
     "timeLineColor": "895711",
     "titleColor": "F5EFE8",
     "daySignedColor": "F0F7FF",
     "daySignColor": "FEDEAB",
     "dayAligningType": "4",
-    "dayTxtY": 323,
-    "dayTxtSize": 100,
     "signedBG": "UI/Activity/Construction/SignIn/BG/BG-Signed",
     "signBG": "UI/Activity/Construction/SignIn/BG/BG-Sign",
     "claimedIcon": "UI/Activity/Construction/SignIn/BG/Icon-Claimed",
@@ -1114,28 +1106,7 @@
     "signedBottom": "UI/Activity/Construction/SignIn/Btn-Bottom/Btn-Signed",
     "signMask": "UI/Activity/Construction/SignIn/BG/Mask-Signed",
     "rewardBG": "UI/Activity/Construction/SignIn/BG/BG-Item",
-    "rewardSBG": "UI/Activity/Construction/SignIn/BG/BG-ItemSign",
-    "rewardNotBG": "UI/Activity/Construction/SignIn/BG/BG-Item",
-    "isNew": true,
-    "setType": "1",
-    "unSignInColor": "FEDEAB",
-    "signColor": "FEDEAB",
-    "signedColor": "F0F7FF",
-    "signTitleAboveC": -1,
-    "signTitleBottomC": -1,
-    "signTitleAboveE": -1,
-    "signTitleBottomE": -1,
-    "signTitleImg": "UI/Activity/Construction/SignIn/NewTitle",
-    "ImgX": 4294967179,
-    "ImgY": 4294967151,
-    "timeImgX": 4294967177,
-    "timeImgY": 4294967022,
-    "signBgImg": "UI/Activity/Construction/SignIn/BG/BG-Sign",
-    "signIconImg": "UI/Activity/Construction/SignIn/BG/Icon-Unclaimed",
-    "isIconOpen": true,
-    "isBtnContentOpen": true,
-    "timeLineBG": "",
-    "joinLimit": 20
+    "rewardSBG": "UI/Activity/Construction/SignIn/BG/BG-ItemSign"
   },
   {
     "id": 86000006,
@@ -1219,7 +1190,7 @@
     "questId": -1,
     "unlockTips": -1,
     "isTime": false,
-    "startTime": "2024-10-17 05:00:00",
+    "startTime": "2024-06-28 05:00:00",
     "endTime": "",
     "rewardEndTime": "",
     "replicateNum": 1,
@@ -1479,7 +1450,7 @@
     "showOpenTipsUI": "UI/Activity/OpenTips/MonsterTip/MonsterTip",
     "isJoin": true,
     "isOnly": -1,
-    "questId": 81000311,
+    "questId": 81000962,
     "taskIndex": 517,
     "unlockTips": 80601386,
     "isTriggerTime": true,
@@ -1487,7 +1458,7 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-03-19 05:00:00",
+    "startTime": "2024-05-31 15:00:00",
     "endTime": "",
     "rewardEndTime": "",
     "replicateNum": 2,
@@ -1546,7 +1517,11 @@
       }
     ],
     "bannerCapsuleList": [],
-    "giftList": [],
+    "giftList": [
+      {
+        "id": 82100114
+      }
+    ],
     "joinPlotId": 20700088,
     "ActivityLevelId": -1,
     "joinQuestId": 81000209,
@@ -1611,10 +1586,10 @@
         "id": 81000268
       },
       {
-        "id": 81000270
+        "id": 81000269
       },
       {
-        "id": 81000269
+        "id": 81000270
       },
       {
         "id": 81000304
@@ -1635,7 +1610,7 @@
       },
       {
         "id": 86100022,
-        "startTime": "2025-03-20 05:00:00"
+        "startTime": "2024-06-03 15:00:00"
       }
     ],
     "levelPlotList": [],
@@ -1663,32 +1638,20 @@
     "voiceActivity": -1,
     "correspondingCity": [],
     "correspondingBuild": [],
-    "showResidueUI": "",
-    "openTipsType": "normal",
-    "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
     "unlockTips": -1,
-    "isTriggerTime": false,
-    "putTime": 4294967295,
-    "continueTime": 4294967295,
-    "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-04-02 05:00:00",
-    "endTime": "2025-04-18 04:59:59",
-    "rewardEndTime": "2025-04-18 04:59:59",
+    "startTime": "2024-05-22 05:00:00",
+    "endTime": "2024-05-29 04:59:00",
+    "rewardEndTime": "2024-06-05 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
-    "isClearAllQuest": false,
-    "isClearPersonalQuest": false,
     "allScheduleRefreshTime": 60,
     "rewardPreviewList": [],
     "activityStoreList": [],
-    "bannerList": [],
-    "bannerCapsuleList": [],
-    "giftList": [],
     "joinPlotId": -1,
     "joinQuestId": -1,
     "signinId": 40100007,
@@ -1700,8 +1663,6 @@
     "daySignedColor": "BABABA",
     "daySignColor": "FFFFFF",
     "dayAligningType": "3",
-    "dayTxtY": 323,
-    "dayTxtSize": 100,
     "signedBG": "UI/Activity/ActivitySignIn/FiestaSignIn/bg/BG-Signed",
     "signBG": "UI/Activity/ActivitySignIn/FiestaSignIn/bg/BG-Sign",
     "claimedIcon": "UI/Activity/ActivitySignIn/Icon-Lucency",
@@ -1715,7 +1676,7 @@
     "signMask": "",
     "rewardBG": "UI/Activity/ActivitySignIn/FiestaSignIn/bg/BG-Item",
     "rewardSBG": "UI/Activity/ActivitySignIn/FiestaSignIn/bg/BG-Item",
-    "rewardNotBG": "UI/Activity/ActivitySignIn/FiestaSignIn/bg/BG-Item",
+    "rewardNotBG": "",
     "isNew": false,
     "setType": ",",
     "unSignInColor": "FFFFFF",
@@ -1725,18 +1686,13 @@
     "signTitleBottomC": -1,
     "signTitleAboveE": -1,
     "signTitleBottomE": -1,
-    "signTitleImg": "UI/Activity/ActivitySignIn/FiestaSignIn/Title",
-    "ImgX": 4294967179,
-    "ImgY": 4294967151,
-    "timeImgX": 4294967177,
-    "timeImgY": 4294967022,
+    "signTitleImg": "",
+    "ImgX": 0,
+    "ImgY": 0,
+    "timeImgX": 0,
+    "timeImgY": 0,
     "signBgImg": "",
-    "signIconImg": "",
-    "isIconOpen": true,
-    "isBtnContentOpen": true,
-    "timeLineBG": "",
-    "joinLimit": 20,
-    "joinGetItem": []
+    "signIconImg": ""
   },
   {
     "id": 86000011,
@@ -2118,9 +2074,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-06-25 00:00:00",
-    "endTime": "2025-07-03 23:59:59",
-    "rewardEndTime": "2025-07-03 23:59:59",
+    "startTime": "2025-01-02 05:00:00",
+    "endTime": "2025-01-16 04:59:00",
+    "rewardEndTime": "2025-01-16 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -2130,7 +2086,6 @@
     "rewardPreviewList": [],
     "activityStoreList": [],
     "bannerList": [],
-    "bannerCapsuleList": [],
     "giftList": [],
     "joinPlotId": -1,
     "joinQuestId": -1,
@@ -2177,16 +2132,14 @@
     "signIconImg": "",
     "isIconOpen": true,
     "isBtnContentOpen": true,
-    "timeLineBG": "",
-    "joinLimit": 0,
-    "joinGetItem": []
+    "timeLineBG": ""
   },
   {
     "id": 86000016,
     "idCN": "活动/5海岛",
     "mod": "夏日活动",
     "isInformalData": false,
-    "name": "",
+    "name": "서머 아일랜드",
     "showUI": "UI/Activity/Summer/IslandActivity/IslandActivity",
     "bgPath": "",
     "bgColor": "FFFFFF",
@@ -2207,7 +2160,7 @@
     "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
-    "showOpenTipsUI": "",
+    "showOpenTipsUI": "UI/Activity/OpenTips/Island/IslandTip",
     "isJoin": true,
     "isOnly": -1,
     "questId": 81001572,
@@ -2267,13 +2220,13 @@
     "activityStoreList": [],
     "bannerList": [
       {
-        "id": 80500045
+        "id": 80500210
       }
     ],
     "bannerCapsuleList": [],
     "giftList": [
       {
-        "id": 82100110
+        "id": 82100111
       }
     ],
     "joinPlotId": 20700430,
@@ -2368,13 +2321,13 @@
         "id": 81001365
       },
       {
-        "id": 81001372
+        "id": 81002549
       },
       {
-        "id": 81001373
+        "id": 81002553
       },
       {
-        "id": 81001374
+        "id": 81002554
       },
       {
         "id": 81001387
@@ -2611,26 +2564,28 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 25,
+    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
+    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-07-09 05:00:00",
-    "endTime": "2025-08-15 05:00:00",
-    "rewardEndTime": "",
-    "replicateNum": 1,
+    "startTime": "2025-12-10 00:00:00",
+    "endTime": "2026-01-09 00:00:00",
+    "rewardEndTime": "2026-01-16 04:59:00",
+    "replicateNum": 3,
     "isClearCurrency": false,
     "clearCurrencyList": [],
     "isClearAllQuest": false,
-    "isClearPersonalQuest": false,
+    "isClearPersonalQuest": true,
     "allScheduleRefreshTime": 60,
     "rewardPreviewList": [],
     "activityStoreList": [
@@ -2922,12 +2877,14 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
+    "openTradeLv": 0,
     "showResidueUI": "UI/Activity/Residue/Group_Hotel",
     "openTipsType": "normal",
-    "showOpenTipsUI": "",
+    "showOpenTipsUI": "UI/Activity/OpenTips/HotelTip/HotelTip",
     "isJoin": true,
     "isOnly": -1,
     "questId": 81000037,
+    "taskIndex": 316,
     "unlockTips": 80609165,
     "isTriggerTime": true,
     "putTime": 6,
@@ -3116,11 +3073,12 @@
     "afterPlotLevel": -1,
     "gameQuestLimit": -1,
     "gameUnlockTips": -1,
-    "gameOpen": true,
+    "gameOpen": false,
     "gameList": -1,
     "activityCardPack": 86300006,
     "isGoldLevel": false,
-    "joinGetItem": []
+    "joinGetItem": [],
+    "signChallengeActivityId": -1
   },
   {
     "id": 86000029,
@@ -3143,15 +3101,16 @@
     "isJoin": false,
     "isOnly": -1,
     "questId": 81001199,
+    "taskIndex": 416,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-05-28 05:00:00",
-    "endTime": "2025-06-05 04:59:59",
-    "rewardEndTime": "2025-06-05 04:59:59",
+    "startTime": "2024-11-14 05:00:00",
+    "endTime": "2024-11-28 04:59:00",
+    "rewardEndTime": "2024-11-28 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -3209,6 +3168,10 @@
     "isIconOpen": true,
     "isBtnContentOpen": true,
     "timeLineBG": "",
+    "isBtnIcon": true,
+    "btnBottomY": 4294967013,
+    "btnBottomTxtSize": 26,
+    "timeColor": "FFFFFF",
     "joinLimit": 0,
     "joinGetItem": []
   },
@@ -3233,15 +3196,16 @@
     "isJoin": true,
     "isOnly": -1,
     "questId": 81000578,
+    "taskIndex": 307,
     "unlockTips": 80609546,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-05-01 05:00:00",
-    "endTime": "2025-05-31 05:00:00",
-    "rewardEndTime": "2025-06-07 05:00:00",
+    "startTime": "2024-12-31 15:00:00",
+    "endTime": "2025-01-31 04:59:00",
+    "rewardEndTime": "2025-01-31 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -3407,7 +3371,8 @@
     "gameList": 80305090,
     "activityCardPack": 86300008,
     "isGoldLevel": false,
-    "joinGetItem": []
+    "joinGetItem": [],
+    "signChallengeActivityId": -1
   },
   {
     "id": 86000035,
@@ -3435,9 +3400,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-05-01 05:00:00",
-    "endTime": "2025-05-31 04:59:59",
-    "rewardEndTime": "2025-05-31 04:59:59",
+    "startTime": "2025-01-01 05:00:00",
+    "endTime": "2025-01-31 04:59:00",
+    "rewardEndTime": "2025-01-31 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -3729,7 +3694,7 @@
     "idCN": "签到挑战/罗洁尔皮肤活动",
     "mod": "登录解锁挑战",
     "isInformalData": false,
-    "name": "레이싱 스타",
+    "name": "",
     "showUI": "",
     "bgPath": "",
     "bgColor": "FFFFFF",
@@ -3748,14 +3713,14 @@
     "questId": -1,
     "taskIndex": 0,
     "unlockTips": -1,
-    "isTriggerTime": false,
-    "putTime": 4294967295,
+    "isTriggerTime": true,
+    "putTime": 7,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-10-01 00:00:00",
-    "endTime": "",
-    "rewardEndTime": "",
+    "startTime": "2025-02-14 12:00:00",
+    "endTime": "2025-03-20 00:00:00",
+    "rewardEndTime": "2025-03-20 00:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -3773,35 +3738,27 @@
     "activityRewardRankList": [],
     "city": -1,
     "activityCardPack": -1,
-    "isCloseReward": true,
-    "isDynamicEndTime": true,
-    "needRegisterTime": "2024-01-01 00:00:00",
+    "signBattleUI": "",
+    "isCloseReward": false,
+    "isDynamicEndTime": false,
+    "needRegisterTime": "",
     "signBattleLimitLv": 999,
     "signBattleInitLevel": 1,
     "signLevelList": [
       {
-        "id": 20101897
+        "id": 20101598
       },
       {
-        "id": 20101895
+        "id": 20101599
       },
       {
-        "id": 20101891
+        "id": 20101600
       },
       {
-        "id": 20101894
+        "id": 20101609
       },
       {
-        "id": 20101893
-      },
-      {
-        "id": 20101898
-      },
-      {
-        "id": 20101892
-      },
-      {
-        "id": 20101896
+        "id": 20101610
       }
     ],
     "signBattleRewards": [
@@ -3810,10 +3767,13 @@
         "num": 1
       }
     ],
-    "signBattleTimeExtra": 999,
+    "signBattleTimeExtra": 8,
+    "signBattleExtract": -1,
+    "videoHttp": "",
     "joinGetItem": [],
     "rankingReward": [],
-    "rankingMail": -1
+    "rankingMail": -1,
+    "signChallengeActivityId": -1
   },
   {
     "id": 86000044,
@@ -4091,22 +4051,24 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
+    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": true,
     "isOnly": -1,
     "questId": 81001199,
-    "unlockTips": 80600439,
+    "taskIndex": 416,
+    "unlockTips": 80610868,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-08-06 05:00:00",
-    "endTime": "2025-09-10 05:00:00",
-    "rewardEndTime": "2025-09-17 05:00:00",
-    "replicateNum": 1,
+    "startTime": "2025-11-07 05:00:00",
+    "endTime": "2025-12-12 05:00:00",
+    "rewardEndTime": "2025-12-12 05:00:00",
+    "replicateNum": 3,
     "isClearCurrency": false,
     "clearCurrencyList": [],
     "isClearAllQuest": false,
@@ -4114,31 +4076,49 @@
     "allScheduleRefreshTime": 3600,
     "rewardPreviewList": [
       {
-        "id": 11800079
+        "id": 11400007,
+        "isShowNum": true,
+        "num": 10
       },
       {
-        "id": 11400665
+        "id": 11400665,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400007
+        "id": 11800079,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11700245
+        "id": 11700245,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11700246
+        "id": 11700246,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400406
+        "id": 11400406,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400217
+        "id": 11400217,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400067
+        "id": 11400067,
+        "isShowNum": false,
+        "num": 0
       },
       {
-        "id": 11400066
+        "id": 11400066,
+        "isShowNum": false,
+        "num": 0
       }
     ],
     "activityStoreList": [],
@@ -4291,6 +4271,7 @@
     "city": -1,
     "afterPlotLevel": -1,
     "activityCardPack": 86300009,
+    "isGoldLevel": true,
     "witchesQuestLimit": 81002326,
     "witchesGameMap": 60600002,
     "joinGetItem": [
@@ -4301,7 +4282,7 @@
     ],
     "rankingReward": [
       {
-        "id": 80300127,
+        "id": 80308024,
         "rank": 500
       }
     ],
@@ -4402,7 +4383,7 @@
     "idCN": "活动签到/踏青签到",
     "mod": "活动签到",
     "isInformalData": false,
-    "name": "봄나들이 7일 출석체크",
+    "name": "봄나들이 10일 출석체크",
     "showUI": "Group_ActivitySignIn",
     "bgPath": "UI/Activity/ActivitySignIn/Spring2025/BG",
     "bgColor": "FFFFFF",
@@ -4423,9 +4404,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-04-23 05:00:00",
-    "endTime": "2025-04-30 04:59:59",
-    "rewardEndTime": "2025-04-30 04:59:59",
+    "startTime": "2025-03-28 05:00:00",
+    "endTime": "2025-04-12 04:59:00",
+    "rewardEndTime": "2025-04-12 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -4483,7 +4464,7 @@
     "isIconOpen": false,
     "isBtnContentOpen": true,
     "timeLineBG": "UI/Activity/ActivitySignIn/Spring2025/Time",
-    "joinLimit": 20,
+    "joinLimit": 0,
     "joinGetItem": []
   },
   {
@@ -4501,22 +4482,24 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
+    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
+    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-08-20 05:00:00",
-    "endTime": "2025-09-03 05:00:00",
+    "startTime": "2025-06-13 12:00:00",
+    "endTime": "2025-06-29 12:00:00",
     "rewardEndTime": "",
-    "replicateNum": 1,
+    "replicateNum": 2,
     "isClearCurrency": false,
     "clearCurrencyList": [],
     "isClearAllQuest": false,
@@ -4622,26 +4605,28 @@
     "bgColor": "FFFFFF",
     "npcId": -1,
     "helpId": -1,
-    "voiceActivity": 30000303,
+    "voiceActivity": 30000180,
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
+    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
+    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-08-06 05:00:00",
-    "endTime": "2025-09-10 05:00:00",
-    "rewardEndTime": "2025-09-10 05:00:00",
-    "replicateNum": 1,
+    "startTime": "2025-11-07 05:00:00",
+    "endTime": "2025-12-12 05:00:00",
+    "rewardEndTime": "2025-12-12 05:00:00",
+    "replicateNum": 2,
     "isClearCurrency": false,
     "clearCurrencyList": [],
     "isClearAllQuest": false,
@@ -4658,6 +4643,7 @@
     "activityRewardRankList": [],
     "city": -1,
     "activityCardPack": -1,
+    "signBattleUI": "",
     "isCloseReward": false,
     "isDynamicEndTime": false,
     "needRegisterTime": "",
@@ -4693,9 +4679,12 @@
       }
     ],
     "signBattleTimeExtra": 8,
+    "signBattleExtract": -1,
+    "videoHttp": "",
     "joinGetItem": [],
     "rankingReward": [],
-    "rankingMail": -1
+    "rankingMail": -1,
+    "signChallengeActivityId": -1
   },
   {
     "id": 86000063,
@@ -4813,8 +4802,8 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-08-06 05:00:00",
-    "endTime": "2025-09-10 05:00:00",
+    "startTime": "2025-04-22 05:00:00",
+    "endTime": "2025-06-01 11:59:59",
     "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
@@ -4829,43 +4818,43 @@
         "rewardsListId": 86100288
       },
       {
-        "amount": 7500,
+        "amount": 30,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100289
       },
       {
-        "amount": 30000,
+        "amount": 128,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100290
       },
       {
-        "amount": 40000,
+        "amount": 198,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100291
       },
       {
-        "amount": 80000,
+        "amount": 398,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100292
       },
       {
-        "amount": 120000,
+        "amount": 598,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100293
       },
       {
-        "amount": 200000,
+        "amount": 998,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100294
       },
       {
-        "amount": 300000,
+        "amount": 1288,
         "iconMan": "UI/Activity/ActivityRecharge/rc_icon_reward01",
         "iconWoman": "UI/Activity/ActivityRecharge/rc_icon_reward01",
         "rewardsListId": 86100295
@@ -5003,9 +4992,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-08-06 05:00:00",
-    "endTime": "2025-08-20 05:00:00",
-    "rewardEndTime": "2025-08-20 05:00:00",
+    "startTime": "2025-04-29 05:00:00",
+    "endTime": "2025-05-14 04:59:00",
+    "rewardEndTime": "2025-05-14 04:59:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -5075,7 +5064,7 @@
     "showUI": "",
     "bgPath": "",
     "bgColor": "FFFFFF",
-    "npcId": 83700172,
+    "npcId": 83700171,
     "helpId": -1,
     "voiceActivity": -1,
     "correspondingCity": [],
@@ -5095,10 +5084,10 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-10-16 00:00:00",
-    "endTime": "2025-11-30 23:59:00",
+    "startTime": "2025-12-01 05:00:00",
+    "endTime": "2025-12-31 12:00:00",
     "rewardEndTime": "",
-    "replicateNum": 1,
+    "replicateNum": 2,
     "isClearCurrency": false,
     "clearCurrencyList": [],
     "isClearAllQuest": false,
@@ -5233,7 +5222,7 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-08-20 05:00:00",
+    "startTime": "2025-06-12 05:00:00",
     "endTime": "",
     "rewardEndTime": "",
     "replicateNum": 1,
@@ -5418,22 +5407,20 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
-    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-09-18 00:00:00",
-    "endTime": "2025-10-01 23:59:00",
+    "startTime": "2025-06-13 12:00:00",
+    "endTime": "2025-06-29 12:00:00",
     "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
@@ -5603,16 +5590,16 @@
     "isJoin": true,
     "isOnly": -1,
     "questId": 81002446,
-    "taskIndex": 823,
+    "taskIndex": 824,
     "unlockTips": 80611293,
-    "isTriggerTime": false,
+    "isTriggerTime": true,
     "putTime": 59,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
-    "isTime": true,
-    "startTime": "2025-10-16 00:00:00",
-    "endTime": "2025-11-30 23:59:00",
-    "rewardEndTime": "2025-11-30 23:59:00",
+    "isTime": false,
+    "startTime": "2025-08-31 05:00:00",
+    "endTime": "",
+    "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -5766,10 +5753,10 @@
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
-    "isTime": true,
-    "startTime": "2025-09-18 00:00:00",
-    "endTime": "2025-10-01 23:59:00",
-    "rewardEndTime": "2025-10-01 23:59:00",
+    "isTime": false,
+    "startTime": "2025-08-21 12:00:00",
+    "endTime": "2025-09-11 12:00:00",
+    "rewardEndTime": "2025-09-11 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -5800,9 +5787,6 @@
     "joinPlotId": -1,
     "joinQuestId": -1,
     "activityRankList": [
-      {
-        "id": 84300036
-      },
       {
         "id": 84300035
       }
@@ -5852,7 +5836,7 @@
         "num": 1
       }
     ],
-    "signBattleTimeExtra": 0,
+    "signBattleTimeExtra": 4,
     "signBattleExtract": -1,
     "videoHttp": "",
     "joinGetItem": [],
@@ -5943,8 +5927,8 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-10-16 00:00:00",
-    "endTime": "2025-11-12 23:59:00",
+    "startTime": "2025-07-14 05:00:00",
+    "endTime": "2025-07-29 12:00:00",
     "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
@@ -6075,9 +6059,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-10-16 00:00:00",
-    "endTime": "2025-11-12 23:59:00",
-    "rewardEndTime": "2025-11-12 23:59:00",
+    "startTime": "2025-10-13 12:00:00",
+    "endTime": "2025-11-03 12:00:00",
+    "rewardEndTime": "2025-11-03 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6190,23 +6174,21 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
-    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-10-16 05:00:00",
-    "endTime": "2025-10-31 04:59:00",
-    "rewardEndTime": "2025-10-31 04:59:00",
+    "startTime": "2025-07-15 05:00:00",
+    "endTime": "2025-07-30 05:00:00",
+    "rewardEndTime": "2025-07-30 05:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6264,10 +6246,6 @@
     "isIconOpen": false,
     "isBtnContentOpen": true,
     "timeLineBG": "UI/Activity/ActivitySignIn/1.5Anniversary/Time",
-    "isBtnIcon": true,
-    "btnBottomY": 4294967013,
-    "btnBottomTxtSize": 26,
-    "timeColor": "FFFFFF",
     "joinLimit": 0,
     "joinGetItem": []
   },
@@ -6300,9 +6278,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-10-17 00:00:00",
-    "endTime": "2030-02-28 23:59:00",
-    "rewardEndTime": "2030-02-28 23:59:00",
+    "startTime": "2025-10-16 12:00:00",
+    "endTime": "2030-02-28 12:00:00",
+    "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6398,9 +6376,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-10-29 00:00:00",
-    "endTime": "2025-11-18 23:59:00",
-    "rewardEndTime": "2025-11-18 23:59:00",
+    "startTime": "2025-09-30 12:00:00",
+    "endTime": "2025-10-21 12:00:00",
+    "rewardEndTime": "2025-10-21 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6598,7 +6576,6 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
@@ -6612,9 +6589,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-11-27 00:00:00",
-    "endTime": "2025-12-24 23:59:00",
-    "rewardEndTime": "2025-12-24 23:59:00",
+    "startTime": "2025-08-15 05:00:00",
+    "endTime": "2025-09-15 12:00:00",
+    "rewardEndTime": "2025-09-15 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6666,7 +6643,6 @@
     ],
     "city": -1,
     "activityCardPack": -1,
-    "signBattleUI": "",
     "isCloseReward": false,
     "isDynamicEndTime": false,
     "needRegisterTime": "",
@@ -6700,8 +6676,6 @@
     ],
     "signBattleRewards": [],
     "signBattleTimeExtra": 5,
-    "signBattleExtract": -1,
-    "videoHttp": "",
     "joinGetItem": [],
     "rankingReward": [
       {
@@ -6709,8 +6683,7 @@
         "rank": 2000
       }
     ],
-    "rankingMail": 80800527,
-    "signChallengeActivityId": -1
+    "rankingMail": 80800527
   },
   {
     "id": 86000067,
@@ -6727,7 +6700,6 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
@@ -6741,9 +6713,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-11-27 00:00:00",
-    "endTime": "2025-12-24 23:59:00",
-    "rewardEndTime": "2025-12-24 23:59:00",
+    "startTime": "2025-08-15 05:00:00",
+    "endTime": "2025-09-15 12:00:00",
+    "rewardEndTime": "2025-09-23 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -6927,8 +6899,8 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-11-27 00:00:00",
-    "endTime": "2025-12-24 23:59:00",
+    "startTime": "2025-08-15 12:00:00",
+    "endTime": "2025-09-15 12:00:00",
     "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
@@ -7027,23 +6999,21 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
-    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 4294967295,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-11-27 00:00:00",
-    "endTime": "2025-12-10 23:59:00",
-    "rewardEndTime": "2025-12-10 23:59:00",
+    "startTime": "2025-08-15 05:00:00",
+    "endTime": "2025-09-01 05:00:00",
+    "rewardEndTime": "2025-09-01 05:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -7123,22 +7093,20 @@
     "correspondingCity": [],
     "correspondingBuild": [],
     "openLv": 1,
-    "openTradeLv": 0,
     "showResidueUI": "",
     "openTipsType": "normal",
     "showOpenTipsUI": "",
     "isJoin": false,
     "isOnly": -1,
     "questId": -1,
-    "taskIndex": 0,
     "unlockTips": -1,
     "isTriggerTime": false,
     "putTime": 0,
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": true,
-    "startTime": "2025-12-10 00:00:00",
-    "endTime": "2026-01-07 23:59:59",
+    "startTime": "2025-08-15 05:00:00",
+    "endTime": "2025-09-15 11:59:59",
     "rewardEndTime": "",
     "replicateNum": 1,
     "isClearCurrency": false,
@@ -7150,48 +7118,46 @@
     "rewardsList": [
       {
         "amount": 0,
-        "iconMan": "",
-        "iconWoman": "",
         "rewardsListId": 86100288
       },
       {
-        "amount": 7500,
+        "amount": 30,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100289
       },
       {
-        "amount": 30000,
+        "amount": 128,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100290
       },
       {
-        "amount": 40000,
+        "amount": 198,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100291
       },
       {
-        "amount": 80000,
+        "amount": 398,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100292
       },
       {
-        "amount": 120000,
+        "amount": 598,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100293
       },
       {
-        "amount": 200000,
+        "amount": 998,
         "iconMan": "",
         "iconWoman": "",
         "rewardsListId": 86100294
       },
       {
-        "amount": 300000,
+        "amount": 1288,
         "iconMan": "UI/Activity/ActivityRecharge/02/icon_reward08",
         "iconWoman": "UI/Activity/ActivityRecharge/02/icon_reward08",
         "rewardsListId": 86100439
@@ -7236,9 +7202,9 @@
     "continueTime": 4294967295,
     "closeTime": 4294967295,
     "isTime": false,
-    "startTime": "2025-12-11 00:00:00",
-    "endTime": "2025-12-24 23:59:00",
-    "rewardEndTime": "2025-12-24 23:59:00",
+    "startTime": "2025-11-07 12:00:00",
+    "endTime": "2025-11-28 12:00:00",
+    "rewardEndTime": "2025-11-28 12:00:00",
     "replicateNum": 1,
     "isClearCurrency": false,
     "clearCurrencyList": [],
@@ -9337,5 +9303,139 @@
         "id": 10001089
       }
     ]
+  },
+  {
+    "id": 86000215,
+    "idCN": "签到挑战/沃斯托克试用活动",
+    "mod": "登录解锁挑战",
+    "isInformalData": false,
+    "name": "",
+    "showUI": "",
+    "bgPath": "",
+    "bgColor": "FFFFFF",
+    "npcId": -1,
+    "helpId": -1,
+    "voiceActivity": 30001310,
+    "correspondingCity": [],
+    "correspondingBuild": [],
+    "openLv": 1,
+    "openTradeLv": 0,
+    "showResidueUI": "",
+    "openTipsType": "normal",
+    "showOpenTipsUI": "",
+    "isJoin": false,
+    "isOnly": -1,
+    "questId": 81000037,
+    "taskIndex": 316,
+    "unlockTips": -1,
+    "isTriggerTime": false,
+    "putTime": 4294967295,
+    "continueTime": 4294967295,
+    "closeTime": 4294967295,
+    "isTime": false,
+    "startTime": "2025-12-16 12:00:00",
+    "endTime": "2026-01-06 12:00:00",
+    "rewardEndTime": "2026-01-06 12:00:00",
+    "replicateNum": 1,
+    "isClearCurrency": false,
+    "clearCurrencyList": [],
+    "isClearAllQuest": false,
+    "isClearPersonalQuest": false,
+    "allScheduleRefreshTime": 60,
+    "rewardPreviewList": [
+      {
+        "id": 11400005,
+        "isShowNum": true,
+        "num": 500
+      },
+      {
+        "id": 82601090,
+        "isShowNum": false,
+        "num": 0
+      },
+      {
+        "id": 81300794,
+        "isShowNum": false,
+        "num": 0
+      },
+      {
+        "id": 81300789,
+        "isShowNum": false,
+        "num": 0
+      },
+      {
+        "id": 82601091,
+        "isShowNum": false,
+        "num": 0
+      }
+    ],
+    "activityStoreList": [],
+    "bannerList": [],
+    "bannerCapsuleList": [],
+    "giftList": [],
+    "joinPlotId": -1,
+    "joinQuestId": -1,
+    "activityRankList": [
+      {
+        "id": 84300053
+      }
+    ],
+    "activityRewardRankList": [
+      {
+        "id": 84300053
+      }
+    ],
+    "city": -1,
+    "activityCardPack": -1,
+    "signBattleUI": "UI/Activity/ActivitySignBattle/SignBattleLevelVostok",
+    "isCloseReward": false,
+    "isDynamicEndTime": false,
+    "needRegisterTime": "",
+    "signBattleLimitLv": 999,
+    "signBattleInitLevel": 5,
+    "signLevelList": [
+      {
+        "id": 20102529
+      },
+      {
+        "id": 20102536
+      },
+      {
+        "id": 20102532
+      },
+      {
+        "id": 20102530
+      },
+      {
+        "id": 20102531
+      },
+      {
+        "id": 20102535
+      },
+      {
+        "id": 20102534
+      },
+      {
+        "id": 20102533
+      }
+    ],
+    "signBattleRewards": [
+      {
+        "id": 82601091,
+        "num": 1
+      }
+    ],
+    "signBattleTimeExtra": 5,
+    "signBattleExtract": 80500314,
+    "videoHttp": "",
+    "joinGetItem": [],
+    "rankingReward": [
+      {
+        "id": 80307993,
+        "rank": 2000
+      }
+    ],
+    "rankingMail": 80800738,
+    "signChallengeActivityId": -1
   }
 ]

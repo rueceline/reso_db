@@ -996,7 +996,7 @@
     "bossSpineX": 0,
     "bossSpineY": -52,
     "unLockLevel": 3,
-    "bossHp": 300000,
+    "bossHp": 5000000,
     "bossRewardList": [
       {
         "bossBattleTimes": 2,
@@ -1082,7 +1082,7 @@
     "bossSpineX": 0,
     "bossSpineY": -100,
     "unLockLevel": 3,
-    "bossHp": 300000,
+    "bossHp": 5000000,
     "bossRewardList": [
       {
         "bossBattleTimes": 2,
@@ -1168,7 +1168,7 @@
     "bossSpineX": 0,
     "bossSpineY": -80,
     "unLockLevel": 3,
-    "bossHp": 300000,
+    "bossHp": 5000000,
     "bossRewardList": [
       {
         "bossBattleTimes": 2,
@@ -1254,7 +1254,7 @@
     "bossSpineX": 0,
     "bossSpineY": -75,
     "unLockLevel": 3,
-    "bossHp": 5000000,
+    "bossHp": 75000000,
     "bossRewardList": [
       {
         "bossBattleTimes": 2,
@@ -1350,7 +1350,7 @@
     "bossSpineX": 0,
     "bossSpineY": -100,
     "unLockLevel": 3,
-    "bossHp": 300000,
+    "bossHp": 5000000,
     "bossRewardList": [
       {
         "bossBattleTimes": 2,

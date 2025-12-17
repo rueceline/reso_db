@@ -248,6 +248,11 @@
         "id": 86400434,
         "x": 130,
         "y": 59
+      },
+      {
+        "id": 86400535,
+        "x": 130,
+        "y": 59
       }
     ],
     "isShowRep": true,
@@ -1531,6 +1536,11 @@
         "id": 86400355,
         "x": -375,
         "y": -130
+      },
+      {
+        "id": 86400468,
+        "x": -276,
+        "y": -130
       }
     ],
     "isShowRep": true,
@@ -1601,6 +1611,201 @@
         "id": 86400149,
         "x": 680,
         "y": -50
+      },
+      {
+        "id": 86400463,
+        "x": -63,
+        "y": 345
+      },
+      {
+        "id": 86400470,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400471,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400472,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400473,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400474,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400475,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400476,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400477,
+        "x": -499,
+        "y": -83
+      },
+      {
+        "id": 86400444,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400479,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400480,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400481,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400482,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400483,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400484,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400485,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400486,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400487,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400488,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400489,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400490,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400491,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400493,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400494,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400443,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400499,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400501,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400502,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400503,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400500,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400504,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400505,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400506,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400507,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400508,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400492,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400495,
+        "x": -647,
+        "y": 183
+      },
+      {
+        "id": 86400509,
+        "x": -499,
+        "y": -83
       }
     ],
     "isShowRep": true,
@@ -3188,6 +3393,11 @@
         "id": 86400333,
         "x": -44,
         "y": -124
+      },
+      {
+        "id": 86400464,
+        "x": 581,
+        "y": 316
       }
     ],
     "isShowRep": true,
@@ -8930,13 +9140,12 @@
     "isInstance": false,
     "iconPath": "RolePlus/Stella/Face",
     "nameIconPath": "UI/CityMap/citymap_icon_gongcheng",
-    "frontIconPath": "",
     "effectPath": "UI/UIEffect/particle/UI_city/UI_cityBtn_01/Group_UI_cityBtn_01",
     "animLoop": "UI_CityBtn_01_Loop",
     "animOut": "UI_CityBtn_01_Out",
     "activityId": -1,
-    "startTime": "2024-10-31 05:00:00",
-    "endTime": "2025-03-28 05:00:00",
+    "startTime": "2024-04-25 15:00:00",
+    "endTime": "2024-05-15 05:00:00",
     "displayConditionsList": [
       {
         "condition": "QuestComplete",
@@ -9696,8 +9905,8 @@
     "endTime": "",
     "displayConditionsList": [
       {
-        "condition": "QuestComplete",
-        "mId": 81001199,
+        "condition": "Station",
+        "mId": 83000010,
         "val": 0
       }
     ],
@@ -15031,6 +15240,11 @@
         "id": 86400354,
         "x": 37,
         "y": 60
+      },
+      {
+        "id": 86400402,
+        "x": -581,
+        "y": 164
       }
     ],
     "isShowRep": false,
@@ -18998,7 +19212,7 @@
     "displayConditionsList": [
       {
         "condition": "Questing",
-        "mId": 81002634,
+        "mId": 81002433,
         "val": 0
       }
     ],
@@ -19010,7 +19224,7 @@
     "uiPath": "",
     "buildingId": -1,
     "stationPlace": -1,
-    "dialogId": -1,
+    "dialogId": 20700726,
     "dungeonId": -1,
     "levelId": -1,
     "textId": -1,
@@ -21611,6 +21825,126 @@
     "stationPlace": -1,
     "dialogId": -1,
     "dungeonId": 20200027,
+    "levelId": -1,
+    "textId": -1,
+    "npcId": -1,
+    "bgPath": "",
+    "bgColor": "FFFFFF"
+  },
+  {
+    "id": 86400468,
+    "idCN": "03气泡/C6海角城S0/02剧情/EP7-01-1",
+    "mod": "气泡",
+    "isInformalData": false,
+    "name": "거리",
+    "isSpecial": false,
+    "isInstance": true,
+    "iconPath": "NPC/InsZone/HJC_Street2",
+    "nameIconPath": "UI/CityMap/citymap_icon_battlezone",
+    "frontIconPath": "",
+    "effectPath": "UI/UIEffect/particle/UI_city/UI_dungeonBtn_01/UI_dungeonBtn_04_1",
+    "animLoop": "UI_CityBtn_01_Loop",
+    "animOut": "UI_CityBtn_01_Out",
+    "activityId": -1,
+    "startTime": "",
+    "endTime": "",
+    "displayConditionsList": [
+      {
+        "condition": "Questing",
+        "mId": 81002544,
+        "val": 0
+      }
+    ],
+    "unlockConditionsList": [],
+    "isLock": false,
+    "func": "OpenDungeon",
+    "btnType": "Other",
+    "mId": -1,
+    "uiPath": "",
+    "buildingId": -1,
+    "stationPlace": -1,
+    "dialogId": -1,
+    "dungeonId": 20200028,
+    "levelId": -1,
+    "textId": -1,
+    "npcId": -1,
+    "bgPath": "",
+    "bgColor": "FFFFFF"
+  },
+  {
+    "id": 86400535,
+    "idCN": "03气泡/C3七号自由港S0/02剧情/EP8-战斗-疑影",
+    "mod": "气泡",
+    "isInformalData": false,
+    "name": "리비아",
+    "isSpecial": false,
+    "isInstance": false,
+    "iconPath": "RolePlus/Livia/Face",
+    "nameIconPath": "UI/CityMap/citymap_icon_battlezone",
+    "frontIconPath": "",
+    "effectPath": "UI/UIEffect/particle/UI_city/UI_cityBtn_01/Group_UI_cityBtn_01",
+    "animLoop": "UI_CityBtn_01_Loop",
+    "animOut": "UI_CityBtn_01_Out",
+    "activityId": -1,
+    "startTime": "",
+    "endTime": "",
+    "displayConditionsList": [
+      {
+        "condition": "Questing",
+        "mId": 81002559,
+        "val": 0
+      }
+    ],
+    "unlockConditionsList": [],
+    "isLock": false,
+    "func": "OpenLevel",
+    "btnType": "Other",
+    "mId": -1,
+    "uiPath": "",
+    "buildingId": -1,
+    "stationPlace": -1,
+    "dialogId": -1,
+    "dungeonId": -1,
+    "levelId": 20102518,
+    "textId": -1,
+    "npcId": -1,
+    "bgPath": "",
+    "bgColor": "FFFFFF"
+  },
+  {
+    "id": 86400509,
+    "idCN": "03气泡/C7贡露城S0/02剧情/EP8-09",
+    "mod": "气泡",
+    "isInformalData": false,
+    "name": "审判",
+    "isSpecial": false,
+    "isInstance": true,
+    "iconPath": "NPC/InsZone/Station_GLC",
+    "nameIconPath": "UI/CityMap/citymap_icon_battlezone",
+    "frontIconPath": "",
+    "effectPath": "UI/UIEffect/particle/UI_city/UI_dungeonBtn_01/UI_dungeonBtn_04_1",
+    "animLoop": "UI_CityBtn_01_Loop",
+    "animOut": "UI_CityBtn_01_Out",
+    "activityId": -1,
+    "startTime": "",
+    "endTime": "",
+    "displayConditionsList": [
+      {
+        "condition": "Questing",
+        "mId": 81002803,
+        "val": 0
+      }
+    ],
+    "unlockConditionsList": [],
+    "isLock": false,
+    "func": "OpenDungeon",
+    "btnType": "Other",
+    "mId": -1,
+    "uiPath": "",
+    "buildingId": -1,
+    "stationPlace": -1,
+    "dialogId": -1,
+    "dungeonId": 20200029,
     "levelId": -1,
     "textId": -1,
     "npcId": -1,

@@ -10533,7 +10533,7 @@
     "levelParam": 9,
     "gridEventList": [
       {
-        "id": 88800183,
+        "id": 88800346,
         "weight": 1
       }
     ],
@@ -10570,7 +10570,7 @@
     "prefabName": "Group_Building4",
     "pic": "UI/Witches/Map/Building/motianlun",
     "des": "천천히 회전하는 관람차 아래에서, 어느 특별한 관광객이 인형 뽑기 게임에 도전하고 있습니다.",
-    "FerrisWheel": 88800181,
+    "FerrisWheel": -1,
     "clickX": 3,
     "clickY": 3,
     "clickZ": 3,

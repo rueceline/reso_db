@@ -557,12 +557,8 @@
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80300689,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80300688,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
@@ -571,12 +567,8 @@
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80300689,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80300688,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
@@ -653,7 +645,7 @@
     "isInformalData": false,
     "SigninAwardList": [],
     "dailysignInTitle": "청명 카니발",
-    "totalDays": 14,
+    "totalDays": 7,
     "startTime": "2023-01-01 00:00:00",
     "endTime": "2024-01-01 00:00:00",
     "bgPic": "",
@@ -665,120 +657,33 @@
         "pngWoman": ""
       },
       {
-        "color": "",
         "id": 80302140,
-        "name": -1,
-        "nameQuality": -1,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80306334,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80302139,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80306335,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80302140,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80306336,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80302139,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80306337,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80302139,
         "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       },
       {
-        "color": "",
-        "id": 80306338,
-        "name": -1,
-        "nameQuality": -1,
+        "id": 80302140,
         "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306339,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306340,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306341,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306342,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306343,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306344,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306345,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
         "pngWoman": ""
       }
     ]
@@ -1083,12 +988,7 @@
         "pngWoman": ""
       },
       {
-        "id": 80302139,
-        "pngMan": "",
-        "pngWoman": ""
-      },
-      {
-        "id": 80302139,
+        "id": 80302140,
         "pngMan": "",
         "pngWoman": ""
       },
@@ -1103,7 +1003,12 @@
         "pngWoman": ""
       },
       {
-        "id": 80302140,
+        "id": 80302139,
+        "pngMan": "",
+        "pngWoman": ""
+      },
+      {
+        "id": 80302139,
         "pngMan": "",
         "pngWoman": ""
       },
@@ -1399,16 +1304,7 @@
       },
       {
         "color": "",
-        "id": 80304716,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80304716,
+        "id": 80304717,
         "name": -1,
         "nameQuality": -1,
         "pngMan": "",
@@ -1435,7 +1331,7 @@
       },
       {
         "color": "",
-        "id": 80304717,
+        "id": 80304716,
         "name": -1,
         "nameQuality": -1,
         "pngMan": "",
@@ -1444,7 +1340,16 @@
       },
       {
         "color": "",
-        "id": 80304717,
+        "id": 80304718,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
+      {
+        "color": "",
+        "id": 80304719,
         "name": -1,
         "nameQuality": -1,
         "pngMan": "",
@@ -1784,12 +1689,57 @@
     "isInformalData": false,
     "SigninAwardList": [],
     "dailysignInTitle": "청명 특별 보급",
-    "totalDays": 7,
+    "totalDays": 10,
     "startTime": "2023-01-01 00:00:00",
     "endTime": "2029-01-01 00:00:00",
     "bgPic": "",
     "isResident": false,
     "SigninRewardList": [
+      {
+        "color": "",
+        "id": 80306325,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
+      {
+        "color": "",
+        "id": 80306325,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
+      {
+        "color": "",
+        "id": 80306325,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
+      {
+        "color": "",
+        "id": 80306325,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
+      {
+        "color": "",
+        "id": 80306325,
+        "name": -1,
+        "nameQuality": -1,
+        "pngMan": "",
+        "pngQuality": "",
+        "pngWoman": ""
+      },
       {
         "color": "",
         "id": 80306325,
@@ -1828,25 +1778,7 @@
       },
       {
         "color": "",
-        "id": 80306325,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306574,
-        "name": -1,
-        "nameQuality": -1,
-        "pngMan": "",
-        "pngQuality": "",
-        "pngWoman": ""
-      },
-      {
-        "color": "",
-        "id": 80306574,
+        "id": 80306326,
         "name": -1,
         "nameQuality": -1,
         "pngMan": "",

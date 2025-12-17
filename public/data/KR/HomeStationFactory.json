@@ -4879,7 +4879,7 @@
     "addDevelop": 8000,
     "developUpperLimit": 60500000,
     "playerLevel": 0,
-    "questId": 81002288,
+    "questId": 81002445,
     "specifiedLevelId": -1,
     "constructionActivityId": -1,
     "itemId": -1,
@@ -10779,12 +10779,12 @@
     "idCN": "新城市表/T11维蒂林场",
     "mod": "基础车站",
     "isInformalData": false,
-    "isOpen": false,
+    "isOpen": true,
     "name": "위티 벌목장",
     "nameId": -99997,
     "nameEN": "Viti Plantation",
     "desNew": "위치는 외진 편이지만, 주변 환경이 아름답고 폐쇄적인 벌목장으로, 최근 몇 년 사이 생산량이 감소했으나 여전히 중요한 목재 생산지로서의 지위를 유지하고 있습니다.",
-    "recommendLevel": 55,
+    "recommendLevel": 60,
     "dangerLevel": 9,
     "attachedToCity": 83000052,
     "force": 12601481,
@@ -10798,12 +10798,12 @@
     "defaultDevelop": 150000,
     "addDevelop": 1500,
     "developUpperLimit": 14250000,
-    "playerLevel": 100,
+    "playerLevel": 0,
     "questId": 81000037,
     "specifiedLevelId": -1,
     "constructionActivityId": -1,
     "itemId": -1,
-    "isBanStop": true,
+    "isBanStop": false,
     "banStopTips": "현재 면허증은 해당 라인을 신청할 수 없습니다.",
     "lockStationQuestList": [],
     "cityStateList": [
@@ -10819,7 +10819,7 @@
         "dungeonId": -1,
         "name": "探索城市",
         "recommendLevel": 1,
-        "sceneId": 80307800,
+        "sceneId": 80307982,
         "state": 1
       }
     ],
@@ -10830,11 +10830,11 @@
     ],
     "pullOutTimeLineList": [],
     "pos": 649,
-    "isShowInMap": false,
+    "isShowInMap": true,
     "x": 200,
     "y": -1050,
     "mapIconPath": "UI/MainUI/map_icon_station2",
-    "nodePath": "Group_Common.SoftMask_HomeMap.Group_HomeMap.ScrollView_Map.Viewport.Content.ScrollGrid_Station.Viewport.Grid.Group_Item_021.Btn_S1",
+    "nodePath": "Group_Common.SoftMask_HomeMap.Group_HomeMap.ScrollView_Map.Viewport.Content.ScrollGrid_Station.Viewport.Grid.Group_Item_015.Btn_S1",
     "showGoodsQuest": -1,
     "repRewardList": [],
     "enterStationPlotList": [],
@@ -10856,7 +10856,7 @@
         "id": 84300001
       }
     ],
-    "isWarehouse": false,
+    "isWarehouse": true,
     "warehousePrestige": 6,
     "buyPrice": [
       {
@@ -10879,7 +10879,7 @@
         "useNum": 5
       }
     ],
-    "bargainSpinePath": "",
+    "bargainSpinePath": "UI/UIEffect/Spine/juqing_kanjia05/juqing_kanjia05_SkeletonData",
     "actionM": "nan2_1",
     "actionW": "nv1_1",
     "action2M": "nan2_2",
@@ -11652,11 +11652,11 @@
     "isHomeBattleCentre": true,
     "openPageList": [
       {
-        "icon": "UI/HomeBattleCenter/icon_exchange",
-        "isStore": true,
+        "icon": "UI/Home/HomeSafe/icon_quzhu",
+        "isStore": false,
         "isTalk": false,
-        "name": "교환 계획",
-        "showUI": "Group_Exchange"
+        "name": "작전 계획",
+        "showUI": "Group_Battle"
       },
       {
         "icon": "UI/HomeTrade/trade_icon_sell",
@@ -11681,10 +11681,51 @@
     ],
     "buildingIconPath": "UI/HomeBattleCenter/battle_icon",
     "battleLevelName": "형태 오염 처리 계획",
-    "quickIconPath": "",
+    "quickIconPath": "UI/Activity/ActivitySafe/Image/City/LC",
     "battleIconPath": "UI/HomeBattleCenter/icon",
     "battleTypeId": 12601443,
-    "battleLevelList": [],
+    "battleLevelList": [
+      {
+        "difficulty": 1,
+        "id": 20102617
+      },
+      {
+        "difficulty": 2,
+        "id": 20102613
+      },
+      {
+        "difficulty": 3,
+        "id": 20102614
+      },
+      {
+        "difficulty": 2,
+        "id": 20102616
+      },
+      {
+        "difficulty": 3,
+        "id": 20102615
+      },
+      {
+        "difficulty": 3,
+        "id": 20102621
+      },
+      {
+        "difficulty": 3,
+        "id": 20102612
+      },
+      {
+        "difficulty": 3,
+        "id": 20102620
+      },
+      {
+        "difficulty": 3,
+        "id": 20102618
+      },
+      {
+        "difficulty": 3,
+        "id": 20102619
+      }
+    ],
     "createOrderList": [
       {
         "constructLimit": 0,
@@ -11732,7 +11773,7 @@
         "nameBtn": "건설 계획 1기",
         "nameEN": "STATION CONSTRUCTION PLAN",
         "overNum": 0,
-        "png": "UI/HomeBattleCenter/ConstructStage/youlecheng_bg",
+        "png": "UI/HomeBattleCenter/ConstructStage/linchang_bg",
         "pond": -1,
         "stagePng": "UI/HomeBattleCenter/ConstructStage/linchang",
         "state": 4294967295,
@@ -11747,7 +11788,7 @@
         "nameBtn": "건설 계획 2기",
         "nameEN": "STATION CONSTRUCTION PLAN",
         "overNum": 0,
-        "png": "UI/HomeBattleCenter/ConstructStage/youlecheng_bg",
+        "png": "UI/HomeBattleCenter/ConstructStage/linchang_bg",
         "pond": -1,
         "stagePng": "UI/HomeBattleCenter/ConstructStage/linchang",
         "state": 4294967295,
@@ -11901,12 +11942,38 @@
     "keepSingleMealList": [],
     "keepTeamMealList": [],
     "inviteTimes": 1,
-    "isLeaflet": false,
+    "isLeaflet": true,
     "leafletUnlock": 0,
-    "leafletMap": "",
-    "order": 0,
-    "cityLeafletList": [],
-    "cityLeafletLest": [],
+    "leafletMap": "UI/Flier/cityMap/city_weidilinchang",
+    "order": 16,
+    "cityLeafletList": [
+      {
+        "id": 84400289
+      },
+      {
+        "id": 84400288
+      },
+      {
+        "id": 84400271
+      },
+      {
+        "id": 84400280
+      }
+    ],
+    "cityLeafletLest": [
+      {
+        "id": 80307984
+      },
+      {
+        "id": 80307983
+      },
+      {
+        "id": 80307986
+      },
+      {
+        "id": 80307985
+      }
+    ],
     "trainList": [],
     "recommendNum": 0,
     "kmCostList": [
@@ -20329,6 +20396,26 @@
       {
         "difficulty": 3,
         "id": 20102480
+      },
+      {
+        "difficulty": 3,
+        "id": 20102519
+      },
+      {
+        "difficulty": 3,
+        "id": 20102520
+      },
+      {
+        "difficulty": 3,
+        "id": 20102521
+      },
+      {
+        "difficulty": 3,
+        "id": 20102522
+      },
+      {
+        "difficulty": 3,
+        "id": 20102523
       }
     ],
     "createOrderList": [
@@ -25585,6 +25672,66 @@
       {
         "difficulty": 3,
         "id": 20101337
+      },
+      {
+        "difficulty": 3,
+        "id": 20102497
+      },
+      {
+        "difficulty": 3,
+        "id": 20102498
+      },
+      {
+        "difficulty": 3,
+        "id": 20102499
+      },
+      {
+        "difficulty": 3,
+        "id": 20102500
+      },
+      {
+        "difficulty": 3,
+        "id": 20102501
+      },
+      {
+        "difficulty": 3,
+        "id": 20102502
+      },
+      {
+        "difficulty": 3,
+        "id": 20102503
+      },
+      {
+        "difficulty": 3,
+        "id": 20102504
+      },
+      {
+        "difficulty": 3,
+        "id": 20102505
+      },
+      {
+        "difficulty": 3,
+        "id": 20102506
+      },
+      {
+        "difficulty": 3,
+        "id": 20102524
+      },
+      {
+        "difficulty": 3,
+        "id": 20102525
+      },
+      {
+        "difficulty": 3,
+        "id": 20102526
+      },
+      {
+        "difficulty": 3,
+        "id": 20102527
+      },
+      {
+        "difficulty": 3,
+        "id": 20102528
       }
     ],
     "createOrderList": [

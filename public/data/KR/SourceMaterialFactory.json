@@ -12375,15 +12375,15 @@
     "idCN": "00觉醒材料/05五星/沃斯托克",
     "mod": "突破材料",
     "isInformalData": false,
-    "name": "안피아의 보충 이력서",
+    "name": "沃斯托克的履历补充",
     "viewId": -1,
     "quality": "Golden",
     "des": "흑월이 목표 인물의 이력을 추가로 보완했습니다. 이 정보를 파악하면 그들의 잠재력을 더욱 잘 활용할 수 있습니다.",
     "iconPath": "Item\\item\\Small\\bt_ssr",
     "tipsPath": "Item\\item\\Big\\bt_ssr",
-    "breakPath": "RolePlus/Anfiya/Face",
+    "breakPath": "RolePlus/Vostok/Face",
     "isBreakChange": false,
-    "CorrespondingRole": 10000372,
+    "CorrespondingRole": 10001203,
     "breakItemList": [
       {
         "id": 11400017,

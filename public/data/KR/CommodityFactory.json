@@ -70120,7 +70120,7 @@
         "num": 1
       }
     ],
-    "commodityNum": 1,
+    "commodityNum": 2,
     "moneyList": [
       {
         "correspondPrice": -1,
@@ -70131,7 +70131,7 @@
     "monetaryView": "Item/item/activity01",
     "discountVariable": 50,
     "purchase": true,
-    "purchaseNum": 3,
+    "purchaseNum": 1,
     "firstGifts": false,
     "firstGiftsNum": 0,
     "commodityFunction": "",
@@ -70220,7 +70220,7 @@
         "num": 1
       }
     ],
-    "commodityNum": 1,
+    "commodityNum": 2,
     "moneyList": [
       {
         "correspondPrice": -1,
@@ -70231,7 +70231,7 @@
     "monetaryView": "Item/item/xiansuo",
     "discountVariable": 50,
     "purchase": true,
-    "purchaseNum": 3,
+    "purchaseNum": 1,
     "firstGifts": false,
     "firstGiftsNum": 0,
     "commodityFunction": "",
@@ -70370,7 +70370,7 @@
         "num": 1
       }
     ],
-    "commodityNum": 1,
+    "commodityNum": 2,
     "moneyList": [
       {
         "correspondPrice": -1,
@@ -70381,7 +70381,7 @@
     "monetaryView": "Item/item/rongyushuju",
     "discountVariable": 50,
     "purchase": true,
-    "purchaseNum": 3,
+    "purchaseNum": 1,
     "firstGifts": false,
     "firstGiftsNum": 0,
     "commodityFunction": "",
@@ -70420,7 +70420,7 @@
         "num": 1
       }
     ],
-    "commodityNum": 1,
+    "commodityNum": 2,
     "moneyList": [
       {
         "correspondPrice": -1,
@@ -70431,7 +70431,7 @@
     "monetaryView": "Item/item/activitysum",
     "discountVariable": 50,
     "purchase": true,
-    "purchaseNum": 3,
+    "purchaseNum": 1,
     "firstGifts": false,
     "firstGiftsNum": 0,
     "commodityFunction": "",

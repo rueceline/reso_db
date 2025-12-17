@@ -157,51 +157,51 @@
     "randomBattleLevelList": [
       {
         "dropEquipId": 80305742,
-        "dropEquipLv": 70,
+        "dropEquipLv": 60,
         "id": 80305722,
-        "lv": 50
+        "lv": 55
       },
       {
         "dropEquipId": 80305742,
-        "dropEquipLv": 70,
+        "dropEquipLv": 60,
         "id": 80305720,
-        "lv": 52
+        "lv": 57
       },
       {
         "dropEquipId": 80305742,
-        "dropEquipLv": 70,
+        "dropEquipLv": 60,
         "id": 80305724,
-        "lv": 54
+        "lv": 59
       },
       {
         "dropEquipId": 80305742,
-        "dropEquipLv": 70,
+        "dropEquipLv": 60,
         "id": 80305725,
-        "lv": 56
+        "lv": 61
       },
       {
         "dropEquipId": 80305742,
-        "dropEquipLv": 70,
+        "dropEquipLv": 60,
         "id": 80305726,
-        "lv": 58
-      },
-      {
-        "dropEquipId": 80305742,
-        "dropEquipLv": 70,
-        "id": 80305727,
-        "lv": 60
-      },
-      {
-        "dropEquipId": 80305742,
-        "dropEquipLv": 70,
-        "id": 80305723,
-        "lv": 62
-      },
-      {
-        "dropEquipId": 80305742,
-        "dropEquipLv": 70,
-        "id": 80305721,
         "lv": 64
+      },
+      {
+        "dropEquipId": 80305742,
+        "dropEquipLv": 60,
+        "id": 80305727,
+        "lv": 67
+      },
+      {
+        "dropEquipId": 80305742,
+        "dropEquipLv": 60,
+        "id": 80305723,
+        "lv": 70
+      },
+      {
+        "dropEquipId": 80305742,
+        "dropEquipLv": 60,
+        "id": 80305721,
+        "lv": 75
       }
     ],
     "initRoleList": [
@@ -209,53 +209,53 @@
         "awake": 5,
         "break": 5,
         "id": 80305737,
-        "lv": 70
+        "lv": 60
       },
       {
         "awake": 5,
         "break": 5,
         "id": 80305738,
-        "lv": 70
+        "lv": 60
       },
       {
         "awake": 5,
         "break": 5,
         "id": 80305739,
-        "lv": 70
+        "lv": 60
       },
       {
         "awake": 5,
         "break": 5,
         "id": 80305738,
-        "lv": 70
+        "lv": 60
       },
       {
         "awake": 5,
         "break": 5,
         "id": 80305739,
-        "lv": 70
+        "lv": 60
       }
     ],
     "initEquipList": [
       {
         "id": 80305740,
-        "lv": 70
+        "lv": 60
       },
       {
         "id": 80305742,
-        "lv": 70
+        "lv": 60
       },
       {
         "id": 80305741,
-        "lv": 70
+        "lv": 60
       },
       {
         "id": 80305742,
-        "lv": 70
+        "lv": 60
       },
       {
         "id": 80305741,
-        "lv": 70
+        "lv": 60
       }
     ],
     "rewardFinish": [

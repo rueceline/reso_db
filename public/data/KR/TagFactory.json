@@ -18624,7 +18624,7 @@
     "isShowDetail": true,
     "temptagNameRichText": "“炽霞倾橙”",
     "tagNameRichText": "'붉은 노을'",
-    "detail": "[스모킹 건]이 [소각]될 때마다 뒷열 아군의 공격력이 2% 증가합니다.(최대 50%)"
+    "detail": "每有1张【焚心余烬】被【销毁】时，使我方后排攻击力+5%，上限50%"
   },
   {
     "id": 12601597,
@@ -22746,5 +22746,53 @@
     "temptagNameRichText": "爆轰",
     "tagNameRichText": "<color=#FF6666>爆轰</color>",
     "detail": "每秒对目标造成3段伤害，持续3秒"
+  },
+  {
+    "id": 12601946,
+    "idCN": "战斗/角色技能/05/沃斯托克/S",
+    "mod": "标签",
+    "isInformalData": false,
+    "icon": "",
+    "tagName": "",
+    "tagID": 0,
+    "isShowDetail": false,
+    "temptagNameRichText": "",
+    "tagNameRichText": "",
+    "detail": ""
+  },
+  {
+    "id": 12601947,
+    "idCN": "单位/10召唤物/沃斯托克Kto",
+    "mod": "标签",
+    "isInformalData": false,
+    "icon": "",
+    "tagName": "돌격대원",
+    "tagID": 0,
+    "isShowDetail": false,
+    "temptagNameRichText": "",
+    "tagNameRichText": "",
+    "detail": ""
+  },
+  {
+    "id": 12601948,
+    "idCN": "单位/10召唤物/沃斯托克火箭",
+    "mod": "标签",
+    "isInformalData": false,
+    "icon": "",
+    "tagName": "돌격대원",
+    "tagID": 0,
+    "isShowDetail": false,
+    "temptagNameRichText": "",
+    "tagNameRichText": "",
+    "detail": ""
+  },
+  {
+    "id": 12601949,
+    "idCN": "卡池大保底/07异界招募-教皇复刻1",
+    "mod": "卡池大保底",
+    "isInformalData": false,
+    "icon": "",
+    "tagName": "이세계 모집",
+    "recordTips": "이 페이지에서 최근 6개월간 [이세계 모집]의 모집 기록을 확인할 수 있습니다. 모집 기록은 1분 정도의 지연이 있으므로 기록이 없다면 잠시 후에 다시 열어보세요."
   }
 ]

@@ -138,7 +138,7 @@
     "isStageQuest": true,
     "isSkinSkill": false,
     "emptyTipQuest": 81001199,
-    "isShowWiki": false,
+    "isShowWiki": true,
     "questREC": 81000460,
     "questDownload": 81000017,
     "equipmentBag": 2000,
@@ -165,6 +165,7 @@
     "profilePhotoW": 82600007,
     "ratioExp": 1,
     "levelMax": 100,
+    "CharacterOverUserLevelMax": 10,
     "renameCost": [
       {
         "id": 11400005,
@@ -203,13 +204,13 @@
     "mainStoreList": [
       {
         "id": 80300924,
-        "isRedPoint": false,
         "name": "특별 추천",
         "pngNotSelect": "UI/Store/recommend",
         "pngSelect": "UI/Store/Select_recommend"
       },
       {
         "id": 80300003,
+        "isRedPoint": false,
         "name": "크리스탈",
         "pngNotSelect": "UI/Store/yuandingzhuangui",
         "pngSelect": "UI/Store/Select_yuandingzhuangui"
@@ -220,6 +221,13 @@
         "name": "특혜 패키지",
         "pngNotSelect": "UI/Store/libao",
         "pngSelect": "UI/Store/Select_libao"
+      },
+      {
+        "id": 80307398,
+        "isRedPoint": true,
+        "name": "무한 보급",
+        "pngNotSelect": "UI/Store/yuandingzhuangui",
+        "pngSelect": "UI/Store/Select_yuandingzhuangui"
       },
       {
         "id": 80301713,
@@ -265,13 +273,13 @@
         "id": 40300046
       }
     ],
-    "mainUIBannerPath": "",
+    "mainUIBannerPath": "UI/MainUI/ShopEntrance/main_ShopEntrance_wuyinlibao",
     "mainUIBannerTime": 7,
-    "mainUIBannerArgs": "",
-    "mainUIBannerStoreId": -1,
-    "mainUIBannerValuableId": -1,
-    "mainUIBannerDrivingIsOpen": false,
-    "mainUIBannerStationIsOpen": false,
+    "mainUIBannerArgs": "{\"shopId\":80307398}",
+    "mainUIBannerStoreId": 40300086,
+    "mainUIBannerValuableId": 82101609,
+    "mainUIBannerDrivingIsOpen": true,
+    "mainUIBannerStationIsOpen": true,
     "energyItemList": [
       {
         "id": 11400067
@@ -610,7 +618,7 @@
         "id": 85300002
       }
     ],
-    "NoticeAddress": "http://reso-notice.ujoygames.co.kr/notice_KR.html",
+    "NoticeAddress": "https://eden-notice.gameduchy.com/notice_sc.html",
     "limitTimes": 9,
     "maxTimes": 30,
     "BlockTime": 900,
@@ -628,8 +636,8 @@
         "id": 11400041
       }
     ],
-    "wcoinConverRatio": 0.01,
-    "IsEnemySkillOpen": false,
+    "wcoinConverRatio": 1,
+    "IsEnemySkillOpen": true,
     "monopolyControl": 60400002
   },
   {
@@ -651,14 +659,14 @@
     "uiBgmList": [
       {
         "PrefabUrl": "UI\\Login\\Login",
-        "soundId": 30000850
+        "soundId": 30006717
       },
       {
         "PrefabUrl": "UI/Playground/Playground",
         "soundId": 30005390
       }
     ],
-    "loginMusicTitle": 80611300,
+    "loginMusicTitle": 80607558,
     "gaizhang": -1,
     "huoche": 30000529,
     "choukaN": 30000523,
@@ -714,304 +722,504 @@
     "nameEN": "UnitExpConfig",
     "expList": [
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 200
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 300
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 400
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 500
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 600
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 700
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 800
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 900
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1000
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1200
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1300
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1400
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1500
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1600
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1700
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1800
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 1900
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2000
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2100
       },
       {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2200
       },
       {
-        "levelUpExp": 2300
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2400
       },
       {
-        "levelUpExp": 2500
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2600
       },
       {
-        "levelUpExp": 2700
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 2800
       },
       {
-        "levelUpExp": 2900
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 3000
       },
       {
-        "levelUpExp": 3100
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 3200
       },
       {
-        "levelUpExp": 3300
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 3400
       },
       {
-        "levelUpExp": 3500
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 3600
       },
       {
-        "levelUpExp": 3700
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 3800
       },
       {
-        "levelUpExp": 3900
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 4000
       },
       {
-        "levelUpExp": 4100
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 4200
       },
       {
-        "levelUpExp": 4300
-      },
-      {
-        "levelUpExp": 4400
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 4500
       },
       {
-        "levelUpExp": 4600
-      },
-      {
-        "levelUpExp": 4700
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 4800
       },
       {
-        "levelUpExp": 4900
-      },
-      {
-        "levelUpExp": 5000
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 5100
       },
       {
-        "levelUpExp": 5200
-      },
-      {
-        "levelUpExp": 5300
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 5400
       },
       {
-        "levelUpExp": 5500
-      },
-      {
-        "levelUpExp": 5600
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 5700
       },
       {
-        "levelUpExp": 5800
-      },
-      {
-        "levelUpExp": 5900
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 6000
       },
       {
-        "levelUpExp": 6100
-      },
-      {
-        "levelUpExp": 6200
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 6300
       },
       {
-        "levelUpExp": 6400
-      },
-      {
-        "levelUpExp": 6500
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 6600
       },
       {
-        "levelUpExp": 6700
-      },
-      {
-        "levelUpExp": 6800
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 6900
       },
       {
-        "levelUpExp": 7000
-      },
-      {
-        "levelUpExp": 7100
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 7200
       },
       {
-        "levelUpExp": 7300
-      },
-      {
-        "levelUpExp": 7400
-      },
-      {
-        "levelUpExp": 7500
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 7600
       },
       {
-        "levelUpExp": 7700
-      },
-      {
-        "levelUpExp": 7800
-      },
-      {
-        "levelUpExp": 7900
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 8000
       },
       {
-        "levelUpExp": 8100
-      },
-      {
-        "levelUpExp": 8200
-      },
-      {
-        "levelUpExp": 8300
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 8400
       },
       {
-        "levelUpExp": 8500
-      },
-      {
-        "levelUpExp": 8600
-      },
-      {
-        "levelUpExp": 8700
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 8800
       },
       {
-        "levelUpExp": 8900
-      },
-      {
-        "levelUpExp": 9000
-      },
-      {
-        "levelUpExp": 9100
-      },
-      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
         "levelUpExp": 9200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 9600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 10000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 10400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 10800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 11200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 11700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 12200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 12700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 13200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 13700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 14200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 14700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 15200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 15700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 16200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 16800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 17400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 18000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 18600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 19200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 19800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 20400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 21000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 21600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 22200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 22900
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 23600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 24300
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 25000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 25700
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 26400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 27100
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 27800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 28500
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 29200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 30000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 30800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 31600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 32400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 33200
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 34000
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 34800
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 35600
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 36400
+      },
+      {
+        "EnergyMax": 0,
+        "levelUpEnergy": 0,
+        "levelUpExp": 37200
       }
     ]
   },
@@ -1857,10 +2065,28 @@
     "BattlePassId": 82500001,
     "BattlePassIdList": [
       {
-        "id": 82500002
+        "id": 82500001
       },
       {
-        "id": 82500001
+        "id": 82500003
+      },
+      {
+        "id": 82500005
+      },
+      {
+        "id": 82500004
+      },
+      {
+        "id": 82500006
+      },
+      {
+        "id": 82500007
+      },
+      {
+        "id": 82500009
+      },
+      {
+        "id": 82500012
       },
       {
         "id": 82500016
@@ -1869,25 +2095,37 @@
         "id": 82500020
       },
       {
-        "id": 82500028
-      },
-      {
         "id": 82500023
       },
       {
-        "id": 82500007
-      },
-      {
-        "id": 82500046
-      },
-      {
-        "id": 82500036
+        "id": 82500028
       },
       {
         "id": 82500032
       },
       {
+        "id": 82500034
+      },
+      {
+        "id": 82500036
+      },
+      {
+        "id": 82500041
+      },
+      {
+        "id": 82500046
+      },
+      {
         "id": 82500048
+      },
+      {
+        "id": 82500058
+      },
+      {
+        "id": 82500062
+      },
+      {
+        "id": 82500070
       }
     ],
     "StageQuestConfig": [
@@ -1902,6 +2140,10 @@
       {
         "id": 80304017,
         "textId": 80608562
+      },
+      {
+        "id": 80304019,
+        "textId": 80607948
       }
     ],
     "initFurnitureList": [],
@@ -1948,63 +2190,91 @@
       },
       {
         "id": 12600748,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12600747,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12600695,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12601493,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12601650,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12601775,
-        "num": 70
+        "num": 50
       },
       {
-        "id": 12601552,
-        "num": 70
+        "id": 12601896,
+        "num": 50
       },
       {
-        "id": 12601747,
-        "num": 70
-      },
-      {
-        "id": 12601940,
-        "num": 70
+        "id": 12601818,
+        "num": 50
       },
       {
         "id": 12601521,
-        "num": 70
+        "num": 50
+      },
+      {
+        "id": 12601949,
+        "num": 50
+      },
+      {
+        "id": 12601552,
+        "num": 50
+      },
+      {
+        "id": 12601747,
+        "num": 50
+      },
+      {
+        "id": 12601940,
+        "num": 50
       },
       {
         "id": 12601695,
-        "num": 70
+        "num": 50
       },
       {
         "id": 12601804,
-        "num": 70
+        "num": 50
+      },
+      {
+        "id": 12601835,
+        "num": 50
       },
       {
         "id": 12601825,
-        "num": 70
+        "num": 50
       },
       {
-        "id": 12601910,
-        "num": 70
+        "id": 12601916,
+        "num": 50
+      },
+      {
+        "id": 12601909,
+        "num": 50
+      },
+      {
+        "id": 12601928,
+        "num": 50
+      },
+      {
+        "id": 12601941,
+        "num": 50
       }
     ],
     "formationTipOpen": 15,
-    "equipTipOpen": 40,
+    "equipTipOpen": 25,
     "equipTipLv": 30,
     "equipTipMax": 60,
     "packageRegisterTime": "2025-09-01 05:00:00",
@@ -2057,7 +2327,7 @@
         "type": "Percent"
       }
     ],
-    "isDotweenPause": true,
+    "isDotweenPause": false,
     "bossProgMutiple": 10,
     "maxRandomWaveCount": 3,
     "defaultBossHPTemp": 90100006,
@@ -2137,7 +2407,7 @@
     "effectArrowTopId": 11101621,
     "handCardStartNum": 3,
     "handCardNumMax": 7,
-    "handCardNumMaxFinal": 30,
+    "handCardNumMaxFinal": 60,
     "drawCardNumAfterBattle": 1,
     "discardBtnDrawCardNum": 1,
     "discardBtnCooldownFrame": 1200,
@@ -2310,7 +2580,7 @@
         "tagId": 12600208
       },
       {
-        "buffId": 10401632,
+        "buffId": 10415200,
         "tagId": 12600088
       },
       {
@@ -2318,7 +2588,7 @@
         "tagId": 12601487
       },
       {
-        "buffId": 10402630,
+        "buffId": 10404389,
         "tagId": 12600087
       },
       {
@@ -2358,7 +2628,7 @@
         "tagId": 12600053
       },
       {
-        "buffId": 10407085,
+        "buffId": 10419330,
         "tagId": 12600002
       },
       {
@@ -2418,6 +2688,10 @@
         "tagId": 12600276
       },
       {
+        "buffId": 10419392,
+        "tagId": 12601698
+      },
+      {
         "buffId": 10420567,
         "tagId": 12601732
       },
@@ -2428,6 +2702,18 @@
       {
         "buffId": 10423037,
         "tagId": 12601801
+      },
+      {
+        "buffId": 10423788,
+        "tagId": 12601869
+      },
+      {
+        "buffId": 10423809,
+        "tagId": 12601870
+      },
+      {
+        "buffId": 10423825,
+        "tagId": 12601868
       }
     ],
     "damageCountDurarion": 180,
@@ -2460,8 +2746,15 @@
       }
     ],
     "specialIcon05": "UI/Battle/CardDes/anyi_count",
-    "specialIcon06": "",
-    "judgeAttributeList": []
+    "specialIcon06": "UI/Battle/CardDes/msgold_S_CoinCount",
+    "judgeAttributeList": [
+      {
+        "name": "Atk"
+      },
+      {
+        "name": "OriginalAtk"
+      }
+    ]
   },
   {
     "id": 99900009,
@@ -7273,7 +7566,7 @@
     "questNum": 0,
     "dailyQuestList": [
       {
-        "id": 81002041
+        "id": 81002688
       },
       {
         "id": 81002045
@@ -7303,8 +7596,8 @@
     "apRewardList": [
       {
         "ap": 100,
-        "id": 11400001,
-        "num": 50000
+        "id": 11400005,
+        "num": 60
       },
       {
         "ap": 200,
@@ -7804,9 +8097,6 @@
         "day": "2025-03-02"
       },
       {
-        "day": "2025-03-03"
-      },
-      {
         "day": "2025-03-07"
       },
       {
@@ -7876,7 +8166,7 @@
         "day": "2025-04-26"
       },
       {
-        "day": "2025-04-27"
+        "day": "2025-05-01"
       },
       {
         "day": "2025-05-02"
@@ -7889,9 +8179,6 @@
       },
       {
         "day": "2025-05-05"
-      },
-      {
-        "day": "2025-05-06"
       },
       {
         "day": "2025-05-09"
@@ -8083,7 +8370,10 @@
         "day": "2025-09-27"
       },
       {
-        "day": "2025-09-28"
+        "day": "2025-10-01"
+      },
+      {
+        "day": "2025-10-02"
       },
       {
         "day": "2025-10-03"
@@ -8104,13 +8394,7 @@
         "day": "2025-10-08"
       },
       {
-        "day": "2025-10-09"
-      },
-      {
         "day": "2025-10-10"
-      },
-      {
-        "day": "2025-10-11"
       },
       {
         "day": "2025-10-12"
@@ -8204,9 +8488,6 @@
       },
       {
         "day": "2025-12-21"
-      },
-      {
-        "day": "2025-12-25"
       },
       {
         "day": "2025-12-26"
@@ -8831,6 +9112,9 @@
     "themeList": [
       {
         "id": 81400003
+      },
+      {
+        "id": 81400019
       }
     ],
     "floorTypeList": [
@@ -8850,7 +9134,14 @@
         "id": 12600341
       }
     ],
-    "wallTypeList": [],
+    "wallTypeList": [
+      {
+        "id": 12601736
+      },
+      {
+        "id": 12601737
+      }
+    ],
     "furnitureAttrList": [
       {
         "attrName": "쾌적도",
@@ -12015,7 +12306,7 @@
     "mod": "贸易经验表",
     "isInformalData": false,
     "nameEN": "TradeExpConfig",
-    "levelMax": 75,
+    "levelMax": 80,
     "expList": [
       {
         "bargainRange": 0.031,
@@ -16872,6 +17163,14 @@
         "guideNO": 161
       },
       {
+        "guideId": 20900204,
+        "guideNO": 166
+      },
+      {
+        "guideId": 20900207,
+        "guideNO": 166
+      },
+      {
         "guideId": 20900147,
         "guideNO": 171
       },
@@ -17028,6 +17327,10 @@
         "guideNO": 313
       },
       {
+        "guideId": 20900151,
+        "guideNO": 315
+      },
+      {
         "guideId": 20900116,
         "guideNO": 315
       },
@@ -17074,6 +17377,10 @@
       {
         "guideId": 20900239,
         "guideNO": 353
+      },
+      {
+        "guideId": 20900198,
+        "guideNO": 401
       }
     ]
   },
@@ -17900,6 +18207,13 @@
         "prefab": "UI/StageQuest/StageQuest"
       },
       {
+        "funcId": 120,
+        "icon": "UI/MainUI/main_icon_activity",
+        "name": "이벤트",
+        "param": "",
+        "prefab": "UI/Activity/ActivityMain"
+      },
+      {
         "funcId": 100,
         "icon": "UI/MainUI/main_icon_battlepass",
         "name": "여행 수첩",
@@ -17921,18 +18235,18 @@
         "prefab": "UI/Gacha/GachaNew"
       },
       {
-        "funcId": 105,
-        "icon": "UI/MainUI/main_icon_squads",
-        "name": "편성",
-        "param": "",
-        "prefab": "UI/Squads/Squads"
-      },
-      {
         "funcId": 104,
         "icon": "UI/MainUI/main_icon_member",
         "name": "파티원",
         "param": "",
         "prefab": "UI/CharacterList/CharacterList"
+      },
+      {
+        "funcId": 105,
+        "icon": "UI/MainUI/main_icon_squads",
+        "name": "편성",
+        "param": "",
+        "prefab": "UI/Squads/Squads"
       },
       {
         "funcId": 103,
@@ -17942,11 +18256,25 @@
         "prefab": "UI/Depot/Depot"
       },
       {
+        "funcId": 108,
+        "icon": "UI/MainUI/main_icon_build",
+        "name": "열차",
+        "param": "",
+        "prefab": "UI/Trainfactory/HomeCarriageeditor_splited/HomeCarriageeditor"
+      },
+      {
         "funcId": 119,
         "icon": "UI/MainUI/main_icon_machine",
         "name": "제조 가공",
         "param": "",
         "prefab": "UI/Home_MachiningMenu/Home_MachiningMenu"
+      },
+      {
+        "funcId": 132,
+        "icon": "UI/MainUI/main_icon_Order",
+        "name": "공동 주문",
+        "param": "",
+        "prefab": "UI/StageQuest/StageQuest"
       },
       {
         "funcId": 133,
@@ -17956,18 +18284,18 @@
         "prefab": "UI/Prison/Overview/Prison"
       },
       {
+        "funcId": 130,
+        "icon": "UI/MainUI/main_icon_transport",
+        "name": "여객운송 관리",
+        "param": "",
+        "prefab": "UI/MainUI/PassageTrafficRank"
+      },
+      {
         "funcId": 113,
         "icon": "UI/MainUI/main_icon_achievement",
         "name": "업적",
         "param": "",
         "prefab": "UI/Achievement/Achievement"
-      },
-      {
-        "funcId": 114,
-        "icon": "UI/MainUI/main_icon_license",
-        "name": "계정 설정",
-        "param": "",
-        "prefab": "UI/Login/AcountInfo"
       },
       {
         "funcId": 115,
@@ -18005,11 +18333,32 @@
         "prefab": "UI/TrainSound/TrainSound"
       },
       {
-        "funcId": 999,
-        "icon": "UI/MainUI/main_icon_clientservice",
-        "name": "고객 센터",
+        "funcId": 114,
+        "icon": "UI/MainUI/main_icon_license",
+        "name": "계정 설정",
         "param": "",
-        "prefab": "UI/clientservice/clientservice"
+        "prefab": "UI/Login/AcountInfo"
+      },
+      {
+        "funcId": 131,
+        "icon": "UI/Wiki/BWiki",
+        "name": "게임 Wiki",
+        "param": "",
+        "prefab": "UI/Wiki/Wiki"
+      },
+      {
+        "funcId": 132,
+        "icon": "UI/Comic/Comic",
+        "name": "4컷 만화",
+        "param": "",
+        "prefab": "UI/Comic/Comic"
+      },
+      {
+        "funcId": 999,
+        "icon": "UI/MainUI/main_icon_link",
+        "name": "账号引续",
+        "param": "",
+        "prefab": "UI/Login/Link_Login/LinkPasswordSet"
       }
     ],
     "mileageMax": 99999999,
@@ -18276,6 +18625,14 @@
       {
         "ChapterList": 20603199,
         "questId": -1
+      },
+      {
+        "ChapterList": 20603324,
+        "questId": -1
+      },
+      {
+        "ChapterList": 20603447,
+        "questId": -1
       }
     ]
   },
@@ -18309,13 +18666,19 @@
         "iconPath": "UI/MainUI/main_icon_headhunt",
         "isShow": false,
         "name": "모집",
+        "playerLevel": 0,
+        "quest": -1,
         "tips": -1
       },
       {
         "funcId": 103,
         "guideId": 0,
+        "iconPath": "",
         "isShow": false,
-        "name": "창고"
+        "name": "창고",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
       },
       {
         "funcId": 104,
@@ -18338,6 +18701,8 @@
         "iconPath": "UI/MainUI/main_icon_coach",
         "isShow": false,
         "name": "열차칸",
+        "playerLevel": 0,
+        "quest": -1,
         "tips": 80601354
       },
       {
@@ -18354,6 +18719,7 @@
         "iconPath": "UI/MainUI/main_icon_build",
         "isShow": false,
         "name": "열차 정비",
+        "playerLevel": 0,
         "quest": -1,
         "tips": 80601514
       },
@@ -18376,8 +18742,12 @@
       {
         "funcId": 111,
         "guideId": 0,
+        "iconPath": "",
         "isShow": false,
-        "name": "임무"
+        "name": "임무",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
       },
       {
         "funcId": 112,
@@ -18394,10 +18764,7 @@
         "guideId": 0,
         "iconPath": "",
         "isShow": false,
-        "name": "업적",
-        "playerLevel": 0,
-        "quest": -1,
-        "tips": -1
+        "name": "업적"
       },
       {
         "funcId": 114,
@@ -18412,9 +18779,12 @@
       {
         "funcId": 115,
         "guideId": 0,
-        "iconPath": "null",
+        "iconPath": "",
         "isShow": false,
-        "name": "자료실"
+        "name": "자료실",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
       },
       {
         "funcId": 116,
@@ -18450,7 +18820,6 @@
         "iconPath": "UI/MainUI/main_icon_activity",
         "isShow": false,
         "name": "이벤트",
-        "playerLevel": 0,
         "quest": 81000003,
         "tips": -1
       },
@@ -18495,6 +18864,46 @@
         "tips": -1
       },
       {
+        "funcId": 125,
+        "guideId": 0,
+        "iconPath": "UI/MainUI/main_icon_stageQuest",
+        "isShow": false,
+        "name": "가이드 수첩",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
+      },
+      {
+        "funcId": 130,
+        "guideId": 0,
+        "iconPath": "UI/MainUI/main_icon_transport",
+        "isShow": false,
+        "name": "여객운송 관리",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
+      },
+      {
+        "funcId": 131,
+        "guideId": 0,
+        "iconPath": "",
+        "isShow": false,
+        "name": "게임 Wiki",
+        "playerLevel": 0,
+        "quest": -1,
+        "tips": -1
+      },
+      {
+        "funcId": 132,
+        "guideId": 0,
+        "iconPath": "UI/MainUI/main_icon_Order",
+        "isShow": false,
+        "name": "공동 주문",
+        "playerLevel": 28,
+        "quest": -1,
+        "tips": -1
+      },
+      {
         "funcId": 133,
         "guideId": 0,
         "iconPath": "UI/MainUI/main_icon_Prison",
@@ -18509,7 +18918,7 @@
         "guideId": 0,
         "iconPath": "",
         "isShow": false,
-        "name": "계정 정보",
+        "name": "账号引续",
         "playerLevel": 0,
         "quest": -1,
         "tips": -1
@@ -19314,7 +19723,7 @@
     "nameEN": "PolluteConfig",
     "linePlyerLv": 13,
     "eventDoubleStartTime": "2025-03-24 05:00:00",
-    "eventDoubleEndTime": "2025-03-24 05:00:00",
+    "eventDoubleEndTime": "2025-04-01 05:00:00",
     "eventDoubleNum": 2,
     "pollutePlyerLv": 21,
     "polluteQuestId": -1,
@@ -19352,7 +19761,35 @@
       },
       {
         "id": 84600004,
-        "weight": 60
+        "weight": 50
+      },
+      {
+        "id": 84600009,
+        "weight": 15
+      },
+      {
+        "id": 84600010,
+        "weight": 50
+      },
+      {
+        "id": 84600011,
+        "weight": 0
+      },
+      {
+        "id": 84600012,
+        "weight": 10
+      },
+      {
+        "id": 84600014,
+        "weight": 25
+      },
+      {
+        "id": 84600015,
+        "weight": 10
+      },
+      {
+        "id": 84600016,
+        "weight": 10
       }
     ],
     "isClickPollute": true,
@@ -19361,59 +19798,64 @@
     "clickDungeonWeek": 1,
     "polluteRegularList": [
       {
-        "endTime": "2025-02-15",
+        "endTime": "2024-02-29",
         "id": 80300987,
-        "startTime": "2025-02-14"
+        "startTime": "2024-02-28"
       },
       {
-        "endTime": "2025-02-16",
+        "endTime": "2024-03-01",
         "id": 80300987,
-        "startTime": "2025-02-15"
+        "startTime": "2024-02-29"
       },
       {
-        "endTime": "2025-02-17",
+        "endTime": "2024-03-02",
         "id": 80300997,
-        "startTime": "2025-02-16"
+        "startTime": "2024-03-01"
       },
       {
-        "endTime": "2025-02-18",
+        "endTime": "2024-03-03",
         "id": 80300998,
-        "startTime": "2025-02-17"
+        "startTime": "2024-03-02"
       },
       {
-        "endTime": "2025-02-19",
+        "endTime": "2024-03-04",
         "id": 80300999,
-        "startTime": "2025-02-18"
+        "startTime": "2024-03-03"
       },
       {
-        "endTime": "2025-02-20",
+        "endTime": "2024-03-05",
         "id": 80301000,
-        "startTime": "2025-02-19"
+        "startTime": "2024-03-04"
       },
       {
-        "endTime": "2025-02-21",
+        "endTime": "2024-03-06",
         "id": 80301001,
-        "startTime": "2025-02-20"
+        "startTime": "2024-03-05"
       },
       {
-        "endTime": "2025-02-22",
+        "endTime": "2024-03-07",
         "id": 80301002,
-        "startTime": "2025-02-21"
+        "startTime": "2024-03-06"
       },
       {
-        "endTime": "2025-02-23",
+        "endTime": "2024-03-08",
         "id": 80301252,
-        "startTime": "2025-02-22"
+        "startTime": "2024-03-07"
       },
       {
-        "endTime": "2025-02-24",
+        "endTime": "2024-03-09",
         "id": 80301253,
-        "startTime": "2025-02-23"
+        "startTime": "2024-03-08"
       },
       {
-        "endTime": "2025-02-25",
+        "endTime": "2024-03-10",
         "id": 80301255,
-        "startTime": "2025-02-24"
+        "startTime": "2024-03-09"
+      },
+      {
+        "endTime": "2024-04-05",
+        "id": 80301824,
+        "startTime": "2024-04-04"
       }
     ]
   },
@@ -19435,6 +19877,20 @@
       },
       {
         "path": "UI/MainUI/Map_icon_pollute_4"
+      }
+    ],
+    "helpRoleBoxPath": [
+      {
+        "path": "UI/Friends/HelpBattle/HelpBattle_rarity_N"
+      },
+      {
+        "path": "UI/Friends/HelpBattle/HelpBattle_rarity_R"
+      },
+      {
+        "path": "UI/Friends/HelpBattle/HelpBattle_rarity_SR"
+      },
+      {
+        "path": "UI/Friends/HelpBattle/HelpBattle_rarity_SSR"
       }
     ]
   },
@@ -23495,7 +23951,7 @@
       },
       {
         "countDownMax": 3,
-        "endTime": "2030-02-28 23:59:00",
+        "endTime": "",
         "id": 86000101,
         "isCompleteBottom": true,
         "isCountDown": false,
@@ -23504,260 +23960,120 @@
         "png": "UI/Activity/Tab/tab_signBattleIkaraSkin",
         "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelIkaraSkin",
         "sort": 0,
-        "startTime": "2025-10-17 00:00:00",
+        "startTime": "2025-10-16 12:00:00",
         "tag": 12601826
       },
       {
         "countDownMax": 3,
         "endTime": "",
-        "id": 86000068,
+        "id": 86000054,
         "isCompleteBottom": true,
         "isCountDown": true,
         "isShow": true,
-        "name": 80610021,
-        "png": "UI/Activity/Tab/tab_signBattleRaziel",
-        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevel",
+        "name": 80610371,
+        "png": "UI/Activity/Tab/tab_signBattleLivia",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelLivia",
         "sort": 0,
         "startTime": "2025-02-18 12:00:00",
-        "tag": 12601613
+        "tag": 12601684
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-10-31 04:59:00",
-        "id": 86000097,
+        "endTime": "2026-01-06 12:00:00",
+        "id": 86000215,
         "isCompleteBottom": false,
         "isCountDown": false,
         "isShow": true,
-        "name": 80611213,
-        "png": "UI/Activity/ActivitySignIn/1.5Anniversary/tag",
-        "showUI": "",
+        "name": 80611878,
+        "png": "UI/Activity/Tab/tab_signBattleVostok",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelVostok",
         "sort": 0,
-        "startTime": "2025-10-16 05:00:00",
-        "tag": 12601103
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-12-24 23:59:00",
-        "id": 86000127,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611480,
-        "png": "UI/Activity/Tab/tab_signBattleHelena",
-        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelHelena",
-        "sort": 0,
-        "startTime": "2025-12-11 00:00:00",
-        "tag": 12601881
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-12-24 23:59:00",
-        "id": 86000067,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611408,
-        "png": "UI/Activity/Tab/tab_jiaohuang",
-        "showUI": "UI/Activity/IronSaga/IronSagaActivity",
-        "sort": 0,
-        "startTime": "2025-11-27 00:00:00",
-        "tag": 12601876
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-12-10 23:59:00",
-        "id": 86000113,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611388,
-        "png": "UI/Activity/ActivitySignIn/IronSaga/tag",
-        "showUI": "",
-        "sort": 0,
-        "startTime": "2025-11-27 00:00:00",
-        "tag": 12601103
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-12-24 23:59:00",
-        "id": 86000112,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": false,
-        "name": 80611211,
-        "png": "",
-        "showUI": "",
-        "sort": 0,
-        "startTime": "2025-11-27 00:00:00",
+        "startTime": "2025-12-16 12:00:00",
         "tag": 12601908
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-12-24 23:59:00",
-        "id": 86000117,
+        "endTime": "2025-12-22 12:00:00",
+        "id": 86000201,
         "isCompleteBottom": false,
         "isCountDown": false,
         "isShow": true,
-        "name": 80611358,
-        "png": "UI/Activity/Tab/tab_worldBoss",
-        "showUI": "UI/Activity/ActivityWorldBoss/ActivityWorldBoss",
+        "name": 80611854,
+        "png": "UI/Activity/Tab/tab_signBattleChenshuxian",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelChenshuxian",
         "sort": 0,
-        "startTime": "2025-11-27 00:00:00",
-        "tag": 12601815
+        "startTime": "2025-12-01 12:00:00",
+        "tag": 12601908
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-08-20 05:00:00",
-        "id": 86000070,
+        "endTime": "2025-12-20 12:00:00",
+        "id": 86000173,
         "isCompleteBottom": false,
         "isCountDown": false,
         "isShow": true,
-        "name": 80610641,
-        "png": "UI/Activity/ActivitySignIn/WitchesPark/tag",
-        "showUI": "",
+        "name": 80611649,
+        "png": "UI/Activity/Tab/tab_wujing",
+        "showUI": "UI/Activity/MistSequence/MistSequenceActivity",
         "sort": 0,
-        "startTime": "2025-08-06 05:00:00",
-        "tag": 12601103
+        "startTime": "2025-10-31 12:00:01",
+        "tag": 12601919
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-09-17 05:00:00",
-        "id": 86000051,
+        "endTime": "2025-12-20 12:00:00",
+        "id": 86000172,
         "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80610280,
-        "png": "UI/Activity/Tab/tab_witches",
-        "showUI": "UI/Witches/ActivityMain/WitchsActivityMain",
-        "sort": 0,
-        "startTime": "2025-08-06 05:00:00",
-        "tag": 12601669
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-09-17 05:00:00",
-        "id": 86000059,
-        "isCompleteBottom": true,
         "isCountDown": false,
         "isShow": false,
-        "name": 80610552,
-        "png": "UI/Activity/Tab/tab_witches",
-        "showUI": "UI/Witches/ActivityMain/WitchsActivityMain",
+        "name": -1,
+        "png": "",
+        "showUI": "",
         "sort": 0,
-        "startTime": "2025-08-06 05:00:00",
-        "tag": 12601703
+        "startTime": "2025-10-31 12:00:01",
+        "tag": 12601908
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-11-12 23:59:00",
-        "id": 86000098,
+        "endTime": "2025-12-20 12:00:00",
+        "id": 86000147,
         "isCompleteBottom": false,
         "isCountDown": false,
-        "isShow": true,
-        "name": 80610439,
-        "png": "UI/Activity/Tab/tab_endlessBattle",
-        "showUI": "UI/Activity/ActivityEndlessBattle/ActivityEndlessBattle",
+        "isShow": false,
+        "name": 80611822,
+        "png": "",
+        "showUI": "",
         "sort": 0,
-        "startTime": "2025-10-16 00:00:00",
-        "tag": 12601701
+        "startTime": "2025-11-12 12:00:00",
+        "tag": 12601908
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-11-18 23:59:00",
-        "id": 86000099,
+        "endTime": "2025-11-30 11:59:59",
+        "id": 86000181,
         "isCompleteBottom": false,
         "isCountDown": false,
         "isShow": true,
-        "name": 80611339,
-        "png": "UI/Activity/Tab/tab_signBattleEliade",
-        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelEliade",
+        "name": 80611800,
+        "png": "UI/Activity/ActivityRecharge/Mist/tab",
+        "showUI": "UI/Activity/ActivityRecharge/ActivityRechargeMist",
         "sort": 0,
-        "startTime": "2025-10-29 00:00:00",
-        "tag": 12601842
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-11-12 23:59:00",
-        "id": 86000100,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611211,
-        "png": "UI/Activity/Tab/tab_signBattleIkara",
-        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelIkara",
-        "sort": 0,
-        "startTime": "2025-10-16 00:00:00",
-        "tag": 12601819
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-10-01 23:59:00",
-        "id": 86000095,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611117,
-        "png": "UI/Activity/Tab/tab_signBattleChloe",
-        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelChloe",
-        "sort": 0,
-        "startTime": "2025-09-18 00:00:00",
-        "tag": 12601813
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-11-30 23:59:00",
-        "id": 86000093,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611461,
-        "png": "UI/Activity/Tab/tab_chaos",
-        "showUI": "UI/Activity/ActivityTrainBattle/ActivityTrainBattle",
-        "sort": 0,
-        "startTime": "2025-10-16 00:00:00",
-        "tag": 12601802
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2026-01-07 23:59:59",
-        "id": 86000102,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80611436,
-        "png": "UI/Activity/Tab/tab_rc02",
-        "showUI": "UI/Activity/ActivityRecharge/ActivityRecharge",
-        "sort": 0,
-        "startTime": "2025-12-10 00:00:00",
+        "startTime": "2025-10-31 05:00:00",
         "tag": 12601700
       },
       {
         "countDownMax": 3,
-        "endTime": "2025-11-30 23:59:00",
-        "id": 86000069,
+        "endTime": "2025-11-17 05:00:00",
+        "id": 86000180,
         "isCompleteBottom": false,
         "isCountDown": false,
         "isShow": true,
-        "name": 80610669,
-        "png": "UI/Activity/Tab/tab_MonthlyCard",
-        "showUI": "UI/Activity/ActivityMonthlyCard/ActivityMonthlyCard",
+        "name": 80611769,
+        "png": "UI/Activity/ActivitySignIn/Mist/tag",
+        "showUI": "",
         "sort": 0,
-        "startTime": "2025-10-16 00:00:00",
-        "tag": 12601727
-      },
-      {
-        "countDownMax": 3,
-        "endTime": "2025-08-15 04:59:59",
-        "id": 86000020,
-        "isCompleteBottom": false,
-        "isCountDown": false,
-        "isShow": true,
-        "name": 80608741,
-        "png": "UI/Monopoly/UI/1/tag",
-        "showUI": "UI/Activity/ActivityMonopoly/MonopolyMain",
-        "sort": 0,
-        "startTime": "2025-07-09 05:00:00",
-        "tag": 12601422
+        "startTime": "2025-10-31 05:00:00",
+        "tag": 12601103
       },
       {
         "countDownMax": 3,
@@ -23772,6 +24088,104 @@
         "sort": 0,
         "startTime": "2024-01-01 00:00:00",
         "tag": 12601356
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-11-30 12:00:00",
+        "id": 86000182,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80611358,
+        "png": "UI/Activity/Tab/tag_wordbossHKD1",
+        "showUI": "UI/Activity/ActivityWorldBoss/ActivityWorldBoss",
+        "sort": 0,
+        "startTime": "2025-10-31 12:00:00",
+        "tag": 12601815
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-18 04:59:00",
+        "id": 86000211,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80610439,
+        "png": "UI/Activity/Tab/tab_endlessBattle",
+        "showUI": "UI/Activity/ActivityEndlessBattle/ActivityEndlessBattle",
+        "sort": 0,
+        "startTime": "2025-12-02 05:00:00",
+        "tag": 12601701
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-17 12:00:00",
+        "id": 86000132,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80611513,
+        "png": "UI/Activity/Tab/tab_signBattleChelsea",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelChelsea",
+        "sort": 0,
+        "startTime": "2025-11-26 12:00:00",
+        "tag": 12601894
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2026-01-16 04:59:59",
+        "id": 86000020,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80608741,
+        "png": "UI/Monopoly/UI/1/tag",
+        "showUI": "UI/Activity/ActivityMonopoly/MonopolyMain",
+        "sort": 0,
+        "startTime": "2025-12-10 00:00:00",
+        "tag": 12601422
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-31 12:00:00",
+        "id": 86000069,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80610669,
+        "png": "UI/Activity/Tab/tab_MonthlyCardCSXNew",
+        "showUI": "UI/Activity/ActivityMonthlyCard/ActivityMonthlyCard",
+        "sort": 0,
+        "startTime": "2025-12-01 12:00:00",
+        "tag": 12601727
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-12 04:59:00",
+        "id": 86000051,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80610280,
+        "png": "UI/Activity/Tab/tab_witches",
+        "showUI": "UI/Witches/ActivityMain/WitchsActivityMain",
+        "sort": 0,
+        "startTime": "2025-11-07 05:00:00",
+        "tag": 12601669
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-12 05:00:00",
+        "id": 86000059,
+        "isCompleteBottom": true,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80611352,
+        "png": "UI/Activity/Tab/tab_signBattleWenshengSkin",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelWensheng",
+        "sort": 0,
+        "startTime": "2025-11-07 05:00:00",
+        "tag": 12601703
       }
     ],
     "activityMainList": [
@@ -23793,14 +24207,14 @@
         "countDownMax": 3,
         "endTime": "",
         "id": 86000004,
-        "isCompleteBottom": false,
+        "isCompleteBottom": true,
         "isCountDown": false,
         "isShow": true,
         "name": 80606888,
         "png": "UI/Activity/Tab/tab_level",
         "showUI": "",
         "sort": 0,
-        "startTime": "2025-02-14 05:00:00",
+        "startTime": "2024-04-21 15:00:00",
         "tag": 12601086
       },
       {
@@ -23814,7 +24228,7 @@
         "png": "UI/Activity/Tab/tab_battleBoss",
         "showUI": "UI/Activity/ActivityBattleBoss/ActivityBattleBoss",
         "sort": 0,
-        "startTime": "2025-02-14 05:00:00",
+        "startTime": "2024-07-01 12:00:00",
         "tag": 12601209
       },
       {
@@ -23858,6 +24272,20 @@
         "sort": 0,
         "startTime": "2025-02-08 05:00:00",
         "tag": 12601795
+      },
+      {
+        "countDownMax": 7,
+        "endTime": "",
+        "id": 86000093,
+        "isCompleteBottom": false,
+        "isCountDown": true,
+        "isShow": true,
+        "name": 80611461,
+        "png": "UI/Activity/Tab/tab_chaos",
+        "showUI": "UI/Activity/ActivityTrainBattle/ActivityTrainBattle",
+        "sort": 0,
+        "startTime": "2025-08-31 05:00:00",
+        "tag": 12601802
       }
     ],
     "activityPlotList": [
@@ -23886,7 +24314,7 @@
         "png": "UI/Activity/Tab/tab_black",
         "showUI": "",
         "sort": 0,
-        "startTime": "2025-02-14 05:00:00",
+        "startTime": "2024-05-23 05:00:00",
         "tag": 12601071
       },
       {
@@ -23914,7 +24342,7 @@
         "png": "UI/Activity/Tab/tab_monster",
         "showUI": "UI/Activity/Monster/MonsterActivity",
         "sort": 0,
-        "startTime": "2025-03-19 05:00:00",
+        "startTime": "2024-05-31 15:00:00",
         "tag": 12600539
       },
       {
@@ -23942,7 +24370,7 @@
         "png": "UI/Activity/Tab/Tab_Anecdote",
         "showUI": "UI/Activity/Anecdote/AnecdoteActivity",
         "sort": 0,
-        "startTime": "2025-02-14 05:00:00",
+        "startTime": "2024-07-01 12:00:00",
         "tag": 12601299
       }
     ],
@@ -23986,7 +24414,7 @@
         "png": "UI/Activity/Tab/tag_zhengshou",
         "showUI": "UI/Activity/pddOrder/SpecialOrder",
         "sort": 0,
-        "startTime": "2025-08-20 05:00:00",
+        "startTime": "2024-06-12 05:00:00",
         "tag": 12601789
       },
       {
@@ -24000,7 +24428,7 @@
         "png": "UI/Activity/Tab/tab_eventWeek",
         "showUI": "UI/Activity/GoldenWeek/Group_EventWeek",
         "sort": 0,
-        "startTime": "2025-02-14 05:00:00",
+        "startTime": "2024-06-28 05:00:00",
         "tag": 12601150
       }
     ],
@@ -24209,47 +24637,51 @@
     "cardPackList": [
       {
         "id": 86300001,
-        "startTime": "2025-02-14 05:00:00"
+        "startTime": "2024-04-10 10:00:00"
       },
       {
         "id": 86300003,
-        "startTime": "2025-02-26 05:00:00"
+        "startTime": "2024-04-25 15:00:00"
       },
       {
         "id": 86300002,
-        "startTime": "2025-03-19 05:00:00"
-      },
-      {
-        "id": 86300005,
-        "startTime": "2025-03-26 05:00:00"
+        "startTime": "2024-05-31 15:00:00"
       },
       {
         "id": 86300004,
-        "startTime": "2025-04-09 05:00:00"
+        "startTime": "2024-09-09 15:00:00"
       },
       {
-        "id": 86300008,
-        "startTime": "2025-05-01 05:00:00"
+        "id": 86300005,
+        "startTime": "2024-09-29 15:00:00"
       },
       {
         "id": 86300006,
         "startTime": "2024-11-15 15:00:00"
       },
       {
+        "id": 86300008,
+        "startTime": "2025-01-01 05:00:00"
+      },
+      {
         "id": 86300007,
-        "startTime": "2025-07-09 05:00:00"
+        "startTime": "2025-01-23 05:00:00"
       },
       {
         "id": 86300009,
-        "startTime": "2025-08-06 05:00:00"
+        "startTime": "2025-04-21 05:00:00"
       },
       {
         "id": 86300010,
-        "startTime": "2025-11-12 05:00:00"
+        "startTime": "2025-06-17 05:00:00"
       },
       {
         "id": 86300012,
-        "startTime": "2025-11-27 00:00:00"
+        "startTime": "2025-08-15 05:00:00"
+      },
+      {
+        "id": 86300011,
+        "startTime": "2025-11-01 05:00:00"
       }
     ]
   },
@@ -24515,6 +24947,24 @@
         "uiPath": "UI/Gacha/GachaNew"
       },
       {
+        "adPath": "UI/AD/Raziel The Reminisce",
+        "lv": 1,
+        "param": "{\"poolId\":80500201}",
+        "questId": 81001549,
+        "questType": "Complete",
+        "scale": 1,
+        "uiPath": "UI/Gacha/GachaNew"
+      },
+      {
+        "adPath": "UI/AD/Raziel",
+        "lv": 1,
+        "param": "{\"poolId\":80500202}",
+        "questId": 81002282,
+        "questType": "Complete",
+        "scale": 1,
+        "uiPath": "UI/Gacha/GachaNew"
+      },
+      {
         "adPath": "UI/AD/Katas",
         "lv": 1,
         "param": "{\"poolId\":80500122}",
@@ -24546,6 +24996,15 @@
         "lv": 1,
         "param": "{\"poolId\":80500192}",
         "questId": 81000209,
+        "questType": "Accept",
+        "scale": 1,
+        "uiPath": "UI/Gacha/GachaNew"
+      },
+      {
+        "adPath": "UI/AD/Shizuruthesummerchaser",
+        "lv": 1,
+        "param": "{\"poolId\":80500210}",
+        "questId": 81001319,
         "questType": "Accept",
         "scale": 1,
         "uiPath": "UI/Gacha/GachaNew"
@@ -24659,11 +25118,11 @@
         "questId": -1
       },
       {
-        "ChapterList": 20602828,
+        "ChapterList": 20602720,
         "questId": -1
       },
       {
-        "ChapterList": 20602720,
+        "ChapterList": 20602828,
         "questId": -1
       },
       {
@@ -24688,6 +25147,18 @@
       },
       {
         "ChapterList": 20603311,
+        "questId": -1
+      },
+      {
+        "ChapterList": 20603539,
+        "questId": -1
+      },
+      {
+        "ChapterList": 20603573,
+        "questId": -1
+      },
+      {
+        "ChapterList": 20603602,
         "questId": -1
       }
     ]
@@ -24748,6 +25219,18 @@
         "startTime": "2024-9-30 17:00:00"
       },
       {
+        "anecdoteName": "곰인형의 원더랜드",
+        "brief": "수리를 맡긴 무장을 가져오기 위해 당신은 심야에 맨더 광장의 열차 무장 공장을 방문했다. 테니는 '패밀리 스페셜 드링크' 두 병을 꺼내 당신과 함께 마시려 했다.",
+        "characterId": 10000276,
+        "faceUrl": "UI/Quest/Anecdote/Images/Tennie",
+        "id": 81001536,
+        "plotReviewId": 20602605,
+        "questId": 81001540,
+        "spineX": -130,
+        "spineY": 0,
+        "startTime": "2024-11-27 05:00:00"
+      },
+      {
         "anecdoteName": "빛나는 별",
         "brief": "스텔라가 자유 무역항-7 카페에서 만나자고 메일을 보내왔습니다. 항상 혼자서 문제를 해결하던 천재 연구원 아가씨에게 뭔가 어려운 일이라도 생긴 걸까요?",
         "characterId": 10000298,
@@ -24760,6 +25243,18 @@
         "startTime": "2024-12-20 05:00:00"
       },
       {
+        "anecdoteName": "어깨 위의 자유",
+        "brief": "청명 데이터 센터를 지나다가 일상 업무를 완료하기 위해 철도관리국을 방문했습니다. 그리고 이 방문으로 레카지아와 함께 멋진 하루를 경험하게 되는데...",
+        "characterId": 10000969,
+        "faceUrl": "UI/Quest/Anecdote/Images/Lycagia",
+        "id": 81002197,
+        "plotReviewId": 20602896,
+        "questId": 81002205,
+        "spineX": 100,
+        "spineY": 0,
+        "startTime": "2025-03-06 05:00:00"
+      },
+      {
         "anecdoteName": "바늘과 가시",
         "brief": "흑월 보안 부서의 초대를 받은 당신은 BO-X와 함께 전투 훈련에 참여하기 위해 흑월 호텔로 향했습니다. 하지만 평화로워 보이던 업무에 작은 가시가 드러났습니다.",
         "characterId": 10000855,
@@ -24770,6 +25265,18 @@
         "spineX": 200,
         "spineY": 0,
         "startTime": "2025-04-02 05:00:00"
+      },
+      {
+        "anecdoteName": "好孩子，坏孩子",
+        "brief": "乌刹娜在无垠号上的表现很好，为了奖励她的认真工作，无垠号向索思学会提交了一封特殊的外出申请。乌刹娜要去游乐园玩啦！不过，事情真的会那么顺利吗？",
+        "characterId": 10000749,
+        "faceUrl": "UI/Quest/Anecdote/Images/Ushana",
+        "id": 81002372,
+        "plotReviewId": 20603030,
+        "questId": 81002311,
+        "spineX": -150,
+        "spineY": 0,
+        "startTime": "2025-05-19 05:00:00"
       },
       {
         "anecdoteName": "악마 사냥꾼의 의뢰",
@@ -25225,6 +25732,21 @@
       {
         "action": "dorm_stand",
         "time": 2.666
+      }
+    ],
+    "itemAddNum": 1,
+    "rewardMaxNum": 3,
+    "timeLimit": 14400,
+    "timeCostBaseList": [
+      {
+        "id": 11400005,
+        "num": 0
+      }
+    ],
+    "timeCostList": [
+      {
+        "id": 11400005,
+        "num": 20
       }
     ]
   },
@@ -25849,10 +26371,46 @@
     "recommendListNum": 50,
     "waitTime": 7,
     "fondleNum": 3,
-    "isNumberOpen": false,
-    "inviteLimit": 0,
-    "inviteRewardList": [],
-    "bindRewardList": []
+    "isNumberOpen": true,
+    "inviteLimit": 6,
+    "inviteRewardList": [
+      {
+        "id": 11400005,
+        "num": 100
+      },
+      {
+        "id": 11400699,
+        "num": 100
+      },
+      {
+        "id": 11400048,
+        "num": 1
+      }
+    ],
+    "bindRewardList": [
+      {
+        "id": 11400007,
+        "num": 1
+      },
+      {
+        "id": 11400067,
+        "num": 5
+      },
+      {
+        "id": 11400066,
+        "num": 5
+      }
+    ],
+    "rubNum1": 0.2,
+    "rubNum2": 0,
+    "rubNumRandom": 0.15,
+    "rubProtect": 0.75,
+    "stealNum": 3,
+    "stealCD": 300,
+    "stealRate": 1,
+    "petReduceRate": 0.3,
+    "petExScore": 10000,
+    "doReduceRate": 0.3
   },
   {
     "id": 99900073,
@@ -25860,7 +26418,7 @@
     "mod": "产业跳转配置",
     "isInformalData": false,
     "nameEN": "CytpConfig",
-    "showOpen": false,
+    "showOpen": true,
     "isLandOpen": true,
     "isParkOpen": false,
     "isPrisonOpen": true
@@ -27013,19 +27571,40 @@
     "nameEN": "BannerConfig",
     "bannerList": [
       {
+        "id": 80500302
+      },
+      {
+        "id": 80500290
+      },
+      {
         "id": 80500235
       },
       {
-        "id": 80500209
+        "id": 80500266
       },
       {
         "id": 80500036
       },
       {
+        "id": 80500054
+      },
+      {
+        "id": 80500209
+      },
+      {
         "id": 80500029
       },
       {
-        "id": 80500054
+        "id": 80500314
+      },
+      {
+        "id": 80500311
+      },
+      {
+        "id": 80500283
+      },
+      {
+        "id": 80500254
       },
       {
         "id": 80500248
@@ -27034,28 +27613,52 @@
         "id": 80500225
       },
       {
-        "id": 80500174
-      },
-      {
-        "id": 80500117
-      },
-      {
         "id": 80500195
       },
       {
-        "id": 80500350
+        "id": 80500174
       },
       {
         "id": 80500055
       },
       {
-        "id": 80500033
+        "id": 80500350
       },
       {
         "id": 80500031
       },
       {
+        "id": 80500033
+      },
+      {
         "id": 80500108
+      },
+      {
+        "id": 80500037
+      },
+      {
+        "id": 80500025
+      },
+      {
+        "id": 80500024
+      },
+      {
+        "id": 80500107
+      },
+      {
+        "id": 80500023
+      },
+      {
+        "id": 80500041
+      },
+      {
+        "id": 80500027
+      },
+      {
+        "id": 80500117
+      },
+      {
+        "id": 80500026
       },
       {
         "id": 80500009
@@ -27064,64 +27667,61 @@
         "id": 80500028
       },
       {
-        "id": 80500037
-      },
-      {
-        "id": 80500041
-      },
-      {
-        "id": 80500107
-      },
-      {
         "id": 80500022
-      },
-      {
-        "id": 80500024
-      },
-      {
-        "id": 80500025
-      },
-      {
-        "id": 80500023
       },
       {
         "id": 80500193
       },
       {
-        "id": 80500012
-      },
-      {
-        "id": 80500019
-      },
-      {
         "id": 80500011
-      },
-      {
-        "id": 80500007
-      },
-      {
-        "id": 80500006
-      },
-      {
-        "id": 80500021
-      },
-      {
-        "id": 80500016
-      },
-      {
-        "id": 80500105
       },
       {
         "id": 80500018
       },
       {
+        "id": 80500021
+      },
+      {
+        "id": 80500043
+      },
+      {
+        "id": 80500016
+      },
+      {
         "id": 80500005
+      },
+      {
+        "id": 80500012
+      },
+      {
+        "id": 80500014
       },
       {
         "id": 80500013
       },
       {
+        "id": 80500105
+      },
+      {
+        "id": 80500007
+      },
+      {
+        "id": 80500017
+      },
+      {
+        "id": 80500019
+      },
+      {
+        "id": 80500015
+      },
+      {
+        "id": 80500006
+      },
+      {
         "id": 80500192
+      },
+      {
+        "id": 80500210
       },
       {
         "id": 80500190
@@ -27133,6 +27733,12 @@
         "id": 80500122
       },
       {
+        "id": 80500202
+      },
+      {
+        "id": 80500201
+      },
+      {
         "id": 80500128
       },
       {
@@ -27142,19 +27748,16 @@
         "id": 80500126
       },
       {
-        "id": 80500124
+        "id": 80500199
       },
       {
-        "id": 80500199
+        "id": 80500124
       },
       {
         "id": 80500129
       },
       {
         "id": 80500123
-      },
-      {
-        "id": 80500026
       },
       {
         "id": 80500010
@@ -27215,9 +27818,10 @@
     "isInformalData": false,
     "nameEN": "ServerGacheConfig",
     "gacheUI": true,
-    "gacheUIChange": true,
-    "wikiUzlUI": false,
-    "studyUI": false
+    "gacheUIChange": false,
+    "wikiUzlUI": true,
+    "studyUI": false,
+    "bossNameUI": true
   },
   {
     "id": 99900113,
@@ -27228,6 +27832,7 @@
     "randomBattleLv": 25,
     "randomBattleStartDay": 5,
     "randomBattleLastDay": 3,
+    "randomBattleTicketMax": 5,
     "randomBattleTicketDay": 1,
     "randomBattleTicketId": 11400401,
     "randomBattleCoinId": 11400437,
@@ -27243,15 +27848,11 @@
     "exchangeBuildId": 84400237,
     "randomBattleList": [
       {
-        "id": 89000002,
+        "id": 89000016,
         "weight": 1
       }
     ],
-    "randomBattlePreList": [
-      {
-        "id": 89000002
-      }
-    ]
+    "randomBattlePreList": []
   },
   {
     "id": 99900112,
@@ -29418,6 +30019,26 @@
     "lookSpeed": 1.5
   },
   {
+    "id": 99900217,
+    "idCN": "助战配置",
+    "mod": "助战配置",
+    "isInformalData": false,
+    "nameEN": "HelpBattleConfig",
+    "helpBattleSetup": 3,
+    "helpBattleCd": 8,
+    "helpBattleMax": 8,
+    "helpBattleFriend": 4,
+    "helpBattleRewardList": [
+      {
+        "id": 11400001,
+        "num": 10000
+      }
+    ],
+    "helpBattleRewardMax": 60,
+    "helpBattleRewardDay": 15,
+    "helpBattleCanHelp": 3
+  },
+  {
     "id": 99900220,
     "idCN": "活动总览配置(本地)",
     "mod": "活动总览",
@@ -29787,6 +30408,34 @@
         "showUI": "",
         "sort": 0,
         "startTime": "2025-11-01 12:00:00",
+        "tag": 12601908
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2025-12-30 05:00:00",
+        "id": 86000184,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80611875,
+        "png": "UI/Activity/Tab/Tab_Turntable01",
+        "showUI": "UI/Activity/ActivityTurntable/ActivityTurntable",
+        "sort": 0,
+        "startTime": "2025-12-01 05:00:00",
+        "tag": 12601942
+      },
+      {
+        "countDownMax": 3,
+        "endTime": "2026-01-01 12:00:00",
+        "id": 86000215,
+        "isCompleteBottom": false,
+        "isCountDown": false,
+        "isShow": true,
+        "name": 80611878,
+        "png": "UI/Activity/Tab/tab_signBattleVostok",
+        "showUI": "UI/Activity/ActivitySignBattle/ActivitySignBattleLevelVostok",
+        "sort": 0,
+        "startTime": "2025-12-15 12:00:00",
         "tag": 12601908
       }
     ],

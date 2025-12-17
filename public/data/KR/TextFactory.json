@@ -92787,7 +92787,7 @@
     "idCN": "技能养成/自动开启",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": "모든 단계 최대 레벨 시 자동 오픈"
+    "text": "共振节点满级、属性节点强化至LV.3后自动开启"
   },
   {
     "id": 80610089,
@@ -94692,7 +94692,7 @@
     "idCN": "活动总览/页签名/踏青签到",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": "봄나들이 7일 출석체크"
+    "text": "봄나들이 10일 출석체크"
   },
   {
     "id": 80610313,
@@ -95709,7 +95709,7 @@
     "idCN": "制造订单/科伦巴商会声望",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": "콜룸바 상회 명성"
+    "text": "商会声望"
   },
   {
     "id": 80610410,
@@ -99844,10 +99844,10 @@
   },
   {
     "id": 80610927,
-    "idCN": "活动/全面征收/制造等级不足",
+    "idCN": "活动/全面征收/制造等级不足提示",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": "제조 레벨 %dLV 달성 시 교환 가능"
+    "text": "制造等级达到%d级可领取"
   },
   {
     "id": 80610925,
@@ -108403,7 +108403,7 @@
     "idCN": "帮助/交易所帮助/交易品升级",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": ""
+    "text": "1、玩家可以通过消耗铁盟币，提升当前交易品的进货、库存量从而提升贸易效益。 \\n\\n\r2、交易品每次可投资的铁盟币上限受该城市的声望影响，额度可以通过进出城市刷新重置。\\n\\n\r3、投资交易品的同时，玩家可以获得该城市的声望值。\\n\\n\r4、交易品默认等级为0级，当前最多可投资交易品到20级。\\n\\n\r5、交易品的投资升级效果仅在升级过的城市里生效。\\n\\n"
   },
   {
     "id": 80611854,
@@ -108502,7 +108502,7 @@
     "idCN": "帮助/交易所帮助/交易品升级标题",
     "mod": "UI文本",
     "isInformalData": false,
-    "text": "거래품 레벨업 도움말"
+    "text": "交易品投资帮助"
   },
   {
     "id": 80611865,
@@ -108545,5 +108545,173 @@
     "mod": "UI文本",
     "isInformalData": false,
     "text": "즉시 완료"
+  },
+  {
+    "id": 80611871,
+    "idCN": "活动/活动月卡/园丁的馈赠",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "가드너의 선물"
+  },
+  {
+    "id": 80611872,
+    "idCN": "活动/活动月卡/领取",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "수령 완료"
+  },
+  {
+    "id": 80611874,
+    "idCN": "委派/次数耗尽",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "今日委托加速完成次数已耗尽"
+  },
+  {
+    "id": 80611875,
+    "idCN": "活动总览/页签名/雪落暖融",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "雪落暖融"
+  },
+  {
+    "id": 80611876,
+    "idCN": "轮盘战斗/前置关卡未完成",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "前置关卡未完成"
+  },
+  {
+    "id": 80611878,
+    "idCN": "活动总览/页签名/沃斯托克试用挑战",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "远望深空"
+  },
+  {
+    "id": 80611877,
+    "idCN": "活动/全面征收/制造等级不足",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "制造等级不足"
+  },
+  {
+    "id": 80611873,
+    "idCN": "活动/全面征收/声望不足",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "声望不足"
+  },
+  {
+    "id": 80611879,
+    "idCN": "签到挑战/等待调试",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "等待调试"
+  },
+  {
+    "id": 80611880,
+    "idCN": "签到挑战/开始调试",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "开始调试"
+  },
+  {
+    "id": 80611881,
+    "idCN": "签到挑战/重新调试",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "重新调试"
+  },
+  {
+    "id": 80611882,
+    "idCN": "签到挑战/调试完成",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "调试完成"
+  },
+  {
+    "id": 80611884,
+    "idCN": "签到挑战/完成调试领取",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "完成调试后可获取"
+  },
+  {
+    "id": 80611885,
+    "idCN": "签到挑战/调试进度",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "调试进度"
+  },
+  {
+    "id": 80611883,
+    "idCN": "战斗/自动战斗/行为-序号",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "以指定的队伍友方为目标释放"
+  },
+  {
+    "id": 80611888,
+    "idCN": "帮助/交易所帮助/交易品升级页签",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "帮助内容"
+  },
+  {
+    "id": 80611886,
+    "idCN": "委派/按钮/开启环游手册",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "开启环游手册"
+  },
+  {
+    "id": 80611887,
+    "idCN": "委派/按钮/委托队列",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "委托队列+1"
+  },
+  {
+    "id": 80611894,
+    "idCN": "黑月游乐城活动/排行榜/最大技能伤害",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "最高单次伤害"
+  },
+  {
+    "id": 80611889,
+    "idCN": "赚钱秘籍/赚钱秘籍",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "赚钱秘籍"
+  },
+  {
+    "id": 80611890,
+    "idCN": "赚钱秘籍/前往购买",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "구매하기"
+  },
+  {
+    "id": 80611891,
+    "idCN": "赚钱秘籍/前往活动",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "이벤트로 가기"
+  },
+  {
+    "id": 80611892,
+    "idCN": "赚钱秘籍/前往交易所",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "前往交易所"
+  },
+  {
+    "id": 80611893,
+    "idCN": "赚钱秘籍/打开贸易手册",
+    "mod": "UI文本",
+    "isInformalData": false,
+    "text": "打开贸易手册"
   }
 ]
