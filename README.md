@@ -32,9 +32,7 @@ reso_db/
 
 ## ✅ 요구 사항
 
-- Windows
 - Node.js 18 LTS 이상
-- Python 3.10 이상
 
 ---
 
@@ -74,7 +72,7 @@ pnpm exec rsns-unpack .\public\data\CN .\public\data\KR
 번역 파일을 이용해 한국어가 적용된 JSON 파일을 생성합니다.
 
 ```bat
-python scripts/apply_kr_translation.py
+node scripts/apply_kr_translation.js
 ```
 
 ---
