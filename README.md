@@ -3,7 +3,7 @@
 > 레조넌스 게임 데이터 기반 DB / GitHub Pages 사이트 소스 저장소  
 > 비공식 · 비영리 팬 프로젝트
 
-![Last updated](https://img.shields.io/github/last-commit/ruecelinee/reso_db?label=Last%20updated)
+![Last updated](https://img.shields.io/github/last-commit/rueceline/reso_db?label=Last%20updated)
 
 Pages URL: https://rueceline.github.io/reso_db/
 
@@ -40,20 +40,28 @@ reso_db/
 
 ## 🚀 사용 방법
 
-### 1단계. rsns-unpack 설치
+### 1단계. pnpm 설치
 
 ```bat
-npm i -g @tsuk1ko/rsns-unpack
+npm install -g pnpm
 ```
 
 ---
 
-### 2단계. 게임 데이터 추출
+### 2단계. rsns-unpack 로컬 설치
+
+```bat
+pnpm add @tsuk1ko/rsns-unpack
+```
+
+---
+
+### 3단계. 게임 데이터 추출
 
 `reso_db` 루트에서 실행:
 
 ```bat
-npx rsns-unpack .\public\data .\public\data\KR
+pnpm exec rsns-unpack .\public\data .\public\data\KR
 ```
 
 - `public/data` : 원본 게임 데이터
@@ -61,7 +69,7 @@ npx rsns-unpack .\public\data .\public\data\KR
 
 ---
 
-### 3단계. 한국어 데이터 적용
+### 4단계. 한국어 데이터 적용
 
 번역 파일을 이용해 한국어가 적용된 JSON 파일을 생성합니다.
 

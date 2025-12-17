@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@tsuk1ko/rsns-unpack": "^2.1.4"
+	}
+}

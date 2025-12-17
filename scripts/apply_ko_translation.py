@@ -18,7 +18,7 @@ DATA_DIR_CANDIDATES = [r"./public/data", r"./data"]
 KR_SUBDIR_NAME = "KR"
 CONFIG_NAME = "ConfigLanguage.json"
 
-SCRIPT_DIR = r"./script"   # 사용자가 지정: ./script
+SCRIPT_DIR = r"./scripts"
 OUT_LOG_DIR = os.path.join(SCRIPT_DIR, "output_apply_ko")
 OUT_SUMMARY = os.path.join(OUT_LOG_DIR, "summary.txt")
 OUT_UNTRANSLATED = os.path.join(OUT_LOG_DIR, "untranslated_report.txt")  # json-lines
