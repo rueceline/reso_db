@@ -3,10 +3,6 @@
 // - 데이터 구조는 EquipmentFactory.json(번역 적용본) 그대로 사용한다.
 
 const DATA_URL_CANDIDATES = [
-  './data/KR/EquipmentFactory.json',
-  '../data/KR/EquipmentFactory.json',
-  '../../data/KR/EquipmentFactory.json',
-
   './public/data/KR/EquipmentFactory.json',
   '../public/data/KR/EquipmentFactory.json',
   '../../public/data/KR/EquipmentFactory.json',
