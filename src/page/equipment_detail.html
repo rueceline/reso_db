@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>장비 상세</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    .page-wrap { padding: 18px 0 30px; }
+    .page-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 16px;
+      overflow: hidden;
+    }
+    .status { padding: 16px; color: rgba(255,255,255,0.75); white-space: pre-line; }
+
+    .header-row { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom: 12px; }
+    .eq-img { width:88px; height:88px; border-radius:16px; border:1px solid rgba(255,255,255,0.12); object-fit:cover; background: rgba(0,0,0,0.25); }
+    .eq-title { margin:0 0 6px; font-size: 22px; line-height:1.25; }
+    .eq-sub { margin:0; color: rgba(255,255,255,0.70); }
+
+    .rarity-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 10px; border-radius: 999px;
+      font-weight: 900; font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+    }
+    .rarity-ur { color: #ffb347; border-color: rgba(255,179,71,0.55); background: rgba(255,179,71,0.12); }
+    .rarity-ssr { color: #ffd966; border-color: rgba(255,217,102,0.55); background: rgba(255,217,102,0.12); }
+    .rarity-sr { color: #c084fc; border-color: rgba(192,132,252,0.55); background: rgba(192,132,252,0.12); }
+    .rarity-r { color: #60a5fa; border-color: rgba(96,165,250,0.55); background: rgba(96,165,250,0.12); }
+    .rarity-n { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
+
+    .meta-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; margin: 10px 0 14px; }
+    .meta-card { border:1px solid rgba(255,255,255,0.12); background: rgba(0,0,0,0.18); border-radius: 14px; padding: 10px 12px; min-height: 54px; }
+    .meta-label { font-size:12px; color: rgba(255,255,255,0.62); margin-bottom: 4px; }
+    .meta-value { font-size:14px; font-weight: 800; color: rgba(255,255,255,0.92); word-break: break-word; }
+
+    .section { margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.10); padding-top: 12px; }
+    .section-title { margin:0 0 8px; font-size: 14px; font-weight: 900; color: rgba(255,255,255,0.92); }
+    .section-body { margin:0; color: rgba(255,255,255,0.85); line-height: 1.6; white-space: pre-line; }
+
+    @media (max-width: 720px) {
+      .meta-grid { grid-template-columns: 1fr; }
+      .eq-img { width: 76px; height: 76px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-title">장비 상세</span>
+        <span class="brand-sub">EquipmentFactory 기반</span>
+      </div>
+      <div class="topbar-actions">
+        <a class="cta-btn ghost" href="equipmentdb.html">목록</a>
+        <a class="cta-btn ghost" href="../../index.html">메인</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <div class="page-card">
+      <div id="status" class="status">데이터 로딩 중...</div>
+
+      <div id="content" style="display:none;">
+        <div class="header-row">
+          <img id="eqImage" class="eq-img" alt="" />
+          <div style="flex:1; min-width: 220px;">
+            <h1 id="eqName" class="eq-title"></h1>
+            <p class="eq-sub">
+              <span id="eqRarityBadge" class="rarity-badge rarity-n">N</span>
+              <span id="eqIdText" style="margin-left:8px; opacity:0.75;"></span>
+            </p>
+          </div>
+          <a id="backBtn" class="cta-btn ghost" href="equipmentdb.html">목록으로</a>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-card"><div class="meta-label">분류</div><div id="eqCategory" class="meta-value"></div></div>
+          <div class="meta-card"><div class="meta-label">소속</div><div id="eqFaction" class="meta-value"></div></div>
+          <div class="meta-card"><div class="meta-label">속성</div><div id="eqStatType" class="meta-value"></div></div>
+          <div class="meta-card"><div class="meta-label">초기값 / 대값</div><div id="eqStatRange" class="meta-value"></div></div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">옵션</h2>
+          <p id="eqEffect" class="section-body"></p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">입수 방법</h2>
+          <p id="eqObtain" class="section-body"></p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">원본 경로</h2>
+          <p id="eqPaths" class="section-body" style="opacity:0.85;"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../app/equipment_detail.js"></script>
+</body>
+</html>

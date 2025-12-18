@@ -24,6 +24,51 @@ const DATA_URL_CANDIDATES = [
   '../../public/data/KR/EquipmentFactory.json',
 ];
 
+const ASSET_SMALL_BASE = '../../assets/item/weapon';
+
+function rarityToLabel(quality) {
+  const q = String(quality || '').trim();
+
+  if (q === 'Orange') {
+    return { label: 'UR', cls: 'rarity-ur' };
+  }
+
+  if (q === 'Golden') {
+    return { label: 'SSR', cls: 'rarity-ssr' };
+  }
+
+  if (q === 'Purple') {
+    return { label: 'SR', cls: 'rarity-sr' };
+  }
+
+  if (q === 'Blue') {
+    return { label: 'R', cls: 'rarity-r' };
+  }
+
+  if (q === 'White') {
+    return { label: 'N', cls: 'rarity-n' };
+  }
+
+  return { label: q || '', cls: 'rarity-n' };
+}
+
+function isInvalidGroupValue(v) {
+  const s = String(v || '').trim();
+  if (!s) {
+    return true;
+  }
+
+  if (s.startsWith('00')) {
+    return true;
+  }
+
+  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) {
+    return true;
+  }
+
+  return false;
+}
+
 // ------------------------------------------------------------
 // EquipmentFactory.json 기준 "확정 필드명"
 // ------------------------------------------------------------
@@ -84,6 +129,28 @@ function getFirstField(obj, candidates) {
 
 function normalizePathSlash(s) {
   return String(s || '').replaceAll('\\', '/');
+}
+
+function buildWeaponImageUrl(pathLike) {
+  // 예: Item\\weapon\\Tiemeng\\Small\\01
+  const raw = normalizePathSlash(pathLike);
+  const parts = raw.split('/').filter(Boolean);
+
+  const idx = parts.findIndex(x => String(x).toLowerCase() === 'weapon');
+  if (idx < 0 || parts.length < idx + 3) {
+    return '';
+  }
+
+  const faction = String(parts[idx + 1] || '').toLowerCase();
+  const size = String(parts[idx + 2] || '').toLowerCase();
+  const file = parts.length >= idx + 4 ? parts[idx + 3] : '';
+
+  if (!faction || !size || !file) {
+    return '';
+  }
+
+  const filename = file.toLowerCase().endsWith('.png') ? file : `${file}.png`;
+  return `${ASSET_SMALL_BASE}/${faction}/${size}/${filename}`;
 }
 
 function parseIdCn(idCN) {
@@ -165,8 +232,9 @@ function normalizeRootJson(json) {
 // 핵심: DB 1레코드 -> 화면 표시용 ViewModel
 // --------------------------------------------
 function mapEquipmentToViewModel(e) {
+  const id = e?.id;
   const name = e?.name;
-  const rarity = e?.quality;
+  const quality = e?.quality;
   const effect = e?.des;
 
   const idCN = e?.idCN;
@@ -174,12 +242,17 @@ function mapEquipmentToViewModel(e) {
   const derived = deriveStatAndValue(e);
   const obtain = joinGetwayDisplayName(e?.Getway);
 
-  // 아이콘 경로(추후 이미지 연결 시 사용)
+  // 아이콘 경로
   const iconPath = e?.iconPath;
+  const tipsPath = e?.tipsPath;
+
+  const rarity = rarityToLabel(quality);
+  const imageUrl = buildWeaponImageUrl(iconPath) || buildWeaponImageUrl(tipsPath);
 
   return {
+    id: safeNumber(id) || byString(id),
     // UI 컬럼: 이미지 (아직 asset 없음)
-    imageUrl: '',
+    imageUrl: byString(imageUrl),
 
     // 추후 이미지 연결 시 참고
     iconPath: byString(iconPath),
@@ -188,7 +261,8 @@ function mapEquipmentToViewModel(e) {
     name: byString(name),
 
     // UI 컬럼: 희귀도(EquipmentFactory: quality)
-    rarity: byString(rarity),
+    rarity: byString(rarity.label),
+    rarityClass: byString(rarity.cls),
 
     // UI 컬럼: 분류/소속(idCN에서 파생)
     category: byString(parsed.category),
@@ -201,10 +275,8 @@ function mapEquipmentToViewModel(e) {
     // 성장/강화 최대값은 다른 파일(성장 테이블)과 연동 필요 -> 비워둠
     maxValue: '',
 
-    // UI 컬럼: 옵션
+    // 상세 페이지에서 사용
     effect: byString(effect),
-
-    // UI 컬럼: 입수 방법
     obtain: byString(obtain),
   };
 }
@@ -268,42 +340,33 @@ function renderTable(list) {
   for (const item of list) {
     const tr = document.createElement('tr');
 
-    // 이미지: asset이 아직 없으니, 우선 테스트 이미지(있으면 표시)로 둔다.
-    // - 프로젝트에 실제 이미지가 들어오면 여기만 교체하면 됨.
-    const testImgCandidates = [
-      // reso_db 기본 구조(예상)
-      '../../img/test_item.png',
-      '../../img/test.png',
-      '../../assets/test_item.png',
-      '../../assets/test.png',
-      // 같은 폴더에 있을 수도
-      './test_item.png',
-      './test.png',
-    ];
+    const detailHref = `equipment_detail.html?id=${encodeURIComponent(byString(item.id))}`;
 
-    const imgSrc = testImgCandidates[0];
+    const imgSrc = item.imageUrl || '';
     const imgCell = `
       <td class="small">
-        <img
-          src="${imgSrc}"
-          alt=""
-          style="width:48px;height:48px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.12);"
-          onerror="this.outerHTML='-'"
-        />
+        <a href="${detailHref}" aria-label="상세 보기">
+          <img
+            src="${escapeHtml(imgSrc)}"
+            alt=""
+            style="width:48px;height:48px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.12);"
+            onerror="this.outerHTML='-'"
+          />
+        </a>
       </td>
     `;
 
     tr.innerHTML = `
       ${imgCell}
-      <td>${escapeHtml(item.name)}</td>
-      <td class="small">${escapeHtml(item.rarity)}</td>
+      <td>
+        <a class="eq-name-link" href="${detailHref}">${escapeHtml(item.name)}</a>
+      </td>
+      <td class="small"><span class="rarity-badge ${escapeHtml(item.rarityClass)}">${escapeHtml(item.rarity)}</span></td>
       <td class="small">${escapeHtml(item.category)}</td>
       <td class="small">${escapeHtml(item.faction)}</td>
       <td class="small">${escapeHtml(item.statType)}</td>
       <td class="small">${escapeHtml(formatNumber(item.minValue))}</td>
       <td class="small">${escapeHtml(item.maxValue)}</td>
-      <td class="effect">${escapeHtmlMultiline(item.effect)}</td>
-      <td>${escapeHtmlMultiline(item.obtain)}</td>
     `;
 
     tbody.appendChild(tr);
@@ -312,25 +375,138 @@ function renderTable(list) {
   setCount(list.length);
 }
 
-function filterList(list, query) {
-  const q = String(query || '').trim().toLowerCase();
-  if (!q) {
-    return list;
+function uniqSorted(list) {
+  const arr = Array.from(new Set(list.filter(Boolean).map(v => String(v).trim()).filter(Boolean)));
+  arr.sort((a, b) => a.localeCompare(b, 'ko'));
+  return arr;
+}
+
+function buildFilterOptions(list) {
+  const rarity = uniqSorted(list.map(x => x.rarity));
+  const category = uniqSorted(list.map(x => x.category).filter(v => !isInvalidGroupValue(v)));
+  const faction = uniqSorted(list.map(x => x.faction).filter(v => !isInvalidGroupValue(v)));
+  const statType = uniqSorted(list.map(x => x.statType));
+
+  return { rarity, category, faction, statType };
+}
+
+function createFilterState() {
+  return {
+    rarity: new Set(),
+    category: new Set(),
+    faction: new Set(),
+    statType: new Set(),
+  };
+}
+
+function renderFilterGroup(container, label, values, selectedSet, onToggle, getButtonClass) {
+  const row = document.createElement('div');
+  row.className = 'filter-row';
+
+  const title = document.createElement('div');
+  title.className = 'filter-label';
+  title.textContent = label;
+  row.appendChild(title);
+
+  for (const v of values) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'toggle' + (getButtonClass ? ` ${getButtonClass(v)}` : '');
+    btn.dataset.value = v;
+    btn.dataset.selected = selectedSet.has(v) ? '1' : '0';
+    btn.textContent = v;
+    btn.addEventListener('click', () => onToggle(v));
+    row.appendChild(btn);
   }
 
-  return list.filter(x => {
-    const hay = [
-      x.name,
-      x.rarity,
-      x.category,
-      x.faction,
-      x.statType,
-      x.effect,
-      x.obtain,
-      x.iconPath,
-    ].map(v => byString(v).toLowerCase()).join(' | ');
+  container.appendChild(row);
+}
 
-    return hay.includes(q);
+function renderFilters(options, state, onChange) {
+  const el = document.getElementById('filters');
+  if (!el) {
+    return;
+  }
+
+  el.innerHTML = '';
+
+  renderFilterGroup(
+    el,
+    '희귀도',
+    options.rarity,
+    state.rarity,
+    (v) => {
+      if (state.rarity.has(v)) {
+        state.rarity.delete(v);
+      } else {
+        state.rarity.add(v);
+      }
+      onChange();
+    },
+    (v) => {
+      // UR/SSR/SR/R/N -> badge 클래스 재사용
+      const upper = String(v).toUpperCase();
+      if (upper === 'UR') return 'rarity-ur';
+      if (upper === 'SSR') return 'rarity-ssr';
+      if (upper === 'SR') return 'rarity-sr';
+      if (upper === 'R') return 'rarity-r';
+      return 'rarity-n';
+    }
+  );
+
+  renderFilterGroup(el, '분류', options.category, state.category, (v) => {
+    if (state.category.has(v)) {
+      state.category.delete(v);
+    } else {
+      state.category.add(v);
+    }
+    onChange();
+  });
+
+  renderFilterGroup(el, '소속', options.faction, state.faction, (v) => {
+    if (state.faction.has(v)) {
+      state.faction.delete(v);
+    } else {
+      state.faction.add(v);
+    }
+    onChange();
+  });
+
+  renderFilterGroup(el, '속성', options.statType, state.statType, (v) => {
+    if (state.statType.has(v)) {
+      state.statType.delete(v);
+    } else {
+      state.statType.add(v);
+    }
+    onChange();
+  });
+}
+
+function applyFilters(list, query, state) {
+  const q = String(query || '').trim().toLowerCase();
+
+  return list.filter(x => {
+    if (q && !byString(x.name).toLowerCase().includes(q)) {
+      return false;
+    }
+
+    if (state.rarity.size && !state.rarity.has(x.rarity)) {
+      return false;
+    }
+
+    if (state.category.size && !state.category.has(x.category)) {
+      return false;
+    }
+
+    if (state.faction.size && !state.faction.has(x.faction)) {
+      return false;
+    }
+
+    if (state.statType.size && !state.statType.has(x.statType)) {
+      return false;
+    }
+
+    return true;
   });
 }
 
@@ -359,23 +535,53 @@ async function load() {
     const { url, json } = await fetchFirstOk(DATA_URL_CANDIDATES);
 
     const rawList = normalizeRootJson(json);
-    const viewList = rawList.map(mapEquipmentToViewModel);
+    const viewListAll = rawList
+      .map(mapEquipmentToViewModel)
+      .filter(x => !isInvalidGroupValue(x.category) && !isInvalidGroupValue(x.faction));
 
     const statusEl = document.getElementById('status');
     if (statusEl) {
       statusEl.remove();
     }
 
-    renderTable(viewList);
+    const filterState = createFilterState();
+    const options = buildFilterOptions(viewListAll);
 
-    // 검색
     const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearFilters');
+
+    function update() {
+      const q = input ? input.value : '';
+      const filtered = applyFilters(viewListAll, q, filterState);
+      renderTable(filtered);
+    }
+
+    renderFilters(options, filterState, () => {
+      update();
+      renderFilters(options, filterState, update);
+    });
+
     if (input) {
-      input.addEventListener('input', () => {
-        const filtered = filterList(viewList, input.value);
-        renderTable(filtered);
+      input.addEventListener('input', () => update());
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        filterState.rarity.clear();
+        filterState.category.clear();
+        filterState.faction.clear();
+        filterState.statType.clear();
+
+        if (input) {
+          input.value = '';
+        }
+
+        renderFilters(options, filterState, update);
+        update();
       });
     }
+
+    update();
 
     // 디버깅용: 실제 로드된 경로를 title에 잠깐 표시
     document.title = `장비 DB (${url.split('/').slice(-1)[0]})`;

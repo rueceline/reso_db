@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../../css/style.css" />
 
   <style>
-    /* 페이지 전용: 테이블 가독성만 추가 */
     .page-wrap { padding: 18px 0 30px; }
     .page-card {
       border: 1px solid rgba(255,255,255,0.12);
@@ -25,7 +24,7 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .input {
@@ -45,17 +44,71 @@
       color: rgba(255,255,255,0.92);
       border-radius: 999px;
       padding: 9px 12px;
+      white-space: nowrap;
     }
 
-    .table-wrap { overflow: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); }
-    table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.70);
+      padding: 0 2px;
+      min-width: 52px;
+    }
+
+    .toggle {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.92);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle[data-selected="1"] {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.30);
+    }
+
+    .toggle:focus { outline: none; }
+
+    .table-wrap {
+      overflow-x: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 
     th, td {
       border-bottom: 1px solid rgba(255,255,255,0.10);
-      padding: 8px 10px;
+      padding: 7px 8px;
       font-size: 13px;
       vertical-align: top;
     }
+
+    /* 가로 스크롤 방지용: 컬럼 폭을 제한하고 이름은 줄바꿈 허용 */
+    th:nth-child(1), td:nth-child(1) { width: 72px; }
+    th:nth-child(3), td:nth-child(3) { width: 84px; }
+    th:nth-child(4), td:nth-child(4) { width: 92px; }
+    th:nth-child(5), td:nth-child(5) { width: 92px; }
+    th:nth-child(6), td:nth-child(6) { width: 74px; }
+    th:nth-child(7), td:nth-child(7) { width: 78px; }
+    th:nth-child(8), td:nth-child(8) { width: 78px; }
 
     th {
       position: sticky;
@@ -67,12 +120,48 @@
     }
 
     td.small { white-space: nowrap; }
-    td.effect { max-width: 420px; }
+
+    .eq-name-link {
+      color: rgba(255,255,255,0.94);
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-block;
+      max-width: 100%;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .eq-name-link:hover { text-decoration: underline; }
+
+    .rarity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .rarity-ur { color: #ffb347; border-color: rgba(255,179,71,0.55); background: rgba(255,179,71,0.12); }
+    .rarity-ssr { color: #ffd966; border-color: rgba(255,217,102,0.55); background: rgba(255,217,102,0.12); }
+    .rarity-sr { color: #c084fc; border-color: rgba(192,132,252,0.55); background: rgba(192,132,252,0.12); }
+    .rarity-r { color: #60a5fa; border-color: rgba(96,165,250,0.55); background: rgba(96,165,250,0.12); }
+    .rarity-n { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
 
     .loading, .error {
       padding: 16px;
       color: rgba(255,255,255,0.75);
       white-space: pre-line;
+    }
+
+    @media (max-width: 860px) {
+      th:nth-child(4), td:nth-child(4),
+      th:nth-child(5), td:nth-child(5) {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -94,15 +183,17 @@
     <div class="page-card">
       <h1 class="page-title">장비 목록</h1>
       <p class="page-sub">
-        번역 적용된 <b>EquipmentFactory.json</b>을 그대로 DB로 사용합니다.<br>
-        분류/소속은 <b>idCN</b> 경로에서, 속성/초기값은 <b>attack_SN / healthPoint_SN / defence_SN</b>에서 파생해 표시합니다.<br>
-        (이미지/다른 파일 참조는 추후 단계에서 연결)
+        이미지: <b>public/assets/item/weapon/...</b> 연결.<br>
+        옵션/입수방법은 <b>상세 페이지</b>에서만 표시.
       </p>
 
       <div class="toolbar">
-        <input id="searchInput" class="input" type="text" placeholder="이름/옵션/입수 방법 검색" />
+        <input id="searchInput" class="input" type="text" placeholder="이름 검색" />
         <span id="countBadge" class="pill">총 0개</span>
+        <button id="clearFilters" class="pill" type="button">필터 초기화</button>
       </div>
+
+      <div id="filters" class="filters"></div>
 
       <div id="status" class="loading">데이터 로딩 중...</div>
 
@@ -117,9 +208,7 @@
               <th>소속</th>
               <th>속성</th>
               <th>초기값</th>
-              <th>대값</th>
-              <th>옵션</th>
-              <th>입수 방법</th>
+              <th>최대값</th>
             </tr>
           </thead>
           <tbody id="equipmentList"></tbody>
