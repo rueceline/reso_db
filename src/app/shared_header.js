@@ -97,7 +97,7 @@
     if (!mount) { return; }
 
     const rootPrefix = getRootPrefix();
-    const headerUrl = new URL('common/header.html', window.location.href).href;
+    const headerUrl = rootPrefix + 'src/page/common/header.html';
 
     // const res = await fetch(headerUrl, { cache: 'no-store' });
     const res = await fetch(headerUrl);
@@ -109,21 +109,19 @@
 
     mount.innerHTML = await res.text();
 
-    // Ensure rootPrefix is available to any inline logic (if needed)
     mount.setAttribute('data-root-prefix', rootPrefix);
 
-    // Add a marker for scoping
     const headerRoot = mount.querySelector('.topbar');
     if (headerRoot) {
       headerRoot.setAttribute('data-role', 'shared-header');
     } else {
-      // fallback: set marker on mount so selectors still work
       mount.setAttribute('data-role', 'shared-header');
     }
 
     normalizeNavLinks(rootPrefix);
     setActiveNav(rootPrefix);
   }
+
 
   function onReady(fn) {
     if (document.readyState === 'loading') {
