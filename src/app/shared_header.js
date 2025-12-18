@@ -97,9 +97,11 @@
     if (!mount) { return; }
 
     const rootPrefix = getRootPrefix();
-    const headerUrl = rootPrefix + 'src/page/common/header.html';
+    const headerUrl = new URL('common/header.html', window.location.href).href;
 
-    const res = await fetch(headerUrl, { cache: 'no-store' });
+    // const res = await fetch(headerUrl, { cache: 'no-store' });
+    const res = await fetch(headerUrl);
+
     if (!res.ok) {
       console.warn('[shared_header] header fetch failed:', res.status, headerUrl);
       return;
