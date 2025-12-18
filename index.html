@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="ko">
 <head>
+<script>
+  (function() {
+    try {
+      var mode = localStorage.getItem('theme_mode') || 'dark';
+      if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+    } catch (e) {}
+  })();
+</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reso Tools & DB</title>
@@ -8,6 +17,8 @@
 </head>
 
 <body>
+<div id="shared-header"></div>
+
   <div class="bg-overlay"></div>
 
   <header class="topbar">
@@ -110,12 +121,22 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>Non-commercial fan project.</span>
-    </div>
-  </footer>
-
+  <div id="shared-footer"></div>
+  <script src="app/shared_footer.js"></script>  
   <script src="./src/app/main.js"></script>
+
+  <script>
+    // shared_header.js loader
+    (function() {
+      var parts = (location.pathname || '').split('/').filter(Boolean);
+      var srcIndex = parts.lastIndexOf('src');
+      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+      var s = document.createElement('script');
+      s.src = basePath + '/src/app/shared_header.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>

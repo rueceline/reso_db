@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>도감</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script>
+    (function() {
+      try {
+        var mode = localStorage.getItem('theme_mode') || 'dark';
+        if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="shared-header"></div>
+
+  <section class="page-hero" aria-label="page title">
+    <div class="hero-left">
+      <div class="hero-icon">📘</div>
+      <div class="hero-text">
+        <h1 class="hero-title">도감</h1>
+        <p class="hero-sub">캐릭터/장비/아이템 등 각 도감 페이지로 이동합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="bento-grid">
+      <a class="bento-card" href="./characterdb.html">
+        <div class="bento-title">캐릭터</div>
+        <div class="bento-desc">CharacterFactory 기반 (UI)</div>
+      </a>
+
+      <a class="bento-card" href="./equipmentdb.html">
+        <div class="bento-title">장비</div>
+        <div class="bento-desc">EquipmentFactory 기반 목록/검색</div>
+      </a>
+
+      <a class="bento-card" href="./itemdb.html">
+        <div class="bento-title">아이템</div>
+        <div class="bento-desc">추가 예정</div>
+      </a>
+
+      <a class="bento-card" href="./extra.html">
+        <div class="bento-title">추가</div>
+        <div class="bento-desc">추가 도구/페이지</div>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // shared_header.js loader
+    (function() {
+      var parts = (location.pathname || '').split('/').filter(Boolean);
+      var srcIndex = parts.lastIndexOf('src');
+      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+      var s = document.createElement('script');
+      s.src = basePath + '/src/app/shared_header.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

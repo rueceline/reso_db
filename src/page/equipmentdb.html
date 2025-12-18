@@ -4,188 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>장비 DB</title>
+
+  <!-- 공통 -->
   <link rel="stylesheet" href="../../css/style.css" />
-
-  <style>
-    .page-wrap { padding: 18px 0 30px; }
-    .page-card {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      padding: 16px;
-      overflow: hidden;
-    }
-
-    .page-title { margin: 0 0 8px; font-size: 22px; }
-    .page-sub { margin: 0 0 14px; color: rgba(255,255,255,0.70); line-height: 1.5; }
-
-    .toolbar {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .input {
-      flex: 1;
-      min-width: 220px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.20);
-      color: rgba(255,255,255,0.92);
-      border-radius: 12px;
-      padding: 10px 12px;
-      outline: none;
-    }
-
-    .pill {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.92);
-      border-radius: 999px;
-      padding: 9px 12px;
-      white-space: nowrap;
-    }
-
-    .filters {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .filter-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .filter-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.70);
-      padding: 0 2px;
-      min-width: 52px;
-    }
-
-    .toggle {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.92);
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 12px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .toggle[data-selected="1"] {
-      background: rgba(255,255,255,0.18);
-      border-color: rgba(255,255,255,0.30);
-    }
-
-    .toggle:focus { outline: none; }
-
-    .table-wrap {
-      overflow-x: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-
-    th, td {
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      padding: 7px 8px;
-      font-size: 13px;
-      vertical-align: top;
-    }
-
-    /* 가로 스크롤 방지용: 컬럼 폭을 제한하고 이름은 줄바꿈 허용 */
-    th:nth-child(1), td:nth-child(1) { width: 72px; }
-    th:nth-child(3), td:nth-child(3) { width: 84px; }
-    th:nth-child(4), td:nth-child(4) { width: 92px; }
-    th:nth-child(5), td:nth-child(5) { width: 92px; }
-    th:nth-child(6), td:nth-child(6) { width: 74px; }
-    th:nth-child(7), td:nth-child(7) { width: 78px; }
-    th:nth-child(8), td:nth-child(8) { width: 78px; }
-
-    th {
-      position: sticky;
-      top: 0;
-      background: rgba(10, 14, 20, 0.85);
-      backdrop-filter: blur(8px);
-      text-align: left;
-      font-weight: 800;
-    }
-
-    td.small { white-space: nowrap; }
-
-    .eq-name-link {
-      color: rgba(255,255,255,0.94);
-      text-decoration: none;
-      font-weight: 800;
-      display: inline-block;
-      max-width: 100%;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
-
-    .eq-name-link:hover { text-decoration: underline; }
-
-    .rarity-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 12px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .rarity-ur { color: #ffb347; border-color: rgba(255,179,71,0.55); background: rgba(255,179,71,0.12); }
-    .rarity-ssr { color: #ffd966; border-color: rgba(255,217,102,0.55); background: rgba(255,217,102,0.12); }
-    .rarity-sr { color: #c084fc; border-color: rgba(192,132,252,0.55); background: rgba(192,132,252,0.12); }
-    .rarity-r { color: #60a5fa; border-color: rgba(96,165,250,0.55); background: rgba(96,165,250,0.12); }
-    .rarity-n { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
-
-    .loading, .error {
-      padding: 16px;
-      color: rgba(255,255,255,0.75);
-      white-space: pre-line;
-    }
-
-    @media (max-width: 860px) {
-      th:nth-child(4), td:nth-child(4),
-      th:nth-child(5), td:nth-child(5) {
-        display: none;
-      }
-    }
-  </style>
+  <!-- 장비 DB 전용 -->
+  <link rel="stylesheet" href="../../css/equipmentStyle.css" />
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-title">장비 DB</span>
-        <span class="brand-sub">EquipmentFactory 기반</span>
-      </div>
-      <div class="topbar-actions">
-        <a class="cta-btn ghost" href="../../index.html">메인</a>
-      </div>
+\1
+<section class="page-hero" aria-label="page title">
+  <div class="hero-left">
+    <div class="hero-icon">⚙</div>
+    <div class="hero-text">
+      <h1 class="hero-title">장비 DB</h1>
+      <p class="hero-sub">장비의 상세 정보와 옵션을 확인하세요.</p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="container page-wrap">
+<main class="container page-wrap">
     <div class="page-card">
-      <h1 class="page-title">장비 목록</h1>
-      <p class="page-sub">
-        이미지: <b>public/assets/item/weapon/...</b> 연결.<br>
-        옵션/입수방법은 <b>상세 페이지</b>에서만 표시.
-      </p>
+      <h1 class="page-title">장비 목록</h1>      
 
       <div class="toolbar">
         <input id="searchInput" class="input" type="text" placeholder="이름 검색" />
@@ -209,6 +49,7 @@
               <th>속성</th>
               <th>초기값</th>
               <th>최대값</th>
+              <th>주옵션</th>
             </tr>
           </thead>
           <tbody id="equipmentList"></tbody>
@@ -218,5 +59,20 @@
   </main>
 
   <script src="../app/equipmentdb.js"></script>
+  <script src="../app/shared_header.js"></script>
+
+  <script>
+    // shared_header.js loader
+    (function() {
+      var parts = (location.pathname || '').split('/').filter(Boolean);
+      var srcIndex = parts.lastIndexOf('src');
+      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+      var s = document.createElement('script');
+      s.src = basePath + '/src/app/shared_header.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>

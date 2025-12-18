@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기능2</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script>
+    (function() {
+      try {
+        var mode = localStorage.getItem('theme_mode') || 'dark';
+        if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="shared-header"></div>
+
+  <section class="page-hero" aria-label="page title">
+    <div class="hero-left">
+      <div class="hero-icon">🧩</div>
+      <div class="hero-text">
+        <h1 class="hero-title">기능2</h1>
+        <p class="hero-sub">준비 중입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="bento-card">
+      <div class="bento-title">준비 중</div>
+      <div class="bento-desc">UI/데이터 연결은 추후 단계에서 진행합니다.</div>
+    </div>
+  </main>
+
+  <script>
+    // shared_header.js loader
+    (function() {
+      var parts = (location.pathname || '').split('/').filter(Boolean);
+      var srcIndex = parts.lastIndexOf('src');
+      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+      var s = document.createElement('script');
+      s.src = basePath + '/src/app/shared_header.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

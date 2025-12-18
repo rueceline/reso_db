@@ -1,119 +1,53 @@
 // equipmentdb.js
 // 목적
-// - 번역 적용된 EquipmentFactory.json을 그대로 DB로 사용한다.
-// - 이 페이지는 "EquipmentFactory.json의 실제 필드명"(idCN, name, quality, *_SN, des, Getway...)을 기준으로
-//   화면에 필요한 값(분류/소속/속성/입수 등)을 *파생*해서 표시한다.
+// - 번역 적용된 EquipmentFactory.json을 그대로 사용한다.
+// - 화면에 필요한 값(분류/소속/속성/입수/최대값/주옵션)을 파생해서 표시한다.
 //
-// 핵심 개념
-// - DB 레코드(원본) -> ViewModel(화면표시용) 변환 레이어(mapEquipmentToViewModel)
-// - 다른 파일 참조(세트/스킬/성장 등) / 이미지(asset)는 아직 비워둠
-//
-// 주의
-// - GitHub Pages에서는 fetch 경로가 "레포 루트 기준"으로 잡히는 경우가 많음
-//   그래서 DATA_URL_CANDIDATES를 여러 개 두고, 먼저 성공하는 것을 사용함.
+// 변경(이번 반영)
+// - 데이터 경로 고정: ../../public/data/KR/*.json
+// - 소속(팩션) 번역: ConfigLanguage.json 검색 없이 factionMap 하드코딩
+// - 최대값: GrowthFactory.json(gAtk_SN/gHp_SN/gDef_SN) 참조
+// - 주옵션: EquipmentFactory.skillList[*].skillId -> SkillFactory.json.description (randomSkillList 제외)
+// - 주옵션 텍스트: <color=#RRGGBB>...</color> 태그를 실제 색상 HTML로 렌더링 + 개행(<br>) 처리
 
-const DATA_URL_CANDIDATES = '../../public/data/KR/EquipmentFactory.json';
+const DATA_URL = '../../public/data/KR/EquipmentFactory.json';
+const GROWTH_URL = '../../public/data/KR/GrowthFactory.json';
+const SKILL_URL = '../../public/data/KR/SkillFactory.json';
+
 const ASSET_SMALL_BASE = '../../public/assets/item/weapon';
 
 function rarityToLabel(quality) {
   const q = String(quality || '').trim();
 
-  if (q === 'Orange') {
-    return { label: 'UR', cls: 'rarity-ur' };
-  }
-
-  if (q === 'Golden') {
-    return { label: 'SSR', cls: 'rarity-ssr' };
-  }
-
-  if (q === 'Purple') {
-    return { label: 'SR', cls: 'rarity-sr' };
-  }
-
-  if (q === 'Blue') {
-    return { label: 'R', cls: 'rarity-r' };
-  }
-
-  if (q === 'White') {
-    return { label: 'N', cls: 'rarity-n' };
-  }
+  if (q === 'Orange') return { label: 'UR', cls: 'rarity-ur' };
+  if (q === 'Golden') return { label: 'SSR', cls: 'rarity-ssr' };
+  if (q === 'Purple') return { label: 'SR', cls: 'rarity-sr' };
+  if (q === 'Blue') return { label: 'R', cls: 'rarity-r' };
+  if (q === 'White') return { label: 'N', cls: 'rarity-n' };
 
   return { label: q || '', cls: 'rarity-n' };
 }
 
 function isInvalidGroupValue(v) {
   const s = String(v || '').trim();
-  if (!s) {
-    return true;
-  }
-
-  if (s.startsWith('00')) {
-    return true;
-  }
-
-  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) {
-    return true;
-  }
-
+  if (!s) return true;
+  if (s.startsWith('00')) return true;
+  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) return true;
   return false;
 }
 
-// ------------------------------------------------------------
-// EquipmentFactory.json 기준 "확정 필드명"
-// ------------------------------------------------------------
-// 샘플:
-// - id / idCN / mod / isInformalData
-// - name / quality / des
-// - attack_SN / healthPoint_SN / defence_SN
-// - iconPath / tipsPath
-// - Getway: [{ DisplayName, ... }, ...]
-//
-// 분류/소속은 idCN 경로에서 파생한다.
-//   예) "混沌海装备/金/武器/抗拒从严" -> 소속="混沌海", 분류="무기"
-//
-// 속성/초기값은 *_SN 중 값이 있는 항목에서 파생한다.
-//   예) attack_SN > 0 -> 속성="공격", 초기값=attack_SN
-
 function byString(v) {
-  if (v === null || v === undefined) {
-    return '';
-  }
-
+  if (v === null || v === undefined) return '';
   return String(v);
 }
 
 function safeNumber(v) {
-  if (v === null || v === undefined) {
-    return '';
-  }
-
-  if (typeof v === 'number') {
-    return v;
-  }
+  if (v === null || v === undefined) return '';
+  if (typeof v === 'number') return v;
 
   const n = Number(v);
-  if (Number.isFinite(n)) {
-    return n;
-  }
-
+  if (Number.isFinite(n)) return n;
   return '';
-}
-
-function getFirstField(obj, candidates) {
-  if (!obj || !candidates) {
-    return undefined;
-  }
-
-  for (const key of candidates) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      const v = obj[key];
-      if (v !== null && v !== undefined && byString(v) !== '') {
-        return v;
-      }
-    }
-  }
-
-  return undefined;
 }
 
 function normalizePathSlash(s) {
@@ -126,30 +60,56 @@ function buildWeaponImageUrl(pathLike) {
   const parts = raw.split('/').filter(Boolean);
 
   const idx = parts.findIndex(x => String(x).toLowerCase() === 'weapon');
-  if (idx < 0 || parts.length < idx + 3) {
-    return '';
-  }
+  if (idx < 0 || parts.length < idx + 4) return '';
 
   const faction = String(parts[idx + 1] || '').toLowerCase();
   const size = String(parts[idx + 2] || '').toLowerCase();
-  const file = parts.length >= idx + 4 ? parts[idx + 3] : '';
+  const file = String(parts[idx + 3] || '');
 
-  if (!faction || !size || !file) {
-    return '';
-  }
+  if (!faction || !size || !file) return '';
 
   const filename = file.toLowerCase().endsWith('.png') ? file : `${file}.png`;
   return `${ASSET_SMALL_BASE}/${faction}/${size}/${filename}`;
 }
 
+function normalizeRootJson(json) {
+  if (Array.isArray(json)) return json;
+  if (json && Array.isArray(json.data)) return json.data;
+  if (json && Array.isArray(json.list)) return json.list;
+  return [];
+}
+
+function buildIdMap(list) {
+  const map = new Map();
+  for (const row of list || []) {
+    const id = Number(row?.id || 0);
+    if (id) {
+      map.set(id, row);
+    }
+  }
+  return map;
+}
+
 function parseIdCn(idCN) {
   const raw = normalizePathSlash(idCN);
   const parts = raw.split('/').filter(Boolean);
-  // 기대 형태: [소속+"装备", 희귀도(금/橙/紫...), 분류(武器/护甲/挂件...), 이름...]
+
   const factionRaw = parts.length >= 1 ? parts[0] : '';
   const categoryRaw = parts.length >= 3 ? parts[2] : '';
 
-  const faction = factionRaw.replace(/装备$/u, '');
+  const factionCn = factionRaw.replace(/装备$/u, '').trim();
+
+  // 소속(고정 단어) 하드코딩: ConfigLanguage.json 매번 검색하지 않음
+  const factionMap = {
+    '铁盟': '철도연맹',
+    '混沌海': '혼돈해',
+    '学会': '시타델',
+    '黑月': '흑월',
+    '帝国': '제국',
+    'ANITA': '아니타',
+  };
+
+  const faction = factionMap[factionCn] || factionCn;
 
   const categoryMap = {
     '武器': '무기',
@@ -162,76 +122,102 @@ function parseIdCn(idCN) {
   return { faction, category };
 }
 
+function scaleStatSn(v) {
+  const n = Number(v || 0);
+  if (!Number.isFinite(n)) return '';
+  return n / 1000;
+}
+
 function deriveStatAndValue(e) {
   const a = Number(e?.attack_SN || 0);
   const h = Number(e?.healthPoint_SN || 0);
   const d = Number(e?.defence_SN || 0);
 
   if (Number.isFinite(a) && a > 0) {
-    return { statType: '공격', minValue: a };
+    return { statType: '공격', statKey: 'atk', minValue: scaleStatSn(a) };
   }
 
   if (Number.isFinite(h) && h > 0) {
-    return { statType: '체력', minValue: h };
+    return { statType: '체력', statKey: 'hp', minValue: scaleStatSn(h) };
   }
 
   if (Number.isFinite(d) && d > 0) {
-    return { statType: '방어', minValue: d };
+    return { statType: '방어', statKey: 'def', minValue: scaleStatSn(d) };
   }
 
-  return { statType: '', minValue: '' };
+  return { statType: '', statKey: '', minValue: '' };
+}
+
+function calcMaxValue(e, statKey, growthById) {
+  if (!growthById || !statKey) return '';
+
+  const gid = Number(e?.growthId || 0);
+  if (!gid) return '';
+
+  const growth = growthById.get(gid);
+  if (!growth) return '';
+
+  const base = (() => {
+    if (statKey === 'atk') return scaleStatSn(e?.attack_SN);
+    if (statKey === 'hp') return scaleStatSn(e?.healthPoint_SN);
+    if (statKey === 'def') return scaleStatSn(e?.defence_SN);
+    return '';
+  })();
+
+  const grow = (() => {
+    if (statKey === 'atk') return scaleStatSn(growth?.gAtk_SN);
+    if (statKey === 'hp') return scaleStatSn(growth?.gHp_SN);
+    if (statKey === 'def') return scaleStatSn(growth?.gDef_SN);
+    return '';
+  })();
+
+  const b = Number(base);
+  const g = Number(grow);
+
+  if (!Number.isFinite(b) || !Number.isFinite(g)) return '';
+
+  return b + g;
+}
+
+function deriveMainOption(e, skillById) {
+  if (!skillById) return '';
+
+  const list = e?.skillList;
+  if (!Array.isArray(list) || list.length === 0) return '';
+
+  const sid = Number(list[0]?.skillId || 0);
+  if (!sid) return '';
+
+  const skill = skillById.get(sid);
+  if (!skill) return `#${sid}`;
+
+  // SkillFactory.json: description 필드 확정
+  return String(skill.description || '').trim();
 }
 
 function joinGetwayDisplayName(getway) {
-  if (!Array.isArray(getway)) {
-    return '';
-  }
-
+  if (!Array.isArray(getway)) return '';
   const names = [];
-  for (const it of getway) {
-    const n = it?.DisplayName;
-    if (n && String(n).trim()) {
-      names.push(String(n).trim());
-    }
+  for (const g of getway) {
+    const s = String(g?.DisplayName || '').trim();
+    if (s) names.push(s);
   }
-
-  // 중복 제거
-  const uniq = Array.from(new Set(names));
-  return uniq.join('\n');
+  return names.join(', ');
 }
 
-function normalizeRootJson(json) {
-  // 파일에 따라 배열/객체일 수 있어서 방어
-  if (Array.isArray(json)) {
-    return json;
-  }
-
-  if (json && Array.isArray(json.data)) {
-    return json.data;
-  }
-
-  if (json && Array.isArray(json.list)) {
-    return json.list;
-  }
-
-  return [];
-}
-
-// --------------------------------------------
-// 핵심: DB 1레코드 -> 화면 표시용 ViewModel
-// --------------------------------------------
-function mapEquipmentToViewModel(e) {
+function mapEquipmentToViewModel(e, growthById, skillById) {
   const id = e?.id;
   const name = e?.name;
   const quality = e?.quality;
-  const effect = e?.des;
 
   const idCN = e?.idCN;
   const parsed = parseIdCn(idCN);
-  const derived = deriveStatAndValue(e);
-  const obtain = joinGetwayDisplayName(e?.Getway);
 
-  // 아이콘 경로
+  const derived = deriveStatAndValue(e);
+  const maxValue = calcMaxValue(e, derived.statKey, growthById);
+
+  const mainOption = deriveMainOption(e, skillById);
+
   const iconPath = e?.iconPath;
   const tipsPath = e?.tipsPath;
 
@@ -240,41 +226,27 @@ function mapEquipmentToViewModel(e) {
 
   return {
     id: safeNumber(id) || byString(id),
-    // UI 컬럼: 이미지 (아직 asset 없음)
     imageUrl: byString(imageUrl),
 
-    // 추후 이미지 연결 시 참고
-    iconPath: byString(iconPath),
-
-    // UI 컬럼: 이름
     name: byString(name),
 
-    // UI 컬럼: 희귀도(EquipmentFactory: quality)
     rarity: byString(rarity.label),
     rarityClass: byString(rarity.cls),
 
-    // UI 컬럼: 분류/소속(idCN에서 파생)
     category: byString(parsed.category),
     faction: byString(parsed.faction),
 
-    // UI 컬럼: 속성/초기값(attack_SN / healthPoint_SN / defence_SN에서 파생)
     statType: byString(derived.statType),
     minValue: safeNumber(derived.minValue),
+    maxValue: safeNumber(maxValue),
 
-    // 성장/강화 최대값은 다른 파일(성장 테이블)과 연동 필요 -> 비워둠
-    maxValue: '',
-
-    // 상세 페이지에서 사용
-    effect: byString(effect),
-    obtain: byString(obtain),
+    mainOption: byString(mainOption),
   };
 }
 
 function setStatus(text, isError) {
   const el = document.getElementById('status');
-  if (!el) {
-    return;
-  }
+  if (!el) return;
 
   el.className = isError ? 'error' : 'loading';
   el.textContent = text;
@@ -282,9 +254,7 @@ function setStatus(text, isError) {
 
 function setCount(n) {
   const el = document.getElementById('countBadge');
-  if (!el) {
-    return;
-  }
+  if (!el) return;
 
   el.textContent = `총 ${n}개`;
 }
@@ -300,29 +270,111 @@ function escapeHtml(v) {
     .replaceAll("'", '&#039;');
 }
 
-function escapeHtmlMultiline(v) {
-  const s = escapeHtml(v);
-  return s.replaceAll('\n', '<br>');
+// 주옵션 텍스트 전용 렌더러
+// - <color=#RRGGBB>...</color> 만 허용해서 span으로 변환
+// - 나머지 문자는 전부 escape 처리
+// - \n 개행은 <br> 로 변환
+function renderMainOptionHtml(raw) {
+  const s0 = String(raw || '');
+  if (!s0) return '';
+
+  // 개행 정규화
+  const s = s0.replaceAll('\r\n', '\n');
+
+  const openRe = /<color=\s*#([0-9a-fA-F]{6})\s*>/g;
+  const closeRe = /<\/color\s*>/g;
+
+  // 먼저 open/close를 모두 토큰으로 분리
+  const tokens = [];
+  let i = 0;
+
+  while (i < s.length) {
+    openRe.lastIndex = i;
+    closeRe.lastIndex = i;
+
+    const mOpen = openRe.exec(s);
+    const mClose = closeRe.exec(s);
+
+    const nextOpen = mOpen ? mOpen.index : Number.POSITIVE_INFINITY;
+    const nextClose = mClose ? mClose.index : Number.POSITIVE_INFINITY;
+
+    const next = Math.min(nextOpen, nextClose);
+
+    if (!Number.isFinite(next) || next === Number.POSITIVE_INFINITY) {
+      tokens.push({ type: 'text', value: s.slice(i) });
+      break;
+    }
+
+    if (next > i) {
+      tokens.push({ type: 'text', value: s.slice(i, next) });
+      i = next;
+      continue;
+    }
+
+    if (next === nextOpen) {
+      tokens.push({ type: 'open', value: mOpen[1] });
+      i = nextOpen + mOpen[0].length;
+      continue;
+    }
+
+    tokens.push({ type: 'close' });
+    i = nextClose + mClose[0].length;
+  }
+
+  // 토큰을 HTML로 변환 (스택 기반)
+  let html = '';
+  const stack = [];
+
+  function pushSpan(colorHex) {
+    const c = `#${colorHex}`;
+    html += `<span class="mo-color" style="color:${c}">`;
+    stack.push('span');
+  }
+
+  function popSpan() {
+    if (stack.length > 0) {
+      stack.pop();
+      html += `</span>`;
+    }
+  }
+
+  for (const t of tokens) {
+    if (t.type === 'text') {
+      const escaped = escapeHtml(t.value).replaceAll('\n', '<br>');
+      html += escaped;
+      continue;
+    }
+
+    if (t.type === 'open') {
+      pushSpan(t.value);
+      continue;
+    }
+
+    if (t.type === 'close') {
+      popSpan();
+    }
+  }
+
+  // 닫히지 않은 span 정리
+  while (stack.length > 0) {
+    popSpan();
+  }
+
+  return html;
 }
 
 function formatNumber(v) {
-  if (v === null || v === undefined || v === '') {
-    return '';
-  }
+  if (v === null || v === undefined || v === '') return '';
 
   const n = Number(v);
-  if (!Number.isFinite(n)) {
-    return byString(v);
-  }
+  if (!Number.isFinite(n)) return byString(v);
 
-  return n.toLocaleString('en-US');
+  return n.toLocaleString('en-US', { maximumFractionDigits: 3 });
 }
 
 function renderTable(list) {
   const tbody = document.getElementById('equipmentList');
-  if (!tbody) {
-    return;
-  }
+  if (!tbody) return;
 
   tbody.innerHTML = '';
 
@@ -333,12 +385,12 @@ function renderTable(list) {
 
     const imgSrc = item.imageUrl || '';
     const imgCell = `
-      <td class="small">
+      <td class="cell-center">
         <a href="${detailHref}" aria-label="상세 보기">
           <img
             src="${escapeHtml(imgSrc)}"
             alt=""
-            style="width:48px;height:48px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.12);"
+            class="eq-thumb"
             onerror="this.outerHTML='-'"
           />
         </a>
@@ -347,15 +399,18 @@ function renderTable(list) {
 
     tr.innerHTML = `
       ${imgCell}
-      <td>
+      <td class="cell-center cell-name">
         <a class="eq-name-link" href="${detailHref}">${escapeHtml(item.name)}</a>
       </td>
-      <td class="small"><span class="rarity-badge ${escapeHtml(item.rarityClass)}">${escapeHtml(item.rarity)}</span></td>
-      <td class="small">${escapeHtml(item.category)}</td>
-      <td class="small">${escapeHtml(item.faction)}</td>
-      <td class="small">${escapeHtml(item.statType)}</td>
-      <td class="small">${escapeHtml(formatNumber(item.minValue))}</td>
-      <td class="small">${escapeHtml(item.maxValue)}</td>
+      <td class="cell-center">
+        <span class="rarity-badge ${escapeHtml(item.rarityClass)}">${escapeHtml(item.rarity)}</span>
+      </td>
+      <td class="cell-center">${escapeHtml(item.category)}</td>
+      <td class="cell-center">${escapeHtml(item.faction)}</td>
+      <td class="cell-center">${escapeHtml(item.statType)}</td>
+      <td class="cell-center">${escapeHtml(formatNumber(item.minValue))}</td>
+      <td class="cell-center">${escapeHtml(formatNumber(item.maxValue))}</td>
+      <td class="cell-center main-option">${renderMainOptionHtml(item.mainOption)}</td>
     `;
 
     tbody.appendChild(tr);
@@ -388,144 +443,104 @@ function createFilterState() {
   };
 }
 
-function renderFilterGroup(container, label, values, selectedSet, onToggle, getButtonClass) {
-  const row = document.createElement('div');
-  row.className = 'filter-row';
+function isSelected(stateSet, value) {
+  return stateSet.has(value);
+}
 
-  const title = document.createElement('div');
-  title.className = 'filter-label';
-  title.textContent = label;
-  row.appendChild(title);
-
-  for (const v of values) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'toggle' + (getButtonClass ? ` ${getButtonClass(v)}` : '');
-    btn.dataset.value = v;
-    btn.dataset.selected = selectedSet.has(v) ? '1' : '0';
-    btn.textContent = v;
-    btn.addEventListener('click', () => onToggle(v));
-    row.appendChild(btn);
+function toggleValue(stateSet, value) {
+  if (stateSet.has(value)) {
+    stateSet.delete(value);
+  } else {
+    stateSet.add(value);
   }
+}
 
-  container.appendChild(row);
+function makeToggle(label, selected, onClick) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toggle';
+  btn.textContent = label;
+  btn.dataset.selected = selected ? '1' : '0';
+  btn.addEventListener('click', onClick);
+  return btn;
 }
 
 function renderFilters(options, state, onChange) {
-  const el = document.getElementById('filters');
-  if (!el) {
-    return;
+  const root = document.getElementById('filters');
+  if (!root) return;
+
+  root.innerHTML = '';
+
+  function row(title, values, stateSet) {
+    const rowEl = document.createElement('div');
+    rowEl.className = 'filter-row';
+
+    const label = document.createElement('div');
+    label.className = 'filter-label';
+    label.textContent = title;
+
+    rowEl.appendChild(label);
+
+    for (const v of values) {
+      const selected = isSelected(stateSet, v);
+      const btn = makeToggle(v, selected, () => {
+        toggleValue(stateSet, v);
+        onChange();
+      });
+      rowEl.appendChild(btn);
+    }
+
+    return rowEl;
   }
 
-  el.innerHTML = '';
-
-  renderFilterGroup(
-    el,
-    '희귀도',
-    options.rarity,
-    state.rarity,
-    (v) => {
-      if (state.rarity.has(v)) {
-        state.rarity.delete(v);
-      } else {
-        state.rarity.add(v);
-      }
-      onChange();
-    },
-    (v) => {
-      // UR/SSR/SR/R/N -> badge 클래스 재사용
-      const upper = String(v).toUpperCase();
-      if (upper === 'UR') return 'rarity-ur';
-      if (upper === 'SSR') return 'rarity-ssr';
-      if (upper === 'SR') return 'rarity-sr';
-      if (upper === 'R') return 'rarity-r';
-      return 'rarity-n';
-    }
-  );
-
-  renderFilterGroup(el, '분류', options.category, state.category, (v) => {
-    if (state.category.has(v)) {
-      state.category.delete(v);
-    } else {
-      state.category.add(v);
-    }
-    onChange();
-  });
-
-  renderFilterGroup(el, '소속', options.faction, state.faction, (v) => {
-    if (state.faction.has(v)) {
-      state.faction.delete(v);
-    } else {
-      state.faction.add(v);
-    }
-    onChange();
-  });
-
-  renderFilterGroup(el, '속성', options.statType, state.statType, (v) => {
-    if (state.statType.has(v)) {
-      state.statType.delete(v);
-    } else {
-      state.statType.add(v);
-    }
-    onChange();
-  });
+  root.appendChild(row('희귀도', options.rarity, state.rarity));
+  root.appendChild(row('분류', options.category, state.category));
+  root.appendChild(row('소속', options.faction, state.faction));
+  root.appendChild(row('속성', options.statType, state.statType));
 }
 
 function applyFilters(list, query, state) {
   const q = String(query || '').trim().toLowerCase();
 
-  return list.filter(x => {
-    if (q && !byString(x.name).toLowerCase().includes(q)) {
-      return false;
+  return list.filter(item => {
+    if (q) {
+      const name = String(item.name || '').toLowerCase();
+      if (!name.includes(q)) return false;
     }
 
-    if (state.rarity.size && !state.rarity.has(x.rarity)) {
-      return false;
-    }
-
-    if (state.category.size && !state.category.has(x.category)) {
-      return false;
-    }
-
-    if (state.faction.size && !state.faction.has(x.faction)) {
-      return false;
-    }
-
-    if (state.statType.size && !state.statType.has(x.statType)) {
-      return false;
-    }
+    if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) return false;
+    if (state.category.size > 0 && !state.category.has(item.category)) return false;
+    if (state.faction.size > 0 && !state.faction.has(item.faction)) return false;
+    if (state.statType.size > 0 && !state.statType.has(item.statType)) return false;
 
     return true;
   });
 }
 
-async function fetchFirstOk(urls) {
-  for (const url of urls) {
-    try {
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) {
-        continue;
-      }
-
-      const json = await res.json();
-      return { url, json };
-    } catch (e) {
-      // next
-    }
+async function fetchJson(url) {
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) {
+    throw new Error(`Fetch failed: ${url} (${res.status})`);
   }
-
-  throw new Error('All DATA_URL_CANDIDATES failed');
+  return res.json();
 }
 
 async function load() {
   setStatus('데이터 로딩 중...', false);
 
   try {
-    const { url, json } = await fetchFirstOk(DATA_URL_CANDIDATES);
+    const [eqJson, growthJson, skillJson] = await Promise.all([
+      fetchJson(DATA_URL),
+      fetchJson(GROWTH_URL),
+      fetchJson(SKILL_URL),
+    ]);
 
-    const rawList = normalizeRootJson(json);
+    const rawList = normalizeRootJson(eqJson);
+    const growthById = buildIdMap(normalizeRootJson(growthJson));
+    const skillById = buildIdMap(normalizeRootJson(skillJson));
+
     const viewListAll = rawList
-      .map(mapEquipmentToViewModel)
+      .map(e => mapEquipmentToViewModel(e, growthById, skillById))
       .filter(x => !isInvalidGroupValue(x.category) && !isInvalidGroupValue(x.faction));
 
     const statusEl = document.getElementById('status');
@@ -571,16 +586,11 @@ async function load() {
     }
 
     update();
-
-    // 디버깅용: 실제 로드된 경로를 title에 잠깐 표시
-    document.title = `장비 DB (${url.split('/').slice(-1)[0]})`;
+    document.title = '장비 DB';
 
   } catch (e) {
     console.error(e);
-    setStatus(
-      `데이터를 불러오는 데 실패했습니다.\n(후보 경로: ${DATA_URL_CANDIDATES.join(', ')})`,
-      true
-    );
+    setStatus(`데이터를 불러오는 데 실패했습니다.\n${String(e)}`, true);
   }
 }
 

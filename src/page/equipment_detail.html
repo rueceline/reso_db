@@ -51,20 +51,52 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-title">장비 상세</span>
-        <span class="brand-sub">EquipmentFactory 기반</span>
-      </div>
-      <div class="topbar-actions">
-        <a class="cta-btn ghost" href="equipmentdb.html">목록</a>
-        <a class="cta-btn ghost" href="../../index.html">메인</a>
-      </div>
+\1
+<section class="page-hero" aria-label="page title">
+  <div class="hero-left">
+    <div class="hero-icon">🔎</div>
+    <div class="hero-text">
+      <h1 class="hero-title">장비 상세</h1>
+      <p class="hero-sub">선택한 장비의 상세 정보를 확인하세요.</p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="container page-wrap">
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a class="site-brand" href="../index.html">
+        <span class="brand-mark">RESO TOOLS</span>
+        <span class="brand-sub">Static DB</span>
+      </a>
+
+      <nav class="nav" aria-label="main navigation">
+        <a href="../index.html" data-nav="home">홈</a>
+
+        <div class="nav-group" data-nav="dex">
+          <button class="nav-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+            도감 <span class="caret" aria-hidden="true"></span>
+          </button>
+
+          <div class="nav-dropdown" role="menu">
+            <a href="./characterdb.html" data-nav="character">캐릭터</a>
+            <a href="./equipmentdb.html" data-nav="equipment">장비</a>
+            <a href="#" data-nav="item">아이템</a>
+            <a href="#" data-nav="extra">추가</a>
+          </div>
+        </div>
+
+        <a href="#" data-nav="train">열차</a>
+        <a href="#" data-nav="map">지도</a>
+        <a href="#" data-nav="feature1">기능1</a>
+        <a href="#" data-nav="feature2">기능2</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<main class="container page-wrap">
     <div class="page-card">
       <div id="status" class="status">데이터 로딩 중...</div>
 
@@ -107,5 +139,19 @@
   </main>
 
   <script src="../app/equipment_detail.js"></script>
+
+  <script>
+    // shared_header.js loader
+    (function() {
+      var parts = (location.pathname || '').split('/').filter(Boolean);
+      var srcIndex = parts.lastIndexOf('src');
+      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+      var s = document.createElement('script');
+      s.src = basePath + '/src/app/shared_header.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>
