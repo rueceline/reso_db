@@ -208,19 +208,6 @@
     })();
   </script>
 
-  <script>
-    // shared_header.js loader
-    (function () {
-      var parts = (location.pathname || '').split('/').filter(Boolean);
-      var srcIndex = parts.lastIndexOf('src');
-      var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
-      var s = document.createElement('script');
-      s.src = basePath + '/src/app/shared_header.js?v=2025-12-18_03';
-      s.defer = true;
-      document.body.appendChild(s);
-    })();
-  </script>
-
   <script src="src/app/shared_header.js?v=2025-12-18_09" defer></script>
 </body>
 
