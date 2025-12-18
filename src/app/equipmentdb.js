@@ -12,19 +12,8 @@
 // - GitHub Pages에서는 fetch 경로가 "레포 루트 기준"으로 잡히는 경우가 많음
 //   그래서 DATA_URL_CANDIDATES를 여러 개 두고, 먼저 성공하는 것을 사용함.
 
-const DATA_URL_CANDIDATES = [
-  // GitHub Pages에서 보통 index.html 기준으로 public 폴더가 루트가 됨
-  // (프로젝트 구조에 따라 달라질 수 있으니 후보를 여러 개 둔다)
-  './data/KR/EquipmentFactory.json',
-  '../data/KR/EquipmentFactory.json',
-  '../../data/KR/EquipmentFactory.json',
-
-  './public/data/KR/EquipmentFactory.json',
-  '../public/data/KR/EquipmentFactory.json',
-  '../../public/data/KR/EquipmentFactory.json',
-];
-
-const ASSET_SMALL_BASE = '../../assets/item/weapon';
+const DATA_URL_CANDIDATES = '../../public/data/KR/EquipmentFactory.json';
+const ASSET_SMALL_BASE = '../../public/assets/item/weapon';
 
 function rarityToLabel(quality) {
   const q = String(quality || '').trim();
