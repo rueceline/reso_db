@@ -95,7 +95,7 @@
     if (!mount) { return; }
 
     const rootPrefix = getRootPrefix();
-    const headerUrl = rootPrefix + 'page/common/header.html';
+    const headerUrl = rootPrefix + 'src/page/common/header.html';
 
     // const res = await fetch(headerUrl, { cache: 'no-store' });
     const res = await fetch(headerUrl);
