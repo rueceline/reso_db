@@ -8,18 +8,22 @@
   window.__RSO_SHARED_HEADER_LOADED__ = true;
 
   function getRootPrefix() {
-    // Example:
-    //  - /index.html               -> ""
-    //  - /src/page/equipmentdb.html -> "../../"
-    //  - /src/characterdb.html     -> "../"
-    const path = (location.pathname || '/').replace(/\/+$/, '');
-    const parts = path.split('/').filter(Boolean);
+    const path = window.location.pathname;              // 예: /reso_db/index.html
+    const parts = path.split('/').filter(Boolean);      // 예: ["reso_db","index.html"]
 
-    // If pointing to a file, drop it for directory depth
-    const isFile = parts.length > 0 && parts[parts.length - 1].includes('.');
-    const depth = isFile ? Math.max(0, parts.length - 1) : parts.length;
+    // 로컬/개발 서버(도메인 루트에서 서빙되는 경우) 또는 /src/... 로 직접 열었을 때
+    // -> base는 "/"
+    if (parts.length === 0 || parts[0] === 'src') {
+      return '/';
+    }
 
-    return '../'.repeat(depth);
+    // github.io 프로젝트 페이지: /<repo>/... 형태
+    if (window.location.hostname.endsWith('github.io')) {
+      return '/' + parts[0] + '/';                      // 예: "/reso_db/"
+    }
+
+    // 그 외(커스텀 도메인 등)는 일단 루트 기준
+    return '/';
   }
 
   function resolveHref(rootPrefix, dataPath) {
