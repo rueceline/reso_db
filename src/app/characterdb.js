@@ -1,3 +1,12 @@
+const CACHE_BUST = "2025-12-18_03";
+
+function addCacheBust(url) {
+  if (!url) return url;
+  const s = String(url);
+  if (s.includes("v=")) return s;
+  return s.includes("?") ? (s + "&v=" + CACHE_BUST) : (s + "?v=" + CACHE_BUST);
+}
+
 let allCharacters = [];
 
 // GitHub Pages / 로컬 서버 경로 모두 대응용 basePath
@@ -56,7 +65,7 @@ function getCandidateUrls() {
 }
 
 async function tryFetchJson(url) {
-  const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(addCacheBust(url));
 
   if (!res.ok) {
     return null;

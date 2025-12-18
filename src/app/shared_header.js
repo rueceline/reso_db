@@ -1,93 +1,139 @@
-// src/app/shared_header.js
-document.addEventListener('DOMContentLoaded', () => {
-  const host = document.getElementById('shared-header');
-  if (!host) { return; }
+/* shared_header.js
+   - Loads /src/page/common/header.html into #shared-header
+   - Normalizes nav links (data-path) to correct relative hrefs
+   - Marks active nav item based on current page
+*/
+(function () {
+  if (window.__RSO_SHARED_HEADER_LOADED__) { return; }
+  window.__RSO_SHARED_HEADER_LOADED__ = true;
 
-  const parts = (location.pathname || '').split('/').filter(Boolean);
-  const srcIndex = parts.lastIndexOf('src');
-  const basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
+  function getRootPrefix() {
+    // Example:
+    //  - /index.html               -> ""
+    //  - /src/page/equipmentdb.html -> "../../"
+    //  - /src/characterdb.html     -> "../"
+    const path = (location.pathname || '/').replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
 
-  const headerUrl = basePath + '/src/page/common/header.html';
+    // If pointing to a file, drop it for directory depth
+    const isFile = parts.length > 0 && parts[parts.length - 1].includes('.');
+    const depth = isFile ? Math.max(0, parts.length - 1) : parts.length;
 
-  const getMode = () => {
-    try { return localStorage.getItem('theme_mode') || 'dark'; } catch { return 'dark'; }
-  };
+    return '../'.repeat(depth);
+  }
 
-  const setMode = (mode) => {
-    try { localStorage.setItem('theme_mode', mode); } catch {}
-  };
+  function resolveHref(rootPrefix, dataPath) {
+    if (!dataPath) { return '#'; }
 
-  const applyTheme = (mode) => {
-    if (mode === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
+    if (dataPath.startsWith('http://') || dataPath.startsWith('https://')) {
+      return dataPath;
     }
-  };
 
-  applyTheme(getMode());
+    if (dataPath.startsWith('#')) {
+      return dataPath;
+    }
 
-  fetch(headerUrl, { cache: 'no-cache' })
-    .then((r) => {
-      if (!r.ok) { throw new Error('header fetch failed: ' + r.status + ' ' + headerUrl); }
-      return r.text();
-    })
-    .then((html) => {
-      host.innerHTML = html;
+    // allow "index.html" or "src/page/xxx.html"
+    let target = dataPath;
+    if (!target.endsWith('.html') && !target.includes('.')) {
+      target = target + '.html';
+    }
 
-      // resolve href from data-path (GitHub Pages 서브경로 대응)
-      host.querySelectorAll('[data-path]').forEach((el) => {
-        const p = el.getAttribute('data-path') || '';
-        const clean = p.replace(/^\/+/, '');
-        el.setAttribute('href', basePath + '/' + clean);
-      });
+    return rootPrefix + target;
+  }
 
-      // active state
-      const path = (location.pathname || '').toLowerCase();
-      const markActive = (key, pred) => {
-        const el = host.querySelector(`[data-nav="${key}"]`);
-        if (!el) { return; }
-        if (pred()) { el.classList.add('active'); }
-      };
+  function setActiveNav(rootPrefix) {
+    const here = (location.pathname || '').replace(/\/+$/, '');
+    const links = document.querySelectorAll('[data-role="shared-header"] a[data-path]');
 
-      markActive('character', () => path.includes('/characterdb'));
-      markActive('equipment', () => path.includes('/equipmentdb') || path.includes('/equipment_detail'));
-      markActive('dex_home', () => path.includes('/dex'));
-      markActive('home', () => path.endsWith('/index.html') || path.endsWith('/'));
+    links.forEach((a) => {
+      const p = a.getAttribute('data-path') || '';
+      const href = resolveHref(rootPrefix, p);
 
-      // dropdown click support (mobile)
-      const group = host.querySelector('.nav-group');
-      const trigger = host.querySelector('.nav-trigger');
-      if (group && trigger) {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const open = group.classList.toggle('open');
-          trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
+      // mark active only for internal html targets
+      let active = false;
+      if (!(p.startsWith('http://') || p.startsWith('https://')) && !p.startsWith('#')) {
+        // Normalize compare by ending with target path (no query)
+        const targetPath = (href || '').split('?')[0].replace(rootPrefix, '/').replace(/\/+$/, '');
+        active = (here === targetPath) || (here.endsWith('/' + (p.split('/').pop() || '')));
       }
 
-      // theme toggle (label shows CURRENT mode)
-      const themeBtn = host.querySelector('#theme-toggle');
-      const refreshThemeBtn = () => {
-        if (!themeBtn) { return; }
-        const mode = getMode();
-        themeBtn.textContent = (mode === 'light') ? '라이트' : '다크';
-      };
-
-      if (themeBtn) {
-        refreshThemeBtn();
-        themeBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const cur = getMode();
-          const next = (cur === 'light') ? 'dark' : 'light';
-          setMode(next);
-          applyTheme(next);
-          refreshThemeBtn();
-        });
+      a.classList.toggle('is-active', active);
+      if (active) {
+        a.setAttribute('aria-current', 'page');
+      } else {
+        a.removeAttribute('aria-current');
       }
-    })
-    .catch((err) => {
-      console.error('[shared_header] load failed:', err);
-      host.innerHTML = '';
     });
-});
+  }
+
+  function normalizeNavLinks(rootPrefix) {
+    const links = document.querySelectorAll('[data-role="shared-header"] a[data-path]');
+    links.forEach((a) => {
+      const p = a.getAttribute('data-path') || '';
+      const href = resolveHref(rootPrefix, p);
+
+      a.href = href;
+
+      if (p.startsWith('http://') || p.startsWith('https://')) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      } else {
+        // Ensure navigation happens even if href is "#"
+        a.addEventListener('click', (e) => {
+          if (p.startsWith('#')) { return; }
+          // allow normal open-in-new-tab etc
+          if (e.defaultPrevented) { return; }
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) { return; }
+          e.preventDefault();
+          location.href = href;
+        });
+      }
+    });
+  }
+
+  async function loadSharedHeader() {
+    const mount = document.getElementById('shared-header');
+    if (!mount) { return; }
+
+    const rootPrefix = getRootPrefix();
+    const headerUrl = rootPrefix + 'src/page/common/header.html';
+
+    const res = await fetch(headerUrl, { cache: 'no-store' });
+    if (!res.ok) {
+      console.warn('[shared_header] header fetch failed:', res.status, headerUrl);
+      return;
+    }
+
+    mount.innerHTML = await res.text();
+
+    // Ensure rootPrefix is available to any inline logic (if needed)
+    mount.setAttribute('data-root-prefix', rootPrefix);
+
+    // Add a marker for scoping
+    const headerRoot = mount.querySelector('.topbar');
+    if (headerRoot) {
+      headerRoot.setAttribute('data-role', 'shared-header');
+    } else {
+      // fallback: set marker on mount so selectors still work
+      mount.setAttribute('data-role', 'shared-header');
+    }
+
+    normalizeNavLinks(rootPrefix);
+    setActiveNav(rootPrefix);
+  }
+
+  function onReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  onReady(() => {
+    loadSharedHeader().catch((err) => {
+      console.warn('[shared_header] load failed:', err);
+    });
+  });
+})();

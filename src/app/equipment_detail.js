@@ -1,6 +1,15 @@
 // equipment_detail.js
 // - equipmentdb.html(목록)에서 id 쿼리스트링을 받아 상세를 표시한다.
 // - 데이터 구조는 EquipmentFactory.json(번역 적용본) 그대로 사용한다.
+const CACHE_BUST = "2025-12-18_03";
+
+function addCacheBust(url) {
+  if (!url) return url;
+  const s = String(url);
+  if (s.includes("v=")) return s;
+  return s.includes("?") ? (s + "&v=" + CACHE_BUST) : (s + "?v=" + CACHE_BUST);
+}
+
 
 const DATA_URL_CANDIDATES = [
   './public/data/KR/EquipmentFactory.json',
@@ -190,7 +199,7 @@ function getQueryParam(name) {
 async function fetchFirstOk(urls) {
   for (const url of urls) {
     try {
-      const res = await fetch(url, { cache: 'no-store' });
+      const res = await fetch(addCacheBust(url));
       if (!res.ok) {
         continue;
       }

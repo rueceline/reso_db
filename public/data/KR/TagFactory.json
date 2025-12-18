@@ -22794,5 +22794,18 @@
     "icon": "",
     "tagName": "이세계 모집",
     "recordTips": "이 페이지에서 최근 6개월간 [이세계 모집]의 모집 기록을 확인할 수 있습니다. 모집 기록은 1분 정도의 지연이 있으므로 기록이 없다면 잠시 후에 다시 열어보세요."
+  },
+  {
+    "id": 12601950,
+    "idCN": "战斗/敌方/克洛伊/共振2",
+    "mod": "标签",
+    "isInformalData": false,
+    "icon": "",
+    "tagName": "",
+    "tagID": 0,
+    "isShowDetail": false,
+    "temptagNameRichText": "",
+    "tagNameRichText": "",
+    "detail": ""
   }
 ]

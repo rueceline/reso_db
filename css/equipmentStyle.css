@@ -51,27 +51,6 @@
 }
 
 /* 필터 토글 영역 */
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-
-.filter-label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.70);
-  padding: 0 2px;
-  min-width: 52px;
-}
-
 .toggle {
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.06);
@@ -123,7 +102,7 @@ th, td {
    8: 최대값
    9: 주옵션
 */
-th:nth-child(1), td:nth-child(1) { width: 72px; }
+th:nth-child(1), td:nth-child(1) { width: 112px; }
 th:nth-child(2), td:nth-child(2) { width: 150px; }
 th:nth-child(3), td:nth-child(3) { width: 84px; }
 th:nth-child(4), td:nth-child(4) { width: 92px; }
@@ -147,7 +126,7 @@ th {
 
 /* 이름 셀: 글자 키우기 + 줄바꿈 허용 */
 .cell-name .eq-name-link {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.25;
   display: inline-block;
   max-width: 100%;
@@ -166,13 +145,43 @@ th {
 
 /* 썸네일 */
 .eq-thumb {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.04);
+  width: 96px;
+  height: 96px;
+  max-width: 96px;
+  max-height: 96px;
+
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+
+  padding: 0;
+  box-sizing: border-box;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
 }
+
+#equipmentList td:first-child {
+  width: 112px;        /* 셀 폭도 같이 증가 */
+  padding: 10px 12px;  /* 아이콘 주변 여백 최소 + 숨쉴 공간 */
+  vertical-align: middle;
+}
+
+#equipmentList td:first-child a {
+  display: block;
+}
+
+#equipmentList tr {
+  min-height: 120px;   /* 96px 아이콘 + 패딩 합 */
+}
+
+#equipmentList td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  vertical-align: middle;
+}
+
 
 /* 희귀도 배지 */
 .rarity-badge {
@@ -226,3 +235,113 @@ th {
 }
 
 /* width tuned: match sstoy container (max-width 87.5rem via .container) */
+
+/* 필터 버튼 hover: 선택/비선택 모두 명확히 */
+.toggle:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.toggle[data-selected="1"]:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.sort-select {
+  flex: 0 0 auto;
+  min-width: 180px;
+}
+
+/* 테이블 헤더 정렬(클릭) */
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+th.sortable:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+th.sortable::after {
+  content: "";
+  display: inline-block;
+  margin-left: 6px;
+  opacity: 0.55;
+}
+
+th.sortable[data-sort-dir="asc"]::after {
+  content: "▲";
+  opacity: 0.9;
+}
+
+th.sortable[data-sort-dir="desc"]::after {
+  content: "▼";
+  opacity: 0.9;
+}
+/* 이미지가 셀을 침범하지 않도록 강제 */
+td:nth-child(1) img {
+  max-width: 96px;
+  max-height: 96px;
+}
+/* 라이트 테마에서 이름 링크 색상 */
+html[data-theme="light"] .eq-name-link {
+  color: #0f172a;
+}
+
+/* =========================
+   필터(표 형태 정렬)
+========================= */
+#filters {
+  margin-bottom: 20px;
+}
+
+#filters.filter-grid {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+
+  /* 기존보다 세로 gap만 증가 */
+  gap: 18px 14px;
+
+  align-items: stretch;
+  padding-left: 16px;
+}
+
+
+#filters.filter-grid .filter-row {
+  display: contents;
+}
+
+#filters.filter-grid .filter-label {
+  font-weight: 800;
+  white-space: nowrap;
+
+  display: flex;          /* 추가 */
+  align-items: center;    /* 세로 중앙 */
+  min-height: 36px;       /* 버튼 높이와 맞춤 */
+
+  padding-left: 8px;
+}
+
+
+#filters.filter-grid .filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  align-items: center;    /* 버튼 줄 세로 정렬 */
+  min-height: 36px;       /* 라벨과 동일 */
+}
+
+
+#filters.filter-grid .filter-row:last-child .filter-buttons {
+  border-bottom: none;
+}
+
+html[data-theme="light"] #filters.filter-grid .filter-buttons {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+html[data-theme="light"] #filters.filter-grid .filter-label {
+  color: rgba(0, 0, 0, 0.85);
+}

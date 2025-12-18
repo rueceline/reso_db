@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>지도</title>
-  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../css/style.css?v=2025-12-18_09" />
   <script>
     (function() {
       try {
@@ -41,10 +42,11 @@
       var srcIndex = parts.lastIndexOf('src');
       var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
       var s = document.createElement('script');
-      s.src = basePath + '/src/app/shared_header.js';
+      s.src = basePath + '/src/app/shared_header.js?v=2025-12-18_03';
       s.defer = true;
       document.body.appendChild(s);
     })();
   </script>
+  <script src="../app/shared_header.js?v=2025-12-18_09" defer></script>
 </body>
 </html>

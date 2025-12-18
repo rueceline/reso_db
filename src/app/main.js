@@ -1,4 +1,13 @@
 // scripts/main.js
+const CACHE_BUST = "2025-12-18_03";
+
+function addCacheBust(url) {
+  if (!url) return url;
+  const s = String(url);
+  if (s.includes("v=")) return s;
+  return s.includes("?") ? (s + "&v=" + CACHE_BUST) : (s + "?v=" + CACHE_BUST);
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();

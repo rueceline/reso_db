@@ -1,41 +1,27 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-<script>
-  (function() {
-    try {
-      var mode = localStorage.getItem('theme_mode') || 'dark';
-      if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
-    } catch (e) {}
-  })();
-</script>
+  <script>
+    (function () {
+      try {
+        var mode = localStorage.getItem('theme_mode') || 'dark';
+        if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+      } catch (e) { }
+    })();
+  </script>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reso Tools & DB</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./css/style.css?v=2025-12-18_09" />
 </head>
 
 <body>
-<div id="shared-header"></div>
+  <div id="shared-header"></div>
 
   <div class="bg-overlay"></div>
-
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-title">Reso Tools & DB</span>
-        <span class="brand-sub">게임 데이터 · 팬메이드 DB</span>
-      </div>
-
-      <div class="topbar-actions">
-        <!-- 언어/설정 UI는 나중에 붙일 예정 (sstoy 느낌만 유지) -->
-        <button class="pill-btn" type="button" aria-label="Settings" disabled>
-          설정
-        </button>
-      </div>
-    </div>
-  </header>
 
   <main class="container">
     <!-- Hero -->
@@ -48,8 +34,8 @@
         </p>
 
         <div class="hero-actions">
-          <a class="cta-btn" href="./src/page/equipmentdb.html">장비 DB</a>
-          <a class="cta-btn ghost" href="./src/page/characterdb.html">캐릭터 DB</a>
+          <a class="cta-btn" href="./src/page/equipmentdb.html?v=2025-12-18_09">장비 DB</a>
+          <a class="cta-btn ghost" href="./src/page/characterdb.html?v=2025-12-18_09">캐릭터 DB</a>
         </div>
       </div>
 
@@ -63,55 +49,67 @@
     </section>
 
     <!-- Bento Cards -->
-    <section class="features">
+    <section class="features-section">
       <div class="bento-grid">
-        <a class="bento-card card-large" href="./src/page/equipmentdb.html">
+        <a class="bento-card card-large" href="./src/page/dex.html?v=2025-12-18_09">
           <div class="card-content">
             <div class="card-header-row">
-              <div class="card-icon placeholder-icon">DB</div>
+              <div class="card-icon placeholder-icon">📘</div>
               <div class="card-text-col">
-                <h3>장비 DB</h3>
-                <p>EquipmentFactory 기반 목록/검색</p>
+                <h3>도감</h3>
+                <p>DB / 도감</p>
               </div>
             </div>
           </div>
           <div class="card-bg-img placeholder-bg"></div>
         </a>
 
-        <a class="bento-card card-large" href="./src/page/characterdb.html">
+        <a class="bento-card card-large" href="./src/page/train.html?v=2025-12-18_09">
           <div class="card-content">
             <div class="card-header-row">
-              <div class="card-icon placeholder-icon">DB</div>
+              <div class="card-icon placeholder-icon">🚆</div>
               <div class="card-text-col">
-                <h3>캐릭터 DB</h3>
-                <p>CharacterFactory 기반 목록/검색</p>
+                <h3>열차</h3>
+                <p>열차 관련 페이지</p>
               </div>
             </div>
           </div>
           <div class="card-bg-img placeholder-bg"></div>
         </a>
 
-        <!-- 아래 카드는 나중에 페이지가 늘어나면 링크만 바꿔서 확장 -->
-        <a class="bento-card card-wide" href="#" onclick="return false;">
+        <a class="bento-card card-large" href="./src/page/map.html?v=2025-12-18_09">
           <div class="card-content">
             <div class="card-header-row">
-              <div class="card-icon placeholder-icon">툴</div>
+              <div class="card-icon placeholder-icon">🗺</div>
               <div class="card-text-col">
-                <h3>추가 도구</h3>
-                <p>예: 강화 계산기 / 파서 리포트</p>
+                <h3>지도</h3>
+                <p>지도/경로 정보</p>
               </div>
             </div>
           </div>
           <div class="card-bg-img placeholder-bg"></div>
         </a>
 
-        <a class="bento-card card-wide" href="#" onclick="return false;">
+        <a class="bento-card card-large" href="./src/page/feature1.html?v=2025-12-18_09">
           <div class="card-content">
             <div class="card-header-row">
-              <div class="card-icon placeholder-icon">리소스</div>
+              <div class="card-icon placeholder-icon">🧩</div>
               <div class="card-text-col">
-                <h3>리소스</h3>
-                <p>이미지/아이콘 경로 연결 (추후)</p>
+                <h3>기능1</h3>
+                <p>추가 도구(예정)</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-large" href="./src/page/feature2.html?v=2025-12-18_09">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">🧩</div>
+              <div class="card-text-col">
+                <h3>기능2</h3>
+                <p>추가 도구(예정)</p>
               </div>
             </div>
           </div>
@@ -121,22 +119,111 @@
     </section>
   </main>
 
-  <div id="shared-footer"></div>
-  <script src="app/shared_footer.js"></script>  
-  <script src="./src/app/main.js"></script>
+  <footer class="landing-footer">
+    <div class="links-grid">
+      <button class="link-card" type="button" id="openPatchNotes">
+        <span class="link-ico">🗒</span>
+        <span>패치 노트</span>
+      </button>
+
+      <a class="link-card" href="https://github.com/rueceline/reso_db" target="_blank" rel="noopener">
+        <span class="link-ico">🐙</span>
+        <span>GitHub</span>
+      </a>
+
+      <a class="link-card" href="https://github.com/rueceline/reso_db/issues" target="_blank" rel="noopener">
+        <span class="link-ico">🐞</span>
+        <span>버그 제보</span>
+      </a>
+
+      <a class="link-card" href="#disclaimer">
+        <span class="link-ico">⚠</span>
+        <span>Disclaimer</span>
+      </a>
+    </div>
+
+    <div id="disclaimer" class="disclaimer-content">
+      <h3><strong>Disclaimer</strong></h3>
+      <p>
+        이 사이트는 비공식 팬 프로젝트이며, 사용된 모든 이미지 / 데이터 / 텍스트의 저작권은
+        원 개발사/퍼블리셔에게 있습니다. 상업적 목적이 아닌 정보 제공 / 연구 용도로만 사용됩니다.
+      </p>
+      <p class="last-updated">Last Updated : <strong>2025.12.18</strong></p>
+    </div>
+
+    <!-- Patch Notes Modal (placeholder) -->
+    <div class="patch-modal" id="patchModal" aria-hidden="true">
+      <div class="patch-modal-content">
+        <div class="patch-modal-header">
+          <h2>패치 노트</h2>
+          <button class="patch-modal-close" type="button" id="closePatchNotes">×</button>
+        </div>
+        <div class="patch-modal-body">
+          <p>준비 중</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./src/app/main.js?v=2025-12-18_09"></script>
+  <script>
+    (function () {
+      var openBtn = document.getElementById('openPatchNotes');
+      var closeBtn = document.getElementById('closePatchNotes');
+      var modal = document.getElementById('patchModal');
+
+      function openModal() {
+        if (!modal) return;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      if (openBtn) {
+        openBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+    })();
+  </script>
+
+
 
   <script>
     // shared_header.js loader
-    (function() {
+    (function () {
       var parts = (location.pathname || '').split('/').filter(Boolean);
       var srcIndex = parts.lastIndexOf('src');
       var basePath = srcIndex > 0 ? '/' + parts.slice(0, srcIndex).join('/') : '';
       var s = document.createElement('script');
-      s.src = basePath + '/src/app/shared_header.js';
+      s.src = basePath + '/src/app/shared_header.js?v=2025-12-18_03';
       s.defer = true;
       document.body.appendChild(s);
     })();
   </script>
 
+  <script src="./src/app/shared_header.js?v=2025-12-18_09" defer></script>
 </body>
+
 </html>

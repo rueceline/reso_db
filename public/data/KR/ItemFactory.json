@@ -42446,5 +42446,31 @@
     "isDisplayInFinishedlWare": false,
     "isDisplayInKeyWare": false,
     "playerParkItemType": "floatInquiry"
+  },
+  {
+    "id": 11400936,
+    "idCN": "活动代币/悖论积分1",
+    "mod": "无限深渊代币",
+    "isInformalData": false,
+    "name": "역설 포인트",
+    "viewId": -1,
+    "quality": "Purple",
+    "des": "'역설의 고치'에서 획득할 수 있는 포인트입니다. 종이에 기록되어 있지만 실시간으로 변동합니다.",
+    "iconPath": "Item\\item\\Small\\beilun01s",
+    "tipsPath": "Item/item/Big/beilun01",
+    "buyPath": "Item\\item\\beilunCoin",
+    "textIcon": "",
+    "sort": 0,
+    "isShowNum": true,
+    "isNotDisplayInBag": true,
+    "endTime": "",
+    "saletype": "NotSale",
+    "rewardList": [],
+    "Getway": [],
+    "techPoints": 100,
+    "skinID": -1,
+    "isDisplayInMaterialWare": false,
+    "isDisplayInFinishedlWare": false,
+    "isDisplayInKeyWare": false
   }
 ]
