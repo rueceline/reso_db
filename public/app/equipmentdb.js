@@ -161,7 +161,7 @@ function buildEquipmentRow(item) {
 }
 
 function updateEquipmentRow(tr, item) {
-  const detailHref = `/equipment_detail?id=${encodeURIComponent(String(item.id))}`;
+  const detailHref = `${withBase('/equipment_detail')}?id=${encodeURIComponent(String(item.id))}`;
 
   const aImg = tr.children[0]?.querySelector('a');
   if (aImg) { aImg.href = detailHref; }
