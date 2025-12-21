@@ -1,13 +1,13 @@
 // scripts/apply_kr_translation.js
-// - Python 없이 Node.js로 CN -> KR 번역 치환
+// - Python 없이 Node.js로 CN -> KR 번역 치환 (ESM)
 // - 입력:  ./public/data/CN
 // - 출력:  ./public/data/KR
 // - 매핑:  ./public/data/KR/ConfigLanguage.json
 // 실행:
 //   node scripts/apply_kr_translation.js
 
-const fs = require("fs/promises");
-const path = require("path");
+import fs from "fs/promises";
+import path from "path";
 
 const CN_DIR = path.resolve("./public/data/CN");
 const KR_DIR = path.resolve("./public/data/KR");

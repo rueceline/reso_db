@@ -1,0 +1,85 @@
+---
+const BASE = import.meta.env.BASE_URL;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <a class="site-brand" href={`${BASE}`}>
+        <span class="brand-mark">RESO TOOLS</span>
+      </a>
+
+      <nav class="nav" aria-label="main navigation">
+        <a href={`${BASE}`} data-nav="home">
+          <span class="nav-ico">🏠</span>홈
+        </a>
+
+        <div class="nav-group" data-nav="dex">
+          <button
+            class="nav-trigger"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="nav-ico">📘</span>도감 <span
+              class="caret"
+              aria-hidden="true"></span>
+          </button>
+
+          <div class="nav-dropdown" role="menu">
+            <a href={`${BASE}characterdb`}>캐릭터</a>
+            <a href={`${BASE}equipmentdb`}>장비</a>
+            <a href={`${BASE}itemdb`}>아이템</a>
+          </div>
+        </div>
+
+        <a href={`${BASE}train`}><span class="nav-ico">🚆</span>열차</a>
+        <a href={`${BASE}map`}><span class="nav-ico">🗺</span>지도</a>
+        <a href={`${BASE}feature1`}><span class="nav-ico">🧩</span>기능</a>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <button class="header-pill" type="button" id="theme-toggle">
+        <span class="pill-icon" aria-hidden="true">🌙</span>
+        <span class="pill-text">다크</span>
+      </button>
+
+      <div class="header-sep" aria-hidden="true"></div>
+
+      <div class="header-select-wrap">
+        <select class="header-select" id="lang-select" aria-label="언어 선택">
+          <option value="KR" selected>KR | 한국어</option>
+          <option value="JP">JP | 日本語</option>
+          <option value="EN">EN | English</option>
+        </select>
+        
+        <span class="header-select-caret" aria-hidden="true">˅</span>
+      </div>
+
+      <button
+        class="header-burger"
+        type="button"
+        aria-label="메뉴"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+    </div>
+
+    <div class="mobile-nav" aria-hidden="true">
+      <a href={`${BASE}`}>홈</a>
+
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-title">도감</div>
+        <a href={`${BASE}characterdb`}>캐릭터</a>
+        <a href={`${BASE}equipmentdb`}>장비</a>
+        <a href={`${BASE}itemdb`}>아이템</a>
+      </div>
+
+      <a href={`${BASE}train`}>열차</a>
+      <a href={`${BASE}map`}>지도</a>
+      <a href={`${BASE}feature1`}>기능</a>
+    </div>
+  </div>
+</header>

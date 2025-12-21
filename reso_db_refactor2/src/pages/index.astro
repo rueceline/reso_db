@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const BASE = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Reso Tools & DB">
+  <link slot="head" rel="stylesheet" href={`${BASE}css/page-index.css`} />
+
+  <div class="bg-overlay" ></div>
+
+  <main class="landing-main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">RESONANCE</h1>
+        <div class="hero-actions">
+          <a class="cta-btn ghost" href={`${BASE}characterdb`}>캐릭터 DB</a>
+          <a class="cta-btn" href={`${BASE}equipmentdb`}>장비 DB</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="preview-placeholder">
+          <img src="../../public/assets/Lobby_side2.png" alt="preview" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Cards -->
+    <section class="features-section">
+      <div class="bento-grid">
+        <a class="bento-card card-large" href={`${BASE}dex`}>
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">📘</div>
+              <div class="card-text-col">
+                <h3>도감</h3>
+                <p>DB / 도감</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-large" href={`${BASE}train`}>
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">🚆</div>
+              <div class="card-text-col">
+                <h3>열차</h3>
+                <p>열차 관련 페이지</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-large" href={`${BASE}map`}>
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">🗺</div>
+              <div class="card-text-col">
+                <h3>지도</h3>
+                <p>지도/경로 정보</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-large" href="#">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">🧩</div>
+              <div class="card-text-col">
+                <h3>기능1</h3>
+                <p>추가 도구(예정)</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+
+        <a class="bento-card card-large" href="#">
+          <div class="card-content">
+            <div class="card-header-row">
+              <div class="card-icon placeholder-icon">🧩</div>
+              <div class="card-text-col">
+                <h3>기능2</h3>
+                <p>추가 도구(예정)</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-bg-img placeholder-bg"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- index 전용 스크립트가 있으면 여기에서만 추가 -->
+  <script slot="scripts" src={`${BASE}app/pages/index.js`} defer></script>
+</BaseLayout>

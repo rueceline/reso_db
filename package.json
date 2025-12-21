@@ -1,5 +1,15 @@
 {
-	"dependencies": {
-		"@tsuk1ko/rsns-unpack": "^2.1.4"
-	}
+  "name": "reso_db",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tsuk1ko/rsns-unpack": "^2.1.4",
+    "astro": "^5.16.6"
+  }
 }

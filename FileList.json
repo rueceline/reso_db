@@ -1,0 +1,153 @@
+{
+  "name": "RESO_DB",
+  "type": "dir",
+  "comment": "프로젝트 루트",
+  "children": [
+    {
+      "name": ".astro",
+      "type": "dir",
+      "comment": "Astro 내부 캐시 (자동 생성)"
+    },
+    {
+      "name": "node_modules",
+      "type": "dir",
+      "comment": "의존성 (관리 대상 아님)"
+    },
+    {
+      "name": "public",
+      "type": "dir",
+      "comment": "정적 자원 루트 (URL과 1:1 대응)",
+      "children": [
+        {
+          "name": "app",
+          "type": "dir",
+          "comment": "페이지별 JS 로직",
+          "children": [
+            {
+              "name": "main.js",
+              "type": "file",
+              "comment": "공통 엔트리 / 초기화"
+            },
+            {
+              "name": "equipmentdb.js",
+              "type": "file",
+              "comment": "장비 리스트 페이지 로직"
+            },
+            {
+              "name": "equipment_detail.js",
+              "type": "file",
+              "comment": "장비 상세 페이지 로직"
+            },
+            {
+              "name": "characterdb.js",
+              "type": "file",
+              "comment": "캐릭터 DB 페이지 로직"
+            }
+          ]
+        },
+        {
+          "name": "assets",
+          "type": "dir",
+          "comment": "게임 에셋 루트 (하위 구조 미확정)",
+          "children": [
+            {
+              "name": "ui",
+              "type": "dir",
+              "comment": "ui 관련 공용 이미지 폴다"
+            },
+            {
+              "name": "*",
+              "type": "dir",
+              "comment": "현재는 폴더명만 관리, 추후 필요 에셋만 선별/정리"
+            }
+          ]
+        },
+        {
+          "name": "css",
+          "type": "dir",
+          "comment": "전역 + 페이지 CSS",
+          "children": [
+            { "name": "base.css", "type": "file", "comment": "기본 리셋/변수" },
+            { "name": "layout.css", "type": "file", "comment": "레이아웃 구조" },
+            { "name": "header.css", "type": "file", "comment": "헤더 UI" },
+            { "name": "components.css", "type": "file", "comment": "공용 컴포넌트" },
+            { "name": "theme-dark.css", "type": "file", "comment": "다크 테마" },
+            { "name": "theme-light.css", "type": "file", "comment": "라이트 테마" },
+            { "name": "page-index.css", "type": "file", "comment": "메인 페이지" },
+            { "name": "page-equipment.css", "type": "file", "comment": "장비 리스트" },
+            { "name": "page-equipment-detail.css", "type": "file", "comment": "장비 상세" },
+            { "name": "page-character.css", "type": "file", "comment": "캐릭터 페이지" },
+            { "name": "page-item.css", "type": "file", "comment": "아이템 페이지" }
+          ]
+        },
+        {
+          "name": "data",
+          "type": "dir",
+          "comment": "게임 DB JSON",
+          "children": [
+            {
+              "name": "KR",
+              "type": "dir",
+              "comment": "한국어 데이터"
+            },
+            {
+              "name": "CN",
+              "type": "dir",
+              "comment": "중국어 데이터"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "src",
+      "type": "dir",
+      "comment": "Astro 소스",
+      "children": [
+        {
+          "name": "components",
+          "type": "dir",
+          "children": [
+            { "name": "Header.astro", "type": "file", "comment": "공용 헤더" },
+            { "name": "FooterMain.astro", "type": "file", "comment": "공용 푸터" }
+          ]
+        },
+        {
+          "name": "layouts",
+          "type": "dir",
+          "children": [
+            {
+              "name": "BaseLayout.astro",
+              "type": "file",
+              "comment": "공통 레이아웃"
+            }
+          ]
+        },
+        {
+          "name": "pages",
+          "type": "dir",
+          "comment": "Astro 라우팅 페이지",
+          "children": [
+            { "name": "index.astro", "type": "file", "comment": "메인 페이지" },
+            { "name": "equipment.astro", "type": "file", "comment": "장비 리스트" },
+            {
+              "name": "equipment_detail.astro",
+              "type": "file",
+              "comment": "장비 상세"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scripts",
+      "type": "dir",
+      "comment": "데이터 파싱/변환 스크립트"
+    },
+    { "name": "astro.config.mjs", "type": "file", "comment": "Astro 설정" },
+    { "name": "package.json", "type": "file", "comment": "의존성/스크립트" },
+    { "name": "pnpm-lock.yaml", "type": "file", "comment": "락 파일" },
+    { "name": "README.md", "type": "file", "comment": "프로젝트 설명" },
+    { "name": "work.md", "type": "file", "comment": "작업 메모" }
+  ]
+}

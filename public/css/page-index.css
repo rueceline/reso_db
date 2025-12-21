@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap');
+
+/* ---------------------------------------------------------
+   1) Design Tokens / Base Variables
+   --------------------------------------------------------- */
+.preview-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.preview-sub {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-style: italic;
+  font-size: clamp(40px, 5vw, 64px);
+
+  /* 카드/배경/보더 느낌 제거 */
+  background: none;
+  border: 0;
+  box-shadow: none;
+  /* 더 크게 */
+  
+  line-height: 1.05;
+  padding: 0;    
+  margin: 0 0 12px;
+  letter-spacing: 0.6px;
+}
+
+
+/* Bento grid like sstoy */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 36px;
+  padding: 50px;
+}
+
+.bento-card {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  min-height: 260px;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  background: var(--card2);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------------------------------------------------------
+   4) Main Landing (sstoy-like)
+   --------------------------------------------------------- */
+/* ===== Main Landing (sstoy-like) ===== */
+.landing-main {
+  width: min(87.5rem, calc(100% - 48px));
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.landing-main .hero {
+  margin-top: 0;
+}
+
+.landing-footer {
+  width: min(87.5rem, calc(100% - 48px));
+  margin: 22px auto 40px;
+  padding: 14px 0 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  /* 타이틀을 프리뷰 이미지 중간 높이에 맞추기 */
+  align-items: center;
+  /* “카드” 느낌 제거*/
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 0;
+}
+
+.hero-right {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-left {
+  /* 전역 카드 스타일 덮어쓰기 */
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;  
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(-14px);
+}
+
+/* 버튼 영역 간격만 안정화 */
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 세로형 프리뷰 프레임 + 큰 이미지 제한 */
+.preview-placeholder {
+  border-radius: 0;
+  border: 0;
+  background: none;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  /* 기울기(3D) 효과용 */
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 140ms ease;
+  transform: perspective(900px) rotateX(-4deg) rotateY(6deg);
+}
+
+.preview-placeholder img {
+  /* 프레임을 절대 넘지 않도록 */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  /* 이미지가 살짝 떠 보이게(선택) */
+  transform: translateZ(12px);
+  will-change: transform;
+  margin-top: 80px;
+}
+
+.preview-placeholder:hover {
+  filter: none
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 72px;     /* 헤더 높이 */
+  bottom: 0;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55),
+      /* ← 투명도 조절 핵심 */
+      rgba(0, 0, 0, 0.55)), url("../assets/main_bg3.png");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+

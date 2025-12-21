@@ -1,0 +1,172 @@
+/* theme-light.css - light theme overrides
+ * 이 파일은 style.organized.css에서 자동 분리되었습니다.
+ */
+
+/* ---------------------------------------------------------
+   THEME OVERRIDES
+   --------------------------------------------------------- */
+/* light theme */
+html[data-theme="light"] {
+  --bg: #f6f7fb;
+  --text: #0f172a;
+  --muted: rgba(15, 23, 42, 0.72);
+  --border: rgba(15, 23, 42, 0.14);
+  --card: rgba(255, 255, 255, 0.92);
+  --card2: rgba(255, 255, 255, 0.86);
+  --shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
+}
+
+html[data-theme="light"] .site-header { background: rgba(248, 250, 252, 0.95); }
+
+html[data-theme="light"] .nav a:hover,
+html[data-theme="light"] .nav button:hover { background: rgba(15,23,42,0.06); border-color: rgba(15,23,42,0.10); }
+
+html[data-theme="light"] .nav-dropdown { background: rgba(255,255,255,0.96); border-color: rgba(15,23,42,0.14); }
+
+html[data-theme="light"] .caret { border-top-color: rgba(15,23,42,0.60); }
+
+html[data-theme="light"] .page-hero,
+html[data-theme="light"] .bento-card,
+html[data-theme="light"] .card { background: rgba(255,255,255,0.92); border-color: rgba(15,23,42,0.12); }
+
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea { background: rgba(255,255,255,0.92); color: var(--text); border-color: rgba(15,23,42,0.18); }
+
+/* ---------------------------------------------------------
+   Light mode contrast fixes (equipment db 포함)
+   - 라이트 모드에서 카드/필터/테이블이 배경과 섞여 보이는 문제 보정
+   - 희귀도(UR/SSR/SR/R/N) 배지 대비 강화
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .page-card {
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+html[data-theme="light"] .toolbar,
+html[data-theme="light"] .table-wrap {
+  border-color: var(--border);
+}
+
+html[data-theme="light"] .pill {
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+html[data-theme="light"] .pill:hover {
+  background: rgba(15, 23, 42, 0.08);
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+/* 테이블 헤더/구분선 대비 */
+html[data-theme="light"] th {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--text);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] td {
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+  color: var(--text);
+}
+
+/* 희귀도 배지 대비 강화 */
+html[data-theme="light"] .rarity-badge {
+  border-color: rgba(15, 23, 42, 0.18);
+  background: rgba(15, 23, 42, 0.03);
+}
+
+/* Orange = UR, Golden = SSR, Purple = SR, Blue = R, White = N */
+html[data-theme="light"] .rarity-ur {
+  color: #b45309;
+  border-color: rgba(180, 83, 9, 0.35);
+  background: rgba(255, 179, 71, 0.22);
+}
+
+html[data-theme="light"] .rarity-ssr {
+  color: #a16207;
+  border-color: rgba(161, 98, 7, 0.35);
+  background: rgba(255, 217, 102, 0.24);
+}
+
+html[data-theme="light"] .rarity-sr {
+  color: #6d28d9;
+  border-color: rgba(109, 40, 217, 0.30);
+  background: rgba(192, 132, 252, 0.22);
+}
+
+html[data-theme="light"] .rarity-r {
+  color: #1d4ed8;
+  border-color: rgba(29, 78, 216, 0.28);
+  background: rgba(96, 165, 250, 0.22);
+}
+
+html[data-theme="light"] .rarity-n {
+  color: #334155;
+  border-color: rgba(51, 65, 85, 0.24);
+  background: rgba(148, 163, 184, 0.22);
+}
+
+/* ---------------------------------------------------------
+   Light mode contrast fixes - filter buttons (toggle)
+   - 장비 DB 필터(UR/SSR/SR/R 등) 버튼이 라이트 모드에서 안 보이는 문제 수정
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .toggle {
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+html[data-theme="light"] .toggle:hover {
+  background: rgba(15, 23, 42, 0.08);
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+html[data-theme="light"] .toggle.active,
+html[data-theme="light"] .toggle[aria-pressed="true"] {
+  background: rgba(15, 23, 42, 0.12);
+  border-color: rgba(15, 23, 42, 0.30);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   Light mode - equipment filters separator
+   - #filters.filter-grid .filter-buttons 에 들어간 border-bottom 제거
+   --------------------------------------------------------- */
+
+html[data-theme="light"] #filters.filter-grid .filter-buttons {
+  border-bottom: none !important;
+}
+
+html[data-theme="light"] .header-select {
+  color: #0f172a;
+  background-color: rgba(255,255,255,0.92);
+  border-color: rgba(15,23,42,0.18);
+}
+
+/* 드롭다운 옵션 */
+html[data-theme="light"] .header-select option {
+  color: #0f172a;
+  background: #ffffff;
+}
+
+html[data-theme="dark"] .header-select option {
+  color: #e5e7eb;
+  background: #0b0f14;
+}
+
+html[data-theme="light"] .header-select-wrap {
+  border-color: rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .header-select-wrap:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(15, 23, 42, 0.24);
+}

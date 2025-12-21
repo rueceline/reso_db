@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const BASE = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="장비 상세">
+  <link
+    slot="head"
+    rel="stylesheet"
+    href={`${BASE}css/page-equipment-detail.css`}
+  />
+  <meta slot="head" name="app-base" content={BASE} />
+
+  <section class="page-hero" aria-label="page title">
+    <div class="hero-icon">
+      <img src="../../public/assets/equipment_top.png" alt="⚙" />      
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-title">장비 상세</h1>
+      <p class="hero-sub">장비의 상세 정보와 옵션을 확인하세요.</p>
+    </div>
+  </section>
+
+  <main class="container page-wrap">
+    <section class="panel detail-panel">
+      <div class="detail-top">
+        <div class="media">
+          <div class="media-frame">
+            <img id="equip-image" class="media-img" alt="" loading="eager" />
+            <div
+              id="equip-image-fallback"
+              class="media-img-fallback muted"
+              hidden
+            >
+              이미지 없음
+            </div>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="info-head">
+            <div class="title">
+              <div id="equip-rarity" class="equip-rarity" data-rarity="-">
+                -
+              </div>
+              <h2 id="equip-name" class="equip-name">-</h2>
+              <div id="equip-meta" class="muted">-</div>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-label muted">기본 속성</div>
+              <div id="equip-stat-main" class="stat-value">-</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label muted">최소값</div>
+              <div id="equip-stat-min" class="stat-value">-</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label muted">최대값</div>
+              <div id="equip-stat-max" class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="block-hd">
+              <span>주옵션</span>
+              <span id="fixed-skill-count" class="muted">고정 0</span>
+            </div>
+            <div class="block-bd">
+              <div id="fixed-skill-list" class="option-list"></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="block-hd"><span>설명</span></div>
+            <div class="block-bd">
+              <div id="equip-description" class="desc"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-bottom">
+        <div class="bottom-grid">
+          <section id="acquire" class="block">
+            <div class="block-hd"><span>획득 경로</span></div>
+            <div class="block-bd">
+              <div id="equip-acquire" class="acquire-list"></div>
+            </div>
+          </section>
+
+          <section class="block">
+            <div class="block-hd">
+              <span>스킬 목록</span>
+              <span id="random-skill-count" class="muted">소속 0 / 공용 0</span>
+            </div>
+            <div class="block-bd">
+              <div class="skill-groups">
+                <div class="skill-group">
+                  <div id="random-skill-faction" class="skill-list"></div>
+                </div>
+                <div class="skill-group">
+                  <div class="skill-group-title">공용</div>
+                  <div id="random-skill-common" class="skill-list"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script slot="scripts" src={`${BASE}app/equipment_detail.js`}></script>
+</BaseLayout>
