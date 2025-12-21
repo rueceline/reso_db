@@ -1,4 +1,4 @@
-import { dataPath, weaponImagePath, getAppBase } from './utils/path.js';
+import { dataPath, weaponImagePath } from './utils/path.js';
 import { DEFAULT_LANG } from './utils/config.js';
 import { fetchJson } from './utils/fetch.js';
 import { formatColorTagsToHtml } from './utils/text.js';
