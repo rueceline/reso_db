@@ -53,7 +53,7 @@
   /* 기존 inset: 0; / inset: 8px; 중복 → 8px 하나로 통일 */
   inset: 8px;
 
-  background-image: url("../../public/assets/UI/playground/tips/island_btm_icon.png");
+  background-image: url("/assets/ui/playground/tips/island_btm_icon.png");
   background-repeat: no-repeat;
   background-position: center;
 
