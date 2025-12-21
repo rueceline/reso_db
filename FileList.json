@@ -9,6 +9,11 @@
       "comment": "Astro 내부 캐시 (자동 생성)"
     },
     {
+      "name": "dist",
+      "type": "dir",
+      "comment": "빌드 폴더"
+    },
+    {
       "name": "node_modules",
       "type": "dir",
       "comment": "의존성 (관리 대상 아님)"
