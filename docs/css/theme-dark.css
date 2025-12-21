@@ -1,9 +1,0 @@
-/* theme-dark.css - dark theme overrides (if any)
- * 이 파일은 style.organized.css에서 자동 분리되었습니다.
- */
-
-/* dark theme (explicit) */
-html[data-theme="dark"] {
-  /* keep :root defaults; this block exists for clarity/future overrides */
-}
-
