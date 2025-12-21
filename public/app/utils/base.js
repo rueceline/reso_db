@@ -197,3 +197,11 @@
   window.normalizeRootJson = normalizeRootJson;
   window.buildIdMap = buildIdMap;
 })();
+
+function assetPath(relPath) {
+  var base = getAppBase(); // '/' 또는 '/reso_db/'
+  var p = String(relPath || '').replace(/^\/+/, '');
+  return base + 'assets/' + p;
+}
+
+window.assetPath = assetPath;
