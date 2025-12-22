@@ -141,6 +141,38 @@ function setImage(src) {
   }
 }
 
+function setupSkillExpandToggle() {
+  const block = document.getElementById('skill-block');
+  const btn = document.getElementById('skill-toggle');
+  const body = document.getElementById('skill-block-body');
+
+  if (!block || !btn || !body) {
+    return;
+  }
+
+  function setOpen(open) {
+    if (open) {
+      block.classList.add('is-open');
+      block.classList.remove('is-collapsed');
+      body.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+    } else {
+      block.classList.remove('is-open');
+      block.classList.add('is-collapsed');
+      body.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // 기본: 접힘
+  setOpen(false);
+
+  btn.addEventListener('click', function () {
+    const isOpen = block.classList.contains('is-open');
+    setOpen(!isOpen);
+  });
+}
+
 // [Group] Text Normalizers
 // - normalizeAcquireText / formatFixedCountText
 
@@ -280,7 +312,8 @@ function applyEquipmentToDom(e, ctx) {
 
       const title = document.createElement('div');
       title.className = 'random-skill-subtitle';
-      title.textContent = `소속 - ${label}`;
+      title.textContent = `소속 - ${faction}`;
+
       factionEl.appendChild(title);
 
       for (const skill of skills) {
@@ -329,6 +362,7 @@ async function main() {
   }
 
   applyEquipmentToDom(e, { growthById, skillById, listById, equipFactory });
+  setupSkillExpandToggle();
 }
 
 main().catch((err) => {

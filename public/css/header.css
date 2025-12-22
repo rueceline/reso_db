@@ -245,8 +245,8 @@
 /* Burger (mobile only) */
 .header-burger {
   box-sizing: border-box;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 
   border: 0;
   background: transparent;
@@ -256,7 +256,7 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
 }
@@ -286,7 +286,7 @@
   }
 
   .site-header {
-    min-height: 56px;    
+    min-height: 48px;
   }
 
   .site-header .header-inner {
@@ -294,7 +294,16 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    gap: 10px;
+
+    min-height: 48px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    gap: 8px;
+  }
+
+  .site-brand .brand-mark {
+    font-size: 18px;
+    line-height: 1;
   }
 
   .nav {

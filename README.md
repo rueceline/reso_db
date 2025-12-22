@@ -15,21 +15,6 @@ Pages URL: https://rueceline.github.io/reso_db/
 
 ---
 
-## 📁 프로젝트 구조
-
-```text
-reso_db/
-├─ public/
-│  └─ data/
-│     ├─ CN/          # 원본 데이터 (중국어)
-│     ├─ KR/          # 한국어 적용 데이터
-├─ scripts/           # 데이터 처리용 스크립트
-└─ README.md
-
-```
-
----
-
 ## ✅ 요구 사항
 
 - Node.js 18 LTS 이상
@@ -62,7 +47,7 @@ pnpm add @tsuk1ko/rsns-unpack
 pnpm exec rsns-unpack .\public\data\CN .\public\data\KR
 ```
 
-- `public/data` : 원본 게임 데이터
+- `public/data/CN` : 원본 게임 데이터
 - `public/data/KR` : 번역/문자열 리소스
 
 ---
@@ -91,14 +76,7 @@ node scripts/apply_kr_translation.js
 - Data extraction: rsns-unpack  
   https://www.npmjs.com/package/@tsuk1ko/rsns-unpack
   
-- lua data unpack: rsns-data
+- lua data unpack: rsns-data  
   https://github.com/milkory/rsns-data
   
 ---
-
-## 📌 진행 상황
-
-- [x] 데이터 추출
-- [x] 한국어 번역 적용
-- [ ] 데이터 참조 자동화
-- [ ] DB 사이트 UI 구성

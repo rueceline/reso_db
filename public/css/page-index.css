@@ -18,7 +18,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   font-style: italic;
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(40px, 5vw, 48px);
 
   /* 카드/배경/보더 느낌 제거 */
   background: none;

@@ -256,18 +256,29 @@ button.pill:focus {
   right: 10px;
   bottom: 50px;
   z-index: 3;
-  white-space: pre-line;  
-  font-size: var(--char_name_font);
+
+  white-space: pre-line;
   line-height: 1.1;
   letter-spacing: 0.2px;
   padding: 6px 5px;
   font-size: 20px;
-  max-width: calc(100% - 20px);  
+
+  max-width: calc(100% - 20px);
+
+  /* 멀티라인 말줄임(2줄) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
   overflow: hidden;
-  text-overflow: ellipsis;
+
+  /* 1줄 전용 옵션 제거 */
+  text-overflow: clip;
+
   text-align: right;
   pointer-events: none;
 }
+
 
 .char-thumb > img.char-side-icon {
   display: block;

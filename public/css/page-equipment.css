@@ -129,7 +129,7 @@ button.pill:focus {
 
 #filters.filter-grid {
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 60px 1fr;
   gap: 18px 14px;
   align-items: stretch;
   padding-left: 16px;

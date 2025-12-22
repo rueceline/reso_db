@@ -79,16 +79,22 @@ const BASE = import.meta.env.BASE_URL;
             </div>
           </section>
 
-          <section class="block">
+          <section class="block skill-block is-collapsed" id="skill-block">
             <div class="block-hd">
-              <span>스킬 목록</span>
+              <button class="block-toggle" type="button" aria-expanded="false" aria-controls="skill-block-body" id="skill-toggle">
+                <span>스킬 목록</span>
+                <span class="block-toggle-caret" aria-hidden="true">˅</span>
+              </button>
+
               <span id="random-skill-count" class="muted">소속 0 / 공용 0</span>
             </div>
-            <div class="block-bd">
+
+            <div class="block-bd" id="skill-block-body" hidden>
               <div class="skill-groups">
                 <div class="skill-group">
                   <div id="random-skill-faction" class="skill-list"></div>
                 </div>
+
                 <div class="skill-group">
                   <div class="skill-group-title">공용</div>
                   <div id="random-skill-common" class="skill-list"></div>

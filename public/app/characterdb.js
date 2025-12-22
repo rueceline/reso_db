@@ -1,130 +1,60 @@
-// --- (상단 import 아래) ---
 import {
   dataPath,
   assetPath,
-  uiCommonPath,
   uiCharacterListPath,
-  uiSideIconPath,
-  showCharacterPath,
+  uiSideIconPath
 } from './utils/path.js';
 
-// const BASE = (window.getAppBase && window.getAppBase()) || '/';  // 삭제
+import { DEFAULT_LANG } from './utils/config.js';
+import { fetchJson } from './utils/fetch.js';
 
-const CACHE_BUST = "2025-12-21_02";
+import {
+  normalizeRootJson,
+  safeNumber,
+  UnitFactory,
+  mapUnitQualityToRarity
+} from './utils/data.js';
 
-const UNIT_URL = dataPath('KR', 'UnitFactory.json');
-const UNIT_VIEW_URL = dataPath('KR', 'UnitViewFactory.json');
-const HOME_CHAR_URL = dataPath('KR', 'HomeCharacterFactory.json');
-const TAG_URL = dataPath('KR', 'TagFactory.json');
+import { normalizePathSlash } from './utils/utils.js';
 
+const RARITY_ORDER = ['SSR', 'SR', 'R', 'N'];
+const GENDER_ORDER = ['남성', '여성', '불명', '없음', '여(?)'];
+
+// =========================================================
+// Character DB Page Script
+// - 실행 흐름: main() → loadCharacterDbData() → applyCharacterToDom()
+// - 아래(엔트리)에서 위(헬퍼)로 역추적하기 쉽게 배치
+// =========================================================
+
+// -------------------------
+// URLs
+// -------------------------
+const UNIT_URL = dataPath(DEFAULT_LANG, 'UnitFactory.json');
+const UNIT_VIEW_URL = dataPath(DEFAULT_LANG, 'UnitViewFactory.json');
+const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
+
+// assets root
 const ASSET_BASE = assetPath('');
 
-// --- (showcharacter 블록 교체) ---
-const SHOWCHAR_GRAD_BG = showCharacterPath('sactx-2048x512-DXT5-UIShowCharactershowcharacter_bg_huangyanAtlas-3b2bb9b2.png');
-
-function pickCampBgUrl(campIndex) {
-  if (!campIndex) { return ''; }
-  return showCharacterPath(`camp_${campIndex}.png`);
+// -------------------------
+// helpers
+// -------------------------
+function byString(v) {
+  if (v === null || v === undefined) { return ''; }
+  return String(v);
 }
 
-// --- (loadUnitAndView 내부 2줄 교체) ---
-const unitJson = await fetchJson(UNIT_URL, CACHE_BUST);
-const viewJson = await fetchJson(UNIT_VIEW_URL, CACHE_BUST);
-
-// --- (loadFallbackHomeCharacter 내부 1줄 교체) ---
-const json = await fetchJson(HOME_CHAR_URL, CACHE_BUST);
-
-const sideTagById = new Map();
-
-function pickSideIconUrlFromTag(sideId) {
-  const idNum = safeNumber(sideId);
-  if (idNum === null) { return ''; }
-
-  const tag = sideTagById.get(idNum);
-  if (!tag) { return ''; }
-
-  const sideName = byString(tag.sideName);
-
-  // 1) 기본은 iconPath(camp_*) 우선 (너 폴더에 camp_1~7이 있으니까)
-  {
-    const raw = normalizePathSlash(tag.iconPath);
-    const base = raw ? raw.split('/').pop() : '';
-
-    if (base && base.startsWith('camp_')) {
-      // 예외: 이세계 손님(12601524)은 iconPath가 camp_2로 “겹침” → icon을 쓰자
-      if (idNum === 12601524 || sideName.includes('이세계')) {
-        // 아래 icon 로직으로 넘김
-
-        console.log('idNum', idNum)
-      } else {
-        return uiSideIconPath(`${base}.png`);
-      }
-    }
-  }
-
-  // 2) 예외/특수는 icon(Common_icon_camp_9) 사용
-  {
-    const raw = normalizePathSlash(tag.icon);
-    const base = raw ? raw.split('/').pop() : '';
-    if (base) {
-      return uiSideIconPath(`${base}.png`);
-    }
-  }
-
-  // 3) 마지막 fallback: gachaSSRPath(camp_8 같은 것)
-  {
-    const raw = normalizePathSlash(tag.gachaSSRPath);
-    const base = raw ? raw.split('/').pop() : '';
-    if (base) {
-      return uiSideIconPath(`${base}.png`);
-    }
-  }
-
-  return '';
+function isInvalidGroupValue(v) {
+  const s = String(v || '').trim();
+  if (!s) { return true; }
+  if (s.startsWith('00')) { return true; }
+  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) { return true; }
+  return false;
 }
-
-
-async function loadSideTags() {
-  const tagJson = await fetchJson(TAG_URL, CACHE_BUST);
-  const list = normalizeRootJson(tagJson);
-
-  sideTagById.clear();
-
-  for (const t of list) {
-    const id = safeNumber(t?.id);
-    if (id === null) { continue; }
-
-    if (byString(t?.mod) !== '阵营') { continue; }
-
-    const icon = byString(t?.icon);
-    const gachaSSRPath = byString(t?.gachaSSRPath);
-    const iconPath = byString(t?.iconPath);
-
-    // 셋 다 비면 저장할 가치 없음
-    if (!icon && !gachaSSRPath && !iconPath) { continue; }
-
-    sideTagById.set(id, {
-      icon: icon,
-      gachaSSRPath: gachaSSRPath,
-      iconPath: iconPath,
-      sideName: byString(t?.sideName),
-    });
-  }
-}
-
-function pickPositionIconUrl(positionLabel) {
-  const key = String(positionLabel || '').trim();
-  return POSITION_ICON_BY_LABEL[key] || '';
-}
-
-function hasNonEmptyList(v) {
-  return Array.isArray(v) && v.length > 0;
-}
-
 
 function setStatus(text, isError) {
   const el = document.getElementById('status');
-  if (!el) return;
+  if (!el) { return; }
 
   el.className = isError ? 'error' : 'loading';
   el.textContent = text;
@@ -132,90 +62,15 @@ function setStatus(text, isError) {
 
 function setCount(n) {
   const el = document.getElementById('countBadge');
-  if (!el) return;
+  if (!el) { return; }
 
   el.textContent = `총 ${n}명`;
-}
-
-function normalizePathSlash(p) {
-  return String(p || '').replaceAll('\\', '/').trim();
-}
-
-function byString(v) {
-  if (v === null || v === undefined) return '';
-  return String(v);
-}
-
-function safeNumber(v) {
-  const n = Number(v);
-  return Number.isFinite(n) ? n : null;
-}
-
-async function fetchJson(url, cacheBust) {
-  const u = cacheBust ? `${url}?v=${encodeURIComponent(cacheBust)}` : url;
-  const res = await fetch(u, { cache: 'no-store' });
-  if (!res.ok) {
-    throw new Error(`fetch failed: ${res.status} ${u}`);
-  }
-
-  return await res.json();
-}
-
-// JSON 루트가 { list: [...] } / { data: [...] } / 그냥 [...] 등 섞여도 최대한 대응
-function normalizeRootJson(obj) {
-  if (Array.isArray(obj)) return obj;
-  if (!obj || typeof obj !== 'object') return [];
-
-  if (Array.isArray(obj.list)) return obj.list;
-  if (Array.isArray(obj.data)) return obj.data;
-  if (Array.isArray(obj.items)) return obj.items;
-
-  for (const k of Object.keys(obj)) {
-    if (Array.isArray(obj[k])) return obj[k];
-  }
-
-  return [];
-}
-
-// 테스트/더미 그룹 값 필터링 (equipmentdb와 같은 규칙)
-function isInvalidGroupValue(v) {
-  const s = String(v || '').trim();
-  if (!s) return true;
-  if (s.startsWith('00')) return true;
-  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) return true;
-  return false;
-}
-
-// -----------------------------------------------------------------------------
-// 실제 데이터 기반: UnitFactory + UnitViewFactory 조인 ViewModel
-// -----------------------------------------------------------------------------
-
-// UnitFactory.quality(예: FiveStar/fourStar/threeStar...) 우선 처리
-// + 기존 장비쪽 quality(Orange/Golden...)도 남겨서 혹시 섞여도 안전하게
-function mapQualityToRarity(quality) {
-  const q = String(quality || '').trim();
-
-  // 캐릭터(별등급)
-  if (q === 'FiveStar') return 'SSR';
-  if (q === 'fourStar') return 'SR';
-  if (q === 'threeStar') return 'R';
-  if (q === 'twoStar') return 'N';
-  if (q === 'oneStar') return 'N';
-
-  // 기존(장비식 컬러)
-  if (q === 'Orange') return 'UR';
-  if (q === 'Golden') return 'SSR';
-  if (q === 'Purple') return 'SR';
-  if (q === 'Blue') return 'R';
-  if (q === 'White') return 'N';
-
-  return q || '';
 }
 
 // 확장자 없는 path에 .png 기본 부착
 function ensureImageExt(pathLike) {
   const raw = normalizePathSlash(pathLike);
-  if (!raw) return '';
+  if (!raw) { return ''; }
 
   const low = raw.toLowerCase();
   const hasExt =
@@ -227,73 +82,62 @@ function ensureImageExt(pathLike) {
   return hasExt ? raw : `${raw}.png`;
 }
 
-// UnitViewFactory 경로들은 보통 "RolePlus/..." 처럼 이미 루트부터 시작함
+// UnitViewFactory 경로들은 보통 "RolePlus/..." 처럼 루트 상대 경로
 function buildAssetUrlFromPath(pathLike) {
   const raw = normalizePathSlash(pathLike);
-  if (!raw) return '';
+  if (!raw) { return ''; }
 
   // 이미 http/https 또는 /로 시작하면 그대로 사용
-  if (raw.startsWith('http://') || raw.startsWith('https://')) return raw;
-  if (raw.startsWith('/')) return raw;
+  if (raw.startsWith('http://') || raw.startsWith('https://')) { return raw; }
+  if (raw.startsWith('/')) { return raw; }
 
   const withExt = ensureImageExt(raw);
-  return `${ASSET_BASE}/${withExt}`;
+  const base = String(ASSET_BASE || '').replace(/\/$/, '');
+  return `${base}/${withExt}`;
 }
 
-// 리스트 초상화: UnitViewFactory.roleListResUrl 우선
-// 리스트 페이지 전용: Half.png만 사용
+// UnitViewFactory 기준: 리스트용 half 우선
 function pickPortraitUrlsFromView(viewRec) {
-  // 1순위: Half (roleListResUrl)
   const half = buildAssetUrlFromPath(viewRec?.roleListResUrl);
-
-  // 2순위: squadsHalf1
   const squads = buildAssetUrlFromPath(viewRec?.squadsHalf1);
 
   return {
     primary: half,
-    secondary: squads,
+    secondary: squads
   };
 }
 
-
-
-// UnitFactory 기준 고정
 function extractGenderFromUnit(unitRec) {
-  // UnitFactory.gender (문자열)
-  const s = String(unitRec?.gender ?? '').trim();
-  return s;
+  return String(unitRec?.gender ?? '').trim();
 }
 
 function extractPositionFromUnit(unitRec) {
-  // UnitFactory.line (숫자)
-  // 아직 매핑 표준 확정 전이라 "전/중/후/기타" 정도로만 뿌림
   const n = Number(unitRec?.line);
 
-  if (n === 1) return '전열';
-  if (n === 2) return '중열';
-  if (n === 3) return '후열';
+  if (n === 1) { return '전열'; }
+  if (n === 2) { return '중열'; }
+  if (n === 3) { return '후열'; }
 
   return '';
 }
 
+// TagFactory 연결 전에는 sideId를 그대로 들고 있다가, 아이콘만 tagMap으로 해석
 function extractFactionFromUnit(unitRec) {
-  // UnitFactory.sideId (숫자 태그)
   const v = unitRec?.sideId;
-  if (v === null || v === undefined) return '';
+  if (v === null || v === undefined) { return ''; }
   return String(v);
 }
 
-// 아직 TagFactory 매핑 전이라 lifeSkill은 비워둠(필터에 자동으로 안 뜸)
 function extractLifeSkillFromUnit(unitRec) {
   const v = unitRec?.lifeSkill ?? unitRec?.homeSkill ?? '';
   return String(v ?? '').trim();
 }
 
 function mapUnitToViewModel(unitRec, viewRec) {
-  const id = safeNumber(unitRec?.id) ?? byString(unitRec?.idCN) ?? byString(unitRec?.name) ?? '';
+  const id = safeNumber(unitRec?.id);
   const name = byString(unitRec?.name || unitRec?.idCN || unitRec?.EnglishName || '');
 
-  const rarity = mapQualityToRarity(unitRec?.quality ?? viewRec?.quality);
+  const rarity = mapUnitQualityToRarity(unitRec?.quality ?? viewRec?.quality);
 
   const gender = extractGenderFromUnit(unitRec);
   const position = extractPositionFromUnit(unitRec);
@@ -303,7 +147,7 @@ function mapUnitToViewModel(unitRec, viewRec) {
   const portrait = pickPortraitUrlsFromView(viewRec);
 
   return {
-    id: byString(id),
+    id: byString(id ?? ''),
     name: byString(name),
 
     rarity: byString(rarity),
@@ -312,33 +156,111 @@ function mapUnitToViewModel(unitRec, viewRec) {
     faction: byString(faction),
     lifeSkill: byString(lifeSkill),
 
-     sideId: safeNumber(unitRec?.sideId),
+    sideId: safeNumber(unitRec?.sideId),
 
     portraitUrl: byString(portrait.primary),
-    portraitFallbackUrl: byString(portrait.secondary),
+    portraitFallbackUrl: byString(portrait.secondary)
   };
 }
 
-// -----------------------------------------------------------------------------
-// Filter UI (기존 유지)
-// -----------------------------------------------------------------------------
+// -------------------------
+// side tag (TagFactory -> icon)
+// -------------------------
+const sideTagById = new Map();
 
+function pickSideIconUrlFromTag(sideId) {
+  const idNum = safeNumber(sideId);
+  if (idNum === null) { return ''; }
+
+  const tag = sideTagById.get(idNum);
+  if (!tag) { return ''; }
+
+  const sideName = byString(tag.sideName);
+
+  // 1) iconPath(camp_*) 우선
+  {
+    const raw = normalizePathSlash(tag.iconPath);
+    const base = raw ? raw.split('/').pop() : '';
+
+    if (base && base.startsWith('camp_')) {
+      // 예외: 이세계 손님(12601524)은 iconPath가 camp_2로 겹침 → icon 사용
+      if (idNum === 12601524 || sideName.includes('이세계')) {
+        // 아래 icon 로직으로 넘김
+      } else {
+        return uiSideIconPath(`${base}.png`);
+      }
+    }
+  }
+
+  // 2) icon(Common_icon_camp_9) 사용
+  {
+    const raw = normalizePathSlash(tag.icon);
+    const base = raw ? raw.split('/').pop() : '';
+    if (base) {
+      return uiSideIconPath(`${base}.png`);
+    }
+  }
+
+  // 3) gachaSSRPath fallback
+  {
+    const raw = normalizePathSlash(tag.gachaSSRPath);
+    const base = raw ? raw.split('/').pop() : '';
+    if (base) {
+      return uiSideIconPath(`${base}.png`);
+    }
+  }
+
+  return '';
+}
+
+async function loadSideTags() {
+  const tagJson = await fetchJson(TAG_URL);
+  const list = normalizeRootJson(tagJson);
+
+  sideTagById.clear();
+
+  for (const t of list) {
+    const id = safeNumber(t?.id);
+    if (id === null) { continue; }
+
+    // mod == '阵营'만 (진영 태그)
+    if (byString(t?.mod) !== '阵营') { continue; }
+
+    const icon = byString(t?.icon);
+    const gachaSSRPath = byString(t?.gachaSSRPath);
+    const iconPath = byString(t?.iconPath);
+
+    // 셋 다 비면 저장 X
+    if (!icon && !gachaSSRPath && !iconPath) { continue; }
+
+    sideTagById.set(id, {
+      icon: icon,
+      gachaSSRPath: gachaSSRPath,
+      iconPath: iconPath,
+      sideName: byString(t?.sideName)
+    });
+  }
+}
+
+// -------------------------
+// filter
+// -------------------------
 function uniqSorted(list) {
-  const arr = Array.from(new Set(list.filter(Boolean).map(v => String(v).trim()).filter(Boolean)));
+  const arr = Array.from(new Set(list.filter(Boolean).map((v) => String(v).trim()).filter(Boolean)));
   arr.sort((a, b) => a.localeCompare(b, 'ko'));
   return arr;
 }
 
 function buildRarityOptions(list) {
-  const present = new Set(list.map(x => String(x.rarity || '').trim()).filter(Boolean));
+  const present = new Set(list.map((x) => String(x.rarity || '').trim()).filter(Boolean));
   const ordered = ['UR', 'SSR', 'SR', 'R', 'N'];
 
   const out = [];
   for (const r of ordered) {
-    if (present.has(r)) out.push(r);
+    if (present.has(r)) { out.push(r); }
   }
 
-  const extras = Array.from(present).filter(r => !ordered.includes(r));
+  const extras = Array.from(present).filter((r) => !ordered.includes(r));
   extras.sort((a, b) => a.localeCompare(b, 'ko'));
   return out.concat(extras);
 }
@@ -349,12 +271,8 @@ function createFilterState() {
     gender: new Set(),
     position: new Set(),
     faction: new Set(),
-    lifeSkill: new Set(),
+    lifeSkill: new Set()
   };
-}
-
-function isSelected(stateSet, value) {
-  return stateSet.has(value);
 }
 
 function toggleValue(stateSet, value) {
@@ -377,13 +295,13 @@ function makeToggle(label, selected, onClick) {
 
 function renderFilters(options, state, onChange) {
   const root = document.getElementById('filters');
-  if (!root) return;
+  if (!root) { return; }
 
   root.replaceChildren();
   root.classList.add('filter-grid');
 
   function row(labelText, values, setRef) {
-    if (!values || values.length === 0) return null;
+    if (!values || values.length === 0) { return null; }
 
     const rowWrap = document.createElement('div');
     rowWrap.className = 'filter-row';
@@ -396,7 +314,7 @@ function renderFilters(options, state, onChange) {
     buttons.className = 'filter-buttons';
 
     for (const v of values) {
-      const btn = makeToggle(v, isSelected(setRef, v), () => {
+      const btn = makeToggle(v, setRef.has(v), () => {
         toggleValue(setRef, v);
         onChange();
       });
@@ -414,7 +332,7 @@ function renderFilters(options, state, onChange) {
     row('성별', options.gender, state.gender),
     row('위치', options.position, state.position),
     row('세력', options.faction, state.faction),
-    row('생활', options.lifeSkill, state.lifeSkill),
+    row('생활', options.lifeSkill, state.lifeSkill)
   ].filter(Boolean);
 
   for (const r of rows) {
@@ -425,26 +343,39 @@ function renderFilters(options, state, onChange) {
 function applyFilters(list, query, state) {
   const q = String(query || '').trim().toLowerCase();
 
-  return list.filter(item => {
+  return list.filter((item) => {
     if (q) {
       const name = String(item.name || '').toLowerCase();
-      if (!name.includes(q)) return false;
+      if (!name.includes(q)) { return false; }
     }
 
-    if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) return false;
-    if (state.gender.size > 0 && !state.gender.has(item.gender)) return false;
-    if (state.position.size > 0 && !state.position.has(item.position)) return false;
-    if (state.faction.size > 0 && !state.faction.has(item.faction)) return false;
-    if (state.lifeSkill.size > 0 && !state.lifeSkill.has(item.lifeSkill)) return false;
+    if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) { return false; }
+    if (state.gender.size > 0 && !state.gender.has(item.gender)) { return false; }
+    if (state.position.size > 0 && !state.position.has(item.position)) { return false; }
+    if (state.faction.size > 0 && !state.faction.has(item.faction)) { return false; }
+    if (state.lifeSkill.size > 0 && !state.lifeSkill.has(item.lifeSkill)) { return false; }
 
     return true;
   });
 }
 
-// -----------------------------------------------------------------------------
-// Render Grid (기존 유지)
-// -----------------------------------------------------------------------------
+function buildFilterOptions(list) {
+  const rarity = buildRarityOptions(list);
+  const gender = uniqSorted(list.map((x) => x.gender).filter((v) => !isInvalidGroupValue(v))).sort((a, b) => {
+    const ia = GENDER_ORDER.indexOf(a);
+    const ib = GENDER_ORDER.indexOf(b);
+    return (ia === -1) - (ib === -1) || ia - ib || a.localeCompare(b, 'ko');
+  });
+  const position = uniqSorted(list.map((x) => x.position).filter((v) => !isInvalidGroupValue(v)));
+  const faction = uniqSorted(list.map((x) => x.faction).filter((v) => !isInvalidGroupValue(v)));
+  const lifeSkill = uniqSorted(list.map((x) => x.lifeSkill).filter((v) => !isInvalidGroupValue(v)));
 
+  return { rarity, gender, position, faction, lifeSkill };
+}
+
+// -------------------------
+// render grid
+// -------------------------
 const cardCache = new Map();
 
 function getCardKey(item) {
@@ -460,17 +391,13 @@ function buildCard(item) {
   const thumb = document.createElement('div');
   thumb.className = 'char-thumb';
 
-  // rarity 키 (예: 'SSR', 'SR', 'R', 'N')
   const rarityKey = byString(item.rarity || '').toUpperCase() || 'N';
-
-  // 파일 경로 (네가 옮긴 폴더)
   const bgBackUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}.png`);
   const bgMaskUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}_mask.png`);
-  const cardMaskUrl = uiCharacterListPath('CharacterList_mask.png');
 
+  const cardMaskUrl = uiCharacterListPath('CharacterList_mask.png');
   thumb.style.setProperty('--card-mask-url', `url("${cardMaskUrl}")`);
 
-  // 1) bg rarity (뒤)
   const bgBack = document.createElement('img');
   bgBack.className = 'char-bg-rarity-back';
   bgBack.alt = '';
@@ -479,8 +406,8 @@ function buildCard(item) {
   bgBack.src = bgBackUrl;
   thumb.appendChild(bgBack);
 
-  // 2) 캐릭터 Half 이미지
   const img = document.createElement('img');
+  
   img.className = 'char-portrait';
   img.loading = 'lazy';
   img.decoding = 'async';
@@ -516,7 +443,6 @@ function buildCard(item) {
 
   thumb.appendChild(img);
 
-  // 3) bg rarity (앞) - 오버레이(아래 대각선 띠)
   const bgFront = document.createElement('img');
   bgFront.className = 'char-bg-rarity-front';
   bgFront.alt = '';
@@ -525,19 +451,7 @@ function buildCard(item) {
   bgFront.src = bgMaskUrl;
   thumb.appendChild(bgFront);
 
-  // 4) 포지션 아이콘 (좌상단)
-  const posUrl = pickPositionIconUrl(item.position);
-  if (posUrl) {
-    const pos = document.createElement('img');
-    pos.className = 'char-pos-icon';
-    pos.alt = byString(item.position);
-    pos.loading = 'lazy';
-    pos.decoding = 'async';
-    pos.src = posUrl;
-    thumb.appendChild(pos);
-  }
-
-  // 5) 소속 아이콘 (우상단)
+  // 소속(진영) 아이콘
   const sideUrl = pickSideIconUrlFromTag(item.sideId ?? item.faction);
   if (sideUrl) {
     const side = document.createElement('img');
@@ -554,18 +468,14 @@ function buildCard(item) {
     thumb.appendChild(side);
   }
 
-  // 6) 이름 (이미지 내부 우하단)
+  // 이름(thumb 내부 오버레이)
   const nameIn = document.createElement('div');
   nameIn.className = 'char-name-in';
-  const rawName = byString(item.name);
 
-  let prettyName = rawName;
-  
+  const rawName = byString(item.name);
   const BREAK_LEN = 7;
 
-  // 조건:
-  // 1) '·' 포함
-  // 2) 전체 길이가 BREAK_LEN 이상
+  let prettyName = rawName;
   if (rawName.includes('·') && rawName.length >= BREAK_LEN) {
     prettyName = rawName.replace(/·\s*/g, '\n');
   }
@@ -574,16 +484,8 @@ function buildCard(item) {
 
   thumb.appendChild(nameIn);
 
-  // 7) NO IMAGE (최상단)
   thumb.appendChild(noimg);
-
   a.appendChild(thumb);
-
-  // 기존 아래 이름은 제거(이제 안 씀)
-  // const name = document.createElement('div');
-  // name.className = 'char-name';
-  // name.textContent = byString(item.name);
-  // a.appendChild(name);
 
   return a;
 }
@@ -592,42 +494,76 @@ function updateCard(a, item) {
   a.href = `character_detail.html?id=${encodeURIComponent(byString(item.id))}`;
   a.setAttribute('aria-label', byString(item.name));
 
-  // portrait만 갱신 (bgBack 건드리면 레이어가 깨짐)
-  const portrait = a.querySelector('img.char-portrait');
+    const portrait = a.querySelector('img.char-portrait');
   if (portrait) {
-    let triedFallback = false;
+    const noimg = a.querySelector('.char-noimg');
 
-    portrait.addEventListener('error', () => {
-      if (!triedFallback && item.portraitFallbackUrl) {
-        triedFallback = true;
-        portrait.src = item.portraitFallbackUrl;
-        return;
+    // 현재 카드가 fallback으로 넘어갔는지 추적 (한 번 fallback이면 updateCard에서 primary로 되돌리지 않음)
+    const usedFallback = portrait.dataset.usedFallback === '1';
+
+    // error 핸들러는 1회만 바인딩 (updateCard가 여러 번 불려도 중복 등록 방지)
+    if (portrait.dataset.errBound !== '1') {
+      portrait.dataset.errBound = '1';
+
+      portrait.addEventListener('error', () => {
+        if (portrait.dataset.usedFallback !== '1' && item.portraitFallbackUrl) {
+          portrait.dataset.usedFallback = '1';
+          portrait.src = item.portraitFallbackUrl;
+          return;
+        }
+
+        portrait.style.display = 'none';
+        if (noimg) {
+          noimg.style.display = 'grid';
+        }
+      });
+    }
+
+    // src 결정
+    // - 이미 fallback 상태면: fallback(있으면) 유지
+    // - 아직 primary 상태면: primary 우선, 없으면 fallback
+    let nextSrc = '';
+
+    if (usedFallback) {
+      nextSrc = item.portraitFallbackUrl || portrait.getAttribute('src') || '';
+    } else {
+      nextSrc = item.portraitUrl || item.portraitFallbackUrl || '';
+      portrait.dataset.usedFallback = item.portraitUrl ? '0' : (item.portraitFallbackUrl ? '1' : '0');
+    }
+
+    if (nextSrc) {
+      if (portrait.getAttribute('src') !== nextSrc) {
+        portrait.setAttribute('src', nextSrc);
       }
 
+      portrait.style.display = '';
+      if (noimg) {
+        noimg.style.display = 'none';
+      }
+    } else {
       portrait.style.display = 'none';
-      const noimg = a.querySelector('.char-noimg');
       if (noimg) {
         noimg.style.display = 'grid';
       }
-    });
-
-    if (item.portraitUrl) {
-      if (portrait.getAttribute('src') !== item.portraitUrl) {
-        portrait.setAttribute('src', item.portraitUrl);
-      }
-      portrait.style.display = '';
     }
 
     portrait.alt = byString(item.name);
   }
 
-  // 이름(thumb 내부 오버레이)
   const nameIn = a.querySelector('.char-name-in');
   if (nameIn) {
-    nameIn.textContent = byString(item.name);
+    const rawName = byString(item.name);
+    const BREAK_LEN = 7;
+
+    let prettyName = rawName;
+    if (rawName.includes('·') && rawName.length >= BREAK_LEN) {
+      prettyName = rawName.replace(/·\s*/g, '\n');
+    }
+
+    nameIn.textContent = prettyName;
   }
 
-  // rarity bg/front는 데이터가 바뀌는 경우만 갱신
+  // rarity bg/front 갱신
   const rarityKey = byString(item.rarity || '').toUpperCase() || 'N';
   const bgBackUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}.png`);
   const bgMaskUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}_mask.png`);
@@ -642,7 +578,7 @@ function updateCard(a, item) {
     bgFront.setAttribute('src', bgMaskUrl);
   }
 
-  // 소속(진영) 아이콘 갱신
+  // 소속 아이콘 갱신
   const sideUrl = pickSideIconUrlFromTag(item.sideId ?? item.faction);
 
   const sideEl = a.querySelector('img.char-side-icon');
@@ -654,15 +590,20 @@ function updateCard(a, item) {
     } else {
       const thumb = a.querySelector('.char-thumb');
       if (thumb) {
+        const cardMaskUrl = uiCharacterListPath('CharacterList_mask.png');
+        thumb.style.setProperty('--card-mask-url', `url("${cardMaskUrl}")`);
+
         const side = document.createElement('img');
         side.className = 'char-side-icon';
         side.alt = '';
         side.loading = 'lazy';
         side.decoding = 'async';
         side.src = sideUrl;
+
         side.addEventListener('error', () => {
           side.remove();
         });
+
         thumb.appendChild(side);
       }
     }
@@ -689,7 +630,7 @@ function getOrCreateCard(item) {
 
 function renderGrid(list) {
   const root = document.getElementById('characterGrid');
-  if (!root) return;
+  if (!root) { return; }
 
   const frag = document.createDocumentFragment();
   for (const item of list) {
@@ -700,195 +641,118 @@ function renderGrid(list) {
   setCount(list.length);
 }
 
-function buildFilterOptions(list) {
-  const rarity = buildRarityOptions(list);
-  const gender = uniqSorted(list.map(x => x.gender).filter(v => !isInvalidGroupValue(v)));
-  const position = uniqSorted(list.map(x => x.position).filter(v => !isInvalidGroupValue(v)));
-  const faction = uniqSorted(list.map(x => x.faction).filter(v => !isInvalidGroupValue(v)));
-  const lifeSkill = uniqSorted(list.map(x => x.lifeSkill).filter(v => !isInvalidGroupValue(v)));
+// -------------------------
+// main flow
+// -------------------------
+async function loadCharacterDbData() {
+  const unitFactory = new UnitFactory({
+    unitUrl: UNIT_URL,
+    unitViewUrl: UNIT_VIEW_URL
+  });
 
-  return { rarity, gender, position, faction, lifeSkill };
-}
+  await unitFactory.load();
 
-// -----------------------------------------------------------------------------
-// Load
-// -----------------------------------------------------------------------------
+  // join + 기본 필터
+  const joined = unitFactory.buildList();
 
-async function loadUnitAndView() {
-  const unitJson = await fetchJson(DATA_URL_UNIT, CACHE_BUST);
-  const viewJson = await fetchJson(DATA_URL_VIEW, CACHE_BUST);
+  // view model 변환(표시용 필드 확정)
+  const viewAll = [];
+  for (const j of joined) {
+    const vm = mapUnitToViewModel(j.unit, j.view);
 
-  const units = normalizeRootJson(unitJson);
-  const views = normalizeRootJson(viewJson);
+    if (isInvalidGroupValue(vm.name)) { continue; }
+    if (!vm.portraitUrl && !vm.portraitFallbackUrl) { continue; }
 
-  // viewId → view 1:1 맵
-  const viewById = new Map();
-  for (const v of views) {
-    const id = safeNumber(v?.id);
-    if (id !== null && !viewById.has(id)) {
-      viewById.set(id, v);
-    }
+    viewAll.push(vm);
   }
 
-  const out = [];
-
-  for (const u of units) {
-    const unitId = safeNumber(u?.id);
-    if (unitId === null) {
-      continue;
-    }
-
-    // 1️⃣ 에너미 제외
-    if (u.enemyType !== null && u.enemyType !== undefined) {
-      continue;
-    }
-
-    // 2️⃣ sideId -1 제외 (시스템/NPC/오브젝트)
-    if (Number(u.sideId) === -1) {
-      continue;
-    }
-
-    if (!hasNonEmptyList(u?.careerList)) {
-      continue;
-    }
-
-    // 3️⃣ viewId 필수
-    const viewId = safeNumber(u?.viewId);
-    if (viewId === null) {
-      continue;
-    }
-
-    const viewRec = viewById.get(viewId);
-    if (!viewRec) {
-      continue;
-    }
-
-    // 4️⃣ Half 이미지 없는 캐릭터 제외
-    if (!viewRec.roleListResUrl) {
-      continue;
-    }
-
-    const vm = mapUnitToViewModel(u, viewRec);
-
-    if (isInvalidGroupValue(vm.name)) {
-      continue;
-    }
-
-    // portraitUrl 없으면 리스트에 안 넣음
-    if (!vm.portraitUrl) {
-      continue;
-    }
-
-    out.push(vm);
+  // 진영 아이콘용 TagFactory (실패해도 리스트는 동작)
+  try {
+    await loadSideTags();
+  } catch (e) {
+    // ignore
   }
 
-  return out;
+  return { viewAll };
 }
 
+function applyCharacterToDom(ctx) {
+  const listAll = Array.from(ctx.viewAll).sort((a, b) => {
+    const ia = RARITY_ORDER.indexOf(a.rarity);
+    const ib = RARITY_ORDER.indexOf(b.rarity);
 
-async function loadFallbackHomeCharacter() {
-  const json = await fetchJson(DATA_URL_FALLBACK, CACHE_BUST);
-  const rawList = normalizeRootJson(json);
+    if (ia !== -1 && ib !== -1) {
+      return ia - ib;
+    }
 
-  // 기존 fallback은 “한 레코드만” 기반이라 최소한만 유지
-  const out = rawList
-    .map(rec => {
-      const id = safeNumber(rec?.id) ?? byString(rec?.idCN) ?? byString(rec?.name) ?? byString(rec?.SkinName);
-      const name = byString(rec?.name || rec?.SkinName || rec?.State2Name || rec?.character || rec?.idCN || '');
-      const rarity = mapQualityToRarity(rec?.quality);
+    if (ia !== -1) {
+      return -1;
+    }
 
-      const gender = byString(rec?.gender ?? rec?.sex ?? '');
-      const position = byString(rec?.position ?? rec?.line ?? '');
-      const faction = byString(rec?.sideId ?? rec?.camp ?? rec?.faction ?? '');
+    if (ib !== -1) {
+      return 1;
+    }
 
-      const portraitUrl =
-        buildAssetUrlFromPath(rec?.roleListResUrl) ||
-        buildAssetUrlFromPath(rec?.iconPath) ||
-        buildAssetUrlFromPath(rec?.tipsPath) ||
-        '';
+    return String(a.rarity).localeCompare(String(b.rarity), 'ko');
+  });
 
-      return {
-        id: byString(id),
-        name: byString(name),
-        rarity: byString(rarity),
-        gender: byString(gender),
-        position: byString(position),
-        faction: byString(faction),
-        lifeSkill: '',
-        portraitUrl: byString(portraitUrl),
-      };
-    })
-    .filter(x => !isInvalidGroupValue(x.name));
+  const statusEl = document.getElementById('status');
+  if (statusEl) {
+    statusEl.remove();
+  }
 
-  return out;
+  const filterState = createFilterState();
+  const options = buildFilterOptions(listAll);
+
+  const input = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearFilters');
+
+  function update() {
+    const q = input ? input.value : '';
+    const filtered = applyFilters(listAll, q, filterState);
+    renderGrid(filtered);
+  }
+
+  function updateWithFilters() {
+    renderFilters(options, filterState, updateWithFilters);
+    update();
+  }
+
+  renderFilters(options, filterState, updateWithFilters);
+  renderGrid(listAll);
+
+  if (input) {
+    input.addEventListener('input', () => update());
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      filterState.rarity.clear();
+      filterState.gender.clear();
+      filterState.position.clear();
+      filterState.faction.clear();
+      filterState.lifeSkill.clear();
+
+      if (input) {
+        input.value = '';
+      }
+
+      updateWithFilters();
+    });
+  }
+
+  updateWithFilters();
+  document.title = '캐릭터 DB';
 }
 
-async function load() {
+async function main() {
   setStatus('데이터 로딩 중...', false);
 
-  try {
-    let viewAll = [];
-    
-    try {
-      viewAll = await loadUnitAndView();
-    } catch (e) {
-      viewAll = await loadFallbackHomeCharacter();
-    }
-
-     try {
-      await loadSideTags();
-
-      console.log('[sideTagById.size]', sideTagById.size);
-      console.log('[test]', pickSideIconUrlFromTag(12600023), pickSideIconUrlFromTag(12601524));
-
-    } catch (e) {
-      // TagFactory 못 불러와도 리스트는 정상 동작(아이콘만 없음)
-    }
-
-    const statusEl = document.getElementById('status');
-    if (statusEl) {
-      statusEl.remove();
-    }
-
-    const filterState = createFilterState();
-    const options = buildFilterOptions(viewAll);
-
-    const input = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearFilters');
-
-    function onChange() {
-      renderFilters(options, filterState, onChange);
-
-      const q = input ? input.value : '';
-      const filtered = applyFilters(viewAll, q, filterState);
-      renderGrid(filtered);
-    }
-
-    renderFilters(options, filterState, onChange);
-    renderGrid(viewAll);
-
-    if (input) {
-      input.addEventListener('input', () => {
-        onChange();
-      });
-    }
-
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
-        filterState.rarity.clear();
-        filterState.gender.clear();
-        filterState.position.clear();
-        filterState.faction.clear();
-        filterState.lifeSkill.clear();
-
-        if (input) input.value = '';
-        onChange();
-      });
-    }
-
-  } catch (err) {
-    setStatus(`로딩 실패\n${String(err && err.message ? err.message : err)}`, true);
-  }
+  const ctx = await loadCharacterDbData();
+  applyCharacterToDom(ctx);
 }
 
-load();
+main().catch((err) => {
+  console.error(err);
+  setStatus(`데이터를 불러오는 데 실패했습니다.\n${String(err)}`, true);
+});

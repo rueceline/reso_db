@@ -153,6 +153,152 @@ export class ListFactory {
 }
 
 // =========================
+// UnitFactory (캐릭터: UnitFactory + UnitViewFactory 조인)
+// =========================
+
+export function mapUnitQualityToRarity(quality) {
+  const q = String(quality || '').trim();
+
+  // 캐릭터 별 등급
+  if (q === 'FiveStar') { return 'SSR'; }
+  if (q === 'fourStar') { return 'SR'; }
+  if (q === 'threeStar') { return 'R'; }
+  if (q === 'twoStar') { return 'N'; }
+  if (q === 'oneStar') { return 'N'; }
+
+  // 혹시 기존 장비식 컬러가 섞여도 안전하게
+  if (q === 'Orange') { return 'UR'; }
+  if (q === 'Golden') { return 'SSR'; }
+  if (q === 'Purple') { return 'SR'; }
+  if (q === 'Blue') { return 'R'; }
+  if (q === 'White') { return 'N'; }
+
+  return q || '';
+}
+
+export class UnitFactory {
+  constructor(opt = {}) {
+    this.unitUrl = opt.unitUrl || null;
+    this.unitViewUrl = opt.unitViewUrl || null;
+
+    this.units = null;      // Array
+    this.views = null;      // Array
+    this.viewById = null;   // Map<number, ViewRec>
+
+    this.loadingPromise = null;
+  }
+
+  async load() {
+    if (this.units && this.views && this.viewById) {
+      return {
+        units: this.units,
+        views: this.views,
+        viewById: this.viewById
+      };
+    }
+
+    if (this.loadingPromise) {
+      return await this.loadingPromise;
+    }
+
+    if (!this.unitUrl || !this.unitViewUrl) {
+      throw new Error('UnitFactory: unitUrl / unitViewUrl이 설정되지 않았습니다.');
+    }
+
+    this.loadingPromise = (async () => {
+      const [unitJson, viewJson] = await Promise.all([
+        fetchJson(this.unitUrl),
+        fetchJson(this.unitViewUrl)
+      ]);
+
+      const units = normalizeRootJson(unitJson);
+      const views = normalizeRootJson(viewJson);
+
+      const viewById = new Map();
+      for (const v of views) {
+        const id = safeNumber(v?.id);
+        if (id === null) {
+          continue;
+        }
+
+        if (!viewById.has(id)) {
+          viewById.set(id, v);
+        }
+      }
+
+      this.units = units;
+      this.views = views;
+      this.viewById = viewById;
+
+      return { units, views, viewById };
+    })();
+
+    return await this.loadingPromise;
+  }
+
+  invalidate() {
+    this.units = null;
+    this.views = null;
+    this.viewById = null;
+    this.loadingPromise = null;
+  }
+
+  // UnitFactory + UnitViewFactory 조인 결과(기본 필터 적용)
+  // - enemy 제외, sideId -1 제외, careerList 없으면 제외, viewId 없으면 제외
+  // - UnitViewFactory.roleListResUrl(half)가 없으면 제외 (리스트 렌더 안정성)
+  buildList() {
+    if (!this.units || !this.viewById) {
+      return [];
+    }
+
+    const out = [];
+
+    for (const u of this.units) {
+      const unitId = safeNumber(u?.id);
+      if (unitId === null) {
+        continue;
+      }
+
+      // 1) enemy 제외
+      if (u.enemyType !== null && u.enemyType !== undefined) {
+        continue;
+      }
+
+      // 2) sideId -1 제외
+      if (Number(u.sideId) === -1) {
+        continue;
+      }
+
+      // 3) careerList 없으면 제외
+      if (!Array.isArray(u?.careerList) || u.careerList.length === 0) {
+        continue;
+      }
+
+      // 4) viewId 필수
+      const viewId = safeNumber(u?.viewId);
+      if (viewId === null) {
+        continue;
+      }
+
+      const viewRec = this.viewById.get(viewId);
+      if (!viewRec) {
+        continue;
+      }
+
+      // 5) Half 이미지 없는 캐릭터 제외
+      if (!viewRec.roleListResUrl) {
+        continue;
+      }
+
+      out.push({ unit: u, view: viewRec });
+    }
+
+    return out;
+  }
+}
+
+
+// =========================
 // EquipmentFactory
 // =========================
 
