@@ -32,6 +32,12 @@
   letter-spacing: 0.6px;
 }
 
+.hero-desc {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
 
 /* Bento grid like sstoy */
 .bento-grid {
@@ -177,3 +183,124 @@
   background-size: cover;
 }
 
+/* ---------------------------------------------------------
+   Mobile / Responsive
+   --------------------------------------------------------- */
+
+/* <= 860px: 태블릿/큰 폰 - 여백 줄이고, 카드 간격 축소 */
+@media (max-width: 860px) {
+  .landing-main,
+  .landing-footer {
+    width: min(87.5rem, calc(100% - 28px));
+  }
+
+  .hero {
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 18px;
+  }
+
+  .hero-left {
+    transform: none;
+  }
+
+  .bento-grid {
+    gap: 18px;
+    padding: 24px;
+  }
+
+  .bento-card {
+    min-height: 220px;
+  }
+
+  .preview-placeholder img {
+    margin-top: 48px;
+  }
+}
+
+/* <= 720px: 폰 - 히어로 1열, 버튼/타이틀 정리, bento 2열 */
+@media (max-width: 720px) {
+  .hero-right {
+    display: none;
+  }
+  
+  .landing-main,
+  .landing-footer {
+    width: calc(100% - 24px);
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;      /* 세로 중앙 */
+    justify-content: center;  /* 가로 중앙 */
+
+    min-height: 260px;        /* 이전에 말한 최소 높이 */
+    padding: 24px 16px;       /* 가장자리 여백 */
+    box-sizing: border-box;
+  }
+
+  .hero-left {
+    text-align: center;       /* 텍스트 중앙 */
+    align-items: center;
+  }
+
+  .hero-right {
+    order: 2;
+    justify-content: flex-start;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 9vw, 48px);
+    margin: 0 0 10px;
+  }
+
+  .hero-desc {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    gap: 8px;
+  }
+
+  .hero-actions .cta-btn {
+    flex: 1 1 auto;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .preview-placeholder {
+    transform: none;
+    transition: none;
+  }
+
+  .preview-placeholder img {
+    margin-top: 12px;
+    max-width: 92%;
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .bento-card {
+    min-height: 170px;
+    border-radius: 16px;
+  }
+}
+
+/* <= 420px: 작은 폰 - bento 1열 */
+@media (max-width: 420px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .cta-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}

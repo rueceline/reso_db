@@ -40,7 +40,7 @@ const BASE = import.meta.env.BASE_URL;
     </div>
 
     <div class="header-right">
-      <button class="header-pill" type="button" id="theme-toggle">
+      <button class="header-pill js-theme-toggle" type="button">
         <span class="pill-icon" aria-hidden="true">🌙</span>
         <span class="pill-text">다크</span>
       </button>
@@ -56,13 +56,10 @@ const BASE = import.meta.env.BASE_URL;
         
         <span class="header-select-caret" aria-hidden="true">˅</span>
       </div>
+    </div>
 
-      <button
-        class="header-burger"
-        type="button"
-        aria-label="메뉴"
-        aria-expanded="false"
-      >
+    <div class="header-mobile-menu">
+      <button class="header-burger" type="button" aria-label="메뉴" aria-expanded="false">
         ☰
       </button>
     </div>
@@ -80,6 +77,22 @@ const BASE = import.meta.env.BASE_URL;
       <a href={`${BASE}train`}>열차</a>
       <a href={`${BASE}map`}>지도</a>
       <a href={`${BASE}feature1`}>기능</a>
+
+      <div class="mobile-controls">
+        <button class="header-pill js-theme-toggle" type="button">
+          <span class="pill-icon" aria-hidden="true">🌙</span>
+          <span class="pill-text">다크</span>
+        </button>
+
+        <div class="header-select-wrap mobile-header-select">
+          <select class="header-select" id="lang-select-mobile" aria-label="언어 선택">
+            <option value="KR" selected>KR | 한국어</option>
+            <option value="JP">JP | 日本語</option>
+            <option value="EN">EN | English</option>
+          </select>
+          <span class="header-select-caret" aria-hidden="true">˅</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>

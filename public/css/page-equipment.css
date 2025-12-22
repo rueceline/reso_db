@@ -6,13 +6,6 @@
    ========================================================= */
 
 /* =========================================================
-   0) Page Layout (페이지 래퍼/기본 여백)
-   ========================================================= */
-.page-wrap {
-  padding: 18px 0 30px;
-}
-
-/* =========================================================
    1) Page Card (컨테이너 카드)
    ========================================================= */
 .page-card {
@@ -470,8 +463,8 @@ html[data-theme="light"] .eq-name-link {
 /* 모바일: 장비 리스트는 [이미지/이름/희귀도]만 표시 */
 @media (max-width: 720px) {
   /* 4번(분류)~9번(주옵션) 컬럼 숨김 */
-  .equip-table thead th:nth-child(n + 4),
-  .equip-table tbody td:nth-child(n + 4) {
+  .equip-table thead th:nth-child(n + 3),
+  .equip-table tbody td:nth-child(n + 3) {
     display: none;
   }
 
@@ -481,18 +474,6 @@ html[data-theme="light"] .eq-name-link {
     padding: 10px 10px;
   }
 
-  /* 썸네일 살짝 작게 */
-  .eq-thumb {
-    width: 44px;
-    height: 44px;
-  }
-
-  /* 모바일에서 이름은 좌측 정렬이 보기 좋음 */
-  .equip-table .name-cell,
-  .equip-table .cell-name {
-    text-align: left;
-  }
-
   /* 이름 줄임말 처리 */
   .equip-table .eq-name-link {
     display: block;
@@ -500,11 +481,5 @@ html[data-theme="light"] .eq-name-link {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  /* 희귀도 뱃지 크기 조정 */
-  .rarity-badge {
-    padding: 6px 9px;
-    font-size: 12px;
   }
 }

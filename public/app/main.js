@@ -27,10 +27,8 @@
   function applyTheme(mode) {
     var html = document.documentElement;
 
-    // [추가] CSS가 보는 기준은 data-theme 이므로 이걸 반드시 설정
     html.setAttribute("data-theme", mode);
 
-    // [유지] 기존 class 방식도 혹시 다른 곳에서 쓰면 깨질 수 있으니 같이 유지
     if (mode === "light") {
       html.classList.add("theme-light");
       html.classList.remove("theme-dark");
@@ -39,8 +37,11 @@
       html.classList.remove("theme-light");
     }
 
-    var btn = qs("#theme-toggle");
-    if (btn) {
+    var btns = document.querySelectorAll(".js-theme-toggle");
+
+    for (var i = 0; i < btns.length; i += 1) {
+      var btn = btns[i];
+
       var pillIcon = btn.querySelector(".pill-icon");
       var pillText = btn.querySelector(".pill-text");
 
@@ -52,36 +53,31 @@
         pillText.textContent = mode === "light" ? "라이트" : "다크";
       }
 
-      // [수정] textContent로 버튼 내부를 갈아엎지 말고, .pill-text만 바꿈
-      var pillText = btn.querySelector(".pill-text");
-      if (pillText) {
-        pillText.textContent = mode === "light" ? "라이트" : "다크";
-      } else {
-        // 혹시 구조가 다르면 fallback
-        btn.textContent = mode === "light" ? "라이트" : "다크";
-      }
-
       btn.setAttribute("aria-pressed", mode === "light" ? "true" : "false");
       btn.classList.toggle("is-light", mode === "light");
     }
   }
 
+
   function setupThemeToggle() {
     var mode = getStored("theme_mode", "dark");
     applyTheme(mode);
 
-    var btn = qs("#theme-toggle");
-    if (!btn) {
+    var btns = document.querySelectorAll(".js-theme-toggle");
+    if (!btns || btns.length === 0) {
       return;
     }
 
-    btn.addEventListener("click", function () {
-      var cur = getStored("theme_mode", "dark");
-      var next = cur === "light" ? "dark" : "light";
-      setStored("theme_mode", next);
-      applyTheme(next);
-    });
+    for (var i = 0; i < btns.length; i += 1) {
+      btns[i].addEventListener("click", function () {
+        var cur = getStored("theme_mode", "dark");
+        var next = cur === "light" ? "dark" : "light";
+        setStored("theme_mode", next);
+        applyTheme(next);
+      });
+    }
   }
+
 
   // ---------- Language ----------
   // UI는 단일 토글 버튼(#lang-toggle) 기준으로 운용
@@ -153,28 +149,67 @@
     });
   }
 
+  function setupLangSelectSync() {
+    var desktop = qs("#lang-select");
+    var mobile = qs("#lang-select-mobile");
+    if (!desktop || !mobile) {
+      return;
+    }
+
+    // 초기 동기화
+    mobile.value = desktop.value;
+
+    // desktop -> mobile
+    desktop.addEventListener("change", function () {
+      mobile.value = desktop.value;
+      setStored("lang", (desktop.value || "KR").toLowerCase());
+    });
+
+    // mobile -> desktop
+    mobile.addEventListener("change", function () {
+      desktop.value = mobile.value;
+
+      // 기존 change 로직이 desktop에만 붙어있을 수 있으니 트리거
+      desktop.dispatchEvent(new Event("change"));
+
+      setStored("lang", (mobile.value || "KR").toLowerCase());
+    });
+  }
+
   // ---------- Mobile nav ----------
   function setupMobileNav() {
     var burger = qs(".header-burger");
     var mobileNav = qs(".mobile-nav");
-    if (!burger || !mobileNav) {
+    var header = qs(".site-header"); // [추가]
+    if (!burger || !mobileNav || !header) { // [수정]
       return;
     }
 
     function open() {
       burger.setAttribute("aria-expanded", "true");
       mobileNav.setAttribute("aria-hidden", "false");
+
+      // [추가] CSS 토글 기준
+      header.classList.add("is-mobile-open");
+
+      // [유지] 기존도 유지(밖 클릭 닫기 조건에 쓰고 있음)
       document.body.classList.add("nav-open");
     }
 
     function close() {
       burger.setAttribute("aria-expanded", "false");
       mobileNav.setAttribute("aria-hidden", "true");
+
+      // [추가]
+      header.classList.remove("is-mobile-open");
+
+      // [유지]
       document.body.classList.remove("nav-open");
     }
 
     function toggle() {
-      var expanded = burger.getAttribute("aria-expanded") === "true";
+      // [수정] header 기준으로 판단 (aria만 믿지 말기)
+      var expanded = header.classList.contains("is-mobile-open");
       if (expanded) {
         close();
       } else {
@@ -188,9 +223,11 @@
 
     // 메뉴 바깥 클릭 닫기
     document.addEventListener("click", function (e) {
+      // [유지] 기존 조건 그대로
       if (!document.body.classList.contains("nav-open")) {
         return;
       }
+
       var t = e.target;
       if (t === burger || burger.contains(t)) {
         return;
@@ -208,6 +245,7 @@
       }
     });
   }
+
 
   // ---------- Active nav ----------
   function setupActiveNav() {
@@ -243,7 +281,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     setupThemeToggle();
-    setupLangToggle();
+    setupLangSelectSync();
     setupMobileNav();
     setupActiveNav();
   });
@@ -251,31 +289,38 @@
 
 (function () {
   function setupLangCaretClick() {
-    var wrap = document.querySelector(".header-select-wrap");
-    if (!wrap) return;
+    var wraps = document.querySelectorAll(".header-select-wrap");
+    if (!wraps || wraps.length === 0) { return; }
 
-    var sel = wrap.querySelector(".header-select");
-    var caret = wrap.querySelector(".header-select-caret");
-    if (!sel || !caret) return;
+    for (var i = 0; i < wraps.length; i += 1) {
+      var wrap = wraps[i];
 
-    caret.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+      var sel = wrap.querySelector(".header-select");
+      var caret = wrap.querySelector(".header-select-caret");
+      if (!sel || !caret) { continue; }
 
-      // 포커스 주고 드롭다운 열기 시도
-      sel.focus();
+      caret.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-      // 최신 브라우저: showPicker 지원
-      if (typeof sel.showPicker === "function") {
-        sel.showPicker();
-        return;
-      }
+        var s = e.currentTarget && e.currentTarget.parentNode
+          ? e.currentTarget.parentNode.querySelector(".header-select")
+          : null;
+        if (!s) { return; }
 
-      // fallback: 클릭 이벤트로 열기 유도
-      sel.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
-      sel.click();
-    });
+        s.focus();
+
+        if (typeof s.showPicker === "function") {
+          s.showPicker();
+          return;
+        }
+
+        s.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
+        s.click();
+      });
+    }
   }
+
 
   document.addEventListener("DOMContentLoaded", setupLangCaretClick);
 })();

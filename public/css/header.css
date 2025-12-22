@@ -10,6 +10,14 @@
    - Mobile panel: burger toggle (.site-header.is-mobile-open)
    ========================================================= */
 
+:root {
+  /* control (dark) */
+  --control-bg: rgba(255, 255, 255, 0.08);
+  --control-bg-hover: rgba(255, 255, 255, 0.14);
+  --control-border: rgba(255, 255, 255, 0.22);
+  --control-border-hover: rgba(255, 255, 255, 0.30);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -17,7 +25,9 @@
   backdrop-filter: blur(10px);
   background: rgba(11, 15, 20, 0.78);
   border-bottom: 1px solid var(--border);
-  height: 72px;
+  
+  min-height: 72px;  /* 줄바꿈되면 커질 수 있게 */
+  height: auto;
 }
 
 .site-header .header-inner {
@@ -28,12 +38,13 @@
 
   /* 추가 (필수) */
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  min-height: 72px;   /* 헤더 최소 높이 유지 */
+  align-items: center; /* (이미 있는데, 확실히 유지) */
 }
 
 /* Left: brand */
@@ -139,8 +150,8 @@
   appearance: none;
   box-sizing: border-box;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--control-border) !important;
+  background: var(--control-bg) !important;
   color: var(--text);
 
   border-radius: 999px;
@@ -170,15 +181,10 @@
   margin: 0 2px;
 }
 
-.header-pill:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-
-.header-pill:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.22);
+.header-pill:hover,
+.header-select-wrap:hover {
+  background: var(--control-bg-hover);
+  border-color: var(--control-border-hover);
 }
 
 /* 래퍼가 버튼(캡슐) 역할 */
@@ -188,8 +194,8 @@
   align-items: center;
 
   /* 캡슐 스타일 */
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--control-border) !important;
+  background: var(--control-bg) !important;
   color: var(--text);
 
   border-radius: 999px;
@@ -205,20 +211,24 @@
   -moz-appearance: none;
 
   border: 0;
-  background: transparent;
+  background: transparent !important;
   color: inherit;
 
   /* 텍스트 여백만으로 크기 결정 */
-  padding: 0 34px 0 12px; /* ← 핵심 */
+  padding: 0 34px 0 12px;
+  /* ← 핵심 */
 
   font-size: 13px;
-  line-height: 34px; /* 세로 중앙 */
+  line-height: 34px;
+  /* 세로 중앙 */
   white-space: nowrap;
 
   cursor: pointer;
   outline: none;
   border-radius: 999px;
+  background-color: transparent !important;
 }
+
 
 /* caret은 시각 요소만 */
 .header-select-caret {
@@ -232,22 +242,14 @@
   pointer-events: none;
 }
 
-/* hover */
-.header-select-wrap:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-
 /* Burger (mobile only) */
 .header-burger {
   box-sizing: border-box;
   width: 36px;
   height: 36px;
 
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 0;
+  background: transparent;
   color: var(--text);
 
   display: none;
@@ -260,10 +262,12 @@
 }
 
 .header-burger:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--control-bg-hover);
 }
 
+.header-mobile-menu {
+  display: none;
+}
 
 /* Mobile panel */
 .mobile-nav {
@@ -276,6 +280,15 @@
    - Hide top nav, show burger + panel
    ------------------------------ */
 @media (max-width: 900px) {
+  :root {
+    --mobile-control-height: 36px;
+    --mobile-control-radius: 10px;
+  }
+
+  .site-header {
+    min-height: 56px;    
+  }
+
   .site-header .header-inner {
     flex-direction: row;
     align-items: center;
@@ -289,45 +302,12 @@
   }
 
   .header-right {
-    flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    flex-wrap: nowrap;
-    white-space: nowrap;
-
-    /* ✅ 버튼 묶음처럼 보이게 */
-    padding: 6px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+    display: none !important;
   }
 
-
-  .header-pill {
-    appearance: none;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text);
-    border-radius: 999px;
-
-    padding: 8px 12px;
-    font-size: 13px;
-    line-height: 1;
-    /* 세로 흔들림 방지 */
-    text-align: center;
-    white-space: nowrap;
-
-    /* 🔒 폭 고정 (텍스트 바뀌어도 안 흔들림) */
-    min-width: 44px;
-    /* KR / JP / EN 대응 */
-
-    cursor: pointer;
-    transition: background 120ms ease, border-color 120ms ease;
+  .header-mobile-menu {
+    display: block;
+    font-size: ;
   }
 
   .header-burger {
@@ -343,8 +323,7 @@
     right: 12px;
     left: 12px;
     z-index: 60;
-
-    border: 1px solid var(--border);
+    
     background: rgba(11, 15, 20, 0.96);
     backdrop-filter: blur(10px);
     border-radius: 14px;
@@ -389,44 +368,76 @@
     color: var(--muted);
     font-size: 12px;
   }
-}
 
-/* Extra small (<= 520px) */
-@media (max-width: 520px) {
-  .site-brand .brand-mark {
-    font-size: 14px;
-    letter-spacing: 0.4px;
+  .mobile-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    align-items: stretch;
   }
 
-  .header-pill {
-    padding: 6px 9px;
-    font-size: 12px;
+  /* 두 컨트롤 박스는 칸을 꽉 채움 */
+  .mobile-controls > .header-pill,
+  .mobile-controls > .header-select-wrap {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    height: var(--mobile-control-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--mobile-control-radius);
   }
 
-  .header-burger {
-    padding: 7px 10px;
+  /* select도 래퍼 폭을 그대로 사용 */
+  .mobile-controls .header-select-wrap {
+    display: flex; /* inline-flex 내용폭 문제 차단 */
+  }
+
+  .mobile-controls .header-select {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    line-height: var(--mobile-control-height);
+    box-sizing: border-box;
+    text-align: center;
   }
 }
 
-/* 기본(다크) 버튼도 충분히 구분되게 */
-#theme-toggle.header-pill {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.08);
+
+html[data-theme="light"] .mobile-nav {
+  background: rgba(255, 255, 255, 0.96);
 }
 
-#theme-toggle.header-pill:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.30);
+html[data-theme="light"] .mobile-nav a {
+  color: rgba(15, 23, 42, 0.92);
 }
 
-/* 라이트 상태일 때  */
-#theme-toggle.header-pill.is-light {
-  background: rgba(15, 23, 42, 0.01);   /* 언어 버튼보다 살짝만 진함 */
-  border-color: rgba(15, 23, 42, 0.18); /* 거의 동일 톤 */
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+html[data-theme="light"] .mobile-nav a:hover {
+  background: rgba(15, 23, 42, 0.06);
 }
 
-#theme-toggle.header-pill.is-light:hover {
-  background: rgba(15, 23, 42, 0.07);
-  border-color: rgba(15, 23, 42, 0.22);
+html[data-theme="light"] .mobile-nav-group {
+  border-top-color: rgba(15, 23, 42, 0.10);
+  border-bottom-color: rgba(15, 23, 42, 0.10);
+}
+
+html[data-theme="light"] .mobile-nav-title {
+  color: rgba(15, 23, 42, 0.55);
+}
+/* Light theme: controls (pill/select) */
+html[data-theme="light"] {
+  --control-bg: rgba(15, 23, 42, 0.06);
+  --control-bg-hover: rgba(15, 23, 42, 0.10);
+  --control-border: rgba(15, 23, 42, 0.22);
+  --control-border-hover: rgba(15, 23, 42, 0.30);
+}
+
+/* Force select surface to stay transparent across themes */
+.header-select:focus {
+  background: transparent !important;
+  background-color: transparent !important;
 }
