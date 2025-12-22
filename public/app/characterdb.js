@@ -1,20 +1,7 @@
-import {
-  dataPath,
-  assetPath,
-  uiCharacterListPath,
-  uiSideIconPath
-} from './utils/path.js';
-
+import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath } from './utils/path.js';
 import { DEFAULT_LANG } from './utils/config.js';
 import { fetchJson } from './utils/fetch.js';
-
-import {
-  normalizeRootJson,
-  safeNumber,
-  UnitFactory,
-  mapUnitQualityToRarity
-} from './utils/data.js';
-
+import { normalizeRootJson, safeNumber, UnitFactory, mapUnitQualityToRarity } from './utils/data.js';
 import { normalizePathSlash } from './utils/utils.js';
 
 const RARITY_ORDER = ['SSR', 'SR', 'R', 'N'];
@@ -40,21 +27,17 @@ const ASSET_BASE = assetPath('');
 // helpers
 // -------------------------
 function byString(v) {
-  if (v === null || v === undefined) { return ''; }
+  if (v === null || v === undefined) {
+    return '';
+  }
   return String(v);
-}
-
-function isInvalidGroupValue(v) {
-  const s = String(v || '').trim();
-  if (!s) { return true; }
-  if (s.startsWith('00')) { return true; }
-  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) { return true; }
-  return false;
 }
 
 function setStatus(text, isError) {
   const el = document.getElementById('status');
-  if (!el) { return; }
+  if (!el) {
+    return;
+  }
 
   el.className = isError ? 'error' : 'loading';
   el.textContent = text;
@@ -62,7 +45,9 @@ function setStatus(text, isError) {
 
 function setCount(n) {
   const el = document.getElementById('countBadge');
-  if (!el) { return; }
+  if (!el) {
+    return;
+  }
 
   el.textContent = `총 ${n}명`;
 }
@@ -70,14 +55,12 @@ function setCount(n) {
 // 확장자 없는 path에 .png 기본 부착
 function ensureImageExt(pathLike) {
   const raw = normalizePathSlash(pathLike);
-  if (!raw) { return ''; }
+  if (!raw) {
+    return '';
+  }
 
   const low = raw.toLowerCase();
-  const hasExt =
-    low.endsWith('.png') ||
-    low.endsWith('.jpg') ||
-    low.endsWith('.jpeg') ||
-    low.endsWith('.webp');
+  const hasExt = low.endsWith('.png') || low.endsWith('.jpg') || low.endsWith('.jpeg') || low.endsWith('.webp');
 
   return hasExt ? raw : `${raw}.png`;
 }
@@ -85,11 +68,17 @@ function ensureImageExt(pathLike) {
 // UnitViewFactory 경로들은 보통 "RolePlus/..." 처럼 루트 상대 경로
 function buildAssetUrlFromPath(pathLike) {
   const raw = normalizePathSlash(pathLike);
-  if (!raw) { return ''; }
+  if (!raw) {
+    return '';
+  }
 
   // 이미 http/https 또는 /로 시작하면 그대로 사용
-  if (raw.startsWith('http://') || raw.startsWith('https://')) { return raw; }
-  if (raw.startsWith('/')) { return raw; }
+  if (raw.startsWith('http://') || raw.startsWith('https://')) {
+    return raw;
+  }
+  if (raw.startsWith('/')) {
+    return raw;
+  }
 
   const withExt = ensureImageExt(raw);
   const base = String(ASSET_BASE || '').replace(/\/$/, '');
@@ -112,11 +101,17 @@ function extractGenderFromUnit(unitRec) {
 }
 
 function extractPositionFromUnit(unitRec) {
-  const n = Number(unitRec?.line);
+  const n = Number(unitRec?.line);  
 
-  if (n === 1) { return '전열'; }
-  if (n === 2) { return '중열'; }
-  if (n === 3) { return '후열'; }
+  if (n === 1) {
+    return '전열';
+  }
+  if (n === 2) {
+    return '중열';
+  }
+  if (n === 3) {
+    return '후열';
+  }
 
   return '';
 }
@@ -124,7 +119,9 @@ function extractPositionFromUnit(unitRec) {
 // TagFactory 연결 전에는 sideId를 그대로 들고 있다가, 아이콘만 tagMap으로 해석
 function extractFactionFromUnit(unitRec) {
   const v = unitRec?.sideId;
-  if (v === null || v === undefined) { return ''; }
+  if (v === null || v === undefined) {
+    return '';
+  }
   return String(v);
 }
 
@@ -170,44 +167,39 @@ const sideTagById = new Map();
 
 function pickSideIconUrlFromTag(sideId) {
   const idNum = safeNumber(sideId);
-  if (idNum === null) { return ''; }
+
+  if (idNum === null) {
+    return '';
+  }
 
   const tag = sideTagById.get(idNum);
-  if (!tag) { return ''; }
-
-  const sideName = byString(tag.sideName);
-
-  // 1) iconPath(camp_*) 우선
-  {
-    const raw = normalizePathSlash(tag.iconPath);
-    const base = raw ? raw.split('/').pop() : '';
-
-    if (base && base.startsWith('camp_')) {
-      // 예외: 이세계 손님(12601524)은 iconPath가 camp_2로 겹침 → icon 사용
-      if (idNum === 12601524 || sideName.includes('이세계')) {
-        // 아래 icon 로직으로 넘김
-      } else {
-        return uiSideIconPath(`${base}.png`);
-      }
-    }
+  if (!tag) {
+    return '';
   }
 
-  // 2) icon(Common_icon_camp_9) 사용
-  {
-    const raw = normalizePathSlash(tag.icon);
-    const base = raw ? raw.split('/').pop() : '';
-    if (base) {
-      return uiSideIconPath(`${base}.png`);
-    }
+  // icon만 사용: "UI/Common/Common_icon_camp_10" -> "Common_icon_camp_10"
+  const raw = normalizePathSlash(tag.icon);
+  const base = raw ? raw.split('/').pop() : '';
+  if (!base) {
+    return '';
   }
 
-  // 3) gachaSSRPath fallback
-  {
-    const raw = normalizePathSlash(tag.gachaSSRPath);
-    const base = raw ? raw.split('/').pop() : '';
-    if (base) {
-      return uiSideIconPath(`${base}.png`);
-    }
+  return uiSideIconPath(`${base}.png`);
+}
+
+function pickPositionRowUrl(position) {
+  const pos = byString(position).trim();
+
+  if (pos === '전열') {
+    return buildAssetUrlFromPath('ui/common/row/RowFront.png');
+  }
+
+  if (pos === '중열') {
+    return buildAssetUrlFromPath('ui/common/row/RowMiddle.png');
+  }
+
+  if (pos === '후열') {
+    return buildAssetUrlFromPath('ui/common/row/RowBack.png');
   }
 
   return '';
@@ -221,17 +213,23 @@ async function loadSideTags() {
 
   for (const t of list) {
     const id = safeNumber(t?.id);
-    if (id === null) { continue; }
+    if (id === null) {
+      continue;
+    }
 
     // mod == '阵营'만 (진영 태그)
-    if (byString(t?.mod) !== '阵营') { continue; }
+    if (byString(t?.mod) !== '阵营') {
+      continue;
+    }
 
     const icon = byString(t?.icon);
     const gachaSSRPath = byString(t?.gachaSSRPath);
     const iconPath = byString(t?.iconPath);
 
     // 셋 다 비면 저장 X
-    if (!icon && !gachaSSRPath && !iconPath) { continue; }
+    if (!icon && !gachaSSRPath && !iconPath) {
+      continue;
+    }
 
     sideTagById.set(id, {
       icon: icon,
@@ -246,7 +244,14 @@ async function loadSideTags() {
 // filter
 // -------------------------
 function uniqSorted(list) {
-  const arr = Array.from(new Set(list.filter(Boolean).map((v) => String(v).trim()).filter(Boolean)));
+  const arr = Array.from(
+    new Set(
+      list
+        .filter(Boolean)
+        .map((v) => String(v).trim())
+        .filter(Boolean)
+    )
+  );
   arr.sort((a, b) => a.localeCompare(b, 'ko'));
   return arr;
 }
@@ -257,7 +262,9 @@ function buildRarityOptions(list) {
 
   const out = [];
   for (const r of ordered) {
-    if (present.has(r)) { out.push(r); }
+    if (present.has(r)) {
+      out.push(r);
+    }
   }
 
   const extras = Array.from(present).filter((r) => !ordered.includes(r));
@@ -295,13 +302,17 @@ function makeToggle(label, selected, onClick) {
 
 function renderFilters(options, state, onChange) {
   const root = document.getElementById('filters');
-  if (!root) { return; }
+  if (!root) {
+    return;
+  }
 
   root.replaceChildren();
   root.classList.add('filter-grid');
 
   function row(labelText, values, setRef) {
-    if (!values || values.length === 0) { return null; }
+    if (!values || values.length === 0) {
+      return null;
+    }
 
     const rowWrap = document.createElement('div');
     rowWrap.className = 'filter-row';
@@ -325,13 +336,13 @@ function renderFilters(options, state, onChange) {
     rowWrap.appendChild(label);
     rowWrap.appendChild(buttons);
     return rowWrap;
-  }
+  }  
 
   const rows = [
-    row('희귀도', options.rarity, state.rarity),
-    row('성별', options.gender, state.gender),
-    row('위치', options.position, state.position),
-    row('세력', options.faction, state.faction),
+    row('희귀도', options.rarity, state.rarity), 
+    row('성별', options.gender, state.gender), 
+    row('위치', options.position, state.position), 
+    row('세력', options.faction, state.faction), 
     row('생활', options.lifeSkill, state.lifeSkill)
   ].filter(Boolean);
 
@@ -341,19 +352,33 @@ function renderFilters(options, state, onChange) {
 }
 
 function applyFilters(list, query, state) {
-  const q = String(query || '').trim().toLowerCase();
+  const q = String(query || '')
+    .trim()
+    .toLowerCase();
 
   return list.filter((item) => {
     if (q) {
       const name = String(item.name || '').toLowerCase();
-      if (!name.includes(q)) { return false; }
+      if (!name.includes(q)) {
+        return false;
+      }
     }
 
-    if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) { return false; }
-    if (state.gender.size > 0 && !state.gender.has(item.gender)) { return false; }
-    if (state.position.size > 0 && !state.position.has(item.position)) { return false; }
-    if (state.faction.size > 0 && !state.faction.has(item.faction)) { return false; }
-    if (state.lifeSkill.size > 0 && !state.lifeSkill.has(item.lifeSkill)) { return false; }
+    if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) {
+      return false;
+    }
+    if (state.gender.size > 0 && !state.gender.has(item.gender)) {
+      return false;
+    }
+    if (state.position.size > 0 && !state.position.has(item.position)) {
+      return false;
+    }
+    if (state.faction.size > 0 && !state.faction.has(item.faction)) {
+      return false;
+    }
+    if (state.lifeSkill.size > 0 && !state.lifeSkill.has(item.lifeSkill)) {
+      return false;
+    }
 
     return true;
   });
@@ -361,14 +386,15 @@ function applyFilters(list, query, state) {
 
 function buildFilterOptions(list) {
   const rarity = buildRarityOptions(list);
-  const gender = uniqSorted(list.map((x) => x.gender).filter((v) => !isInvalidGroupValue(v))).sort((a, b) => {
+  const gender = uniqSorted(list.map((x) => x.gender)).sort((a, b) => {
     const ia = GENDER_ORDER.indexOf(a);
     const ib = GENDER_ORDER.indexOf(b);
     return (ia === -1) - (ib === -1) || ia - ib || a.localeCompare(b, 'ko');
-  });
-  const position = uniqSorted(list.map((x) => x.position).filter((v) => !isInvalidGroupValue(v)));
-  const faction = uniqSorted(list.map((x) => x.faction).filter((v) => !isInvalidGroupValue(v)));
-  const lifeSkill = uniqSorted(list.map((x) => x.lifeSkill).filter((v) => !isInvalidGroupValue(v)));
+  });  
+
+  const position = uniqSorted(list.map((x) => x.position));
+  const faction = uniqSorted(list.map((x) => x.faction));
+  const lifeSkill = uniqSorted(list.map((x) => x.lifeSkill));
 
   return { rarity, gender, position, faction, lifeSkill };
 }
@@ -407,7 +433,7 @@ function buildCard(item) {
   thumb.appendChild(bgBack);
 
   const img = document.createElement('img');
-  
+
   img.className = 'char-portrait';
   img.loading = 'lazy';
   img.decoding = 'async';
@@ -427,7 +453,10 @@ function buildCard(item) {
       return;
     }
 
+    // 최종 실패: src 자체를 제거해서, 필터로 DOM 재부착 시 재요청이 반복되지 않게 함
     img.style.display = 'none';
+    img.removeAttribute('src');
+    img.src = '';
     noimg.style.display = 'grid';
   });
 
@@ -450,6 +479,23 @@ function buildCard(item) {
   bgFront.decoding = 'async';
   bgFront.src = bgMaskUrl;
   thumb.appendChild(bgFront);
+
+  // 포지션
+  const posUrl = pickPositionRowUrl(item.position);
+  if (posUrl) {
+    const posImg = document.createElement('img');
+    posImg.className = 'char-pos-icon';
+    posImg.alt = '';
+    posImg.loading = 'lazy';
+    posImg.decoding = 'async';
+    posImg.src = posUrl;
+
+    posImg.addEventListener('error', () => {
+      posImg.remove();
+    });
+
+    thumb.appendChild(posImg);
+  }
 
   // 소속(진영) 아이콘
   const sideUrl = pickSideIconUrlFromTag(item.sideId ?? item.faction);
@@ -490,130 +536,6 @@ function buildCard(item) {
   return a;
 }
 
-function updateCard(a, item) {
-  a.href = `character_detail.html?id=${encodeURIComponent(byString(item.id))}`;
-  a.setAttribute('aria-label', byString(item.name));
-
-    const portrait = a.querySelector('img.char-portrait');
-  if (portrait) {
-    const noimg = a.querySelector('.char-noimg');
-
-    // 현재 카드가 fallback으로 넘어갔는지 추적 (한 번 fallback이면 updateCard에서 primary로 되돌리지 않음)
-    const usedFallback = portrait.dataset.usedFallback === '1';
-
-    // error 핸들러는 1회만 바인딩 (updateCard가 여러 번 불려도 중복 등록 방지)
-    if (portrait.dataset.errBound !== '1') {
-      portrait.dataset.errBound = '1';
-
-      portrait.addEventListener('error', () => {
-        if (portrait.dataset.usedFallback !== '1' && item.portraitFallbackUrl) {
-          portrait.dataset.usedFallback = '1';
-          portrait.src = item.portraitFallbackUrl;
-          return;
-        }
-
-        portrait.style.display = 'none';
-        if (noimg) {
-          noimg.style.display = 'grid';
-        }
-      });
-    }
-
-    // src 결정
-    // - 이미 fallback 상태면: fallback(있으면) 유지
-    // - 아직 primary 상태면: primary 우선, 없으면 fallback
-    let nextSrc = '';
-
-    if (usedFallback) {
-      nextSrc = item.portraitFallbackUrl || portrait.getAttribute('src') || '';
-    } else {
-      nextSrc = item.portraitUrl || item.portraitFallbackUrl || '';
-      portrait.dataset.usedFallback = item.portraitUrl ? '0' : (item.portraitFallbackUrl ? '1' : '0');
-    }
-
-    if (nextSrc) {
-      if (portrait.getAttribute('src') !== nextSrc) {
-        portrait.setAttribute('src', nextSrc);
-      }
-
-      portrait.style.display = '';
-      if (noimg) {
-        noimg.style.display = 'none';
-      }
-    } else {
-      portrait.style.display = 'none';
-      if (noimg) {
-        noimg.style.display = 'grid';
-      }
-    }
-
-    portrait.alt = byString(item.name);
-  }
-
-  const nameIn = a.querySelector('.char-name-in');
-  if (nameIn) {
-    const rawName = byString(item.name);
-    const BREAK_LEN = 7;
-
-    let prettyName = rawName;
-    if (rawName.includes('·') && rawName.length >= BREAK_LEN) {
-      prettyName = rawName.replace(/·\s*/g, '\n');
-    }
-
-    nameIn.textContent = prettyName;
-  }
-
-  // rarity bg/front 갱신
-  const rarityKey = byString(item.rarity || '').toUpperCase() || 'N';
-  const bgBackUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}.png`);
-  const bgMaskUrl = uiCharacterListPath(`CharacterList_bg_rarity_${rarityKey}_mask.png`);
-
-  const bgBack = a.querySelector('img.char-bg-rarity-back');
-  if (bgBack && bgBack.getAttribute('src') !== bgBackUrl) {
-    bgBack.setAttribute('src', bgBackUrl);
-  }
-
-  const bgFront = a.querySelector('img.char-bg-rarity-front');
-  if (bgFront && bgFront.getAttribute('src') !== bgMaskUrl) {
-    bgFront.setAttribute('src', bgMaskUrl);
-  }
-
-  // 소속 아이콘 갱신
-  const sideUrl = pickSideIconUrlFromTag(item.sideId ?? item.faction);
-
-  const sideEl = a.querySelector('img.char-side-icon');
-  if (sideUrl) {
-    if (sideEl) {
-      if (sideEl.getAttribute('src') !== sideUrl) {
-        sideEl.setAttribute('src', sideUrl);
-      }
-    } else {
-      const thumb = a.querySelector('.char-thumb');
-      if (thumb) {
-        const cardMaskUrl = uiCharacterListPath('CharacterList_mask.png');
-        thumb.style.setProperty('--card-mask-url', `url("${cardMaskUrl}")`);
-
-        const side = document.createElement('img');
-        side.className = 'char-side-icon';
-        side.alt = '';
-        side.loading = 'lazy';
-        side.decoding = 'async';
-        side.src = sideUrl;
-
-        side.addEventListener('error', () => {
-          side.remove();
-        });
-
-        thumb.appendChild(side);
-      }
-    }
-  } else {
-    if (sideEl) {
-      sideEl.remove();
-    }
-  }
-}
-
 function getOrCreateCard(item) {
   const key = getCardKey(item);
   let el = cardCache.get(key);
@@ -624,13 +546,15 @@ function getOrCreateCard(item) {
     return el;
   }
 
-  updateCard(el, item);
+  //updateCard(el, item);
   return el;
 }
 
 function renderGrid(list) {
   const root = document.getElementById('characterGrid');
-  if (!root) { return; }
+  if (!root) {
+    return;
+  }
 
   const frag = document.createDocumentFragment();
   for (const item of list) {
@@ -659,9 +583,10 @@ async function loadCharacterDbData() {
   const viewAll = [];
   for (const j of joined) {
     const vm = mapUnitToViewModel(j.unit, j.view);
-
-    if (isInvalidGroupValue(vm.name)) { continue; }
-    if (!vm.portraitUrl && !vm.portraitFallbackUrl) { continue; }
+    
+    if (!vm.portraitUrl && !vm.portraitFallbackUrl) {
+      continue;
+    }
 
     viewAll.push(vm);
   }
@@ -671,6 +596,21 @@ async function loadCharacterDbData() {
     await loadSideTags();
   } catch (e) {
     // ignore
+  }
+
+  // faction(세력) 텍스트를 sideId -> TagFactory.sideName으로 치환
+  for (const vm of viewAll) {
+    const idNum = safeNumber(vm?.sideId);
+    if (idNum === null) {
+      continue;
+    }
+
+    const tag = sideTagById.get(idNum);
+    const sideName = byString(tag?.sideName);
+
+    if (sideName) {
+      vm.faction = sideName;
+    }
   }
 
   return { viewAll };
@@ -713,12 +653,9 @@ function applyCharacterToDom(ctx) {
     renderGrid(filtered);
   }
 
-  function updateWithFilters() {
-    renderFilters(options, filterState, updateWithFilters);
+  renderFilters(options, filterState, () => {
     update();
-  }
-
-  renderFilters(options, filterState, updateWithFilters);
+  });
   renderGrid(listAll);
 
   if (input) {
@@ -737,11 +674,11 @@ function applyCharacterToDom(ctx) {
         input.value = '';
       }
 
-      updateWithFilters();
+      update();
     });
   }
 
-  updateWithFilters();
+  update();
   document.title = '캐릭터 DB';
 }
 

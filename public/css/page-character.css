@@ -301,8 +301,6 @@ button.pill:focus {
   z-index: 3;
 }
 
-
-
 /* 배경: 절대 안 잘리게 = contain */
 .char-thumb>img.char-bg-rarity-back {
   position: absolute;

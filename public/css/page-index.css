@@ -176,7 +176,7 @@
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.55),
       /* ← 투명도 조절 핵심 */
-      rgba(0, 0, 0, 0.55)), url("../assets/main_bg3.png");
+      rgba(0, 0, 0, 0.55)), url("../assets/ui/main_bg3.png");
 
   background-repeat: no-repeat;
   background-position: center top;
@@ -303,4 +303,100 @@
     width: 100%;
     min-width: 0;
   }
+}
+
+/* ---------------------------------------------------------
+   Dex Bento Card Grid (replace card-bg-img)
+   --------------------------------------------------------- */
+
+.dex-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.dex-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+
+  padding: 16px 18px 18px;
+}
+
+.dex-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 44px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition: background 120ms ease, transform 120ms ease, border-color 120ms ease;
+}
+
+.dex-card-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.dex-card-btn.muted {
+  color: var(--muted);
+}
+
+/* responsive */
+@media (max-width: 860px) {
+  .dex-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .dex-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------
+   Dark theme: 더 불투명하게
+   --------------------------- */
+.theme-dark .dex-card-btn {
+  background: rgba(0, 0, 0, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+.theme-dark .dex-card-btn:hover {
+  background: rgba(0, 0, 0, 0.52);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ---------------------------
+   Light theme: 어둡게(글자 가독성 유지)
+   --------------------------- */
+.theme-light .dex-card-btn {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.theme-light .dex-card-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+/* 라이트에서 버튼 텍스트가 너무 연하면 보강 */
+.theme-light .dex-card-btn {
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.theme-light .dex-card-btn.muted {
+  color: rgba(0, 0, 0, 0.55);
 }

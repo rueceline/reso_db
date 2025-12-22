@@ -11,6 +11,34 @@
 
 const BASE = (window.getAppBase && window.getAppBase()) || "/";
 
+export function withBase(path) {
+  const base = (window.getAppBase && window.getAppBase()) || "/";
+  let p = String(path || "");
+
+  if (!p) {
+    return base;
+  }
+
+  // 절대 URL은 그대로
+  if (p.startsWith("http://") || p.startsWith("https://")) {
+    return p;
+  }
+
+  // query / hash 전용
+  if (p.startsWith("?") || p.startsWith("#")) {
+    return normalizeSlash(base).replace(/\/$/g, "") + p;
+  }
+
+  // '/xxx' 형태
+  if (p.startsWith("/")) {
+    return normalizeSlash(base).replace(/\/$/g, "") + p;
+  }
+
+  // './xxx' 제거
+  p = p.replace(/^\.\//, "");
+  return normalizeSlash(base).replace(/\/+$/g, "/") + p;
+}
+
 function normalizeSlash(s) {
   return String(s || "").replace(/\\/g, "/");
 }
@@ -79,6 +107,8 @@ export function uiCharacterListPath(relPath) {
 export function uiSideIconPath(relPath) {
   return uiCommonPath(joinPath("sideicon", relPath));
 }
+
+
 
 // 점진 마이그레이션 편의: window에도 노출 (원하면 사용)
 if (typeof window !== "undefined") {

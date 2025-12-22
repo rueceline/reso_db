@@ -16,13 +16,12 @@ const BASE = import.meta.env.BASE_URL;
         <p class="hero-desc">Resonance Solstice Team Builder & Databese</p>
         <div class="hero-actions">
           <a class="cta-btn" href="#">Team Builder</a>
-          <a class="cta-btn" href={`${BASE}dex`}>장비 DB</a>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="preview-placeholder">
-          <img src={`${BASE}assets/Lobby_side2.png`} alt="preview" />
+          <img src={`${BASE}assets/ui/Lobby_side2.png`} alt="preview" />
         </div>
       </div>
     </section>
@@ -43,7 +42,7 @@ const BASE = import.meta.env.BASE_URL;
           <div class="card-bg-img placeholder-bg"></div>
         </a>
 
-        <a class="bento-card card-large" href={`${BASE}dex`}>
+        <div class="bento-card card-large dex-card">
           <div class="card-content">
             <div class="card-header-row">
               <div class="card-icon placeholder-icon">📘</div>
@@ -53,8 +52,19 @@ const BASE = import.meta.env.BASE_URL;
               </div>
             </div>
           </div>
-          <div class="card-bg-img placeholder-bg"></div>
-        </a>
+
+          <!-- card-bg-img 대체 -->
+          <div class="dex-card-grid">
+            <a href={`${BASE}characterdb`} class="dex-card-btn">캐릭터</a>
+            <a href={`${BASE}equipmentdb`} class="dex-card-btn">장비</a>
+            <a href={`${BASE}dex/item`} class="dex-card-btn">아이템</a>
+            <a href={`${BASE}dex/item`} class="dex-card-btn">재료</a>
+            <a href={`${BASE}dex/skill`} class="dex-card-btn">열차무장</a>
+            <a href={`${BASE}dex/train`} class="dex-card-btn">가구</a>
+            <a href={`${BASE}dex/train`} class="dex-card-btn">적</a>
+            <a href={`${BASE}dex`} class="dex-card-btn muted">펫</a>
+          </div>
+        </div>
 
         <a class="bento-card card-large" href="#">
           <div class="card-content">
