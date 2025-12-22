@@ -160,18 +160,38 @@ export function mapUnitQualityToRarity(quality) {
   const q = String(quality || '').trim();
 
   // 캐릭터 별 등급
-  if (q === 'FiveStar') { return 'SSR'; }
-  if (q === 'fourStar') { return 'SR'; }
-  if (q === 'threeStar') { return 'R'; }
-  if (q === 'twoStar') { return 'N'; }
-  if (q === 'oneStar') { return 'N'; }
+  if (q === 'FiveStar') {
+    return 'SSR';
+  }
+  if (q === 'fourStar') {
+    return 'SR';
+  }
+  if (q === 'threeStar') {
+    return 'R';
+  }
+  if (q === 'twoStar') {
+    return 'N';
+  }
+  if (q === 'oneStar') {
+    return 'N';
+  }
 
   // 혹시 기존 장비식 컬러가 섞여도 안전하게
-  if (q === 'Orange') { return 'UR'; }
-  if (q === 'Golden') { return 'SSR'; }
-  if (q === 'Purple') { return 'SR'; }
-  if (q === 'Blue') { return 'R'; }
-  if (q === 'White') { return 'N'; }
+  if (q === 'Orange') {
+    return 'UR';
+  }
+  if (q === 'Golden') {
+    return 'SSR';
+  }
+  if (q === 'Purple') {
+    return 'SR';
+  }
+  if (q === 'Blue') {
+    return 'R';
+  }
+  if (q === 'White') {
+    return 'N';
+  }
 
   return q || '';
 }
@@ -181,9 +201,9 @@ export class UnitFactory {
     this.unitUrl = opt.unitUrl || null;
     this.unitViewUrl = opt.unitViewUrl || null;
 
-    this.units = null;      // Array
-    this.views = null;      // Array
-    this.viewById = null;   // Map<number, ViewRec>
+    this.units = null; // Array
+    this.views = null; // Array
+    this.viewById = null; // Map<number, ViewRec>
 
     this.loadingPromise = null;
   }
@@ -206,10 +226,7 @@ export class UnitFactory {
     }
 
     this.loadingPromise = (async () => {
-      const [unitJson, viewJson] = await Promise.all([
-        fetchJson(this.unitUrl),
-        fetchJson(this.unitViewUrl)
-      ]);
+      const [unitJson, viewJson] = await Promise.all([fetchJson(this.unitUrl), fetchJson(this.unitViewUrl)]);
 
       const units = normalizeRootJson(unitJson);
       const views = normalizeRootJson(viewJson);
@@ -296,7 +313,6 @@ export class UnitFactory {
     return out;
   }
 }
-
 
 // =========================
 // EquipmentFactory
@@ -687,6 +703,29 @@ export class SkillFactory {
     this.mapById = null;
     this.loadingPromise = null;
   }
+
+  resolveSkillDetailDesc(skillRec) {
+    return String(skillRec?.detailDescription || skillRec?.detailDes || skillRec?.detail || '').trim();
+  }
+
+  resolveSkillIconPath(skillRec) {
+    const candidates = [skillRec?.iconPath, skillRec?.icon, skillRec?.skillIcon, skillRec?.imagePath, skillRec?.resUrl];
+
+    for (const c of candidates) {
+      const s = String(c || '').trim();
+      if (s) {
+        return s;
+      }
+    }
+
+    return '';
+  }
+
+  resolveSkillParamList(skillRec) {
+    const arr = skillRec?.skillParamList || skillRec?.paramList || skillRec?.params || null;
+
+    return Array.isArray(arr) ? arr : [];
+  }
 }
 
 export class GrowthFactory {
@@ -722,6 +761,206 @@ export class GrowthFactory {
 
   getMap() {
     return this.mapById;
+  }
+
+  getById(id) {
+    if (!this.mapById) {
+      return null;
+    }
+
+    const key = safeNumber(id);
+    if (key === null) {
+      return null;
+    }
+
+    return this.mapById.get(key) || null;
+  }
+
+  invalidate() {
+    this.mapById = null;
+    this.loadingPromise = null;
+  }
+}
+
+// =========================
+// Simple id -> record Map factories
+// =========================
+
+export class TagFactory {
+  constructor(opt = {}) {
+    this.tagUrl = opt.tagUrl || null;
+
+    this.mapById = null; // Map<number, TagRec>
+    this.loadingPromise = null;
+  }
+
+  async load() {
+    if (this.mapById) {
+      return this.mapById;
+    }
+
+    if (this.loadingPromise) {
+      return await this.loadingPromise;
+    }
+
+    if (!this.tagUrl) {
+      throw new Error('TagFactory: tagUrl이 설정되지 않았습니다.');
+    }
+
+    this.loadingPromise = (async () => {
+      const json = await fetchJson(this.tagUrl);
+      this.mapById = buildIdMapFromRootJson(json);
+      return this.mapById;
+    })();
+
+    return await this.loadingPromise;
+  }
+
+  getById(id) {
+    if (!this.mapById) {
+      return null;
+    }
+
+    const key = safeNumber(id);
+    if (key === null) {
+      return null;
+    }
+
+    return this.mapById.get(key) || null;
+  }
+
+  invalidate() {
+    this.mapById = null;
+    this.loadingPromise = null;
+  }
+}
+
+export class TalentFactory {
+  constructor(opt = {}) {
+    this.talentUrl = opt.talentUrl || null;
+
+    this.mapById = null; // Map<number, TalentRec>
+    this.loadingPromise = null;
+  }
+
+  async load() {
+    if (this.mapById) {
+      return this.mapById;
+    }
+
+    if (this.loadingPromise) {
+      return await this.loadingPromise;
+    }
+
+    if (!this.talentUrl) {
+      throw new Error('TalentFactory: talentUrl이 설정되지 않았습니다.');
+    }
+
+    this.loadingPromise = (async () => {
+      const json = await fetchJson(this.talentUrl);
+      this.mapById = buildIdMapFromRootJson(json);
+      return this.mapById;
+    })();
+
+    return await this.loadingPromise;
+  }
+
+  getById(id) {
+    if (!this.mapById) {
+      return null;
+    }
+
+    const key = safeNumber(id);
+    if (key === null) {
+      return null;
+    }
+
+    return this.mapById.get(key) || null;
+  }
+
+  invalidate() {
+    this.mapById = null;
+    this.loadingPromise = null;
+  }
+}
+
+export class ProfilePhotoFactory {
+  constructor(opt = {}) {
+    this.photoUrl = opt.photoUrl || null;
+
+    this.mapById = null; // Map<number, ProfilePhotoRec>
+    this.loadingPromise = null;
+  }
+
+  async load() {
+    if (this.mapById) {
+      return this.mapById;
+    }
+
+    if (this.loadingPromise) {
+      return await this.loadingPromise;
+    }
+
+    if (!this.photoUrl) {
+      throw new Error('ProfilePhotoFactory: photoUrl이 설정되지 않았습니다.');
+    }
+
+    this.loadingPromise = (async () => {
+      const json = await fetchJson(this.photoUrl);
+      this.mapById = buildIdMapFromRootJson(json);
+      return this.mapById;
+    })();
+
+    return await this.loadingPromise;
+  }
+
+  getById(id) {
+    if (!this.mapById) {
+      return null;
+    }
+
+    const key = safeNumber(id);
+    if (key === null) {
+      return null;
+    }
+
+    return this.mapById.get(key) || null;
+  }
+
+  invalidate() {
+    this.mapById = null;
+    this.loadingPromise = null;
+  }
+}
+
+export class AwakeFactory {
+  constructor(opt = {}) {
+    this.awakeUrl = opt.awakeUrl || null;
+
+    this.mapById = null; // Map<number, AwakeRec>
+    this.loadingPromise = null;
+  }
+
+  async load() {
+    if (this.mapById) {
+      return this.mapById;
+    }
+
+    if (this.loadingPromise) {
+      return await this.loadingPromise;
+    }
+
+    if (!this.awakeUrl) {
+      throw new Error('AwakeFactory: awakeUrl이 설정되지 않았습니다.');
+    }
+
+    this.loadingPromise = (async () => {
+      const json = await fetchJson(this.awakeUrl);
+      this.mapById = buildIdMapFromRootJson(json);
+      return this.mapById;
+    })();
+
+    return await this.loadingPromise;
   }
 
   getById(id) {

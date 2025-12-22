@@ -1,4 +1,4 @@
-import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath } from './utils/path.js';
+import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath, withBase } from './utils/path.js';
 import { DEFAULT_LANG } from './utils/config.js';
 import { fetchJson } from './utils/fetch.js';
 import { normalizeRootJson, safeNumber, UnitFactory, mapUnitQualityToRarity } from './utils/data.js';
@@ -409,9 +409,11 @@ function getCardKey(item) {
 }
 
 function buildCard(item) {
+  const detailHref =`${withBase('/character_detail')}?id=${encodeURIComponent(String(item.id))}`;
+
   const a = document.createElement('a');
   a.className = 'char-card';
-  a.href = `character_detail.html?id=${encodeURIComponent(byString(item.id))}`;
+  a.href = detailHref;
   a.setAttribute('aria-label', byString(item.name));
 
   const thumb = document.createElement('div');

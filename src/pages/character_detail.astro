@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const BASE = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Character Detail">
+  <link slot="head" rel="stylesheet" href={`${BASE}css/page-character-detail.css`} />
+
+  <main class="char-detail" data-page="character-detail">
+    <div id="char-error" class="char-error" hidden></div>
+
+    <section class="char-hero" aria-label="캐릭터 기본 정보">
+      <div class="char-hero-left" aria-label="캐릭터 이미지">
+        <img id="char-illustration" class="char-ill" alt="" loading="eager" />
+        <div class="path-line" id="char-illustration-path"></div>
+      </div>
+
+      <div class="char-hero-right">
+        <div class="char-basic1" aria-label="기본 정보 1">
+          <div class="char-basic1-row">
+            <div class="icon-col">
+              <img id="char-side-icon" class="mini-icon" alt="" />
+              <div id="char-side-icon-path" class="path-line"></div>
+            </div>
+
+            <div class="icon-col">
+              <img id="char-pos-icon" class="mini-icon" alt="" />
+              <div id="char-pos-icon-path" class="path-line"></div>
+            </div>
+          </div>
+
+          <h1 id="char-name" class="char-name"></h1>
+          <div id="char-name-en" class="char-name-en"></div>
+          <div id="char-rarity" class="char-rarity"></div>
+        </div>
+
+        <div class="char-basic2" aria-label="기본 정보 2">
+          <dl class="char-kv">
+            <div class="kv-row">
+              <dt>생일</dt>
+              <dd id="char-birthday">미상</dd>
+            </div>
+
+            <div class="kv-row">
+              <dt>성별</dt>
+              <dd id="char-gender">미상</dd>
+            </div>
+
+            <div class="kv-row">
+              <dt>신장</dt>
+              <dd id="char-height">미상</dd>
+            </div>
+
+            <div class="kv-row">
+              <dt>출신</dt>
+              <dd id="char-origin">미확정</dd>
+            </div>
+          </dl>
+
+          <div class="char-quote">
+            <div class="char-quote-label">기본 대사</div>
+            <div id="char-quote-text">미확정</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="char-subnav" aria-label="섹션 이동">
+      <a href="#sec-property">属性</a>
+      <a href="#sec-skill">技能</a>
+      <a href="#sec-replenish">基础信息</a>
+      <a href="#sec-resonance">共振</a>
+      <a href="#sec-awake">觉醒</a>
+      <a href="#sec-record">角色档案</a>
+      <a href="#sec-photo">大头贴</a>
+    </nav>
+
+    <section id="sec-property" class="char-section">
+      <h2>属性 (Property)</h2>
+      <div id="char-property" class="kv-grid"></div>
+    </section>
+
+    <section id="sec-skill" class="char-section">
+      <h2>技能 (Skill)</h2>
+      <div id="char-skill-list" class="skill-list"></div>
+    </section>
+
+    <section id="sec-replenish" class="char-section">
+      <h2>基础信息 (Replenish Info)</h2>
+      <div id="char-replenish" class="kv-grid"></div>
+    </section>
+
+    <section id="sec-resonance" class="char-section">
+      <h2>共振 (Resonance)</h2>
+      <div id="char-resonance" class="muted"></div>
+    </section>
+
+    <section id="sec-awake" class="char-section">
+      <h2>觉醒 (Awakening)</h2>
+      <div id="char-awake" class="muted"></div>
+    </section>
+
+    <section id="sec-record" class="char-section">
+      <h2>角色档案 (Record)</h2>
+      <div id="char-record" class="record-list"></div>
+    </section>
+
+    <section id="sec-photo" class="char-section">
+      <h2>大头贴 (Photo Sticker)</h2>
+      <div id="char-photo-grid" class="photo-grid"></div>
+    </section>
+  </main>
+
+  <script slot="scripts" type="module" src={`${BASE}app/character_detail.js`} defer></script>
+</BaseLayout>
