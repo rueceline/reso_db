@@ -9,36 +9,8 @@
 // - BASE는 window.getAppBase()가 있으면 그 값을 사용한다.
 // - cache bust(쿼리)는 fetchJson(url, CACHE_BUST)에서 처리한다.
 
-const BASE = (window.getAppBase && window.getAppBase()) || "/";
-
-export function withBase(path) {
-  const base = (window.getAppBase && window.getAppBase()) || "/";
-  let p = String(path || "");
-
-  if (!p) {
-    return base;
-  }
-
-  // 절대 URL은 그대로
-  if (p.startsWith("http://") || p.startsWith("https://")) {
-    return p;
-  }
-
-  // query / hash 전용
-  if (p.startsWith("?") || p.startsWith("#")) {
-    return normalizeSlash(base).replace(/\/$/g, "") + p;
-  }
-
-  // '/xxx' 형태
-  if (p.startsWith("/")) {
-    return normalizeSlash(base).replace(/\/$/g, "") + p;
-  }
-
-  // './xxx' 제거
-  p = p.replace(/^\.\//, "");
-  return normalizeSlash(base).replace(/\/+$/g, "/") + p;
-}
-
+const META_BASE = (document.querySelector('meta[name="app-base"]') && document.querySelector('meta[name="app-base"]').getAttribute('content')) || '/';
+const BASE = (window.getAppBase && window.getAppBase()) || META_BASE || '/';
 function normalizeSlash(s) {
   return String(s || "").replace(/\\/g, "/");
 }
