@@ -3,8 +3,8 @@
  * - 팩토리 기반 데이터 처리 모음
  *
  * 규칙
- * - DOM 조작/렌더링 함수는 포함하지 않는다. fileciteturn7file1L9-L12
- * - '기본 유틸'(fetchJson, normalizePathSlash 등)은 utils.js에 두고, 여기서는 import해서 사용한다. fileciteturn7file1L9-L15
+ * - DOM 조작/렌더링 함수는 포함하지 않는다.
+ * - '기본 유틸'(fetchJson, normalizePathSlash 등)은 utils.js에 두고, 여기서는 import해서 사용한다.
  */
 
 import { fetchJson, normalizePathSlash } from './utils.js';
@@ -14,20 +14,31 @@ import { assetPath } from './path.js';
 // 1) 공용: 정규화 / 안전 변환
 // =========================
 
-export function normalizeRootJson(json) {
-  if (Array.isArray(json)) {
-    return json;
+export function normalizeRootJson(raw) {
+  // - BinaryConfig json은 대체로 "list" 루트
+  // - 일부는 { list: [...] } 또는 { data: [...] } 같은 변형 가능성
+  if (Array.isArray(raw)) {
+    return raw;
   }
 
-  if (json && Array.isArray(json.data)) {
-    return json.data;
+  if (raw && typeof raw === "object") {
+    if (Array.isArray(raw.list)) {
+      return raw.list;
+    }
+
+    if (Array.isArray(raw.data)) {
+      return raw.data;
+    }
+
+    if (Array.isArray(raw.items)) {
+      return raw.items;
+    }
   }
 
   return [];
 }
 
 // 안전한 숫자 변환 (실패 시 null)
-// - Map key, 비교 등에 사용
 export function safeNumber(v) {
   if (v === null || v === undefined) {
     return null;
@@ -71,23 +82,26 @@ export function mapQualityToRarity(quality) {
   return qualityToRarityMap[String(quality)] || '-';
 }
 
-// TagFactory가 없을 때만 쓰는 최소 fallback
-function parseFactionCategoryFromIdCN(idCN) {
-  const raw = normalizePathSlash(idCN);
-  const parts = raw
-    .split('/')
-    .map((s) => String(s).trim())
-    .filter(Boolean);
+export function mapUnitQualityToRarity(quality) {
+  const k0 = String(quality || "").trim();
+  const k = k0.toLowerCase();
 
-  // 예: 学会装备/橙/武器/xxxx
-  const factionCN = (parts[0] || '').replace(/装备$/u, '');
-  const categoryCN = parts[2] || '';
+  // KR 데이터에서 관측: FiveStar, fourStar, threeStar, twoStar, oneStar
+  if (k === "fivestar") {
+    return "SSR";
+  }
+  if (k === "fourstar") {
+    return "SR";
+  }
+  if (k === "threestar") {
+    return "R";
+  }
+  if (k === "twostar" || k === "onestar") {
+    return "N";
+  }
 
-  // fallback은 "원문 그대로" (번역은 TagFactory가 담당)
-  return {
-    faction: factionCN || '-',
-    category: categoryCN || '-'
-  };
+  // 혹시 다른 규칙이 들어오면 최후 fallback
+  return mapQualityToRarity(k0);
 }
 
 // =========================
@@ -200,22 +214,37 @@ export class TagFactory extends IdMapFactoryBase {
 
   // TagFactory는 케이스가 많아서 안전한 우선순위만 고정
   resolveCategoryName(tagRec) {
-    // 장비 분류는 Name으로 들어있는 케이스 확인됨 (예: 무기/장신구)
     const v = String(tagRec?.Name || tagRec?.tagName || '').trim();
     return v || '';
   }
 
   resolveFactionName(tagRec) {
-    // 진영은 sideName으로 들어있는 케이스 확인됨
-    const v = String(tagRec?.sideName || '').trim();
-    return v || '';
+    const v = String(tagRec?.sideName || "").trim();
+    return v || "";
+  }
+
+  // TagFactory 내부
+  resolveSideIconName(tagRec) {
+    // icon / iconPath / IconPath 등 혼재 대응
+    const raw =
+      tagRec?.icon ||
+      tagRec?.iconPath ||
+      tagRec?.Icon ||
+      tagRec?.IconPath ||
+      "";
+
+    const norm = normalizePathSlash(String(raw));
+    const base = norm.split("/").pop() || "";
+    return base; // 확장자 없는 이름만
   }
 }
 
 // =========================
-// 5) EquipmentFactory (요청사항 반영)
-// - parseEquipmentIdCN 제거: equipTagId/campTagId -> TagFactory로 해석
-// - randomSkillList.skillId는 SkillFactory 또는 ListFactory 둘 다 가능 fileciteturn7file0L28-L38
+// 5) EquipmentFactory
+// - equipTagId/campTagId -> TagFactory로 해석
+// - randomSkillList.skillId = ListFactory.id
+// - 랜덤 풀 분류: SkillRec.campList/specialTagList -> TagFactory.sideName 존재 여부만 사용
+// - randomPools는 lazy(getRandomPools)로만 계산
 // =========================
 
 export class EquipmentFactory {
@@ -230,6 +259,9 @@ export class EquipmentFactory {
 
     this.recMap = null; // Map<number, EquipRec>
     this.loadingPromise = null;
+
+    // lazy cache
+    this.randomPoolsByEquipId = null; // Map<number, Pool[]>
   }
 
   setContext(ctx = {}) {
@@ -242,6 +274,7 @@ export class EquipmentFactory {
   invalidate() {
     this.recMap = null;
     this.loadingPromise = null;
+    this.randomPoolsByEquipId = null;
   }
 
   async buildEquipmentRecMap() {
@@ -259,7 +292,61 @@ export class EquipmentFactory {
 
     this.loadingPromise = (async () => {
       const equipJson = await fetchJson(this.equipmentUrl);
-      this.recMap = this.buildEquipmentRecMapFromRaw(equipJson);
+      const list = normalizeRootJson(equipJson);
+
+      const out = new Map();
+
+      for (const raw of list) {
+        const id = safeNumber(raw?.id);
+        if (id === null) {
+          continue;
+        }
+
+        const rarity = mapQualityToRarity(raw?.quality);
+        const fc = this.resolveFactionAndCategoryFromTags(raw);
+
+        // -------------------------
+        // 테스트/더미 레코드 제외:
+        // - 장비 id가 ListFactory에 없으면 제외
+        // -------------------------
+        if (String(raw.idCN).startsWith('00')) continue;
+
+        let mainStat = null;
+        if (this.growthById) {
+          const growthId = safeNumber(raw?.growthId);
+          const growthRec = growthId === null ? null : this.growthById.get(growthId) || null;
+          mainStat = this.calcMainStatWithGrowth(raw, growthRec);
+        }
+
+        const tipsPath = String(raw?.tipsPath || raw?.iconPath || raw?.icon || raw?.imagePath || '').trim();
+        const imageUrl = this.resolveImageUrl(tipsPath);
+
+        let mainOption = '';
+        {
+          const fixed = this.resolveFixedSkills(raw);
+          const first = Array.isArray(fixed) && fixed.length > 0 ? fixed[0] : null;
+          if (first) {
+            mainOption = String(first?.description || first?.tempdescription || '').trim();
+          }
+        }
+
+        const rec = {
+          id,
+          raw, // 원본 보존(팩토리 내부만)
+          name: String(raw?.name || ''),
+          rarity,
+          faction: fc.faction,
+          category: fc.category,
+          mainStat,
+          tipsPath,
+          imageUrl,
+          mainOption
+        };
+
+        out.set(id, rec);
+      }
+
+      this.recMap = out;
       return this.recMap;
     })();
 
@@ -285,7 +372,6 @@ export class EquipmentFactory {
 
   // -------------------------
   // UI 보조: 스탯 계산 (현행 유지)
-  // - GrowthFactory 쪽에 계산식이 별도 등록돼 있진 않아서(등록 파일에 공식 식 없음) 기존 식 유지
   // -------------------------
 
   resolveMainStat(e) {
@@ -325,7 +411,6 @@ export class EquipmentFactory {
       return { label: main.label, min: '-', max: '-' };
     }
 
-    // 기존 data.js 가정 유지 fileciteturn7file2L18-L34
     let growthSN = 0;
     if (main.key === 'atk') {
       growthSN = growthRec.gAtk_SN;
@@ -361,7 +446,7 @@ export class EquipmentFactory {
   }
 
   // -------------------------
-  // Skill/Random 옵션 해석
+  // Fixed 옵션(고정 스킬)
   // -------------------------
 
   pickSkillIds(listLike) {
@@ -376,117 +461,12 @@ export class EquipmentFactory {
     return ids;
   }
 
-  // 랜덤 옵션(스킬) 분류
-  // 1) SkillFactory.specialTagList -> TagFactory 를 우선 사용 (구조 기반)
-  // 2) (임시) tag 기반 분류가 불가하면 idCN 문자열로 fallback
-  // - randomSkillList.skillId는 SkillFactory 또는 ListFactory 참조 가능 fileciteturn7file0L28-L38
-  // - SkillFactory에는 specialTagList(detail=specialTag) / specialTag(arg0=TagFactory) 정의가 있음 fileciteturn7file0L0-L0
-  classifyPoolKind(skillRec) {
-    const tagById = this.tagById;
-
-    // 1) 태그 기반 분류
-    if (tagById) {
-      const ids = this.pickSpecialTagIds(skillRec);
-      if (ids.length > 0) {
-        // '阵营' 계열 태그가 있으면 소속으로 판정
-        for (const tid of ids) {
-          const t = tagById.get(tid) || null;
-          if (!t) {
-            continue;
-          }
-
-          const mod = String(t?.mod || '').trim();
-          const idCN = String(t?.idCN || '').trim();
-
-          // 소속 태그 판정: mod=阵营 또는 idCN이 '阵营标签/'로 시작하거나 sideName이 존재
-          const sideName = String(t?.sideName || '').trim();
-          const name = String(t?.Name || t?.tagName || '').trim();
-
-          const isFaction = mod === '阵营' || idCN.startsWith('阵营标签/') || !!sideName;
-          if (isFaction) {
-            return {
-              kind: 'faction',
-              label: sideName || name || '소속',
-              tagIds: ids
-            };
-          }
-
-          // 공용 판정: idCN/Name에 '通用'이 포함
-          const isCommon =
-            idCN.includes('通用') ||
-            name.includes('通用') ||
-            String(t?.tagName || '').includes('通用');
-
-          if (isCommon) {
-            return { kind: 'common', label: '공용', tagIds: ids };
-          }
-        }
-
-        // 태그는 있는데 소속/공용을 확정 못하면 unknown으로 둠
-        return { kind: 'unknown', label: '기타', tagIds: ids };
-      }
-    }
-
-    // 2) fallback: idCN 문자열 기반(기존 임시 로직 유지)
-    {
-      const idcn = String(skillRec?.idCN ?? '');
-      const parts = idcn
-        .split('/')
-        .map((s) => s.trim())
-        .filter(Boolean);
-
-      const isRandomAffix = parts.length > 0 && parts[0].includes('随机词条');
-      if (!isRandomAffix) {
-        return { kind: 'common', label: '공용' };
-      }
-
-      if (parts.some((p) => p.includes('通用'))) return { kind: 'common', label: '공용' };
-      if (parts.some((p) => p.includes('铁盟'))) return { kind: 'faction', label: '철도연맹' };
-      if (parts.some((p) => p.includes('学会'))) return { kind: 'faction', label: '시타델' };
-      if (parts.some((p) => p.includes('商会'))) return { kind: 'faction', label: '상회' };
-      if (parts.some((p) => p.includes('黑月'))) return { kind: 'faction', label: '흑월' };
-
-      return { kind: 'faction', label: '소속' };
-    }
-  }
-
-  pickSpecialTagIds(skillRec) {
-    // SkillFactory.specialTagList 형태가 다양할 수 있어서 넓게 처리
-    // - [number]
-    // - [{ specialTag: number }]
-    // - [{ id: number }]
-    const out = [];
-
-    const list = Array.isArray(skillRec?.specialTagList) ? skillRec.specialTagList : [];
-    for (const it of list) {
-      if (typeof it === 'number') {
-        const n = safeNumber(it);
-        if (n) out.push(n);
-        continue;
-      }
-
-      const n =
-        safeNumber(it?.specialTag) ??
-        safeNumber(it?.tagId) ??
-        safeNumber(it?.id) ??
-        null;
-
-      if (n) {
-        out.push(n);
-      }
-    }
-
-    // 중복 제거
-    return Array.from(new Set(out));
-  }
-
   resolveFixedSkills(equipRaw) {
     const skillById = this.skillById;
     if (!skillById) {
       return [];
     }
 
-    // skillList.skillId -> SkillFactory.id fileciteturn7file0L15-L25
     const fixedIds = this.pickSkillIds(equipRaw?.skillList);
     const out = [];
 
@@ -500,30 +480,109 @@ export class EquipmentFactory {
     return out;
   }
 
-  // randomSkillList.skillId -> SkillFactory 또는 ListFactory fileciteturn7file0L28-L38
-  resolveRandomSkillRefId(entry) {
-    const id = safeNumber(entry?.skillId);
-    if (!id) {
-      return { ref: 'none', id: 0 };
+  // -------------------------
+  // Random 옵션 풀 (lazy)
+  // -------------------------
+
+  getRandomPools(equipId) {
+    const id = safeNumber(equipId);
+    if (id === null) {
+      return [];
     }
 
-    const listById = this.listById;
-    const skillById = this.skillById;
-
-    if (listById && listById.has(id)) {
-      return { ref: 'list', id };
+    if (!this.randomPoolsByEquipId) {
+      this.randomPoolsByEquipId = new Map();
     }
 
-    if (skillById && skillById.has(id)) {
-      return { ref: 'skill', id };
+    if (this.randomPoolsByEquipId.has(id)) {
+      return this.randomPoolsByEquipId.get(id) || [];
     }
 
-    // 컨텍스트가 아직 안 로드된 경우/미스: 우선 list 우선으로 취급 (기존 로직과 충돌 최소화)
-    return { ref: 'unknown', id };
+    const rec = this.getById(id);
+    if (!rec || !rec.raw) {
+      this.randomPoolsByEquipId.set(id, []);
+      return [];
+    }
+
+    const pools = this.buildRandomOptionPools(rec.raw);
+    this.randomPoolsByEquipId.set(id, pools);
+
+    return pools;
+  }
+
+  pickCampTagIds(skillRec) {
+    const out = [];
+    const list = Array.isArray(skillRec?.campList) ? skillRec.campList : [];
+
+    for (const it of list) {
+      const n = safeNumber(it) ?? safeNumber(it?.id) ?? safeNumber(it?.tagId) ?? safeNumber(it?.name) ?? null;
+      if (n) {
+        out.push(n);
+      }
+    }
+
+    return Array.from(new Set(out));
+  }
+
+  pickSpecialTagIds(skillRec) {
+    const out = [];
+    const list = Array.isArray(skillRec?.specialTagList) ? skillRec.specialTagList : [];
+
+    for (const it of list) {
+      if (typeof it === 'number') {
+        const n = safeNumber(it);
+        if (n) out.push(n);
+        continue;
+      }
+
+      const n = safeNumber(it?.specialTag) ?? safeNumber(it?.tagId) ?? safeNumber(it?.id) ?? safeNumber(it?.name) ?? null;
+      if (n) {
+        out.push(n);
+      }
+    }
+
+    return Array.from(new Set(out));
+  }
+
+  resolvePoolLabelFromSkillRec(skillRec) {
+    const tagById = this.tagById;
+    if (!tagById) {
+      return '';
+    }
+
+    // 1) campList 우선
+    const campIds = this.pickCampTagIds(skillRec);
+    for (const tid of campIds) {
+      const t = tagById.get(tid) || null;
+      if (!t) {
+        continue;
+      }
+
+      const sideName = String(t?.sideName || '').trim();
+      if (sideName) {
+        return sideName;
+      }
+    }
+
+    // 2) specialTagList
+    const spIds = this.pickSpecialTagIds(skillRec);
+    for (const tid of spIds) {
+      const t = tagById.get(tid) || null;
+      if (!t) {
+        continue;
+      }
+
+      const sideName = String(t?.sideName || '').trim();
+      if (sideName) {
+        return sideName;
+      }
+    }
+
+    return '';
   }
 
   // 반환 형식(기존 유지):
-  // [{ poolId, weight, refType, listRec, directSkill, faction(Map<label, SkillRec[]>), common(SkillRec[]) }]
+  // [{ poolId, weight, refType, listRec, faction(Map<label, SkillRec[]>), common(SkillRec[]) }]
   buildRandomOptionPools(equipRaw) {
     const listById = this.listById;
     const skillById = this.skillById;
@@ -536,76 +595,52 @@ export class EquipmentFactory {
     const src = Array.isArray(equipRaw?.randomSkillList) ? equipRaw.randomSkillList : [];
 
     for (const p of src) {
+      const poolId = safeNumber(p?.skillId);
+      if (!poolId) {
+        continue;
+      }
+
+      const listRec = listById.get(poolId) || null;
+      if (!listRec) {
+        continue;
+      }
+
       const weight = safeNumber(p?.weight) ?? 1;
-      const refInfo = this.resolveRandomSkillRefId(p);
 
-      // 1) ListFactory 풀
-      if (refInfo.ref === 'list' || refInfo.ref === 'unknown') {
-        const poolId = refInfo.id;
-        const listRec = listById.get(poolId);
-        if (!listRec) {
-          // unknown인데 list에도 없으면 다음 케이스로 넘김
-        } else {
-          const faction = new Map(); // label -> SkillRec[]
-          const common = [];
+      const faction = new Map(); // label -> SkillRec[]
+      const common = [];
 
-          // ListFactory.EquipmentEntryList[].id -> SkillFactory.id (lua에 명시) fileciteturn7file0L28-L38
-          const entries = Array.isArray(listRec?.EquipmentEntryList) ? listRec.EquipmentEntryList : [];
-          for (const ent of entries) {
-            const sid = safeNumber(ent?.id);
-            if (!sid) {
-              continue;
-            }
-
-            const skillRec = skillById.get(sid);
-            if (!skillRec) {
-              continue;
-            }
-
-            const cls = this.classifyPoolKind(skillRec);
-
-            if (cls.kind === 'faction') {
-              const key = cls.label || '소속';
-              if (!faction.has(key)) {
-                faction.set(key, []);
-              }
-              faction.get(key).push(skillRec);
-            } else {
-              common.push(skillRec);
-            }
-          }
-
-          pools.push({
-            poolId,
-            weight,
-            refType: 'list',
-            listRec,
-            directSkill: null,
-            faction,
-            common
-          });
-
+      const entries = Array.isArray(listRec?.EquipmentEntryList) ? listRec.EquipmentEntryList : [];
+      for (const ent of entries) {
+        const sid = safeNumber(ent?.id);
+        if (!sid) {
           continue;
+        }
+
+        const skillRec = skillById.get(sid) || null;
+        if (!skillRec) {
+          continue;
+        }
+
+        const label = this.resolvePoolLabelFromSkillRec(skillRec);
+        if (label) {
+          if (!faction.has(label)) {
+            faction.set(label, []);
+          }
+          faction.get(label).push(skillRec);
+        } else {
+          common.push(skillRec);
         }
       }
 
-      // 2) SkillFactory 직접 참조
-      if (refInfo.ref === 'skill') {
-        const sid = refInfo.id;
-        const skillRec = skillById.get(sid) || null;
-
-        pools.push({
-          poolId: sid,
-          weight,
-          refType: 'skill',
-          listRec: null,
-          directSkill: skillRec,
-          faction: new Map(),
-          common: skillRec ? [skillRec] : []
-        });
-
-        continue;
-      }
+      pools.push({
+        poolId,
+        weight,
+        refType: 'list',
+        listRec,
+        faction,
+        common
+      });
     }
 
     return pools;
@@ -626,7 +661,7 @@ export class EquipmentFactory {
     if (tagById) {
       if (equipTagId && tagById.has(equipTagId)) {
         const t = tagById.get(equipTagId);
-        category = String(t?.Name || '').trim();
+        category = String(t?.Name || t?.tagName || '').trim();
       }
 
       if (campTagId && tagById.has(campTagId)) {
@@ -635,89 +670,344 @@ export class EquipmentFactory {
       }
     }
 
-    if (!category || !faction) {
-      const fb = parseFactionCategoryFromIdCN(raw?.idCN || '');
-      if (!faction) faction = fb.faction;
-      if (!category) category = fb.category;
-    }
-
     return { faction: faction || '-', category: category || '-' };
   }
 
   resolveImageUrl(tipsPath) {
-    const p = String(tipsPath || '').trim();
-    if (!p) {
+    const p0 = String(tipsPath || '').trim();
+    if (!p0) {
       return '';
     }
 
-    // tipsPath가 이미 'item/weapon/xxx' 형태면 그대로
-    // 아니면 item/weapon 아래로
-    const rel = p.startsWith('item/')
-      ? p
-      : joinPath('item/weapon', p);
+    // 1) 정규화
+    let p = normalizePathSlash(p0).replace(/^\/+/g, '');
 
-    // 확장자 없으면 .webp
-    const file = /\.(png|webp|jpg|jpeg)$/i.test(rel)
-      ? rel
-      : `${rel}.webp`;
+    // 2) assets/ 제거
+    p = p.replace(/^assets\//i, '');
 
-    return assetPath(file);
+    // 3) 이미 item/weapon 으로 시작하면 그대로 사용
+    if (/^item\/weapon\//i.test(p)) {
+      // 그대로 둠
+    } else if (/^weapon\//i.test(p)) {
+      p = `item/${p}`;
+    } else {
+      p = `item/weapon/${p}`;
+    }
+
+    // 4) 확장자 (지금은 png)
+    const rel = /\.(png|jpg|jpeg|webp)$/i.test(p) ? p : `${p}.png`;
+
+    // 5) 소문자 정규화
+    return assetPath(rel.toLowerCase());
+  }
+}
+
+// --- data.js: UnitViewFactory 교체/확장 ---
+// (기존 resolveImageUrlFromViewPath / pickPortraitUrls / pickIconUrls는 유지하고,
+//  아래 메서드들만 추가)
+
+export class UnitViewFactory extends IdMapFactoryBase {
+  constructor(opt = {}) {
+    super(opt.unitViewUrl);
   }
 
-  buildEquipmentRecMapFromRaw(equipJsonRaw) {
-    const list = normalizeRootJson(equipJsonRaw);
-    const out = new Map();
+  resolveImageUrlFromViewPath(viewPath) {
+    const raw = String(viewPath || "").trim();
+    if (!raw) {
+      return "";
+    }
 
-    for (const raw of list) {
-      const id = safeNumber(raw?.id);
-      if (id === null) {
+    const norm = normalizePathSlash(raw).replace(/^\/+/g, "");
+    return assetPath(`${norm}.png`);
+  }
+
+  pickPortraitUrls(viewRec) {
+    const half = this.resolveImageUrlFromViewPath(viewRec?.roleListResUrl);
+    const squadsHalf1 = this.resolveImageUrlFromViewPath(viewRec?.squadsHalf1);
+    const squadsHalf2 = this.resolveImageUrlFromViewPath(viewRec?.squadsHalf2);
+
+    return {
+      half,
+      squadsHalf1,
+      squadsHalf2,
+    };
+  }
+
+  pickIconUrls(viewRec) {
+    const small = this.resolveImageUrlFromViewPath(viewRec?.iconPath);
+    const big = this.resolveImageUrlFromViewPath(viewRec?.tipsPath);
+
+    return {
+      small,
+      big,
+    };
+  }
+
+  // -------------------------
+  // 플레이어블 판정(전면 수정 핵심)
+  // - UnitViewFactory.character로 먼저 후보를 만들고
+  // - UnitFactory(mod)로 "玩家角色"만 통과
+  // - 리스트는 기본 스킨(대부분 SkinName="기본")만 선택
+  // -------------------------
+
+  // UnitViewFactory
+  isPlayableView(viewRec, unitFactory) {
+    const charId = safeNumber(viewRec?.character);
+    if (!charId || charId <= 0) {
+      return false;
+    }
+
+    const unitRec = unitFactory?.getById(charId) || null;
+    if (!unitRec) {
+      return false;
+    }
+
+    // Unit 기준 판정은 UnitFactory로
+    if (!unitFactory.isPlayableUnit(unitRec)) {
+      return false;
+    }
+
+    // 기본 스킨만(默认/기본/빈문자 허용)
+    const skinName = String(viewRec?.SkinName || "").trim();
+    if (skinName && skinName !== "기본" && skinName !== "默认") {
+      return false;
+    }
+
+    return true;
+  }
+
+  scorePrimaryView(viewRec, unitRec) {
+    // 높은 점수 = 더 “대표 스킨”
+    let score = 0;
+
+    const skinName = String(viewRec?.SkinName || "").trim();
+    if (skinName === "기본") {
+      score += 1000;
+    } else if (skinName === "") {
+      score += 800;
+    }
+
+    // UnitFactory.viewId(기본 view)와 일치하면 가산
+    const unitViewId = safeNumber(unitRec?.viewId);
+    const viewId = safeNumber(viewRec?.id);
+    if (unitViewId && viewId && unitViewId === viewId) {
+      score += 200;
+    }
+
+    // idCN이 "我方/"로 시작하면 가산(있을 때만)
+    const idCN = String(viewRec?.idCN || "").trim();
+    if (idCN.startsWith("我方/")) {
+      score += 50;
+    }
+
+    // 동점 방지용: id가 작을수록 약간 가산
+    if (viewId) {
+      score += Math.max(0, 10 - (viewId % 10));
+    }
+
+    return score;
+  }
+
+  getPrimaryPlayableViews(unitFactory) {
+    const viewMap = this.getMap();
+    if (!viewMap) {
+      return [];
+    }
+
+    // characterId -> best viewRec
+    const bestByChar = new Map();
+
+    for (const viewRec of viewMap.values()) {
+      if (!this.isPlayableView(viewRec, unitFactory)) {
         continue;
       }
 
-      const rarity = mapQualityToRarity(raw?.quality);
-      const fc = this.resolveFactionAndCategoryFromTags(raw);
-
-      let mainStat = null;
-      if (this.growthById) {
-        const growthId = safeNumber(raw?.growthId);
-        const growthRec = growthId === null ? null : this.growthById.get(growthId) || null;
-        mainStat = this.calcMainStatWithGrowth(raw, growthRec);
+      const charId = safeNumber(viewRec?.character);
+      const unitRec = unitFactory.getById(charId);
+      if (!unitRec) {
+        continue;
       }
 
-           // tipsPath 후보(데이터 케이스 다양) - 일단 가장 흔한 필드부터
-      const tipsPath = String(raw?.tipsPath || raw?.iconPath || raw?.icon || raw?.imagePath || '').trim();
-
-      // 이미지 URL은 assetPath + tipsPath 규칙으로 팩토리에서 결정
-      const imageUrl = this.resolveImageUrl(tipsPath);
-
-      // mainOption: 고정 스킬 중 첫 번째 description
-      let mainOption = '';
-      {
-        const fixed = this.resolveFixedSkills(raw); // SkillRec[] 
-        const first = Array.isArray(fixed) && fixed.length > 0 ? fixed[0] : null;
-        if (first) {
-          // SkillFactory.resolveSkillDesc와 동일 규칙 
-          mainOption = String(first?.description || first?.tempdescription || '').trim();
-        }
+      const prev = bestByChar.get(charId) || null;
+      if (!prev) {
+        bestByChar.set(charId, viewRec);
+        continue;
       }
 
-      const rec = {
-        id,
-        raw, // 원본 보존(팩토리 내부만)
-        name: String(raw?.name || ''),
-        rarity,
-        faction: fc.faction,
-        category: fc.category,
-        mainStat,
-        tipsPath,
-        imageUrl,
-        mainOption
-      };
+      const sPrev = this.scorePrimaryView(prev, unitRec);
+      const sNow = this.scorePrimaryView(viewRec, unitRec);
 
-
-      out.set(id, rec);
+      if (sNow > sPrev) {
+        bestByChar.set(charId, viewRec);
+      }
     }
 
-    return out;
+    return Array.from(bestByChar.values());
+  }
+}
+
+
+// --- data.js: UnitFactory 수정 ---
+// (기존 isPlayableUnit / getPlayableUnits 삭제하고, viewFactory 기반으로만 제공)
+
+export class UnitFactory extends IdMapFactoryBase {
+  constructor(opt = {}) {
+    super(opt.unitUrl);
+
+    this.unitViewUrl = opt.unitViewUrl || null;
+    this.viewFactory = new UnitViewFactory({ unitViewUrl: this.unitViewUrl });
+    this.listRaw = null;
+  }
+
+  async load() {
+    await Promise.all([super.load(), this.viewFactory.load()]);
+
+    if (!this.listRaw) {
+      const raw = await fetchJson(this.url);
+      this.listRaw = normalizeRootJson(raw);
+    }
+
+    return {
+      unitMap: this.getMap(),
+      viewMap: this.viewFactory.getMap()
+    };
+  }
+
+  getUnitById(id) {
+    return this.getById(id);
+  }
+
+  getViewById(id) {
+    return this.viewFactory.getById(id);
+  }
+
+  getViewForUnit(unitRec) {
+    const viewId = safeNumber(unitRec?.viewId);
+    if (viewId === null) {
+      return null;
+    }
+    return this.getViewById(viewId);
+  }
+
+  getViewForUnitId(unitId) {
+    const u = this.getUnitById(unitId);
+    if (!u) {
+      return null;
+    }
+    return this.getViewForUnit(u);
+  }
+
+  getAllUnits() {
+    if (this.listRaw) {
+      return this.listRaw;
+    }
+    return Array.from(this.getMap().values());
+  }
+
+  // UnitFactory
+  isPlayableUnit(unitRec) {
+    if (!unitRec) {
+      return false;
+    }
+
+    const mod = String(unitRec.mod || "").trim();
+    if (mod !== "玩家角色") {
+      return false;
+    }
+
+    const idCN = String(unitRec.idCN || "");
+    if (idCN.includes("未上线") || idCN.includes("50未上线")) {
+      return false;
+    }
+
+    // const unitIdCN = String(unitRec?.idCN || "").trim();
+    // if (unitIdCN.includes("剧情")) {
+    //   return false;
+    // }
+
+    return true;
+  }
+
+  resolveFaction(unitRec, tagF) {
+    // 반환: { name, iconName, tagId }
+    // - iconName: "camp_1" 처럼 확장자 없는 베이스 이름(없으면 "")
+    // - URL은 UI 레이어(characterdb.js)에서 uiSideIconPath로 만든다.
+
+    // 1) sideId 우선
+    const sideId = safeNumber(unitRec?.sideId);
+    if (sideId !== null && sideId > 0) {
+      const t = tagF.getById(sideId);
+      const name = tagF.resolveFactionName(t);
+      const iconName = tagF.resolveSideIconName(t);
+
+      if (name || iconName) {
+        return { name: name || '', iconName: iconName || '', tagId: sideId };
+      }
+    }
+
+    // 2) tagList에서 sideName 있는 태그 탐색
+    const list = Array.isArray(unitRec?.tagList) ? unitRec.tagList : [];
+    for (const it of list) {
+      const tid = safeNumber(it?.tagId);
+      if (tid === null) {
+        continue;
+      }
+
+      const t = tagF.getById(tid);
+      const name = tagF.resolveFactionName(t);
+      if (!name) {
+        continue;
+      }
+
+      const iconName = tagF.resolveSideIconName(t);
+      return { name: name || '', iconName: iconName || '', tagId: tid };
+    }
+
+    return { name: '', iconName: '', tagId: null };
+  }
+
+  invalidate() {
+    super.invalidate();
+    this.listRaw = null;
+    this.viewFactory.invalidate();
+  }
+}
+
+// =========================
+// 6) (캐릭터 상세에서 쓰는) ProfilePhoto / Talent / Awake Factory
+// =========================
+
+export class ProfilePhotoFactory extends IdMapFactoryBase {
+  constructor(opt = {}) {
+    super(opt.profilePhotoUrl);
+  }
+
+  resolvePhotoUrl(photoRec) {
+    const raw = String(photoRec?.imagePath || photoRec?.tipsPath || "").trim();
+    if (!raw) {
+      return "";
+    }
+
+    const norm = normalizePathSlash(raw).replace(/^\/+/g, "");
+    return assetPath(`${norm}.png`);
+  }
+
+  hasCharacterListPortrait(viewRec) {
+    const p = String(viewRec?.roleListResUrl || "").trim();
+    const h1 = String(viewRec?.squadsHalf1 || "").trim();
+    const h2 = String(viewRec?.squadsHalf2 || "").trim();
+    return Boolean(p || h1 || h2);
+  }
+}
+
+export class TalentFactory extends IdMapFactoryBase {
+  constructor(opt = {}) {
+    super(opt.talentUrl);
+  }
+}
+
+export class AwakeFactory extends IdMapFactoryBase {
+  constructor(opt = {}) {
+    super(opt.awakeUrl);
   }
 }

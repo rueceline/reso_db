@@ -1,21 +1,16 @@
 import { 
   dataPath, 
-  pagePath,
-  weaponImagePath  
+  pagePath
 } from '../utils/path.js';
 
 import {
   TagFactory,
   EquipmentFactory,
   SkillFactory,
-  GrowthFactory,
-  normalizeRootJson,
-  mapQualityToRarity  
+  GrowthFactory
 } from '../utils/data.js';
 
 import { 
-  fetchJson, 
-  normalizePathSlash, 
   formatColorTagsToHtml 
 } from '../utils/utils.js';
 
@@ -24,39 +19,34 @@ import { DEFAULT_LANG } from '../utils/config.js';
 // =========================================================
 // Equipment DB Page Script
 // - 실행 흐름: main() → loadEquipmentDbData() → applyEquipmentToDom()
-// - 아래(엔트리)에서 위(헬퍼)로 역추적하기 쉽게 배치
 // =========================================================
 
 // -------------------------
 // URLs
 // -------------------------
+const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
 const DATA_URL = dataPath(DEFAULT_LANG, 'EquipmentFactory.json');
 const GROWTH_URL = dataPath(DEFAULT_LANG, 'GrowthFactory.json');
 const SKILL_URL = dataPath(DEFAULT_LANG, 'SkillFactory.json');
-const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
-
-const ASSET_SMALL_BASE = weaponImagePath('');
 
 // -------------------------
 // helpers
 // -------------------------
-function isInvalidGroupValue(v) {
-  const s = String(v || '').trim();
-  if (!s) { return true; }
-  if (s.startsWith('00')) { return true; }
-  if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) { return true; }
-  return false;
-}
 
 function formatNumber(v) {
   const n = Number(v);
-  if (!Number.isFinite(n)) { return ''; }
+  if (!Number.isFinite(n)) { 
+    return ''; 
+  }
+
   return n.toLocaleString();
 }
 
 function setStatus(text, isError) {
   const el = document.getElementById('status');
-  if (!el) { return; }
+  if (!el) { 
+    return; 
+  }
 
   el.className = isError ? 'error' : 'loading';
   el.textContent = text;
@@ -64,9 +54,28 @@ function setStatus(text, isError) {
 
 function setCount(n) {
   const el = document.getElementById('countBadge');
-  if (!el) { return; }
+  if (!el) { 
+    return; 
+  }
 
   el.textContent = `총 ${n}개`;
+}
+
+function isInvalidGroupValue(v) {
+  const s = String(v || '').trim();
+  if (!s) { 
+    return true; 
+  }
+
+  if (s === '-') { 
+    return true; 
+  }
+
+  if (s.startsWith('00')) { 
+    return true; 
+  }
+
+  return false;
 }
 
 // -------------------------
@@ -144,13 +153,18 @@ function updateEquipmentRow(tr, item) {
   const detailHref = `${pagePath('/equipment_detail')}?id=${encodeURIComponent(String(item.id))}`;
 
   const aImg = tr.children[0]?.querySelector('a');
-  if (aImg) { aImg.href = detailHref; }
+  if (aImg) { 
+    aImg.href = detailHref; 
+  }
 
   const img = tr.children[0]?.querySelector('img');
   if (img) {
     const src = item.imageUrl || '';
     const cur = img.getAttribute('src') || '';
-    if (cur !== src) { img.setAttribute('src', src); }
+    if (cur !== src) { 
+      img.setAttribute('src', src); 
+    }
+
     img.alt = item.name || '';
   }
 
@@ -174,7 +188,6 @@ function updateEquipmentRow(tr, item) {
   if (tr.children[7]) { tr.children[7].textContent = formatNumber(item.maxValue) || '-'; }
 
   if (tr.children[8]) {
-    // 상세 페이지와 동일하게 color tag 렌더
     tr.children[8].innerHTML = formatColorTagsToHtml(item.mainOption || '');
   }
 }
@@ -195,7 +208,9 @@ function getOrCreateRow(item) {
 
 function renderTable(list) {
   const tbody = document.getElementById('equipmentList');
-  if (!tbody) { return; }
+  if (!tbody) { 
+    return; 
+  }
 
   const frag = document.createDocumentFragment();
   for (const item of list) {
@@ -222,7 +237,9 @@ function buildRarityOptions(list) {
   const out = [];
 
   for (const r of order) {
-    if (present.has(r)) { out.push(r); }
+    if (present.has(r)) { 
+      out.push(r); 
+    }
   }
 
   const extras = Array.from(present).filter((r) => !order.includes(r));
@@ -347,7 +364,9 @@ function makeToggle(label, selected, onClick) {
 
 function renderFilters(options, state, onChange) {
   const root = document.getElementById('filters');
-  if (!root) { return; }
+  if (!root) { 
+    return; 
+  }
 
   root.replaceChildren();
   root.classList.add('filter-grid');
@@ -388,7 +407,9 @@ function applyFilters(list, query, state) {
   return list.filter((item) => {
     if (q) {
       const name = String(item.name || '').toLowerCase();
-      if (!name.includes(q)) { return false; }
+      if (!name.includes(q)) { 
+        return false; 
+      }
     }
 
     if (state.rarity.size > 0 && !state.rarity.has(item.rarity)) { return false; }
@@ -418,10 +439,8 @@ async function loadEquipmentDbData() {
   const skillById = skillFactory.getMap();
   const tagById = tagFactory.getMap();
 
-  // 여기 반드시 포함
   equipFactory.setContext({ growthById, skillById, tagById });
 
-  // recMap 생성(원본 raw는 Factory 내부 rec.raw로만 유지)
   await equipFactory.buildEquipmentRecMap();
 
   const recMap = equipFactory.getRecMap();
@@ -429,13 +448,10 @@ async function loadEquipmentDbData() {
 
   return {
     equipIds,
-    equipFactory,
-    skillFactory,
-    assetSmallBase: ASSET_SMALL_BASE
+    equipFactory
   };
 }
 
-// equipRaw + factory context만으로 렌더용 데이터 구성
 function buildRowData(id, ctx) {
   const rec = ctx.equipFactory.getById(id);
   if (!rec) {
@@ -460,7 +476,6 @@ function buildRowData(id, ctx) {
   };
 }
 
-// [Group] DOM Apply
 function applyEquipmentToDom(ctx) {
   const listAll = ctx.equipIds
     .map((id) => buildRowData(id, ctx))
@@ -507,14 +522,19 @@ function applyEquipmentToDom(ctx) {
   }
 
   function bindSortHeaders() {
-    if (sortHeadersBound) { return; }
+    if (sortHeadersBound) { 
+      return; 
+    }
+
     sortHeadersBound = true;
 
     const ths = document.querySelectorAll('thead th.sortable');
     for (const th of ths) {
       th.addEventListener('click', () => {
         const key = th.dataset.sortKey || '';
-        if (!key) { return; }
+        if (!key) { 
+          return; 
+        }
 
         if (sortState.key === key) {
           sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
@@ -532,7 +552,9 @@ function applyEquipmentToDom(ctx) {
   renderFilters(options, filterState, updateWithFilters);
 
   if (input) {
-    input.addEventListener('input', () => updateOnly());
+    input.addEventListener('input', function () {
+      updateOnly();
+    });
   }
 
   if (clearBtn) {
@@ -553,7 +575,6 @@ function applyEquipmentToDom(ctx) {
   document.title = '장비 DB';
 }
 
-// [Group] Entry
 async function main() {
   setStatus('데이터 로딩 중...', false);
 
@@ -565,4 +586,3 @@ main().catch((err) => {
   console.error(err);
   setStatus(`데이터를 불러오는 데 실패했습니다.\n${String(err)}`, true);
 });
-

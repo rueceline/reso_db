@@ -37,7 +37,7 @@ function joinUrl() {
 
 // data/{lang}/{file}
 export function dataPath(lang, file) {
-  return joinUrl("data", lang, file);
+  return joinUrl("factory", lang, file);
 }
 
 // assets/{subPath}
@@ -83,7 +83,6 @@ export function uiSideIconPath(relPath) {
 if (typeof window !== "undefined") {
   window.dataPath = dataPath;
   window.assetPath = assetPath;
-  window.weaponImagePath = weaponImagePath;
   window.uiImagePath = uiImagePath;
   window.bookImagePath = bookImagePath;
   window.showCharacterPath = showCharacterPath;
