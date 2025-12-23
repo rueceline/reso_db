@@ -45,6 +45,10 @@ export function assetPath(subPath) {
   return joinUrl("assets", subPath);
 }
 
+export function pagePath(rel) {
+  return joinUrl(rel);
+}
+
 // assets/item/weapon/{relPath}
 export function weaponImagePath(relPath) {
   return assetPath(joinPath("item/weapon", relPath));
@@ -79,8 +83,6 @@ export function uiCharacterListPath(relPath) {
 export function uiSideIconPath(relPath) {
   return uiCommonPath(joinPath("sideicon", relPath));
 }
-
-
 
 // 점진 마이그레이션 편의: window에도 노출 (원하면 사용)
 if (typeof window !== "undefined") {

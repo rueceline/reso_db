@@ -1,4 +1,4 @@
-import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath, withBase } from './utils/path.js';
+import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath, pagePath } from './utils/path.js';
 import { DEFAULT_LANG } from './utils/config.js';
 import { fetchJson } from './utils/fetch.js';
 import { normalizeRootJson, safeNumber, UnitFactory, mapUnitQualityToRarity } from './utils/data.js';
@@ -409,7 +409,7 @@ function getCardKey(item) {
 }
 
 function buildCard(item) {
-  const detailHref =`${withBase('/character_detail')}?id=${encodeURIComponent(String(item.id))}`;
+  const detailHref =`${pagePath('/character_detail')}?id=${encodeURIComponent(String(item.id))}`;
 
   const a = document.createElement('a');
   a.className = 'char-card';

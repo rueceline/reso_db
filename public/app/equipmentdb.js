@@ -1,4 +1,4 @@
-import { dataPath, weaponImagePath, withBase } from './utils/path.js';
+import { dataPath, weaponImagePath, pagePath } from './utils/path.js';
 import { DEFAULT_LANG } from './utils/config.js';
 import { fetchJson } from './utils/fetch.js';
 import { formatColorTagsToHtml } from './utils/text.js';
@@ -161,7 +161,7 @@ function buildEquipmentRow(item) {
 }
 
 function updateEquipmentRow(tr, item) {
-  const detailHref = `${withBase('/equipment_detail')}?id=${encodeURIComponent(String(item.id))}`;
+  const detailHref = `${pagePath('/equipment_detail')}?id=${encodeURIComponent(String(item.id))}`;
 
   const aImg = tr.children[0]?.querySelector('a');
   if (aImg) { aImg.href = detailHref; }
