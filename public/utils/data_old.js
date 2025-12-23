@@ -11,8 +11,7 @@
  * - '기본 유틸' (예: normalizePathSlash)는 utils.js에 두고, 여기서는 import해서 사용한다.
  */
 
-import { normalizePathSlash } from './utils.js';
-import { fetchJson } from './fetch.js';
+import { fetchJson, normalizePathSlash } from './utils.js';
 
 // =========================
 // 1) 단어/표기 변환(매핑)

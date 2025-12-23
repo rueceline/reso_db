@@ -49,11 +49,6 @@ export function pagePath(rel) {
   return joinUrl(rel);
 }
 
-// assets/item/weapon/{relPath}
-export function weaponImagePath(relPath) {
-  return assetPath(joinPath("item/weapon", relPath));
-}
-
 // assets/ui/{relPath}
 export function uiImagePath(relPath) {
   return assetPath(joinPath("ui", relPath));

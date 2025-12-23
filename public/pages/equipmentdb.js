@@ -1,16 +1,25 @@
-import { dataPath, weaponImagePath, pagePath } from './utils/path.js';
-import { DEFAULT_LANG } from './utils/config.js';
-import { fetchJson } from './utils/fetch.js';
-import { formatColorTagsToHtml } from './utils/text.js';
-import { normalizePathSlash } from './utils/utils.js';
+import { 
+  dataPath, 
+  pagePath,
+  weaponImagePath  
+} from '../utils/path.js';
 
 import {
-  normalizeRootJson,
-  mapQualityToRarity,
+  TagFactory,
   EquipmentFactory,
   SkillFactory,
-  GrowthFactory
-} from './utils/data.js';
+  GrowthFactory,
+  normalizeRootJson,
+  mapQualityToRarity  
+} from '../utils/data.js';
+
+import { 
+  fetchJson, 
+  normalizePathSlash, 
+  formatColorTagsToHtml 
+} from '../utils/utils.js';
+
+import { DEFAULT_LANG } from '../utils/config.js';
 
 // =========================================================
 // Equipment DB Page Script
@@ -24,6 +33,7 @@ import {
 const DATA_URL = dataPath(DEFAULT_LANG, 'EquipmentFactory.json');
 const GROWTH_URL = dataPath(DEFAULT_LANG, 'GrowthFactory.json');
 const SKILL_URL = dataPath(DEFAULT_LANG, 'SkillFactory.json');
+const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
 
 const ASSET_SMALL_BASE = weaponImagePath('');
 
@@ -36,36 +46,6 @@ function isInvalidGroupValue(v) {
   if (s.startsWith('00')) { return true; }
   if (s.includes('测试') || s.includes('亂斗') || s.includes('乱斗')) { return true; }
   return false;
-}
-
-function buildWeaponImageUrl(assetSmallBase, pathLike) {
-  const raw = normalizePathSlash(pathLike);
-  const parts = raw.split('/').filter(Boolean);
-
-  const idx = parts.findIndex((x) => String(x).toLowerCase() === 'weapon');
-  if (idx < 0 || parts.length < idx + 4) {
-    return '';
-  }
-
-  const faction = String(parts[idx + 1] || '').toLowerCase();
-  const size = String(parts[idx + 2] || '').toLowerCase();
-  const file = String(parts[idx + 3] || '');
-
-  if (!faction || !size || !file) {
-    return '';
-  }
-
-  const filename = file.toLowerCase().endsWith('.png') ? file : `${file}.png`;
-  const base = String(assetSmallBase || '').replace(/\/$/, '');
-  return `${base}/${faction}/${size}/${filename}`;
-}
-
-function resolveEquipmentImageUrl(assetSmallBase, equipRaw) {
-  return (
-    buildWeaponImageUrl(assetSmallBase, equipRaw?.tipsPath) ||
-    buildWeaponImageUrl(assetSmallBase, equipRaw?.iconPath) ||
-    ''
-  );
 }
 
 function formatNumber(v) {
@@ -425,70 +405,66 @@ function applyFilters(list, query, state) {
 async function loadEquipmentDbData() {
   const growthFactory = new GrowthFactory({ growthUrl: GROWTH_URL });
   const skillFactory = new SkillFactory({ skillUrl: SKILL_URL });
+  const tagFactory = new TagFactory({ tagUrl: TAG_URL });
   const equipFactory = new EquipmentFactory({ equipmentUrl: DATA_URL });
 
-  const [equipJson] = await Promise.all([
-    fetchJson(DATA_URL),
+  await Promise.all([
     growthFactory.load(),
-    skillFactory.load()
+    skillFactory.load(),
+    tagFactory.load()
   ]);
-
-  const equipList = normalizeRootJson(equipJson);
 
   const growthById = growthFactory.getMap();
   const skillById = skillFactory.getMap();
+  const tagById = tagFactory.getMap();
 
-  // EquipmentFactory 내부에서 SkillFactory/GrowthFactory 참조하도록 context 주입
-  equipFactory.setContext({ growthById, skillById });
+  // 여기 반드시 포함
+  equipFactory.setContext({ growthById, skillById, tagById });
+
+  // recMap 생성(원본 raw는 Factory 내부 rec.raw로만 유지)
+  await equipFactory.buildEquipmentRecMap();
+
+  const recMap = equipFactory.getRecMap();
+  const equipIds = recMap ? Array.from(recMap.keys()) : [];
 
   return {
-    equipList,
-    growthById,
-    skillById,
+    equipIds,
     equipFactory,
+    skillFactory,
     assetSmallBase: ASSET_SMALL_BASE
   };
 }
 
 // equipRaw + factory context만으로 렌더용 데이터 구성
-function buildRowData(equipRaw, ctx) {
-  const ef = ctx.equipFactory;
+function buildRowData(id, ctx) {
+  const rec = ctx.equipFactory.getById(id);
+  if (!rec) {
+    return null;
+  }
 
-  const parsed = ef.parseEquipmentIdCN(equipRaw?.idCN);
-
-  const growth = ctx.growthById.get(Number(equipRaw?.growthId)) || null;
-  const stat = ef.calcMainStatWithGrowth(equipRaw, growth);
-
-  const fixedSkills = ef.resolveFixedSkills(equipRaw);
-  const mainOptionSkill = Array.isArray(fixedSkills) && fixedSkills.length > 0 ? fixedSkills[0] : null;
-  const mainOption = mainOptionSkill ? ef.resolveSkillDesc(mainOptionSkill) : '';
-
-  const rarity = mapQualityToRarity(equipRaw?.quality);
+  const stat = rec.mainStat;
+  const rarity = rec.rarity;
 
   return {
-    id: Number(equipRaw?.id) || 0,
-    imageUrl: resolveEquipmentImageUrl(ctx.assetSmallBase, equipRaw),
-
-    name: String(equipRaw?.name || '').trim(),
-
+    id: rec.id,
+    imageUrl: String(rec.imageUrl || ''),
+    name: String(rec.name || '').trim(),
     rarity,
     rarityClass: `rarity-${String(rarity || '').toLowerCase()}`,
-
-    category: String(parsed?.category || ''),
-    faction: String(parsed?.faction || ''),
-
+    category: String(rec.category || ''),
+    faction: String(rec.faction || ''),
     statType: String(stat?.label || ''),
     minValue: stat?.min,
     maxValue: stat?.max,
-
-    mainOption
+    mainOption: String(rec.mainOption || '')
   };
 }
 
 // [Group] DOM Apply
 function applyEquipmentToDom(ctx) {
-  const listAll = ctx.equipList
-    .map((e) => buildRowData(e, ctx))
+  const listAll = ctx.equipIds
+    .map((id) => buildRowData(id, ctx))
+    .filter((x) => x !== null)
     .filter((x) => !isInvalidGroupValue(x.category) && !isInvalidGroupValue(x.faction));
 
   const statusEl = document.getElementById('status');

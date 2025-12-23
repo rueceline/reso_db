@@ -1,8 +1,24 @@
-import { dataPath, assetPath, uiCharacterListPath, uiSideIconPath, pagePath } from './utils/path.js';
-import { DEFAULT_LANG } from './utils/config.js';
-import { fetchJson } from './utils/fetch.js';
-import { normalizeRootJson, safeNumber, UnitFactory, mapUnitQualityToRarity } from './utils/data.js';
-import { normalizePathSlash } from './utils/utils.js';
+import {
+  dataPath,
+  assetPath,
+  pagePath, 
+  uiCharacterListPath, 
+  uiSideIconPath
+} from '../utils/path.js';
+
+import {
+  UnitFactory,
+  normalizeRootJson,
+  safeNumber,
+  mapUnitQualityToRarity
+} from '../utils/data.js';
+
+import { 
+  fetchJson, 
+  normalizePathSlash 
+} from '../utils/utils.js';
+
+import { DEFAULT_LANG } from '../utils/config.js';
 
 const RARITY_ORDER = ['SSR', 'SR', 'R', 'N'];
 const GENDER_ORDER = ['남성', '여성', '불명', '없음', '여(?)'];

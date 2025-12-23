@@ -1,19 +1,28 @@
-import { dataPath, assetPath, uiSideIconPath, uiCommonPath } from './utils/path.js';
-import { DEFAULT_LANG } from './utils/config.js';
+import { 
+  dataPath, 
+  assetPath, 
+  uiSideIconPath, 
+  uiCommonPath 
+} from '../utils/path.js';
 
-import { getQueryParam } from './utils/query.js';
-import { qs, setText, clearChildren } from './utils/dom.js';
-import { normalizePathSlash } from './utils/utils.js';
-
-import {
-  safeNumber,
+import {  
   UnitFactory,
   SkillFactory,
   TagFactory,
   TalentFactory,
   ProfilePhotoFactory,
-  AwakeFactory
-} from './utils/data.js';
+  AwakeFactory,
+  safeNumber,
+} from '../utils/data.js';
+
+import { 
+  getQueryParam, 
+  normalizePathSlash 
+} from '../utils/utils.js';
+
+import { qs, setText, clearChildren } from '../utils/dom.js';
+
+import { DEFAULT_LANG } from '../utils/config.js';
 
 // -----------------------------
 // Asset helpers (경로는 화면에 그대로도 표시, URL은 "시도"만)

@@ -1,20 +1,28 @@
-import { dataPath, weaponImagePath } from './utils/path.js';
-import { DEFAULT_LANG } from './utils/config.js';
-import { fetchJson } from './utils/fetch.js';
-import { formatColorTagsToHtml } from './utils/text.js';
-import { normalizePathSlash } from './utils/utils.js';
-import { setText, setHtml, clearChildren } from './utils/dom.js';
-import { getQueryParam } from './utils/query.js';
+import { 
+  dataPath, 
+  weaponImagePath 
+} from '../utils/path.js';
 
 import { 
-  normalizeRootJson, 
-  safeNumber, 
-  mapQualityToRarity,
   EquipmentFactory,
   SkillFactory,
   ListFactory,
-  GrowthFactory 
-} from './utils/data.js';
+  GrowthFactory,
+  normalizeRootJson, 
+  safeNumber, 
+  mapQualityToRarity,
+} from '../utils/data.js';
+
+import { 
+  fetchJson, 
+  formatColorTagsToHtml, 
+  getQueryParam, 
+  normalizePathSlash 
+} from '../utils/utils.js';
+
+import { setText, setHtml, clearChildren } from '../utils/dom.js';
+
+import { DEFAULT_LANG } from '../utils/config.js';
 
 // -------------------------
 // URLs
