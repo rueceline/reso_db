@@ -1,14 +1,8 @@
 import { 
   dataPath, 
-  pagePath
+  pagePath,  
+  buildAssetImageUrl
 } from '../utils/path.js';
-
-import {
-  TagFactory,
-  EquipmentFactory,
-  SkillFactory,
-  GrowthFactory
-} from '../utils/data.js';
 
 import { 
   formatColorTagsToHtml 
@@ -24,10 +18,8 @@ import { DEFAULT_LANG } from '../utils/config.js';
 // -------------------------
 // URLs
 // -------------------------
-const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
-const DATA_URL = dataPath(DEFAULT_LANG, 'EquipmentFactory.json');
-const GROWTH_URL = dataPath(DEFAULT_LANG, 'GrowthFactory.json');
-const SKILL_URL = dataPath(DEFAULT_LANG, 'SkillFactory.json');
+const EQUIP_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentVM.json');
+const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentSkillVM.json');
 
 // -------------------------
 // helpers
@@ -424,61 +416,84 @@ function applyFilters(list, query, state) {
 // main flow
 // -------------------------
 async function loadEquipmentDbData() {
-  const growthFactory = new GrowthFactory({ growthUrl: GROWTH_URL });
-  const skillFactory = new SkillFactory({ skillUrl: SKILL_URL });
-  const tagFactory = new TagFactory({ tagUrl: TAG_URL });
-  const equipFactory = new EquipmentFactory({ equipmentUrl: DATA_URL });
-
-  await Promise.all([
-    growthFactory.load(),
-    skillFactory.load(),
-    tagFactory.load()
+  const [equipRes, skillRes] = await Promise.all([
+    fetch(EQUIP_VM_URL, { cache: 'no-store' }),
+    fetch(SKILL_VM_URL, { cache: 'no-store' })
   ]);
 
-  const growthById = growthFactory.getMap();
-  const skillById = skillFactory.getMap();
-  const tagById = tagFactory.getMap();
-
-  equipFactory.setContext({ growthById, skillById, tagById });
-
-  await equipFactory.buildEquipmentRecMap();
-
-  const recMap = equipFactory.getRecMap();
-  const equipIds = recMap ? Array.from(recMap.keys()) : [];
-
-  return {
-    equipIds,
-    equipFactory
-  };
-}
-
-function buildRowData(id, ctx) {
-  const rec = ctx.equipFactory.getById(id);
-  if (!rec) {
-    return null;
+  if (!equipRes.ok) {
+    throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
+  }
+  if (!skillRes.ok) {
+    throw new Error(`EquipmentSkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
   }
 
-  const stat = rec.mainStat;
-  const rarity = rec.rarity;
+  const equipVm = await equipRes.json();
+  const skillVm = await skillRes.json();
 
-  return {
-    id: rec.id,
-    imageUrl: String(rec.imageUrl || ''),
-    name: String(rec.name || '').trim(),
-    rarity,
-    rarityClass: `rarity-${String(rarity || '').toLowerCase()}`,
-    category: String(rec.category || ''),
-    faction: String(rec.faction || ''),
-    statType: String(stat?.label || ''),
-    minValue: stat?.min,
-    maxValue: stat?.max,
-    mainOption: String(rec.mainOption || '')
-  };
+  // skillId -> description
+  const skillDescById = new Map();
+  if (skillVm && typeof skillVm === 'object') {
+    const factionObj = skillVm.faction && typeof skillVm.faction === 'object' ? skillVm.faction : {};
+    for (const label of Object.keys(factionObj)) {
+      const arr = Array.isArray(factionObj[label]) ? factionObj[label] : [];
+      for (const it of arr) {
+        const sid = Number(it?.id);
+        if (Number.isFinite(sid) && !skillDescById.has(sid)) {
+          skillDescById.set(sid, String(it?.description || ''));
+        }
+      }
+    }
+
+    const commonArr = Array.isArray(skillVm.common) ? skillVm.common : [];
+    for (const it of commonArr) {
+      const sid = Number(it?.id);
+      if (Number.isFinite(sid) && !skillDescById.has(sid)) {
+        skillDescById.set(sid, String(it?.description || ''));
+      }
+    }
+  }
+
+  const obj = (equipVm && typeof equipVm === 'object') ? equipVm : {};
+  const list = Object.values(obj);
+
+  const listAll = list.map((it) => {
+    const rarity = String(it?.rarity || '-');
+    const imageRel = String(it?.imageRel || '');
+
+    const stat = it?.stat || {};
+    const statType = String(stat?.label || '-');
+
+    const fixedId = Number(it?.fixed);
+    const fixedDesc = Number.isFinite(fixedId) ? (skillDescById.get(fixedId) || '') : '';
+
+    return {
+      id: it?.id,
+      imageUrl: buildAssetImageUrl(imageRel),
+      name: String(it?.name || '').trim(),
+      rarity,
+      rarityClass: `rarity-${rarity.toLowerCase()}`,
+      category: String(it?.category || '-'),
+      faction: String(it?.faction || '-'),
+      statType,
+      minValue: stat?.min ?? '-',
+      maxValue: stat?.max ?? '-',
+
+      // 목록의 “주옵션” = fixed 스킬 1개 설명으로 표시
+      mainOption: String(fixedDesc || ''),
+
+      // 확장/디버그 (필요하면 유지)
+      growthId: it?.growthId ?? null,
+      equipTagId: it?.equipTagId ?? null,
+      campTagId: it?.campTagId ?? null
+    };
+  });
+
+  return { listAll };
 }
 
 function applyEquipmentToDom(ctx) {
-  const listAll = ctx.equipIds
-    .map((id) => buildRowData(id, ctx))
+  const listAll = (ctx?.listAll || [])
     .filter((x) => x !== null)
     .filter((x) => !isInvalidGroupValue(x.category) && !isInvalidGroupValue(x.faction));
 

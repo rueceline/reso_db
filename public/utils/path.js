@@ -9,6 +9,8 @@
 // - BASE는 window.getAppBase()가 있으면 그 값을 사용한다.
 // - cache bust(쿼리)는 fetchJson(url, CACHE_BUST)에서 처리한다.
 
+import { IMAGE_EXT } from './config.js';
+
 const META_BASE = (document.querySelector('meta[name="app-base"]') && document.querySelector('meta[name="app-base"]').getAttribute('content')) || '/';
 const BASE = (window.getAppBase && window.getAppBase()) || META_BASE || '/';
 function normalizeSlash(s) {
@@ -77,6 +79,18 @@ export function uiCharacterListPath(relPath) {
 // assets/ui/common/sideicon/{relPath}
 export function uiSideIconPath(relPath) {
   return uiCommonPath(joinPath("sideicon", relPath));
+}
+
+export function buildAssetImageUrl(imageRel, ext = IMAGE_EXT) {
+  const rel0 = String(imageRel || '').trim();
+  if (!rel0) {
+    return '';
+  }
+
+  const rel = rel0.toLowerCase();
+  const e = String(ext || '').trim().toLowerCase();
+
+  return assetPath(e ? `${rel}.${e}` : rel);
 }
 
 // 점진 마이그레이션 편의: window에도 노출 (원하면 사용)

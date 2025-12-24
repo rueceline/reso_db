@@ -9,3 +9,6 @@ export const CACHE_BUST = "2025-12-18_03";
 
 // 기본 언어 (필요 시 페이지에서 override 가능)
 export const DEFAULT_LANG = "KR";
+
+// 이미지 확장자
+export const IMAGE_EXT = 'png';

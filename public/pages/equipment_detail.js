@@ -1,18 +1,15 @@
-import { 
-  dataPath
+import {
+  dataPath,
+  assetPath,
+  buildAssetImageUrl
 } from '../utils/path.js';
 
-import { 
-  TagFactory,
-  EquipmentFactory,
-  SkillFactory,
-  ListFactory,
-  GrowthFactory,
+import {
   safeNumber
 } from '../utils/data.js';
 
-import { 
-  formatColorTagsToHtml, 
+import {
+  formatColorTagsToHtml,
   getQueryParam
 } from '../utils/utils.js';
 
@@ -20,15 +17,8 @@ import { setText, setHtml, clearChildren } from '../utils/dom.js';
 
 import { DEFAULT_LANG } from '../utils/config.js';
 
-// -------------------------
-// URLs
-// -------------------------
-
-const LIST_URL = dataPath(DEFAULT_LANG, 'ListFactory.json');
-const TAG_URL = dataPath(DEFAULT_LANG, 'TagFactory.json');
-const DATA_URL = dataPath(DEFAULT_LANG, 'EquipmentFactory.json');
-const GROWTH_URL = dataPath(DEFAULT_LANG, 'GrowthFactory.json');
-const SKILL_URL = dataPath(DEFAULT_LANG, 'SkillFactory.json');
+const EQUIP_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentVM.json');
+const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentSkillVM.json');
 
 // =========================================================
 // Equipment Detail Page Script
@@ -51,44 +41,7 @@ function createOptionRow(htmlText) {
   return row;
 }
 
-function createSkillCard(skillRec, metaText, skillFactory) {
-  const card = document.createElement('div');
-  card.className = 'skill-card';
-
-  const skillName = skillFactory.resolveSkillName(skillRec);
-  if (skillName) {
-    const name = document.createElement('div');
-    name.className = 'skill-name';
-    name.textContent = skillName;
-    card.appendChild(name);
-  }
-
-  const desc = document.createElement('div');
-  desc.className = 'skill-desc';
-
-  let d = String(skillFactory.resolveSkillDesc(skillRec) || '');
-
-  // 템플릿 파라미터 치환:
-  d = d
-    .replace(/%\s*[sd]\s*%%/g, 'x%')
-    .replace(/%\s*[sd]\s*%/g, 'x%')
-    .replace(/%\s*[sd]/g, 'x');
-
-  desc.innerHTML = formatColorTagsToHtml(d);
-
-  card.appendChild(desc);
-
-  if (metaText) {
-    const meta = document.createElement('div');
-    meta.className = 'skill-meta muted';
-    meta.textContent = metaText;
-    card.appendChild(meta);
-  }
-
-  return card;
-}
-
-function setImage(src) {
+function setImageRel(src) {
   const img = document.getElementById('equip-image');
   const fallback = document.getElementById('equip-image-fallback');
   if (!img || !fallback) {
@@ -158,53 +111,99 @@ function formatFixedCountText(fixedMax) {
   return `옵션 수 1/${fixedMax}`;
 }
 
+function getFixedOptionMax(category) {
+  if (category === '장신구') {
+    return 6;
+  }
+
+  return 4;
+}
+
 // -------------------------
 // main flow
 // -------------------------
 
-async function loadEquipmentDetailData() {
-  const listFactory = new ListFactory({ listUrl: LIST_URL });
-  const tagFactory = new TagFactory({ tagUrl: TAG_URL });
-  const growthFactory = new GrowthFactory({ growthUrl: GROWTH_URL });
-  const skillFactory = new SkillFactory({ skillUrl: SKILL_URL });  
-  const equipFactory = new EquipmentFactory({ equipmentUrl: DATA_URL });  
-
-  await Promise.all([
-    tagFactory.load(),
-    growthFactory.load(), 
-    skillFactory.load(), 
-    listFactory.load()
+async function loadEquipmentDetailData(id) {
+  const [equipRes, skillRes] = await Promise.all([
+    fetch(EQUIP_VM_URL, { cache: 'force-cache' }),
+    fetch(SKILL_VM_URL, { cache: 'force-cache' })
   ]);
 
-  const tagById = tagFactory.getMap();
-  const growthById = growthFactory.getMap();
-  const skillById = skillFactory.getMap();
-  const listById = listFactory.getMap();
+  if (!equipRes.ok) {
+    throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
+  }
+  if (!skillRes.ok) {
+    throw new Error(`EquipmentSkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
+  }
 
-  equipFactory.setContext({ growthById, skillById, listById, tagById });
-  await equipFactory.buildEquipmentRecMap();
+  const equipVm = await equipRes.json();
+  const skillVm = await skillRes.json();
 
-  return { equipFactory, skillFactory, growthById };
+  const rec = equipVm ? equipVm[String(id)] : null;
+  if (!rec) {
+    throw new Error(`EquipmentVM record missing: id=${id}`);
+  }
+
+  return { vm: rec, skillVm };
 }
 
 function applyEquipmentToDom(id, ctx) {
-  const rec = ctx.equipFactory.getById(id);
-  if (!rec || !rec.raw) {
+  const vm = ctx?.vm;
+  if (!vm) {
     setText('equip-name', `장비를 찾을 수 없습니다. id=${id}`);
     return;
   }
 
-  const e = rec.raw;
-  const equipFactory = ctx.equipFactory;
-  const skillFactory = ctx.skillFactory;
+  const skillVm = ctx?.skillVm || null;
 
-  setText('equip-name', String(rec.name || '').trim() || '-');
+  const equipFaction = vm?.faction;
+  const factionSkillSet = new Set();
+  const commonSkillSet = new Set();
 
-  const rarity = rec.rarity;
-  const category = rec.category;
-  const faction = rec.faction;
+  if (skillVm && skillVm.faction && typeof skillVm.faction === 'object') {
+    const factionObj = skillVm.faction;
+
+    for (const factionName of Object.keys(factionObj)) {
+      const arr = Array.isArray(factionObj[factionName]) ? factionObj[factionName] : [];
+
+      console.log('resolving faction skills for:', factionName, arr);
+
+      for (const it of arr) {
+        const id = it?.id;
+
+        //console.log('skill faction id:', id, factionName, equipFaction, factionName === equipFaction);
+
+        if (factionName === equipFaction) {
+          factionSkillSet.add(id);
+        } else {
+          commonSkillSet.add(id);
+        }
+      }
+    }
+  }
+
+  // skillId -> description (표시용)
+  const descById = new Map();
+
+  function getSkillDescHtmlById(skillId) {
+    const d0 = String(descById.get(skillId) || '').trim();
+
+    const d = d0
+      .replace(/%\s*[sd]\s*%%/g, 'x%')
+      .replace(/%\s*[sd]\s*%/g, 'x%')
+      .replace(/%\s*[sd]/g, 'x');
+
+    return formatColorTagsToHtml(d).replace(/\r?\n/g, '<br>');
+  }
+
+  setText('equip-name', String(vm.name || '').trim() || '-');
+
+  const rarity = String(vm.rarity || '-');
+  const category = String(vm.category || '-');
+  const faction = String(vm.faction || '-');
 
   setText('equip-rarity', rarity);
+
   const rarityEl = document.getElementById('equip-rarity');
   if (rarityEl) {
     rarityEl.setAttribute('data-rarity', rarity || '-');
@@ -212,100 +211,125 @@ function applyEquipmentToDom(id, ctx) {
 
   setText('equip-meta', `분류: 장비 > ${category} · 소속: ${faction} · ID: ${id}`);
 
-  const growthId = safeNumber(e?.growthId);
-  const growth = growthId === null ? null : ctx.growthById.get(growthId) || null;
-  const stat = equipFactory.calcMainStatWithGrowth(e, growth);
+  const stat = vm.stat || {};
+  setText('equip-stat-main', String(stat.label || '-') || '-');
 
-  setText('equip-stat-main', stat.label);
-
-  const minText = stat.min !== '-' ? Number(stat.min).toLocaleString() : '-';
-  const maxText = stat.max !== '-' ? Number(stat.max).toLocaleString() : '-';
+  const minText = stat.min !== '-' && stat.min !== null && stat.min !== undefined ? Number(stat.min).toLocaleString() : '-';
+  const maxText = stat.max !== '-' && stat.max !== null && stat.max !== undefined ? Number(stat.max).toLocaleString() : '-';
   setText('equip-stat-min', minText);
   setText('equip-stat-max', maxText);
 
-  setHtml('equip-description', formatColorTagsToHtml(e?.des || e?.description || ''));
+  setHtml('equip-description', formatColorTagsToHtml(vm.description || ''));
 
-  setImage(String(rec.imageUrl || ''));
+  setImageRel(buildAssetImageUrl(vm?.imageRel));
 
-  const fixedSkills = equipFactory.resolveFixedSkills(e);
-
-  const fixedMax = equipFactory.getFixedOptionMax(category);
+  // Fixed (단일 skillId)
+  const fixedId = safeNumber(vm?.fixed);
+  // 최대 옵션 수는 카테고리 기준
+  const fixedMax = getFixedOptionMax(vm?.category);
+  // 표시는 항상 1 / fixedMax
   setText('fixed-skill-count', formatFixedCountText(fixedMax));
 
   const fixedList = document.getElementById('fixed-skill-list');
   if (fixedList) {
     clearChildren(fixedList);
 
-    if (!fixedSkills.length) {
+    if (fixedId === null) {
       const empty = document.createElement('div');
       empty.className = 'muted';
       empty.textContent = '고정 옵션 없음';
       fixedList.appendChild(empty);
     } else {
-      for (const s of fixedSkills) {
-        fixedList.appendChild(createOptionRow(formatColorTagsToHtml(skillFactory.resolveSkillDesc(s))));
-      }
+      const html = getSkillDescHtmlById(fixedId);
+      fixedList.appendChild(createOptionRow(html || '-'));
     }
   }
 
-  const acquire = normalizeAcquireText(e);
+  // Acquire
+  const acquire = String(vm.acquire || '').trim();
   const acquireEl = document.getElementById('equip-acquire');
   if (acquireEl) {
     clearChildren(acquireEl);
 
-    const line = document.createElement('div');
-    line.className = 'acquire-item';
-    line.textContent = acquire || '-';
-    acquireEl.appendChild(line);
+    const t = acquire || '-';
+    const parts = t
+      .split(/\r?\n|\/\s*/g)
+      .map((s) => String(s || '').trim())
+      .filter(Boolean);
+
+    if (!parts.length) {
+      const line = document.createElement('div');
+      line.className = 'acquire-item';
+      line.textContent = '-';
+      acquireEl.appendChild(line);
+    } else {
+      for (const p of parts) {
+        const line = document.createElement('div');
+        line.className = 'acquire-item';
+        line.textContent = p;
+        acquireEl.appendChild(line);
+      }
+    }
   }
 
-  const pools = equipFactory.getRandomPools(id);
+    // Random (skillId[] 평탄화)
+  const randomIds = Array.isArray(vm?.random) ? vm.random : [];
 
   const factionEl = document.getElementById('random-skill-faction');
   const commonEl = document.getElementById('random-skill-common');
-  if (factionEl) clearChildren(factionEl);
-  if (commonEl) clearChildren(commonEl);
 
-  let factionCount = 0;
-  let commonCount = 0;
+  if (factionEl) { clearChildren(factionEl); }
+  if (commonEl) { clearChildren(commonEl); }
 
-  for (const p of pools) {
-    for (const [label, skills] of p.faction.entries()) {
-      if (!skills.length) {
-        continue;
-      }
+  const factionIds = [];
+  const commonIds = [];
 
-      const title = document.createElement('div');
-      title.className = 'random-skill-subtitle';
-      title.textContent = `소속 - ${label}`;
-      factionEl.appendChild(title);
+  console.log('factionSkillSet:', factionSkillSet);
 
-      for (const skill of skills) {
-        factionEl.appendChild(createSkillCard(skill, '', skillFactory));
-        factionCount += 1;
-      }
-    }
-
-    for (const skill of p.common) {
-      commonEl.appendChild(createSkillCard(skill, '', skillFactory));
-      commonCount += 1;
+  for (const id of randomIds) {
+    if (factionSkillSet.has(id)) {
+      factionIds.push(id);
+    } else {
+      commonIds.push(id);
     }
   }
 
-  setText('random-skill-count', `소속 ${factionCount} / 공용 ${commonCount}`);
-
-  if (factionEl && !factionEl.childElementCount) {
-    const empty = document.createElement('div');
-    empty.className = 'muted';
-    empty.textContent = '소속 랜덤 옵션 없음';
-    factionEl.appendChild(empty);
+  // 카운트 표시
+  {
+    const el = document.getElementById('random-skill-count');
+    if (el) {
+      el.textContent = `소속 ${factionIds.length} / 공용 ${commonIds.length}`;
+    }
   }
 
-  if (commonEl && !commonEl.childElementCount) {
-    const empty = document.createElement('div');
-    empty.className = 'muted';
-    empty.textContent = '공용 랜덤 옵션 없음';
-    commonEl.appendChild(empty);
+  // 소속(장비 소속 1개만)
+  if (factionEl) {
+    if (factionIds.length) {
+      for (const sid of factionIds) {
+        const html = getSkillDescHtmlById(sid);
+        factionEl.appendChild(createOptionRow(html || `ID ${sid}`));
+      }
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'muted';
+      empty.textContent = '소속 랜덤 옵션 없음';
+      factionEl.appendChild(empty);
+    }
+  }
+
+  // 공용(그 외 전부)
+  if (commonEl) {
+    if (commonIds.length) {
+      for (const sid of commonIds) {
+        const html = getSkillDescHtmlById(sid);
+        commonEl.appendChild(createOptionRow(html || `ID ${sid}`));
+      }
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'muted';
+      empty.textContent = '공용 랜덤 옵션 없음';
+      commonEl.appendChild(empty);
+    }
   }
 }
 
@@ -316,7 +340,7 @@ async function main() {
     return;
   }
 
-  const ctx = await loadEquipmentDetailData();
+  const ctx = await loadEquipmentDetailData(id);
   applyEquipmentToDom(id, ctx);
   setupSkillExpandToggle();
 }
