@@ -1,37 +1,54 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 const BASE = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Character Detail">
   <link slot="head" rel="stylesheet" href={`${BASE}css/page-character-detail.css`} />
 
-  <main class="char-detail" data-page="character-detail">
+  <section class="page-hero" aria-label="page title">
+    <div class="hero-icon">
+      <img src={`${BASE}assets/UI/character_top.png`} alt="preview" />
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-title">캐릭터 상세</h1>
+      <p class="hero-sub">캐릭터 상세 정보를 확인하세요.</p>
+    </div>
+  </section>
+
+  <main class="container page-wrap char-detail" data-page="character-detail">
     <div id="char-error" class="char-error" hidden></div>
 
     <section class="char-hero" aria-label="캐릭터 기본 정보">
       <div class="char-hero-left" aria-label="캐릭터 이미지">
-        <img id="char-illustration" class="char-ill" alt="" loading="eager" />
-        <div class="path-line" id="char-illustration-path"></div>
+        <div class="char-hero-panels">
+          <div class="char-hero-panel char-hero-panel-ill">
+            <img id="char-illustration" class="char-ill" alt="" loading="eager" />
+          </div>
+        </div>
       </div>
 
+      <!-- 변경: char-basic1 → char-basic2 → char-quote 상→하 배치 -->
       <div class="char-hero-right">
         <div class="char-basic1" aria-label="기본 정보 1">
           <div class="char-basic1-row">
+            <!-- 좌: char-side-icon -->
             <div class="icon-col">
               <img id="char-side-icon" class="mini-icon" alt="" />
-              <div id="char-side-icon-path" class="path-line"></div>
             </div>
 
-            <div class="icon-col">
-              <img id="char-pos-icon" class="mini-icon" alt="" />
-              <div id="char-pos-icon-path" class="path-line"></div>
+            <!-- 우: 이름, char-rarity, char-pos-icon-path -->
+            <div class="icon-col" style="min-width: 0;">
+              <h1 id="char-name" class="char-name"></h1>
+
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <div id="char-rarity" class="char-rarity"></div>
+                <img id="char-pos-icon" class="mini-icon" alt="" />
+              </div>
+
+              <div id="char-name-en" class="char-name-en"></div>
             </div>
           </div>
-
-          <h1 id="char-name" class="char-name"></h1>
-          <div id="char-name-en" class="char-name-en"></div>
-          <div id="char-rarity" class="char-rarity"></div>
         </div>
 
         <div class="char-basic2" aria-label="기본 정보 2">
@@ -51,64 +68,109 @@ const BASE = import.meta.env.BASE_URL;
               <dd id="char-height">미상</dd>
             </div>
 
+            <!-- 추가 -->
             <div class="kv-row">
-              <dt>출신</dt>
-              <dd id="char-origin">미확정</dd>
+              <dt>출생지</dt>
+              <dd id="char-birthplace">미확정</dd>
+            </div>
+
+            <div class="kv-row">
+              <dt>승격 능력</dt>
+              <dd id="char-ability">미확정</dd>
+            </div>
+
+            <div class="kv-row">
+              <dt>현재 신분</dt>
+              <dd id="char-identity">미확정</dd>
             </div>
           </dl>
+        </div>
 
+        <div class="char-section">
           <div class="char-quote">
-            <div class="char-quote-label">기본 대사</div>
-            <div id="char-quote-text">미확정</div>
+            <div class="char-quote-label">경력</div>
+            <div id="char-resume-list"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <nav class="char-subnav" aria-label="섹션 이동">
-      <a href="#sec-property">属性</a>
-      <a href="#sec-skill">技能</a>
-      <a href="#sec-replenish">基础信息</a>
-      <a href="#sec-resonance">共振</a>
-      <a href="#sec-awake">觉醒</a>
-      <a href="#sec-record">角色档案</a>
-      <a href="#sec-photo">大头贴</a>
-    </nav>
+    <section class="char-tabs" aria-label="캐릭터 상세 탭">
+      <nav class="char-tabbar" role="tablist">
+        <button class="char-tab active" data-tab="property">
+          <span class="tab-ico" aria-hidden="true"></span>
+          <span class="tab-label">속성 & 정보</span>
+        </button>
 
-    <section id="sec-property" class="char-section">
-      <h2>属性 (Property)</h2>
-      <div id="char-property" class="kv-grid"></div>
+        <button class="char-tab" data-tab="skill">
+          <span class="tab-ico" aria-hidden="true"></span>
+          <span class="tab-label">스킬</span>
+        </button>
+
+        <button class="char-tab" data-tab="resonance">
+          <span class="tab-ico" aria-hidden="true"></span>
+          <span class="tab-label">공명</span>
+        </button>
+
+        <button class="char-tab" data-tab="awake">
+          <span class="tab-ico" aria-hidden="true"></span>
+          <span class="tab-label">각성</span>
+        </button>
+
+        <button class="char-tab" data-tab="skin">
+          <span class="tab-ico" aria-hidden="true"></span>
+          <span class="tab-label">스킨</span>
+        </button>
+      </nav>
+
+      <div class="char-tabpanels">
+        <div class="char-tabpanel active" data-panel="property">
+          <div class="property-layout">
+            <!-- 좌측: 속성 -->
+            <div class="property-left">
+              <div id="char-property" class="property-left"></div>
+              <div id="char-record" class="record-list"></div>
+            </div>
+
+            <!-- 우측: photo + record -->
+            <div class="property-right">
+              <div id="char-photo-grid" class="photo-grid"></div>
+              <div id="char-bento" class="bento-img"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-tabpanel" data-panel="skill">
+          <div id="char-skill-list" class="skill-list"></div>
+        </div>
+
+        <div class="char-tabpanel" data-panel="resonance">
+          <div id="char-resonance"></div>
+        </div>
+
+        <div class="char-tabpanel" data-panel="awake">
+          <div id="char-awake" class="muted"></div>
+        </div>
+
+        <div class="char-tabpanel" data-panel="record">
+          <div id="char-record" class="record-list"></div>
+        </div>
+
+        <div class="char-tabpanel" data-panel="skin">
+          <div id="char-skin-cards" class="skin-card-grid"></div>
+        </div>
+      </div>
     </section>
 
-    <section id="sec-skill" class="char-section">
-      <h2>技能 (Skill)</h2>
-      <div id="char-skill-list" class="skill-list"></div>
-    </section>
-
-    <section id="sec-replenish" class="char-section">
-      <h2>基础信息 (Replenish Info)</h2>
-      <div id="char-replenish" class="kv-grid"></div>
-    </section>
-
-    <section id="sec-resonance" class="char-section">
-      <h2>共振 (Resonance)</h2>
-      <div id="char-resonance" class="muted"></div>
-    </section>
-
-    <section id="sec-awake" class="char-section">
-      <h2>觉醒 (Awakening)</h2>
-      <div id="char-awake" class="muted"></div>
-    </section>
-
-    <section id="sec-record" class="char-section">
-      <h2>角色档案 (Record)</h2>
-      <div id="char-record" class="record-list"></div>
-    </section>
-
-    <section id="sec-photo" class="char-section">
-      <h2>大头贴 (Photo Sticker)</h2>
-      <div id="char-photo-grid" class="photo-grid"></div>
-    </section>
+    <!-- 스킨 팝업(모달) -->
+    <div id="skin-modal" class="skin-modal" hidden>
+      <div class="skin-modal-backdrop" data-close="1"></div>
+      <div class="skin-modal-dialog" role="dialog" aria-modal="true" aria-label="스킨 이미지">
+        <button type="button" class="skin-modal-close" data-close="1" aria-label="닫기">×</button>
+        <img id="skin-modal-img" class="skin-modal-img" alt="" />
+        <div id="skin-modal-title" class="skin-modal-title"></div>
+      </div>
+    </div>
   </main>
 
   <script slot="scripts" type="module" src={`${BASE}pages/character_detail.js`} defer></script>

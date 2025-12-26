@@ -5,7 +5,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/18",
+    "imageRel": "item/weapon/xuehui/big/18",
     "fixed": 12301048,
     "random": [
       12300790,
@@ -101,7 +101,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/10",
+    "imageRel": "item/weapon/diguo/big/10",
     "fixed": 12300002,
     "random": [
       12300833,
@@ -176,7 +176,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/19",
+    "imageRel": "item/weapon/xuehui/big/19",
     "fixed": 12300191,
     "random": [
       12300790,
@@ -272,7 +272,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/19",
+    "imageRel": "item/weapon/anita/big/19",
     "fixed": 12300894,
     "random": [
       12301144,
@@ -345,7 +345,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/17",
+    "imageRel": "item/weapon/heiyue/big/17",
     "fixed": 12300061,
     "random": [
       12300784,
@@ -420,7 +420,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/20",
+    "imageRel": "item/weapon/tiemeng/big/20",
     "fixed": 12300983,
     "random": [
       12300155,
@@ -499,7 +499,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/20",
+    "imageRel": "item/weapon/xuehui/big/20",
     "fixed": 12301143,
     "random": [
       12300791,
@@ -571,7 +571,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/20",
+    "imageRel": "item/weapon/xuehui/big/20",
     "fixed": 12301153,
     "random": [
       12300791,
@@ -643,7 +643,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/25",
+    "imageRel": "item/weapon/zapai/big/25",
     "fixed": 12301717,
     "random": [
       12300771,
@@ -725,7 +725,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/21",
+    "imageRel": "item/weapon/heiyue/big/21",
     "fixed": 12302033,
     "random": [
       12300769,
@@ -809,7 +809,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/23",
+    "imageRel": "item/weapon/zapai/big/23",
     "fixed": 12301718,
     "random": [
       12300771,
@@ -887,7 +887,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/26",
+    "imageRel": "item/weapon/zapai/big/26",
     "fixed": 12300291,
     "random": [
       12300771,
@@ -965,7 +965,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/23",
+    "imageRel": "item/weapon/heiyue/big/23",
     "fixed": 12302012,
     "random": [
       12300784,
@@ -1040,7 +1040,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/22",
+    "imageRel": "item/weapon/heiyue/big/22",
     "fixed": 12302041,
     "random": [
       12300772,
@@ -1138,7 +1138,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/Heiyue/Big/20",
+    "imageRel": "item/weapon/heiyue/big/20",
     "fixed": 12302034,
     "random": [
       12300771,
@@ -1216,7 +1216,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/18",
+    "imageRel": "item/weapon/heiyue/big/18",
     "fixed": 12302042,
     "random": [
       12300772,
@@ -1314,7 +1314,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/Heiyue/Big/19",
+    "imageRel": "item/weapon/heiyue/big/19",
     "fixed": 12302035,
     "random": [
       12300771,
@@ -1396,7 +1396,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/28",
+    "imageRel": "item/weapon/zapai/big/28",
     "fixed": 12302111,
     "random": [
       12300771,
@@ -1478,7 +1478,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/31",
+    "imageRel": "item/weapon/diguo/big/31",
     "fixed": 12303466,
     "random": [
       12300838,
@@ -1562,7 +1562,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/Tiemeng/Big/21",
+    "imageRel": "item/weapon/tiemeng/big/21",
     "fixed": 12300001,
     "random": [
       12300771,
@@ -1659,7 +1659,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/24",
+    "imageRel": "item/weapon/zapai/big/24",
     "fixed": 12300317,
     "random": [
       12300771,
@@ -1737,7 +1737,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/28",
+    "imageRel": "item/weapon/xuehui/big/28",
     "fixed": 12302206,
     "random": [
       12300792,
@@ -1816,7 +1816,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/01",
+    "imageRel": "item/weapon/tiemeng/big/01",
     "fixed": 12301170,
     "random": [
       12300155,
@@ -1895,7 +1895,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/21",
+    "imageRel": "item/weapon/xuehui/big/21",
     "fixed": 12301979,
     "random": [
       12300791,
@@ -1967,7 +1967,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/12",
+    "imageRel": "item/weapon/tiemeng/big/12",
     "fixed": 12301181,
     "random": [
       12300155,
@@ -2046,7 +2046,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/23",
+    "imageRel": "item/weapon/xuehui/big/23",
     "fixed": 12301980,
     "random": [
       12300791,
@@ -2118,7 +2118,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/17",
+    "imageRel": "item/weapon/tiemeng/big/17",
     "fixed": 12301185,
     "random": [
       12300155,
@@ -2197,7 +2197,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/22",
+    "imageRel": "item/weapon/xuehui/big/22",
     "fixed": 12301991,
     "random": [
       12300792,
@@ -2276,7 +2276,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/19",
+    "imageRel": "item/weapon/tiemeng/big/19",
     "fixed": 12301187,
     "random": [
       12300155,
@@ -2375,7 +2375,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/01",
+    "imageRel": "item/weapon/anita/big/01",
     "fixed": 12300958,
     "random": [
       12301144,
@@ -2448,7 +2448,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/01",
+    "imageRel": "item/weapon/xuehui/big/01",
     "fixed": 12301017,
     "random": [
       12300791,
@@ -2520,7 +2520,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/01",
+    "imageRel": "item/weapon/diguo/big/01",
     "fixed": 12301052,
     "random": [
       12300833,
@@ -2595,7 +2595,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/01",
+    "imageRel": "item/weapon/heiyue/big/01",
     "fixed": 12301033,
     "random": [
       12300784,
@@ -2670,7 +2670,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/02",
+    "imageRel": "item/weapon/anita/big/02",
     "fixed": 12300951,
     "random": [
       12301144,
@@ -2743,7 +2743,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/30",
+    "imageRel": "item/weapon/xuehui/big/30",
     "fixed": 12302011,
     "random": [
       12300792,
@@ -2822,7 +2822,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/22",
+    "imageRel": "item/weapon/tiemeng/big/22",
     "fixed": 12302043,
     "random": [
       12300155,
@@ -2921,7 +2921,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/27",
+    "imageRel": "item/weapon/zapai/big/27",
     "fixed": 12302049,
     "random": [
       12300771,
@@ -3018,7 +3018,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/02",
+    "imageRel": "item/weapon/tiemeng/big/02",
     "fixed": 12301171,
     "random": [
       12300155,
@@ -3097,7 +3097,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/04",
+    "imageRel": "item/weapon/tiemeng/big/04",
     "fixed": 12301173,
     "random": [
       12300155,
@@ -3196,7 +3196,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/15",
+    "imageRel": "item/weapon/tiemeng/big/15",
     "fixed": 12301184,
     "random": [
       12300155,
@@ -3275,7 +3275,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/05",
+    "imageRel": "item/weapon/tiemeng/big/05",
     "fixed": 12301174,
     "random": [
       12300155,
@@ -3374,7 +3374,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/06",
+    "imageRel": "item/weapon/tiemeng/big/06",
     "fixed": 12301175,
     "random": [
       12300155,
@@ -3473,7 +3473,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/16",
+    "imageRel": "item/weapon/tiemeng/big/16",
     "fixed": 12301186,
     "random": [
       12300155,
@@ -3557,7 +3557,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/24",
+    "imageRel": "item/weapon/heiyue/big/24",
     "fixed": 12302057,
     "random": [
       12300769,
@@ -3641,7 +3641,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/27",
+    "imageRel": "item/weapon/heiyue/big/27",
     "fixed": 12302058,
     "random": [
       12300772,
@@ -3739,7 +3739,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/30",
+    "imageRel": "item/weapon/zapai/big/30",
     "fixed": 12302064,
     "random": [
       12300771,
@@ -3836,7 +3836,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/29",
+    "imageRel": "item/weapon/xuehui/big/29",
     "fixed": 12302086,
     "random": [
       12300791,
@@ -3908,7 +3908,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/17",
+    "imageRel": "item/weapon/diguo/big/17",
     "fixed": 12302088,
     "random": [
       12300833,
@@ -3983,7 +3983,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/23",
+    "imageRel": "item/weapon/tiemeng/big/23",
     "fixed": 12302090,
     "random": [
       12300155,
@@ -4067,7 +4067,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/25",
+    "imageRel": "item/weapon/tiemeng/big/25",
     "fixed": 12302091,
     "random": [
       12300155,
@@ -4151,7 +4151,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/25",
+    "imageRel": "item/weapon/heiyue/big/25",
     "fixed": 12302092,
     "random": [
       12300769,
@@ -4235,7 +4235,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/22",
+    "imageRel": "item/weapon/anita/big/22",
     "fixed": 12302093,
     "random": [
       12301144,
@@ -4315,7 +4315,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/25",
+    "imageRel": "item/weapon/diguo/big/25",
     "fixed": 12302094,
     "random": [
       12300838,
@@ -4399,7 +4399,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/26",
+    "imageRel": "item/weapon/xuehui/big/26",
     "fixed": 12302095,
     "random": [
       12300792,
@@ -4478,7 +4478,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/24",
+    "imageRel": "item/weapon/xuehui/big/24",
     "fixed": 12302096,
     "random": [
       12300790,
@@ -4574,7 +4574,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/24",
+    "imageRel": "item/weapon/diguo/big/24",
     "fixed": 12302097,
     "random": [
       12300833,
@@ -4649,7 +4649,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/26",
+    "imageRel": "item/weapon/heiyue/big/26",
     "fixed": 12302098,
     "random": [
       12300784,
@@ -4724,7 +4724,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/23",
+    "imageRel": "item/weapon/anita/big/23",
     "fixed": 12302099,
     "random": [
       12301144,
@@ -4797,7 +4797,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/24",
+    "imageRel": "item/weapon/tiemeng/big/24",
     "fixed": 12302100,
     "random": [
       12300155,
@@ -4876,7 +4876,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/25",
+    "imageRel": "item/weapon/xuehui/big/25",
     "fixed": 12302101,
     "random": [
       12300791,
@@ -4948,7 +4948,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/21",
+    "imageRel": "item/weapon/anita/big/21",
     "fixed": 12302102,
     "random": [
       12301144,
@@ -5021,7 +5021,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/27",
+    "imageRel": "item/weapon/xuehui/big/27",
     "fixed": 12302113,
     "random": [
       12300790,
@@ -5117,7 +5117,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/28",
+    "imageRel": "item/weapon/heiyue/big/28",
     "fixed": 12302217,
     "random": [
       12300769,
@@ -5201,7 +5201,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/29",
+    "imageRel": "item/weapon/zapai/big/29",
     "fixed": 12302276,
     "random": [
       12300771,
@@ -5298,7 +5298,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/26",
+    "imageRel": "item/weapon/diguo/big/26",
     "fixed": 12303408,
     "random": [
       12300833,
@@ -5400,7 +5400,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/27",
+    "imageRel": "item/weapon/diguo/big/27",
     "fixed": 12303461,
     "random": [
       12300833,
@@ -5475,7 +5475,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/28",
+    "imageRel": "item/weapon/diguo/big/28",
     "fixed": 12303462,
     "random": [
       12300833,
@@ -5577,7 +5577,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/29",
+    "imageRel": "item/weapon/diguo/big/29",
     "fixed": 12303463,
     "random": [
       12300838,
@@ -5661,7 +5661,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/30_500",
+    "imageRel": "item/weapon/diguo/big/30_500",
     "fixed": 12302087,
     "random": [
       12300833,
@@ -5763,7 +5763,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/33",
+    "imageRel": "item/weapon/xuehui/big/33",
     "fixed": 12303543,
     "random": [
       12300791,
@@ -5835,7 +5835,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/32",
+    "imageRel": "item/weapon/diguo/big/32",
     "fixed": 12303793,
     "random": [
       12300833,
@@ -5910,7 +5910,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/33",
+    "imageRel": "item/weapon/diguo/big/33",
     "fixed": 12303843,
     "random": [
       12300838,
@@ -5994,7 +5994,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/31",
+    "imageRel": "item/weapon/xuehui/big/31",
     "fixed": 12303856,
     "random": [
       12300791,
@@ -6066,7 +6066,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/24",
+    "imageRel": "item/weapon/anita/big/24",
     "fixed": 12300725,
     "random": [
       12301144,
@@ -6161,7 +6161,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/34",
+    "imageRel": "item/weapon/xuehui/big/34",
     "fixed": 12304325,
     "random": [
       12300792,
@@ -6240,7 +6240,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/32",
+    "imageRel": "item/weapon/xuehui/big/32",
     "fixed": 12304324,
     "random": [
       12300791,
@@ -6312,7 +6312,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/34",
+    "imageRel": "item/weapon/diguo/big/34",
     "fixed": 12304326,
     "random": [
       12300833,
@@ -6414,7 +6414,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/07",
+    "imageRel": "item/weapon/tiemeng/big/07",
     "fixed": 12301176,
     "random": [
       12300155,
@@ -6493,7 +6493,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/08",
+    "imageRel": "item/weapon/tiemeng/big/08",
     "fixed": 12301177,
     "random": [
       12300155,
@@ -6572,7 +6572,7 @@
     "rarity": "SR",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/09",
+    "imageRel": "item/weapon/tiemeng/big/09",
     "fixed": 12301178,
     "random": [
       12300155,
@@ -6656,7 +6656,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/10",
+    "imageRel": "item/weapon/tiemeng/big/10",
     "fixed": 12301179,
     "random": [
       12300155,
@@ -6755,7 +6755,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/11",
+    "imageRel": "item/weapon/tiemeng/big/11",
     "fixed": 12301180,
     "random": [
       12300155,
@@ -6834,7 +6834,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/13",
+    "imageRel": "item/weapon/tiemeng/big/13",
     "fixed": 12301182,
     "random": [
       12300155,
@@ -6918,7 +6918,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/14",
+    "imageRel": "item/weapon/tiemeng/big/14",
     "fixed": 12301183,
     "random": [
       12300155,
@@ -7017,7 +7017,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "철도연맹",
-    "imageRel": "Item/weapon/Tiemeng/Big/03",
+    "imageRel": "item/weapon/tiemeng/big/03",
     "fixed": 12301172,
     "random": [
       12300155,
@@ -7101,7 +7101,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/03",
+    "imageRel": "item/weapon/anita/big/03",
     "fixed": 12300952,
     "random": [
       12301144,
@@ -7181,7 +7181,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/04",
+    "imageRel": "item/weapon/anita/big/04",
     "fixed": 12300934,
     "random": [
       12301144,
@@ -7276,7 +7276,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/05",
+    "imageRel": "item/weapon/anita/big/05",
     "fixed": 12300947,
     "random": [
       12301144,
@@ -7349,7 +7349,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/06",
+    "imageRel": "item/weapon/anita/big/06",
     "fixed": 12300944,
     "random": [
       12301144,
@@ -7422,7 +7422,7 @@
     "rarity": "SR",
     "category": "방어구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/07",
+    "imageRel": "item/weapon/anita/big/07",
     "fixed": 12300956,
     "random": [
       12301144,
@@ -7502,7 +7502,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/08",
+    "imageRel": "item/weapon/anita/big/08",
     "fixed": 12300990,
     "random": [
       12301144,
@@ -7597,7 +7597,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/09",
+    "imageRel": "item/weapon/anita/big/09",
     "fixed": 12301014,
     "random": [
       12301144,
@@ -7670,7 +7670,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/10",
+    "imageRel": "item/weapon/anita/big/10",
     "fixed": 12301016,
     "random": [
       12301144,
@@ -7743,7 +7743,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/11",
+    "imageRel": "item/weapon/anita/big/11",
     "fixed": 12300991,
     "random": [
       12301144,
@@ -7823,7 +7823,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/12",
+    "imageRel": "item/weapon/anita/big/12",
     "fixed": 12301015,
     "random": [
       12301144,
@@ -7918,7 +7918,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/13",
+    "imageRel": "item/weapon/anita/big/13",
     "fixed": 12300708,
     "random": [
       12301144,
@@ -7991,7 +7991,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/14",
+    "imageRel": "item/weapon/anita/big/14",
     "fixed": 12301486,
     "random": [
       12301144,
@@ -8064,7 +8064,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/16",
+    "imageRel": "item/weapon/anita/big/16",
     "fixed": 12300706,
     "random": [
       12301144,
@@ -8159,7 +8159,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/02",
+    "imageRel": "item/weapon/xuehui/big/02",
     "fixed": 12301018,
     "random": [
       12300791,
@@ -8231,7 +8231,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/03",
+    "imageRel": "item/weapon/xuehui/big/03",
     "fixed": 12301019,
     "random": [
       12300792,
@@ -8310,7 +8310,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/04",
+    "imageRel": "item/weapon/xuehui/big/04",
     "fixed": 12301020,
     "random": [
       12300790,
@@ -8406,7 +8406,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/05",
+    "imageRel": "item/weapon/xuehui/big/05",
     "fixed": 12301021,
     "random": [
       12300791,
@@ -8478,7 +8478,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/06",
+    "imageRel": "item/weapon/xuehui/big/06",
     "fixed": 12301022,
     "random": [
       12300791,
@@ -8550,7 +8550,7 @@
     "rarity": "SR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/07",
+    "imageRel": "item/weapon/xuehui/big/07",
     "fixed": 12301023,
     "random": [
       12300792,
@@ -8629,7 +8629,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/08",
+    "imageRel": "item/weapon/xuehui/big/08",
     "fixed": 12301024,
     "random": [
       12300790,
@@ -8725,7 +8725,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/09",
+    "imageRel": "item/weapon/xuehui/big/09",
     "fixed": 12301025,
     "random": [
       12300791,
@@ -8797,7 +8797,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/10",
+    "imageRel": "item/weapon/xuehui/big/10",
     "fixed": 12301026,
     "random": [
       12300791,
@@ -8869,7 +8869,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/11",
+    "imageRel": "item/weapon/xuehui/big/11",
     "fixed": 12301027,
     "random": [
       12300792,
@@ -8948,7 +8948,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/12",
+    "imageRel": "item/weapon/xuehui/big/12",
     "fixed": 12300006,
     "random": [
       12300790,
@@ -9044,7 +9044,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/13",
+    "imageRel": "item/weapon/xuehui/big/13",
     "fixed": 12301029,
     "random": [
       12300791,
@@ -9116,7 +9116,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/14",
+    "imageRel": "item/weapon/xuehui/big/14",
     "fixed": 12300896,
     "random": [
       12300791,
@@ -9188,7 +9188,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/15",
+    "imageRel": "item/weapon/xuehui/big/15",
     "fixed": 12301031,
     "random": [
       12300792,
@@ -9267,7 +9267,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/16",
+    "imageRel": "item/weapon/xuehui/big/16",
     "fixed": 12301032,
     "random": [
       12300790,
@@ -9363,7 +9363,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/02",
+    "imageRel": "item/weapon/diguo/big/02",
     "fixed": 12301053,
     "random": [
       12300833,
@@ -9438,7 +9438,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/03",
+    "imageRel": "item/weapon/diguo/big/03",
     "fixed": 12301054,
     "random": [
       12300838,
@@ -9522,7 +9522,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/04",
+    "imageRel": "item/weapon/diguo/big/04",
     "fixed": 12301055,
     "random": [
       12300833,
@@ -9624,7 +9624,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/05",
+    "imageRel": "item/weapon/diguo/big/05",
     "fixed": 12301056,
     "random": [
       12300833,
@@ -9699,7 +9699,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/06",
+    "imageRel": "item/weapon/diguo/big/06",
     "fixed": 12301057,
     "random": [
       12300833,
@@ -9774,7 +9774,7 @@
     "rarity": "SR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/07",
+    "imageRel": "item/weapon/diguo/big/07",
     "fixed": 12301058,
     "random": [
       12300838,
@@ -9858,7 +9858,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/08",
+    "imageRel": "item/weapon/diguo/big/08",
     "fixed": 12301059,
     "random": [
       12300833,
@@ -9960,7 +9960,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/09",
+    "imageRel": "item/weapon/diguo/big/09",
     "fixed": 12301060,
     "random": [
       12300833,
@@ -10035,7 +10035,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/11",
+    "imageRel": "item/weapon/diguo/big/11",
     "fixed": 12301061,
     "random": [
       12300833,
@@ -10110,7 +10110,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/12",
+    "imageRel": "item/weapon/diguo/big/12",
     "fixed": 12301062,
     "random": [
       12300838,
@@ -10194,7 +10194,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/13",
+    "imageRel": "item/weapon/diguo/big/13",
     "fixed": 12301063,
     "random": [
       12300833,
@@ -10296,7 +10296,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/14",
+    "imageRel": "item/weapon/diguo/big/14",
     "fixed": 12302146,
     "random": [
       12300833,
@@ -10371,7 +10371,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/15",
+    "imageRel": "item/weapon/diguo/big/15",
     "fixed": 12301064,
     "random": [
       12300833,
@@ -10446,7 +10446,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/17",
+    "imageRel": "item/weapon/diguo/big/17",
     "fixed": 12301066,
     "random": [
       12300838,
@@ -10530,7 +10530,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/18",
+    "imageRel": "item/weapon/diguo/big/18",
     "fixed": 12301067,
     "random": [
       12300833,
@@ -10632,7 +10632,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/02",
+    "imageRel": "item/weapon/heiyue/big/02",
     "fixed": 12301034,
     "random": [
       12300784,
@@ -10707,7 +10707,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/03",
+    "imageRel": "item/weapon/heiyue/big/03",
     "fixed": 12301035,
     "random": [
       12300769,
@@ -10791,7 +10791,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/04",
+    "imageRel": "item/weapon/heiyue/big/04",
     "fixed": 12301036,
     "random": [
       12300772,
@@ -10889,7 +10889,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/05",
+    "imageRel": "item/weapon/heiyue/big/05",
     "fixed": 12301040,
     "random": [
       12300784,
@@ -10964,7 +10964,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/06",
+    "imageRel": "item/weapon/heiyue/big/06",
     "fixed": 12301041,
     "random": [
       12300784,
@@ -11039,7 +11039,7 @@
     "rarity": "SR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/07",
+    "imageRel": "item/weapon/heiyue/big/07",
     "fixed": 12301042,
     "random": [
       12300769,
@@ -11123,7 +11123,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/08",
+    "imageRel": "item/weapon/heiyue/big/08",
     "fixed": 12301043,
     "random": [
       12300772,
@@ -11221,7 +11221,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/09",
+    "imageRel": "item/weapon/heiyue/big/09",
     "fixed": 12301044,
     "random": [
       12300784,
@@ -11296,7 +11296,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/10",
+    "imageRel": "item/weapon/heiyue/big/10",
     "fixed": 12301045,
     "random": [
       12300784,
@@ -11371,7 +11371,7 @@
     "rarity": "SSR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/11",
+    "imageRel": "item/weapon/heiyue/big/11",
     "fixed": 12301046,
     "random": [
       12300769,
@@ -11455,7 +11455,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/12",
+    "imageRel": "item/weapon/heiyue/big/12",
     "fixed": 12301047,
     "random": [
       12300772,
@@ -11553,7 +11553,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/13",
+    "imageRel": "item/weapon/heiyue/big/13",
     "fixed": 12301743,
     "random": [
       12300784,
@@ -11628,7 +11628,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/14",
+    "imageRel": "item/weapon/heiyue/big/14",
     "fixed": 12301049,
     "random": [
       12300784,
@@ -11703,7 +11703,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/15",
+    "imageRel": "item/weapon/heiyue/big/15",
     "fixed": 12301050,
     "random": [
       12300769,
@@ -11787,7 +11787,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "흑월",
-    "imageRel": "Item/weapon/Heiyue/Big/16",
+    "imageRel": "item/weapon/heiyue/big/16",
     "fixed": 12301051,
     "random": [
       12300772,
@@ -11885,7 +11885,7 @@
     "rarity": "UR",
     "category": "방어구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/15",
+    "imageRel": "item/weapon/anita/big/15",
     "fixed": 12300742,
     "random": [
       12301144,
@@ -11965,7 +11965,7 @@
     "rarity": "UR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/01",
+    "imageRel": "item/weapon/zapai/big/01",
     "fixed": 12301068,
     "random": [
       12300771,
@@ -12062,7 +12062,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "소스 시타델",
-    "imageRel": "Item/weapon/Xuehui/Big/17",
+    "imageRel": "item/weapon/xuehui/big/17",
     "fixed": 12301069,
     "random": [
       12300791,
@@ -12134,7 +12134,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/10",
+    "imageRel": "item/weapon/zapai/big/10",
     "fixed": 12301070,
     "random": [
       12300771,
@@ -12212,7 +12212,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/21",
+    "imageRel": "item/weapon/diguo/big/21",
     "fixed": 12301071,
     "random": [
       12300833,
@@ -12287,7 +12287,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/11",
+    "imageRel": "item/weapon/zapai/big/11",
     "fixed": 12301072,
     "random": [
       12300771,
@@ -12365,7 +12365,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/22",
+    "imageRel": "item/weapon/diguo/big/22",
     "fixed": 12301073,
     "random": [
       12300833,
@@ -12440,7 +12440,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/20",
+    "imageRel": "item/weapon/diguo/big/20",
     "fixed": 12301074,
     "random": [
       12300833,
@@ -12515,7 +12515,7 @@
     "rarity": "SSR",
     "category": "무기",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/19",
+    "imageRel": "item/weapon/diguo/big/19",
     "fixed": 12301075,
     "random": [
       12300833,
@@ -12590,7 +12590,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/09",
+    "imageRel": "item/weapon/zapai/big/09",
     "fixed": 12301076,
     "random": [
       12300771,
@@ -12687,7 +12687,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/02",
+    "imageRel": "item/weapon/zapai/big/02",
     "fixed": 12301077,
     "random": [
       12300771,
@@ -12784,7 +12784,7 @@
     "rarity": "R",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/03",
+    "imageRel": "item/weapon/zapai/big/03",
     "fixed": 12301078,
     "random": [
       12300771,
@@ -12881,7 +12881,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/04",
+    "imageRel": "item/weapon/zapai/big/04",
     "fixed": 12301079,
     "random": [
       12300771,
@@ -12978,7 +12978,7 @@
     "rarity": "R",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/05",
+    "imageRel": "item/weapon/zapai/big/05",
     "fixed": 12301080,
     "random": [
       12300771,
@@ -13056,7 +13056,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/06",
+    "imageRel": "item/weapon/zapai/big/06",
     "fixed": 12301081,
     "random": [
       12300771,
@@ -13153,7 +13153,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/22",
+    "imageRel": "item/weapon/zapai/big/22",
     "fixed": 12301082,
     "random": [
       12300771,
@@ -13231,7 +13231,7 @@
     "rarity": "SR",
     "category": "무기",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/07",
+    "imageRel": "item/weapon/zapai/big/07",
     "fixed": 12301083,
     "random": [
       12300771,
@@ -13309,7 +13309,7 @@
     "rarity": "R",
     "category": "방어구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/08",
+    "imageRel": "item/weapon/zapai/big/08",
     "fixed": 12301084,
     "random": [
       12300771,
@@ -13391,7 +13391,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "혼돈해",
-    "imageRel": "Item/weapon/zapai/Big/17",
+    "imageRel": "item/weapon/zapai/big/17",
     "fixed": 12301085,
     "random": [
       12300771,
@@ -13488,7 +13488,7 @@
     "rarity": "SR",
     "category": "장신구",
     "faction": "문두스 제국",
-    "imageRel": "Item/weapon/Diguo/Big/23",
+    "imageRel": "item/weapon/diguo/big/23",
     "fixed": 12301086,
     "random": [
       12300833,
@@ -13590,7 +13590,7 @@
     "rarity": "SSR",
     "category": "장신구",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/18",
+    "imageRel": "item/weapon/anita/big/18",
     "fixed": 12301087,
     "random": [
       12301144,
@@ -13685,7 +13685,7 @@
     "rarity": "UR",
     "category": "무기",
     "faction": "아니타",
-    "imageRel": "Item/weapon/Anita/Big/17",
+    "imageRel": "item/weapon/anita/big/17",
     "fixed": 12301088,
     "random": [
       12301144,

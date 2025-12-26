@@ -1,0 +1,54 @@
+{
+    "UnitFactory": {
+        "pk": "id",
+        "fields": {
+            "id": "int",
+            "name": "string",
+            "rarity": "int",
+            "position": "int",
+            "sideId": "int (FK TagFactory.id)",
+            "growthId": "int (FK GrowthFactory.id)",
+            "controllerId": "int (FK ControllerFactory.id)",
+            "viewId": "int (FK UnitViewFactory.id)",
+            "tagList": [
+                {
+                    "tagId": "int (FK TagFactory.id)"
+                }
+            ],
+            "skillList": [
+                {
+                    "skillId": "int (FK SkillFactory.id)"
+                }
+            ],
+            "awakeList": [
+                {
+                    "awakeId": "int (FK AwakeFactory.id)"
+                }
+            ],
+            "stats": {
+                "hp": "int",
+                "atk": "int",
+                "def": "int",
+                "spd": "int"
+            },
+            "resonance": "미확정",
+            "dialogue": "미확정",
+            "textImagePath": "미확정",
+            "audioClip": "미확정"
+        }
+    },
+    "UnitViewFactory": {
+        "pk": "id",
+        "fields": {
+            "id": "int",
+            "character": "int (FK UnitFactory.id)",
+            "profilePhotoID": "int (FK ProfilePhotoFactory.id)",
+            "shadowID": "int (FK EffectFactory.id)",
+            "SpineIdleListId": "int (FK ListFactory.id)",
+            "gachaVoice": "미확정",
+            "mainUIVoice": "미확정",
+            "ownExclusiveVoice": "미확정",
+            "exchangeSoundList": "미확정"
+        }
+    }
+}

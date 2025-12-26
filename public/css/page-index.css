@@ -176,7 +176,7 @@
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.55),
       /* ← 투명도 조절 핵심 */
-      rgba(0, 0, 0, 0.55)), url("../assets/ui/main_bg3.png");
+      rgba(0, 0, 0, 0.55)), url("../assets/UI/main_bg3.png");
 
   background-repeat: no-repeat;
   background-position: center top;

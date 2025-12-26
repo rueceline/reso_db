@@ -52,7 +52,7 @@
   /* 기존 inset: 0; / inset: 8px; 중복 → 8px 하나로 통일 */
   inset: 8px;
 
-  background-image: url("../assets/ui/common/island_btm_icon.png");
+  background-image: url("../assets/UI/Common/island_btm_icon.png");
   background-repeat: no-repeat;
   background-position: center;
 
@@ -251,7 +251,7 @@
 
 .option-row {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   align-items: start;
 }
@@ -284,10 +284,10 @@
 }
 
 .acquire-item {
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 14px;
-  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
 }
 
 /* 랜덤 스킬 목록 */
@@ -304,6 +304,23 @@
   display: grid;
   gap: 10px;
 }
+
+.skill-list.is-table {
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.skill-list.is-table .opt-table-row {
+  padding: 10px 12px;
+}
+
+.skill-list.is-table .opt-table-row + .opt-table-row {
+  border-top: 1px solid var(--border);
+}
+
 
 .skill-card {
   border: 1px solid var(--border);
@@ -380,4 +397,60 @@
 
 #fixed-skill-list .option-row {
   grid-template-columns: 1fr;
+}
+
+.skill-body{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto;
+  gap: 8px 10px;
+  align-items: start;
+  grid-template-areas:
+    "icon title"
+    "meta detail";
+}
+
+.skill-icon{ grid-area: icon; }
+
+.skill-title{ grid-area: title; }
+
+.skill-meta{ grid-area: meta; }
+
+.skill-detail{ grid-area: detail; }
+
+.skill-title{
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.skill-meta{
+  display: grid;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.skill-meta-item{
+  white-space: nowrap;
+}
+
+.skill-detail{
+  display: grid;
+  gap: 6px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.skill-detail-text{
+  white-space: pre-wrap;
+}
+
+.skill-desc{
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+.skill-sublist{
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+  grid-column: 1 / -1;
 }

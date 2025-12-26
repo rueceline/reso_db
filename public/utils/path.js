@@ -53,7 +53,7 @@ export function pagePath(rel) {
 
 // assets/ui/{relPath}
 export function uiImagePath(relPath) {
-  return assetPath(joinPath("ui", relPath));
+  return assetPath(joinPath("UI", relPath));
 }
 
 // assets/book/{relPath}
@@ -68,7 +68,7 @@ export function showCharacterPath(relPath) {
 
 // assets/ui/common/{relPath}
 export function uiCommonPath(relPath) {
-  return assetPath(joinPath("ui/common", relPath));
+  return assetPath(joinPath("UI/Common", relPath));
 }
 
 // assets/ui/common/characterlist/{relPath}
@@ -81,16 +81,17 @@ export function uiSideIconPath(relPath) {
   return uiCommonPath(joinPath("sideicon", relPath));
 }
 
-export function buildAssetImageUrl(imageRel, ext = IMAGE_EXT) {
-  const rel0 = String(imageRel || '').trim();
-  if (!rel0) {
-    return '';
-  }
+// buildAssetImageUrl
+// - 입력 rel에는 확장자를 포함하지 않는다
+// - 확장자는 IMAGE_EXT 상수만 사용한다
+// - 경로의 대소문자는 원본을 유지한다
+export function buildAssetImageUrl(rel) {
+  const r = String(rel || "").trim();
+  if (!r) return "";
 
-  const rel = rel0.toLowerCase();
-  const e = String(ext || '').trim().toLowerCase();
-
-  return assetPath(e ? `${rel}.${e}` : rel);
+  // 입력 rel에는 ext를 허용하지 않음
+  // 항상 IMAGE_EXT를 단독으로 붙인다
+  return assetPath(`${r}.${IMAGE_EXT}`);
 }
 
 // 점진 마이그레이션 편의: window에도 노출 (원하면 사용)

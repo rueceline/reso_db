@@ -1,19 +1,7 @@
-import {
-  dataPath,
-  assetPath,
-  buildAssetImageUrl
-} from '../utils/path.js';
-
-import {
-  safeNumber
-} from '../utils/data.js';
-
-import {
-  formatColorTagsToHtml,
-  getQueryParam
-} from '../utils/utils.js';
-
+import { dataPath, buildAssetImageUrl } from '../utils/path.js';
+import { getQueryParam, formatTextWithParamsToHtml } from '../utils/utils.js';
 import { setText, setHtml, clearChildren } from '../utils/dom.js';
+import { safeNumber } from '../utils/data.js';
 
 import { DEFAULT_LANG } from '../utils/config.js';
 
@@ -32,6 +20,18 @@ const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentSkillVM.json');
 function createOptionRow(htmlText) {
   const row = document.createElement('div');
   row.className = 'option-row';
+
+  const body = document.createElement('div');
+  body.className = 'opt-body';
+  body.innerHTML = htmlText;
+
+  row.appendChild(body);
+  return row;
+}
+
+function createSkillTableRow(htmlText) {
+  const row = document.createElement('div');
+  row.className = 'opt-table-row';
 
   const body = document.createElement('div');
   body.className = 'opt-body';
@@ -90,23 +90,6 @@ function setupSkillExpandToggle() {
   });
 }
 
-function normalizeAcquireText(e) {
-  const gw = e?.Getway;
-  if (Array.isArray(gw)) {
-    const names = [];
-    for (const it of gw) {
-      const s = String(it?.DisplayName ?? '').trim();
-      if (s) {
-        names.push(s);
-      }
-    }
-    return names.join(' / ');
-  }
-
-  const t = String(e?.obtain ?? e?.acquire ?? e?.getPath ?? e?.gain ?? '').trim();
-  return t;
-}
-
 function formatFixedCountText(fixedMax) {
   return `옵션 수 1/${fixedMax}`;
 }
@@ -124,10 +107,7 @@ function getFixedOptionMax(category) {
 // -------------------------
 
 async function loadEquipmentDetailData(id) {
-  const [equipRes, skillRes] = await Promise.all([
-    fetch(EQUIP_VM_URL, { cache: 'force-cache' }),
-    fetch(SKILL_VM_URL, { cache: 'force-cache' })
-  ]);
+  const [equipRes, skillRes] = await Promise.all([fetch(EQUIP_VM_URL, { cache: 'force-cache' }), fetch(SKILL_VM_URL, { cache: 'force-cache' })]);
 
   if (!equipRes.ok) {
     throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
@@ -160,22 +140,26 @@ function applyEquipmentToDom(id, ctx) {
   const factionSkillSet = new Set();
   const commonSkillSet = new Set();
 
-  if (skillVm && skillVm.faction && typeof skillVm.faction === 'object') {
-    const factionObj = skillVm.faction;
-
-    for (const factionName of Object.keys(factionObj)) {
-      const arr = Array.isArray(factionObj[factionName]) ? factionObj[factionName] : [];
-
-      console.log('resolving faction skills for:', factionName, arr);
+  if (skillVm && typeof skillVm === 'object') {
+    // 내 장비 소속 스킬
+    if (equipFaction && Array.isArray(skillVm[equipFaction])) {
+      const arr = skillVm[equipFaction];
 
       for (const it of arr) {
         const id = it?.id;
-
-        //console.log('skill faction id:', id, factionName, equipFaction, factionName === equipFaction);
-
-        if (factionName === equipFaction) {
+        if (id != null) {
           factionSkillSet.add(id);
-        } else {
+        }
+      }
+    }
+
+    // 공용 스킬 (flat 스키마에서 "공용" 키)
+    if (Array.isArray(skillVm['공용'])) {
+      const arr = skillVm['공용'];
+
+      for (const it of arr) {
+        const id = it?.id;
+        if (id != null) {
           commonSkillSet.add(id);
         }
       }
@@ -185,15 +169,17 @@ function applyEquipmentToDom(id, ctx) {
   // skillId -> description (표시용)
   const descById = new Map();
 
-  function getSkillDescHtmlById(skillId) {
-    const d0 = String(descById.get(skillId) || '').trim();
-
-    const d = d0
-      .replace(/%\s*[sd]\s*%%/g, 'x%')
-      .replace(/%\s*[sd]\s*%/g, 'x%')
-      .replace(/%\s*[sd]/g, 'x');
-
-    return formatColorTagsToHtml(d).replace(/\r?\n/g, '<br>');
+  // description 채우기: 모든 그룹을 순회 (표시용)
+  if (skillVm && typeof skillVm === 'object') {
+    for (const groupName of Object.keys(skillVm)) {
+      const arr = Array.isArray(skillVm[groupName]) ? skillVm[groupName] : [];
+      for (const it of arr) {
+        const id = it?.id;
+        if (id != null && !descById.has(id)) {
+          descById.set(id, String(it?.description ?? '').trim());
+        }
+      }
+    }
   }
 
   setText('equip-name', String(vm.name || '').trim() || '-');
@@ -201,6 +187,15 @@ function applyEquipmentToDom(id, ctx) {
   const rarity = String(vm.rarity || '-');
   const category = String(vm.category || '-');
   const faction = String(vm.faction || '-');
+
+  // 소속 제목: "소속 - {소속명}"
+  {
+    const titleEl = document.getElementById('random-skill-faction-title');
+    if (titleEl) {
+      const name = String(vm.faction || '').trim() || '-';
+      titleEl.textContent = `소속 - ${name}`;
+    }
+  }
 
   setText('equip-rarity', rarity);
 
@@ -219,9 +214,9 @@ function applyEquipmentToDom(id, ctx) {
   setText('equip-stat-min', minText);
   setText('equip-stat-max', maxText);
 
-  setHtml('equip-description', formatColorTagsToHtml(vm.description || ''));
+  setHtml('equip-description', formatTextWithParamsToHtml(vm.description || ''));
 
-  setImageRel(buildAssetImageUrl(vm?.imageRel));
+  setImageRel(buildAssetImageUrl(vm?.imageRel.toLowerCase()));
 
   // Fixed (단일 skillId)
   const fixedId = safeNumber(vm?.fixed);
@@ -240,7 +235,7 @@ function applyEquipmentToDom(id, ctx) {
       empty.textContent = '고정 옵션 없음';
       fixedList.appendChild(empty);
     } else {
-      const html = getSkillDescHtmlById(fixedId);
+      const html = formatTextWithParamsToHtml(descById.get(fixedId));
       fixedList.appendChild(createOptionRow(html || '-'));
     }
   }
@@ -272,25 +267,32 @@ function applyEquipmentToDom(id, ctx) {
     }
   }
 
-    // Random (skillId[] 평탄화)
+  // Random (skillId[] 평탄화)
   const randomIds = Array.isArray(vm?.random) ? vm.random : [];
 
   const factionEl = document.getElementById('random-skill-faction');
   const commonEl = document.getElementById('random-skill-common');
 
-  if (factionEl) { clearChildren(factionEl); }
-  if (commonEl) { clearChildren(commonEl); }
+  if (factionEl) {
+    clearChildren(factionEl);
+  }
+  if (commonEl) {
+    clearChildren(commonEl);
+  }
 
   const factionIds = [];
   const commonIds = [];
 
-  console.log('factionSkillSet:', factionSkillSet);
-
   for (const id of randomIds) {
     if (factionSkillSet.has(id)) {
       factionIds.push(id);
-    } else {
+    } else if (commonSkillSet.has(id)) {
       commonIds.push(id);
+    } else {
+      // EquipmentSkillVM에 없는 id (매칭 누락/데이터 누락)
+      commonIds.push(id); // 기존 UI 유지
+      // 필요하면 여기서 console.log로 누락 id를 찍어도 됨
+      // console.log('unknown random skill id:', id);
     }
   }
 
@@ -302,12 +304,14 @@ function applyEquipmentToDom(id, ctx) {
     }
   }
 
-  // 소속(장비 소속 1개만)
+    // 소속(장비 소속 1개만) - 표 형태
   if (factionEl) {
+    factionEl.classList.add('is-table');
+
     if (factionIds.length) {
       for (const sid of factionIds) {
-        const html = getSkillDescHtmlById(sid);
-        factionEl.appendChild(createOptionRow(html || `ID ${sid}`));
+        const html = formatTextWithParamsToHtml(descById.get(sid));
+        factionEl.appendChild(createSkillTableRow(html || `ID ${sid}`));
       }
     } else {
       const empty = document.createElement('div');
@@ -317,12 +321,14 @@ function applyEquipmentToDom(id, ctx) {
     }
   }
 
-  // 공용(그 외 전부)
+  // 공용(그 외 전부) - 표 형태
   if (commonEl) {
+    commonEl.classList.add('is-table');
+
     if (commonIds.length) {
       for (const sid of commonIds) {
-        const html = getSkillDescHtmlById(sid);
-        commonEl.appendChild(createOptionRow(html || `ID ${sid}`));
+        const html = formatTextWithParamsToHtml(descById.get(sid));
+        commonEl.appendChild(createSkillTableRow(html || `ID ${sid}`));
       }
     } else {
       const empty = document.createElement('div');

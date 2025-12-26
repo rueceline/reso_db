@@ -2,11 +2,11 @@
  * 이 파일은 style.organized.css에서 자동 분리되었습니다.
  */
 
-.container {
-  max-width: min(87.5rem, calc(100% - 48px));
+.container {  
   margin: 0 auto;
   padding: 0;
   width: min(87.5rem, calc(100% - 48px));
+  max-width: min(87.5rem, calc(100% - 48px));
 }
 
 .hero {
@@ -56,12 +56,6 @@
   font-size: 12px;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .card-large, .card-wide { grid-column: span 12; }
-}
-
 /* ---------------------------------------------------------
    2) Layout Helpers
    --------------------------------------------------------- */
@@ -79,6 +73,7 @@
   margin-top: 14px;
   margin-bottom: 0px;
   width: min(87.5rem, calc(100% - 48px));
+  max-width: min(87.5rem, calc(100% - 48px));
   margin-left: auto;
   margin-right: auto;
   padding: 18px 18px;
@@ -123,6 +118,24 @@
 .page-hero .hero-title { font-size: 28px; font-weight: 800; margin: 0; line-height: 1.1; }
 
 .page-hero .hero-sub { margin: 6px 0 0 0; color: var(--muted); font-size: 13px; line-height: 1.35; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .container {
+    max-width: calc(100% - 24px);
+    width: calc(100% - 24px);
+  }
+
+  .hero { grid-template-columns: 1fr; }
+  .card-large, .card-wide { grid-column: span 12; }
+
+  .page-hero {
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 @media (max-width: 900px) {
   .page-hero .hero-left { justify-content: flex-start; }
@@ -174,4 +187,109 @@
   .main-footer .footer-links {
     justify-content: flex-start;
   }
+}
+
+/* Footer buttons */
+.main-footer .footer-links {
+  gap: 10px;
+}
+
+/* Footer link buttons: button + a 완전 통일 */
+.main-footer .footer-link-btn {
+  /* reset */
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-sizing: border-box;
+  font: inherit;
+  color: var(--text);
+  text-decoration: none;
+
+  /* layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;              /* ← 높이 고정 (중요) */
+  padding: 0 12px;           /* ← 좌우만 padding */
+  line-height: 1;            /* ← a / button 차이 제거 */
+  border-radius: 12px;
+  white-space: nowrap;
+
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+}
+
+/* hover 동일 */
+.main-footer .footer-link-btn:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* button 고유 이슈 제거 */
+.main-footer button.footer-link-btn {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* a 고유 이슈 제거 */
+.main-footer a.footer-link-btn {
+  line-height: 1;
+}
+
+/* Footer modal (Patch Notes) */
+.footer-modal[hidden] { display: none; }
+
+.footer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.footer-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.footer-modal-panel {
+  position: relative;
+  width: min(640px, calc(100% - 24px));
+  margin: 80px auto 0;
+
+  border: 1px solid var(--border);
+  background: rgba(11, 15, 20, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+
+  padding: 12px;
+}
+
+.footer-modal-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 6px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.footer-modal-title {
+  font-weight: 800;
+}
+
+.footer-modal-close {
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border-radius: 10px;
+  width: 36px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.footer-modal-bd {
+  padding: 12px 6px 6px;
 }

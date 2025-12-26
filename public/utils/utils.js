@@ -73,6 +73,44 @@ export function formatColorTagsToHtml(text) {
 }
 
 /**
+ * 공용 텍스트 포맷:
+ * - "\\n" -> 개행
+ * - %s / %d -> "n"
+ * - %s%% / %d%% -> "n%"
+ * - %s% / %d% -> "n%"
+ * - <color=#...> -> span
+ * - 최종 개행 -> <br>
+ */
+export function formatTextWithParamsToHtml(text) {
+  if (text == null) {
+    return "";
+  }
+
+  let out = String(text);
+
+  // 1) 실제 개행 문자 제거 (의도하지 않은 개행 방지)
+  out = out.replace(/\r?\n/g, " ");
+
+  // 2) \\n 만 <br>로 변환 (의도된 개행만 허용)
+  out = out.replace(/\\n/g, "<br>");
+
+  // 3) %s%%, %d%% → n%
+  out = out.replace(/%\s*[sd]\s*%%/g, "n%");
+
+  // 4) %s%, %d% → n%
+  out = out.replace(/%\s*[sd]\s*%/g, "n%");
+
+  // 5) %s, %d → n
+  out = out.replace(/%\s*[sd]/g, "n");
+
+  // 6) color 태그 처리
+  out = formatColorTagsToHtml(out);
+
+  return out;
+}
+
+
+/**
  * HTML escape
  */
 export function escapeHtml(s) {

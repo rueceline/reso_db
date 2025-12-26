@@ -9,7 +9,7 @@ const BASE = import.meta.env.BASE_URL;
 
   <section class="page-hero" aria-label="page title">
     <div class="hero-icon">
-      <img src={`${BASE}assets/ui/equipment_top.png`} alt="preview" />
+      <img src={`${BASE}assets/UI/equipment_top.png`} alt="preview" />
     </div>
     <div class="hero-text">
       <h1 class="hero-title">장비 상세</h1>
@@ -83,7 +83,7 @@ const BASE = import.meta.env.BASE_URL;
             <div class="block-hd">
               <button class="block-toggle" type="button" aria-expanded="false" aria-controls="skill-block-body" id="skill-toggle">
                 <span>스킬 목록</span>
-                <span class="block-toggle-caret" aria-hidden="true">˅</span>
+                <span class="block-toggle-caret" aria-hidden="true">▾</span>
               </button>
 
               <span id="random-skill-count" class="muted">소속 0 / 공용 0</span>
@@ -92,6 +92,7 @@ const BASE = import.meta.env.BASE_URL;
             <div class="block-bd" id="skill-block-body" hidden>
               <div class="skill-groups">
                 <div class="skill-group">
+                  <div class="skill-group-title" id="random-skill-faction-title">소속 - -</div>
                   <div id="random-skill-faction" class="skill-list"></div>
                 </div>
 

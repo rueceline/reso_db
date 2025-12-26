@@ -5,3 +5,5 @@ run
 dist/
 *.zip
 .astro/
+PROJECT_RULES.md
+PROJECT_CODING_RULES.md

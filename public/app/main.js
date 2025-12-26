@@ -324,3 +324,45 @@
 
   document.addEventListener("DOMContentLoaded", setupLangCaretClick);
 })();
+
+(function () {
+  function qs(sel, root) {
+    return (root || document).querySelector(sel);
+  }
+
+  function setupPatchNotesModal() {
+    var btn = qs("#patch-notes-btn");
+    var modal = qs("#patch-notes-modal");
+    if (!btn || !modal) {
+      return;
+    }
+
+    function open() {
+      modal.hidden = false;
+    }
+
+    function close() {
+      modal.hidden = true;
+    }
+
+    btn.addEventListener("click", function () {
+      open();
+    });
+
+    modal.querySelectorAll("[data-close='1']").forEach(function (el) {
+      el.addEventListener("click", function () {
+        close();
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) {
+        close();
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setupPatchNotesModal();
+  });
+})();

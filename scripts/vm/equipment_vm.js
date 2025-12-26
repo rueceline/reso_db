@@ -119,7 +119,6 @@ export function buildEquipmentVM(ctx) {
         if (!cn) continue;
 
         const ko = tr(cfg, "EquipmentFactory", "DisplayName", cn);
-        console.log('ko:', ko);
         names.push(ko || cn);
       }
 

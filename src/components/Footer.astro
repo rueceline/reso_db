@@ -3,22 +3,32 @@
     <div class="footer-grid">
       <div class="footer-left">
         <div>
-          <strong>패치노트</strong>: 페이지 준비 중
-        </div>
-        <div>
-          <strong>Disclaimer</strong>:
-          비공식 팬 프로젝트이며 게임/상표/리소스의 권리는 각 권리자에게 있습니다.
+          <strong>Disclaimer</strong>: 비공식 팬 프로젝트이며 게임/상표/리소스의 권리는 각 권리자에게 있습니다.
         </div>
       </div>
 
-      <div class="footer-links">
-        <a href="javascript:void(0)" aria-disabled="true">Patch Notes</a>
-        <a href="https://github.com/rueceline/reso_db" target="_blank" rel="noopener">Git</a>
-        <a href="https://github.com/rueceline/reso_db/issues" target="_blank" rel="noopener">
-          버그 제보 (Git Issues)
-        </a>
-        <a href="#disclaimer">Disclaimer</a>
+      <div class="footer-links">        
+        <div class="footer-links">
+          <button type="button" class="footer-link-btn" id="patch-notes-btn">Patch Notes</button>
+          <a class="footer-link-btn" href="https://github.com/rueceline/reso_db" target="_blank" rel="noopener"> Github </a>
+          <a class="footer-link-btn" href="https://github.com/rueceline/reso_db/issues" target="_blank" rel="noopener"> 버그 제보 </a>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<div class="footer-modal" id="patch-notes-modal" hidden>
+  <div class="footer-modal-backdrop" data-close="1"></div>
+
+  <div class="footer-modal-panel" role="dialog" aria-modal="true" aria-labelledby="patch-notes-title">
+    <div class="footer-modal-hd">
+      <div class="footer-modal-title" id="patch-notes-title">Patch Notes</div>
+      <button type="button" class="footer-modal-close" data-close="1" aria-label="Close">✕</button>
+    </div>
+
+    <div class="footer-modal-bd">
+      <div class="muted">페이지 준비 중</div>
+    </div>
+  </div>
+</div>
