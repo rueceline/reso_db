@@ -1,22 +1,94 @@
 import { dataPath, pagePath, buildAssetImageUrl } from '../utils/path.js';
-import { formatColorTagsToHtml } from '../utils/utils.js';
-
-import { DEFAULT_LANG } from '../utils/config.js';
+import { safeNumber, formatColorTagsToHtml, normalizePathSlash } from '../utils/utils.js';
+import { DEFAULT_LANG, FETCH_CACHE_MODE } from '../utils/config.js';
 
 // =========================================================
 // Equipment DB Page Script
-// - 실행 흐름: main() → loadEquipmentDbData() → applyEquipmentToDom()
+// - 실행 흐름: main() → loadData() → applyToDom()
 // =========================================================
 
 // -------------------------
 // URLs
 // -------------------------
+
 const EQUIP_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentVM.json');
-const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentSkillVM.json');
+const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'SkillVM.json');
+const TAG_VM_URL = dataPath(DEFAULT_LANG, 'TagVM.json');
+const GROWTH_VM_URL = dataPath(DEFAULT_LANG, 'GrowthVM.json');
+const LIST_VM_URL = dataPath(DEFAULT_LANG, 'ListVM.json');
 
 // -------------------------
 // helpers
 // -------------------------
+
+const RARITY_ORDER = ['UR', 'SSR', 'SR', 'R', 'N'];
+
+function rarityIndex(r) {
+  const i = RARITY_ORDER.indexOf(String(r || '').trim());
+  return i === -1 ? RARITY_ORDER.length : i;
+}
+
+function mapQualityToRarity(quality) {
+  const m = {
+    Orange: RARITY_ORDER[0],
+    Golden: RARITY_ORDER[1],
+    Purple: RARITY_ORDER[2],
+    Blue: RARITY_ORDER[3],
+    White: RARITY_ORDER[4]
+  };
+  return m[String(quality)] || '-';
+}
+
+function resolveMainStat(e) {
+  if ((safeNumber(e?.attack_SN) ?? 0) > 0) return { key: 'atk', label: '공격력', sn: e.attack_SN };
+  if ((safeNumber(e?.healthPoint_SN) ?? 0) > 0) return { key: 'hp', label: '체력', sn: e.healthPoint_SN };
+  if ((safeNumber(e?.defence_SN) ?? 0) > 0) return { key: 'def', label: '방어력', sn: e.defence_SN };
+  return { key: '', label: '-', sn: 0 };
+}
+
+function calcEquipStatRange(equipSN, growthSN, maxLevel = 80) {
+  const equipBase = equipSN / 10000;
+  const growthInitial = growthSN / 1000;
+  const perLevel = growthSN / 10000;
+
+  const growthMax = growthInitial + perLevel * (maxLevel - 1);
+  const delta = equipBase - growthInitial;
+
+  return {
+    min: Math.round(equipBase),
+    max: Math.round(growthMax + delta)
+  };
+}
+
+function calcMainStatWithGrowth(e, growthRec) {
+  const main = resolveMainStat(e);
+
+  if (!main.key || !growthRec) {
+    return { label: main.label, min: '-', max: '-' };
+  }
+
+  let growthSN = 0;
+  if (main.key === 'atk') growthSN = growthRec.gAtk_SN;
+  if (main.key === 'hp') growthSN = growthRec.gHp_SN;
+  if (main.key === 'def') growthSN = growthRec.gDef_SN;
+
+  if (!growthSN) {
+    const v = Math.round(main.sn / 10000);
+    return { label: main.label, min: v, max: v };
+  }
+
+  const r = calcEquipStatRange(main.sn, growthSN);
+  return { label: main.label, min: r.min, max: r.max };
+}
+
+function pickFirstFixedSkillId(skillList) {
+  const list = Array.isArray(skillList) ? skillList : [];
+  for (const it of list) {
+    const sid = safeNumber(it?.skillId);
+    if (sid) return sid;
+  }
+  return null;
+}
 
 function formatNumber(v) {
   const n = Number(v);
@@ -44,23 +116,6 @@ function setCount(n) {
   }
 
   el.textContent = `총 ${n}개`;
-}
-
-function isInvalidGroupValue(v) {
-  const s = String(v || '').trim();
-  if (!s) {
-    return true;
-  }
-
-  if (s === '-') {
-    return true;
-  }
-
-  if (s.startsWith('00')) {
-    return true;
-  }
-
-  return false;
 }
 
 // -------------------------
@@ -162,15 +217,17 @@ function updateEquipmentRow(tr, item) {
   const raritySpan = tr.children[2]?.querySelector('span');
   if (raritySpan) {
     raritySpan.textContent = item.rarity || '';
-    raritySpan.className = `rarity-badge ${item.rarityClass || ''}`.trim();
+    raritySpan.className = `rarity-badge rarity-${String(item.rarity || '').toLowerCase()}`.trim();
   }
 
   if (tr.children[3]) {
     tr.children[3].textContent = item.category || '';
   }
+
   if (tr.children[4]) {
     tr.children[4].textContent = item.faction || '';
   }
+
   if (tr.children[5]) {
     tr.children[5].textContent = item.statType || '';
   }
@@ -178,6 +235,7 @@ function updateEquipmentRow(tr, item) {
   if (tr.children[6]) {
     tr.children[6].textContent = formatNumber(item.minValue) || '-';
   }
+  
   if (tr.children[7]) {
     tr.children[7].textContent = formatNumber(item.maxValue) || '-';
   }
@@ -233,137 +291,25 @@ function uniqSorted(list) {
 }
 
 function buildRarityOptions(list) {
-  const order = ['UR', 'SSR', 'SR', 'R', 'N'];
-
   const present = new Set(list.map((x) => String(x.rarity || '').trim()).filter(Boolean));
   const out = [];
 
-  for (const r of order) {
+  for (const r of RARITY_ORDER) {
     if (present.has(r)) {
       out.push(r);
     }
   }
 
-  const extras = Array.from(present).filter((r) => !order.includes(r));
+  const extras = Array.from(present).filter((r) => !RARITY_ORDER.includes(r));
   extras.sort((a, b) => a.localeCompare(b, 'ko'));
 
   return out.concat(extras);
 }
 
-function rarityRank(r) {
-  const s = String(r || '').trim();
-  if (s === 'UR') {
-    return 0;
-  }
-  if (s === 'SSR') {
-    return 1;
-  }
-  if (s === 'SR') {
-    return 2;
-  }
-  if (s === 'R') {
-    return 3;
-  }
-  if (s === 'N') {
-    return 4;
-  }
-  return 9;
-}
-
-function compareMaybeNumber(a, b) {
-  const na = Number(a);
-  const nb = Number(b);
-  const aOk = Number.isFinite(na);
-  const bOk = Number.isFinite(nb);
-
-  if (aOk && bOk) {
-    return na - nb;
-  }
-  if (aOk && !bOk) {
-    return -1;
-  }
-  if (!aOk && bOk) {
-    return 1;
-  }
-
-  return String(a ?? '').localeCompare(String(b ?? ''), 'ko');
-}
-
-function sortList(list, sortState) {
-  const dirMul = sortState?.dir === 'desc' ? -1 : 1;
-  const key = sortState?.key || 'default';
-
-  const arr = Array.from(list);
-
-  arr.sort((x, y) => {
-    if (key === 'default' || key === 'rarity') {
-      const r = rarityRank(x.rarity) - rarityRank(y.rarity);
-      if (r !== 0) {
-        return r * dirMul;
-      }
-
-      const c = String(x.category || '').localeCompare(String(y.category || ''), 'ko');
-      if (c !== 0) {
-        return c * dirMul;
-      }
-
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'name') {
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'category') {
-      const c = String(x.category || '').localeCompare(String(y.category || ''), 'ko');
-      if (c !== 0) {
-        return c * dirMul;
-      }
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'statType') {
-      const s = String(x.statType || '').localeCompare(String(y.statType || ''), 'ko');
-      if (s !== 0) {
-        return s * dirMul;
-      }
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'faction') {
-      const f = String(x.faction || '').localeCompare(String(y.faction || ''), 'ko');
-      if (f !== 0) {
-        return f * dirMul;
-      }
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'minValue') {
-      const v = compareMaybeNumber(x.minValue, y.minValue);
-      if (v !== 0) {
-        return v * dirMul;
-      }
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    if (key === 'maxValue') {
-      const v = compareMaybeNumber(x.maxValue, y.maxValue);
-      if (v !== 0) {
-        return v * dirMul;
-      }
-      return String(x.name || '').localeCompare(String(y.name || ''), 'ko') * dirMul;
-    }
-
-    return 0;
-  });
-
-  return arr;
-}
-
 function buildFilterOptions(list) {
   const rarity = buildRarityOptions(list);
-  const category = uniqSorted(list.map((x) => x.category).filter((v) => !isInvalidGroupValue(v)));
-  const faction = uniqSorted(list.map((x) => x.faction).filter((v) => !isInvalidGroupValue(v)));
+  const category = uniqSorted(list.map((x) => x.category));
+  const faction = uniqSorted(list.map((x) => x.faction));
 
   return { rarity, category, faction };
 }
@@ -463,72 +409,153 @@ function applyFilters(list, query, state) {
 // -------------------------
 // main flow
 // -------------------------
-async function loadEquipmentDbData() {
-  const [equipRes, skillRes] = await Promise.all([fetch(EQUIP_VM_URL, { cache: 'no-store' }), fetch(SKILL_VM_URL, { cache: 'no-store' })]);
+
+async function loadData() {
+  const [equipRes, tagRes, growthRes, listRes, skillRes] = await 
+  Promise.all([
+    fetch(EQUIP_VM_URL, { cache: FETCH_CACHE_MODE }), 
+    fetch(TAG_VM_URL, { cache: FETCH_CACHE_MODE }), 
+    fetch(GROWTH_VM_URL, { cache: FETCH_CACHE_MODE }), 
+    fetch(LIST_VM_URL, { cache: FETCH_CACHE_MODE }), 
+    fetch(SKILL_VM_URL, { cache: FETCH_CACHE_MODE })
+  ]);
 
   if (!equipRes.ok) {
     throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
   }
+
+  if (!tagRes.ok) {
+    throw new Error(`TagVM fetch failed: ${tagRes.status} ${tagRes.statusText}`);
+  }
+
+  if (!growthRes.ok) {
+    throw new Error(`GrowthVM fetch failed: ${growthRes.status} ${growthRes.statusText}`);
+  }
+
+  if (!listRes.ok) {
+    throw new Error(`ListVM fetch failed: ${listRes.status} ${listRes.statusText}`);
+  }
+
   if (!skillRes.ok) {
-    throw new Error(`EquipmentSkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
+    throw new Error(`SkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
   }
 
   const equipVm = await equipRes.json();
+  const tagVm = await tagRes.json();
+  const growthVm = await growthRes.json();
+  const listVm = await listRes.json();
   const skillVm = await skillRes.json();
 
-  // skillId -> description (flat EquipmentSkillVM 기준)
-  const skillDescById = new Map();
+  const tagById = new Map();
+  if (tagVm && typeof tagVm === 'object') {
+    for (const k of Object.keys(tagVm)) {
+      const rec = tagVm[k];
+      const id = safeNumber(rec?.id ?? k);
+      if (id !== null) tagById.set(id, rec);
+    }
+  }
 
+  const growthById = new Map();
+  if (growthVm && typeof growthVm === 'object') {
+    for (const k of Object.keys(growthVm)) {
+      const rec = growthVm[k];
+      const id = safeNumber(rec?.id ?? k);
+      if (id !== null) growthById.set(id, rec);
+    }
+  }
+
+  const listById = new Map();
+  if (listVm && typeof listVm === 'object') {
+    for (const k of Object.keys(listVm)) {
+      const rec = listVm[k];
+      const id = safeNumber(rec?.id ?? k);
+      if (id !== null) listById.set(id, rec);
+    }
+  }
+
+  const skillById = new Map();
   if (skillVm && typeof skillVm === 'object') {
-    for (const groupName of Object.keys(skillVm)) {
-      const arr = Array.isArray(skillVm[groupName]) ? skillVm[groupName] : [];
-
-      for (const it of arr) {
-        const sid = Number(it?.id);
-        if (Number.isFinite(sid) && !skillDescById.has(sid)) {
-          skillDescById.set(sid, String(it?.description || ''));
-        }
-      }
+    for (const k of Object.keys(skillVm)) {
+      const rec = skillVm[k];
+      const id = safeNumber(rec?.id ?? k);
+      if (id !== null) skillById.set(id, rec);
     }
   }
 
   const obj = equipVm && typeof equipVm === 'object' ? equipVm : {};
   const list = Object.values(obj);
 
-  const listAll = list.map((it) => {
-    const rarity = String(it?.rarity || '-');
-    const imageRel = String(it?.imageRel || '');
+  const listAll = list.map((raw) => {
+    const id = safeNumber(raw?.id);
+    const name = String(raw?.name || '').trim();
+    const rarity = mapQualityToRarity(raw?.quality);
+    const equipTagId = safeNumber(raw?.equipTagId);
+    const campTagId = safeNumber(raw?.campTagId);
 
-    const stat = it?.stat || {};
+    let category = '-';
+    if (equipTagId && tagById.has(equipTagId)) {
+      const t = tagById.get(equipTagId);
+      category = String(t?.Name || t?.tagName || '-');
+    }
+
+    let faction = '-';
+    if (campTagId && tagById.has(campTagId)) {
+      const t = tagById.get(campTagId);
+      faction = String(t?.sideName || '-');
+    }
+
+    const growthId = safeNumber(raw?.growthId);
+    const growthRec = growthId ? growthById.get(growthId) || null : null;
+    const stat = calcMainStatWithGrowth(raw, growthRec);
+
     const statType = String(stat?.label || '-');
+    const minValue = stat?.min ?? '-';
+    const maxValue = stat?.max ?? '-';
 
-    const fixedId = Number(it?.fixed);
-    const fixedDesc = Number.isFinite(fixedId) ? skillDescById.get(fixedId) || '' : '';
+    const tipsPath = String(raw?.tipsPath || raw?.iconPath || raw?.icon || raw?.imagePath || '').trim();
+    const imageRel = tipsPath ? normalizePathSlash(tipsPath) : '';
+
+    const fixedId = pickFirstFixedSkillId(raw?.skillList);
+    let fixedDesc = '';
+    if (fixedId && skillById.has(fixedId)) {
+      const s = skillById.get(fixedId);
+      fixedDesc = String(s?.description || s?.tempdescription || '').trim();
+    }
+    const mainOption = String(formatColorTagsToHtml(fixedDesc) || '');
 
     return {
-      id: it?.id,
-      imageUrl: buildAssetImageUrl(imageRel.toLowerCase()),
-      name: String(it?.name || '').trim(),
+      id,
+      imageUrl: buildAssetImageUrl(String(imageRel || '').toLowerCase()),
+      name,
       rarity,
-      rarityClass: `rarity-${rarity.toLowerCase()}`,
-      category: String(it?.category || '-'),
-      faction: String(it?.faction || '-'),
+      category,
+      faction,
       statType,
-      minValue: stat?.min ?? '-',
-      maxValue: stat?.max ?? '-',
-      mainOption: String(fixedDesc || ''),
-      // 확장/디버그
-      growthId: it?.growthId ?? null,
-      equipTagId: it?.equipTagId ?? null,
-      campTagId: it?.campTagId ?? null
+      minValue,
+      maxValue,
+      mainOption
     };
   });
 
   return { listAll };
 }
 
-function applyEquipmentToDom(ctx) {
-  const listAll = (ctx?.listAll || []).filter((x) => x !== null).filter((x) => !isInvalidGroupValue(x.category) && !isInvalidGroupValue(x.faction));
+function applyToDom(ctx) {
+  // rarity -> category -> faction
+  const listAll = (ctx?.listAll || [])
+    .filter((x) => x !== null)    
+    .sort((a, b) => {
+      // 1) rarity
+      const r = rarityIndex(a.rarity) - rarityIndex(b.rarity);
+      if (r !== 0) return r;
+
+      // 2) category
+      const c = String(a.category || '').localeCompare(String(b.category || ''), 'ko');
+      if (c !== 0) return c;
+
+      // 3) faction
+      return String(a.faction || '').localeCompare(String(b.faction || ''), 'ko');
+    });
 
   const statusEl = document.getElementById('status');
   if (statusEl) {
@@ -541,27 +568,14 @@ function applyEquipmentToDom(ctx) {
   const input = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
 
-  const sortState = { key: 'rarity', dir: 'asc' };
-  let sortHeadersBound = false;
-
-  function updateSortHeaders() {
-    const ths = document.querySelectorAll('thead th.sortable');
-    for (const th of ths) {
-      const key = th.dataset.sortKey || '';
-      th.dataset.sortDir = key === sortState.key ? sortState.dir : '';
-    }
-  }
-
   function update() {
     const q = input ? input.value : '';
     const filtered = applyFilters(listAll, q, filterState);
-    const sorted = sortList(filtered, sortState);
-    renderTable(sorted);
+    renderTable(filtered);
   }
 
   function updateOnly() {
     update();
-    updateSortHeaders();
   }
 
   function updateWithFilters() {
@@ -569,34 +583,6 @@ function applyEquipmentToDom(ctx) {
     renderFilters(options, filterState, updateWithFilters);
   }
 
-  function bindSortHeaders() {
-    if (sortHeadersBound) {
-      return;
-    }
-
-    sortHeadersBound = true;
-
-    const ths = document.querySelectorAll('thead th.sortable');
-    for (const th of ths) {
-      th.addEventListener('click', () => {
-        const key = th.dataset.sortKey || '';
-        if (!key) {
-          return;
-        }
-
-        if (sortState.key === key) {
-          sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-        } else {
-          sortState.key = key;
-          sortState.dir = 'asc';
-        }
-
-        updateOnly();
-      });
-    }
-  }
-
-  bindSortHeaders();
   renderFilters(options, filterState, updateWithFilters);
 
   if (input) {
@@ -626,8 +612,8 @@ function applyEquipmentToDom(ctx) {
 async function main() {
   setStatus('데이터 로딩 중...', false);
 
-  const ctx = await loadEquipmentDbData();
-  applyEquipmentToDom(ctx);
+  const ctx = await loadData();
+  applyToDom(ctx);
 }
 
 main().catch((err) => {

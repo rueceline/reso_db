@@ -12,3 +12,11 @@ export const DEFAULT_LANG = "KR";
 
 // 이미지 확장자
 export const IMAGE_EXT = 'png';
+
+// 실행 환경: 'dev' | 'prod'
+export const APP_ENV = 'dev';
+
+// fetch cache 옵션 (환경별)
+export const FETCH_CACHE_MODE = APP_ENV === 'dev' ? 'no-store' : 'force-cache';
+
+// export const FETCH_CACHE_MODE = import.meta.env.DEV ? 'no-store' : 'force-cache';

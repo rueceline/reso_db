@@ -7606,8 +7606,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-19 12:00:00",
-    "endTime": "2025-12-26 12:00:00",
+    "startTime": "2025-11-28 12:00:00",
+    "endTime": "2025-12-05 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -9780,8 +9780,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-24 12:00:00",
-    "endTime": "2025-12-31 12:00:00",
+    "startTime": "2025-11-28 12:00:00",
+    "endTime": "2025-12-05 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -10524,8 +10524,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-22 12:00:00",
-    "endTime": "2025-12-29 12:00:00",
+    "startTime": "2025-09-30 12:00:00",
+    "endTime": "2025-10-14 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -11804,8 +11804,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-19 12:00:00",
-    "endTime": "2026-01-02 12:00:00",
+    "startTime": "2025-11-03 12:00:00",
+    "endTime": "2025-11-10 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -23383,8 +23383,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-19 12:00:00",
-    "endTime": "2025-12-26 12:00:00",
+    "startTime": "2025-09-30 12:00:00",
+    "endTime": "2025-10-21 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -25703,13 +25703,13 @@
   },
   {
     "id": 82101619,
-    "idCN": "03礼包/月度素材自选礼包",
+    "idCN": "03礼包/自选材料礼包",
     "mod": "基础商品",
     "isInformalData": false,
     "costId": "lsns_20005",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "月度素材自选礼包",
+    "name": "月度装备自选礼包",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -25727,8 +25727,12 @@
         "num": 680
       },
       {
-        "id": 11400363,
+        "id": 11400061,
         "num": 1
+      },
+      {
+        "id": 11700078,
+        "num": 100
       }
     ],
     "isFirst": false,
@@ -25750,8 +25754,6 @@
     "ismonthCard": false,
     "showList": [],
     "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
     "BattlePassLevel": 0,
     "isTriggerTime": false,
     "continueTime": 0,
@@ -27577,8 +27579,8 @@
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-22 12:00:00",
-    "endTime": "2026-01-12 12:00:00",
+    "startTime": "2025-10-15 12:00:00",
+    "endTime": "2025-11-05 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -29511,7 +29513,7 @@
     "costId": "lsns_20005",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "\"汽水味午后\"记忆留影组合",
+    "name": "出地底记记忆留影组合",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -29519,17 +29521,17 @@
     "des": -1,
     "desColor": "",
     "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_105",
+    "iconPath": "UI/Store/Store_gift_icon_80",
     "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_105",
+    "buyPath": "UI/Common/BuyGiftTips/gift_type_80",
     "isTips": true,
     "rewardList": [
       {
-        "id": 11400007,
-        "num": 1
+        "id": 11400005,
+        "num": 100
       },
       {
-        "id": 82601089,
+        "id": 82600909,
         "num": 1
       }
     ],
@@ -29538,15 +29540,15 @@
     "rewardFollowList": [],
     "specialRewardList": [],
     "buyType": "Money",
-    "value": 3,
+    "value": 1,
     "buyItemList": [],
     "superValue": 1000,
     "purchase": true,
     "purchaseNum": 1,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-19 12:00:00",
-    "endTime": "2025-12-26 12:00:00",
+    "startTime": "2025-08-15 12:00:00",
+    "endTime": "2025-08-22 12:00:00",
     "isBuyCondition": false,
     "gradeCondition": 15,
     "ismonthCard": false,
@@ -29983,7 +29985,7 @@
     "costId": "lsns_20003",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "雪落暖融纪念礼包",
+    "name": "奇迹扭蛋补充包",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -29991,18 +29993,22 @@
     "des": -1,
     "desColor": "",
     "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_106",
+    "iconPath": "UI/Store/Store_gift_icon_59",
     "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_106",
+    "buyPath": "UI/Common/BuyGiftTips/gift_type_59",
     "isTips": true,
     "rewardList": [
       {
-        "id": 11400937,
-        "num": 3
+        "id": 11400664,
+        "num": 20
       },
       {
-        "id": 82601092,
-        "num": 1
+        "id": 11400649,
+        "num": 4
+      },
+      {
+        "id": 11400014,
+        "num": 6
       }
     ],
     "isFirst": false,
@@ -30010,15 +30016,15 @@
     "rewardFollowList": [],
     "specialRewardList": [],
     "buyType": "Money",
-    "value": 6,
+    "value": 30,
     "buyItemList": [],
     "superValue": 400,
     "purchase": true,
-    "purchaseNum": 1,
+    "purchaseNum": 5,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-24 12:00:00",
-    "endTime": "2026-01-22 05:00:00",
+    "startTime": "2025-11-07 12:00:00",
+    "endTime": "2025-12-12 05:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -30042,7 +30048,7 @@
     "costId": "lsns_20003",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "雪落暖融活动礼包",
+    "name": "奇迹扭蛋补充包",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -30050,14 +30056,22 @@
     "des": -1,
     "desColor": "",
     "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_107",
+    "iconPath": "UI/Store/Store_gift_icon_59",
     "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_107",
+    "buyPath": "UI/Common/BuyGiftTips/gift_type_59",
     "isTips": true,
     "rewardList": [
       {
-        "id": 11400937,
-        "num": 10
+        "id": 11400664,
+        "num": 20
+      },
+      {
+        "id": 11400649,
+        "num": 4
+      },
+      {
+        "id": 11400014,
+        "num": 6
       }
     ],
     "isFirst": false,
@@ -30065,15 +30079,15 @@
     "rewardFollowList": [],
     "specialRewardList": [],
     "buyType": "Money",
-    "value": 18,
+    "value": 30,
     "buyItemList": [],
     "superValue": 400,
     "purchase": true,
-    "purchaseNum": 2,
+    "purchaseNum": 5,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-24 12:00:00",
-    "endTime": "2026-01-22 05:00:00",
+    "startTime": "2025-11-07 12:00:00",
+    "endTime": "2025-12-12 05:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -30097,7 +30111,7 @@
     "costId": "lsns_20003",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "雪落暖融精选礼包",
+    "name": "奇迹扭蛋补充包",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -30105,14 +30119,22 @@
     "des": -1,
     "desColor": "",
     "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_108",
+    "iconPath": "UI/Store/Store_gift_icon_59",
     "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_108",
+    "buyPath": "UI/Common/BuyGiftTips/gift_type_59",
     "isTips": true,
     "rewardList": [
       {
-        "id": 11400937,
+        "id": 11400664,
         "num": 20
+      },
+      {
+        "id": 11400649,
+        "num": 4
+      },
+      {
+        "id": 11400014,
+        "num": 6
       }
     ],
     "isFirst": false,
@@ -30124,11 +30146,11 @@
     "buyItemList": [],
     "superValue": 400,
     "purchase": true,
-    "purchaseNum": 2,
+    "purchaseNum": 5,
     "limitBuyType": "Forever",
     "isTime": true,
-    "startTime": "2025-12-24 12:00:00",
-    "endTime": "2026-01-22 05:00:00",
+    "startTime": "2025-11-07 12:00:00",
+    "endTime": "2025-12-12 05:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
@@ -30152,7 +30174,7 @@
     "costId": "lsns_20003",
     "correspondStore": 40300008,
     "correspondCharacter": -1,
-    "name": "雪落暖融至臻礼包",
+    "name": "奇迹扭蛋补充包",
     "describe": "",
     "isText": false,
     "showType": "Normal",
@@ -30160,515 +30182,22 @@
     "des": -1,
     "desColor": "",
     "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_109",
+    "iconPath": "UI/Store/Store_gift_icon_59",
     "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_109",
+    "buyPath": "UI/Common/BuyGiftTips/gift_type_59",
     "isTips": true,
     "rewardList": [
       {
-        "id": 11400937,
-        "num": 50
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 68,
-    "buyItemList": [],
-    "superValue": 400,
-    "purchase": true,
-    "purchaseNum": 2,
-    "limitBuyType": "Forever",
-    "isTime": true,
-    "startTime": "2025-12-24 12:00:00",
-    "endTime": "2026-01-22 05:00:00",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101845,
-    "idCN": "03礼包/乘员进阶共振礼包68",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20008",
-    "correspondStore": 40300008,
-    "correspondCharacter": -1,
-    "name": "乘员进阶共振礼包",
-    "describe": "",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_110",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_110",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400363,
-        "num": 10
-      },
-      {
-        "id": 11700293,
-        "num": 2
-      },
-      {
-        "id": 11700245,
-        "num": 2
-      },
-      {
-        "id": 11700246,
-        "num": 2
-      },
-      {
-        "id": 11700122,
-        "num": 42
-      },
-      {
-        "id": 11400014,
-        "num": 10
-      },
-      {
-        "id": 11400001,
-        "num": 3000000
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 68,
-    "buyItemList": [],
-    "superValue": 400,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Monthly",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101846,
-    "idCN": "03礼包/乘员精选共振礼包128",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20008",
-    "correspondStore": 40300008,
-    "correspondCharacter": -1,
-    "name": "乘员精选共振礼包",
-    "describe": "",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_111",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_111",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400363,
+        "id": 11400664,
         "num": 20
       },
       {
-        "id": 11700293,
-        "num": 5
-      },
-      {
-        "id": 11700245,
-        "num": 5
-      },
-      {
-        "id": 11700246,
-        "num": 5
-      },
-      {
-        "id": 11700122,
-        "num": 100
-      },
-      {
-        "id": 11400014,
-        "num": 20
-      },
-      {
-        "id": 11400001,
-        "num": 5000000
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 128,
-    "buyItemList": [],
-    "superValue": 500,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Monthly",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101868,
-    "idCN": "888履历礼包/288履历礼包蒂丝塔尔",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20009",
-    "correspondStore": 40300008,
-    "correspondCharacter": 10001019,
-    "name": "“守誓之铳”乘员履历礼包",
-    "describe": "",
-    "isText": true,
-    "showType": "Awake",
-    "title": 80608725,
-    "des": 80608726,
-    "desColor": "#684C92",
-    "tipsDesColor": "#684C92",
-    "iconPath": "UI/Store/Store_gift_lvli_47",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/lvli_type_47",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400005,
-        "num": 2880
-      },
-      {
-        "id": 11700294,
-        "num": 1
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 288,
-    "buyItemList": [],
-    "superValue": 400,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": true,
-    "startTime": "2025-09-30 12:00:00",
-    "endTime": "2025-10-30 12:00:00",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 168,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101869,
-    "idCN": "999抽卡礼包/抽卡券/168招募礼包蒂丝塔尔",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20009",
-    "correspondStore": 40300008,
-    "correspondCharacter": -1,
-    "name": "“守誓之铳”乘员招募礼包",
-    "describe": "",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_05",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_5",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400005,
-        "num": 1680
-      },
-      {
-        "id": 11400007,
-        "num": 10
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 168,
-    "buyItemList": [],
-    "superValue": 200,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": true,
-    "startTime": "2025-09-30 12:00:00",
-    "endTime": "2025-10-30 12:00:00",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101870,
-    "idCN": "999抽卡礼包/抽卡券/328招募礼包蒂丝塔尔",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20009",
-    "correspondStore": 40300008,
-    "correspondCharacter": -1,
-    "name": "“守誓之铳”乘员精选招募礼包",
-    "describe": "",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_20",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_20",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400005,
-        "num": 3280
-      },
-      {
-        "id": 11400007,
-        "num": 20
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 328,
-    "buyItemList": [],
-    "superValue": 200,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": true,
-    "startTime": "2025-09-30 12:00:00",
-    "endTime": "2025-10-30 12:00:00",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101871,
-    "idCN": "999抽卡礼包/抽卡券/648招募礼包蒂丝塔尔",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_20009",
-    "correspondStore": 40300008,
-    "correspondCharacter": -1,
-    "name": "“守誓之铳”乘员至臻招募礼包",
-    "describe": "",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "UI/Store/Store_gift_icon_22",
-    "isHuaBuy": false,
-    "buyPath": "UI/Common/BuyGiftTips/gift_type_22",
-    "isTips": true,
-    "rewardList": [
-      {
-        "id": 11400005,
-        "num": 6480
-      },
-      {
-        "id": 11400007,
-        "num": 40
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 648,
-    "buyItemList": [],
-    "superValue": 200,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": true,
-    "startTime": "2025-09-30 12:00:00",
-    "endTime": "2025-10-30 12:00:00",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 0,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": true,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101872,
-    "idCN": "02战令/第23季/价位2",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_30002",
-    "correspondStore": -1,
-    "correspondCharacter": -1,
-    "name": "无垠手册",
-    "describe": "高级战令",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "",
-    "isHuaBuy": false,
-    "buyPath": "",
-    "isTips": false,
-    "rewardList": [
-      {
-        "id": 11400041,
-        "num": 1
-      },
-      {
-        "id": 11400005,
-        "num": 680
-      },
-      {
-        "id": 11400932,
-        "num": 1
-      },
-      {
-        "id": 82601058,
-        "num": 1
-      },
-      {
-        "id": 81300781,
-        "num": 1
-      },
-      {
-        "id": 11400933,
-        "num": 1
-      },
-      {
-        "id": 11400118,
-        "num": 1
-      },
-      {
-        "id": 11400057,
+        "id": 11400649,
         "num": 4
       },
       {
-        "id": 85500273,
-        "num": 1
-      },
-      {
-        "id": 85500274,
-        "num": 1
-      },
-      {
-        "id": 85500275,
-        "num": 1
-      },
-      {
-        "id": 85500276,
-        "num": 1
-      },
-      {
-        "id": 11400037,
-        "num": 10
-      },
-      {
         "id": 11400014,
-        "num": 5
+        "num": 6
       }
     ],
     "isFirst": false,
@@ -30676,188 +30205,28 @@
     "rewardFollowList": [],
     "specialRewardList": [],
     "buyType": "Money",
-    "value": 128,
+    "value": 30,
     "buyItemList": [],
-    "superValue": 200,
+    "superValue": 400,
     "purchase": true,
-    "purchaseNum": 1,
+    "purchaseNum": 5,
     "limitBuyType": "Forever",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
+    "isTime": true,
+    "startTime": "2025-11-07 12:00:00",
+    "endTime": "2025-12-12 05:00:00",
     "isBuyCondition": false,
     "gradeCondition": 0,
     "ismonthCard": false,
     "showList": [],
     "isCharacterSkin": false,
+    "BattlePassLevel": 0,
+    "isTriggerTime": false,
+    "continueTime": 0,
+    "isActGift": false,
+    "isRedPoint": true,
+    "isGuide": false,
+    "buyNumGuide": 2,
     "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 4,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": false,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101873,
-    "idCN": "02战令/第23季/差价",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_30003",
-    "correspondStore": -1,
-    "correspondCharacter": -1,
-    "name": "无垠手册",
-    "describe": "购买极低战令后高级战令的价格",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "",
-    "isHuaBuy": false,
-    "buyPath": "",
-    "isTips": false,
-    "rewardList": [
-      {
-        "id": 11400041,
-        "num": 1
-      },
-      {
-        "id": 11400932,
-        "num": 1
-      },
-      {
-        "id": 82601058,
-        "num": 1
-      },
-      {
-        "id": 81300781,
-        "num": 1
-      },
-      {
-        "id": 11400933,
-        "num": 1
-      },
-      {
-        "id": 11400118,
-        "num": 1
-      },
-      {
-        "id": 11400057,
-        "num": 4
-      },
-      {
-        "id": 85500273,
-        "num": 1
-      },
-      {
-        "id": 85500274,
-        "num": 1
-      },
-      {
-        "id": 85500275,
-        "num": 1
-      },
-      {
-        "id": 85500276,
-        "num": 1
-      },
-      {
-        "id": 11400037,
-        "num": 10
-      },
-      {
-        "id": 11400014,
-        "num": 5
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 60,
-    "buyItemList": [],
-    "superValue": 200,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "dayRewardList": [],
-    "getContinueTime": 4294967295,
-    "BattlePassLevel": 2,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": false,
-    "isGuide": false,
-    "buyNumGuide": 2
-  },
-  {
-    "id": 82101874,
-    "idCN": "02战令/第23季/价位1",
-    "mod": "基础商品",
-    "isInformalData": false,
-    "costId": "lsns_30001",
-    "correspondStore": -1,
-    "correspondCharacter": -1,
-    "name": "开拓手册",
-    "describe": "低级战令",
-    "isText": false,
-    "showType": "Normal",
-    "title": -1,
-    "des": -1,
-    "desColor": "",
-    "tipsDesColor": "",
-    "iconPath": "",
-    "isHuaBuy": false,
-    "buyPath": "",
-    "isTips": false,
-    "rewardList": [
-      {
-        "id": 11400002,
-        "num": 1
-      },
-      {
-        "id": 11400005,
-        "num": 680
-      }
-    ],
-    "isFirst": false,
-    "rewardFirstList": [],
-    "rewardFollowList": [],
-    "specialRewardList": [],
-    "buyType": "Money",
-    "value": 68,
-    "buyItemList": [],
-    "superValue": 200,
-    "purchase": true,
-    "purchaseNum": 1,
-    "limitBuyType": "Forever",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
-    "isBuyCondition": false,
-    "gradeCondition": 0,
-    "ismonthCard": false,
-    "showList": [],
-    "isCharacterSkin": false,
-    "BattlePassLevel": 1,
-    "isTriggerTime": false,
-    "continueTime": 0,
-    "isActGift": false,
-    "isRedPoint": false,
-    "isGuide": false,
-    "buyNumGuide": 2
+    "getContinueTime": 4294967295
   }
 ]

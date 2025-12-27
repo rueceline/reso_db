@@ -1,7 +1,7 @@
 import { dataPath, assetPath, pagePath, buildAssetImageUrl } from '../utils/path.js';
-import { fetchJson, getQueryParam, formatTextWithParamsToHtml } from '../utils/utils.js';
+import { getQueryParam, formatTextWithParamsToHtml } from '../utils/utils.js';
 import { qs, setText, clearChildren } from '../utils/dom.js';
-import { DEFAULT_LANG } from '../utils/config.js';
+import { DEFAULT_LANG, FETCH_CACHE_MODE } from '../utils/config.js';
 
 // =========================================================
 // Character Detail Page Script
@@ -13,7 +13,16 @@ import { DEFAULT_LANG } from '../utils/config.js';
 // URLs
 // -------------------------
 const UNIT_VM_URL = dataPath(DEFAULT_LANG, 'UnitVM.json');
-const UNIT_SKILL_VM_URL = dataPath(DEFAULT_LANG, 'UnitSkillVM.json');
+const UNIT_VIEW_VM_URL = dataPath(DEFAULT_LANG, 'UnitViewVM.json');
+const TAG_VM_URL = dataPath(DEFAULT_LANG, 'TagVM.json');
+const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'SkillVM.json');
+
+const CARD_VM_URL = dataPath(DEFAULT_LANG, 'CardVM.json');
+const TALENT_VM_URL = dataPath(DEFAULT_LANG, 'TalentVM.json');
+const PROFILE_PHOTO_VM_URL = dataPath(DEFAULT_LANG, 'ProfilePhotoVM.json');
+const LIST_VM_URL = dataPath(DEFAULT_LANG, 'ListVM.json');
+const HOME_SKILL_VM_URL = dataPath(DEFAULT_LANG, 'HomeSkillVM.json');
+const BREAKTHROUGH_VM_URL = dataPath(DEFAULT_LANG, 'BreakthroughVM.json');
 
 // -------------------------
 // local helpers (characterdb.js 기준)
@@ -53,9 +62,9 @@ function buildPosIconUrl(line) {
   }
 
   // line → Row 이미지 매핑 규칙
-  // 1 = Front  (UI/Common/row/RowFront.png)
-  // 2 = Middle (UI/Common/row/RowMiddle.png)
-  // 3 = Back   (UI/Common/row/RowBack.png)
+  // 1 = Front  (UI/Common/row/RowFront)
+  // 2 = Middle (UI/Common/row/RowMiddleg)
+  // 3 = Back   (UI/Common/row/RowBack)
   if (n === 1) return buildAssetImageUrl('UI/Common/row/RowFront');
   if (n === 2) return buildAssetImageUrl('UI/Common/row/RowMiddle');
   if (n === 3) return buildAssetImageUrl('UI/Common/row/RowBack');
@@ -274,21 +283,162 @@ function bindDetailTabs() {
 // -------------------------
 // data
 // -------------------------
+// [변경 후] loadDetail() 첫 부분 (character_detail.js) :contentReference[oaicite:4]{index=4}
+// [변경 후] loadDetail 함수 전체 (character_detail.js)
 async function loadDetail(unitId) {
-  const [unitVm, unitSkillVm] = await Promise.all([fetchJson(UNIT_VM_URL), fetchJson(UNIT_SKILL_VM_URL)]);
+  // [변경 후] (character_detail.js) loadDetail() fetch/parse 구간
+  // [변경 후]
+  const [unitRes, viewRes, tagRes, skillRes, cardRes, talentRes, photoRes, listRes, homeSkillRes, breakthroughRes] =
+    await Promise.all([
+      fetch(UNIT_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(UNIT_VIEW_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(TAG_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(SKILL_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(CARD_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(TALENT_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(PROFILE_PHOTO_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(LIST_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(HOME_SKILL_VM_URL, { cache: FETCH_CACHE_MODE }),
+      fetch(BREAKTHROUGH_VM_URL, { cache: FETCH_CACHE_MODE })
+    ]);
+
+  if (!unitRes.ok) throw new Error(`UnitVM fetch failed: ${unitRes.status} ${unitRes.statusText}`);
+  if (!viewRes.ok) throw new Error(`UnitViewVM fetch failed: ${viewRes.status} ${viewRes.statusText}`);
+  if (!tagRes.ok) throw new Error(`TagVM fetch failed: ${tagRes.status} ${tagRes.statusText}`);
+  if (!skillRes.ok) throw new Error(`SkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
+
+  if (!cardRes.ok) throw new Error(`CardVM fetch failed: ${cardRes.status} ${cardRes.statusText}`);
+  if (!talentRes.ok) throw new Error(`TalentVM fetch failed: ${talentRes.status} ${talentRes.statusText}`);
+  if (!photoRes.ok) throw new Error(`ProfilePhotoVM fetch failed: ${photoRes.status} ${photoRes.statusText}`);
+  if (!listRes.ok) throw new Error(`ListVM fetch failed: ${listRes.status} ${listRes.statusText}`);
+  if (!homeSkillRes.ok) throw new Error(`HomeSkillVM fetch failed: ${homeSkillRes.status} ${homeSkillRes.statusText}`);
+  if (!breakthroughRes.ok) throw new Error(`BreakthroughVM fetch failed: ${breakthroughRes.status} ${breakthroughRes.statusText}`);
+
+  const unitVm = await unitRes.json();
+  const viewVm = await viewRes.json();
+  const tagVm = await tagRes.json();
+  const skillVm = await skillRes.json();
+
+  const cardVm = await cardRes.json();
+  const talentVm = await talentRes.json();
+  const photoVm = await photoRes.json();
+  const listVm = await listRes.json();
+  const homeSkillVm = await homeSkillRes.json();
+  const breakthroughVm = await breakthroughRes.json();
 
   const unitRec = unitVm?.[unitId];
   if (!unitRec) {
     throw new Error(`UnitVM에서 id=${unitId} 레코드를 찾지 못했습니다.`);
   }
 
+  // tagById (sideId 조인)
+  // [변경 후] (character_detail.js) 조인용 *ById 맵들 생성
+  const tagById = new Map();
+  if (tagVm && typeof tagVm === 'object') {
+    for (const key of Object.keys(tagVm)) {
+      const rec = tagVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) tagById.set(idNum, rec);
+    }
+  }
+
+  const cardById = new Map();
+  if (cardVm && typeof cardVm === 'object') {
+    for (const key of Object.keys(cardVm)) {
+      const rec = cardVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) cardById.set(idNum, rec);
+    }
+  }
+
+  const talentById = new Map();
+  if (talentVm && typeof talentVm === 'object') {
+    for (const key of Object.keys(talentVm)) {
+      const rec = talentVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) talentById.set(idNum, rec);
+    }
+  }
+
+  const photoById = new Map();
+  if (photoVm && typeof photoVm === 'object') {
+    for (const key of Object.keys(photoVm)) {
+      const rec = photoVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) photoById.set(idNum, rec);
+    }
+  }
+
+  const listById = new Map();
+  if (listVm && typeof listVm === 'object') {
+    for (const key of Object.keys(listVm)) {
+      const rec = listVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) listById.set(idNum, rec);
+    }
+  }
+
+  // [추가] breakthroughById
+  const breakthroughById = new Map();
+  if (breakthroughVm && typeof breakthroughVm === 'object') {
+    for (const key of Object.keys(breakthroughVm)) {
+      const rec = breakthroughVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) breakthroughById.set(idNum, rec);
+    }
+  }
+
+  const homeSkillById = new Map();
+  if (homeSkillVm && typeof homeSkillVm === 'object') {
+    for (const key of Object.keys(homeSkillVm)) {
+      const rec = homeSkillVm[key];
+      const idNum = Number(rec?.id ?? key);
+      if (Number.isFinite(idNum)) homeSkillById.set(idNum, rec);
+    }
+  }
+
+  // characterId -> "기본" viewRec (unit.viewId 단일 사용 조건)
+  const basicViewByCharId = {};
+  if (viewVm && typeof viewVm === 'object') {
+    for (const key of Object.keys(viewVm)) {
+      const v = viewVm[key];
+      if (!v) continue;
+      if (String(v.SkinName || '').trim() !== '기본') continue;
+
+      const cid = Number(v.character);
+      if (!Number.isFinite(cid)) continue;
+
+      if (basicViewByCharId[cid] === undefined) basicViewByCharId[cid] = v;
+    }
+  }
+
   // UnitVM에서 확인 가능한 필드만 사용
   const id = unitRec?.id;
   const name = String(unitRec?.name || '').trim();
-  const rarity = String(unitRec?.rarity || '').trim();
 
-  const factionName = String(unitRec?.factionName || '').trim();
-  const factionIconName = String(unitRec?.factionIconName || '').trim();
+  // rarity (UnitVM.quality -> rarity)
+  const qualityRaw = String(unitRec?.quality || '').trim();
+  const qualityKey = qualityRaw.toLowerCase();
+  let rarity = '-';
+  if (qualityKey === 'fivestar') rarity = 'SSR';
+  else if (qualityKey === 'fourstar') rarity = 'SR';
+  else if (qualityKey === 'threestar') rarity = 'R';
+  else if (qualityKey === 'twostar' || qualityKey === 'onestar') rarity = 'N';
+
+  // faction (sideId -> TagVM.sideName/icon)
+  const sideId = Number(unitRec?.sideId);
+  const tagRec = Number.isFinite(sideId) ? tagById.get(sideId) || null : null;
+
+  const factionName = String(tagRec?.sideName || '').trim();
+
+  let factionIconName = '';
+  if (tagRec) {
+    const v1 = tagRec.icon;
+    const v2 = tagRec.Icon;
+    const s1 = v1 === null || v1 === undefined ? '' : String(v1).trim();
+    const s2 = v2 === null || v2 === undefined ? '' : String(v2).trim();
+    factionIconName = s1 || s2 || '';
+  }
 
   const line = unitRec?.line;
 
@@ -296,16 +446,41 @@ async function loadDetail(unitId) {
   const genderRaw = String(unitRec?.gender || '').trim();
   const height = String(unitRec?.height || '').trim();
 
-  const portraitRel = String(unitRec?.portraitRel || '').trim();
   const avatarRel = String(unitRec?.avatarRel || '').trim();
+
+  // view join: unit.viewId 단일 사용 + "기본" 우선
+  const viewId = Number(unitRec?.viewId);
+  let viewRec = Number.isFinite(viewId) && viewVm ? viewVm[String(viewId)] || viewVm[viewId] || null : null;
+
+  if (!viewRec || String(viewRec.SkinName || '').trim() !== '기본') {
+    const cid = Number(unitRec?.id);
+    viewRec = Number.isFinite(cid) && basicViewByCharId[cid] ? basicViewByCharId[cid] : viewRec;
+  }
+
+  // portraitRel: roleListResUrl > squadsHalf1 > squadsHalf2 > bookHalf
+  let portraitSrc = '';
+  if (viewRec) {
+    const a = String(viewRec?.roleListResUrl ?? '').trim();
+    const b = String(viewRec?.squadsHalf1 ?? '').trim();
+    const c = String(viewRec?.squadsHalf2 ?? '').trim();
+    const d = String(viewRec?.bookHalf ?? '').trim();
+    portraitSrc = a || b || c || d || '';
+  }
+
+  const portraitRel = String(portraitSrc || '')
+    .trim()
+    .replace(/\\/g, '/')
+    .replace(/^\/+/g, '')
+    .replace(/\.(png|webp|jpg|jpeg)$/i, '');
 
   // 이미지 URL
   const illustrationUrl = portraitRel ? buildAssetImageUrl(portraitRel) : '';
   const sideIconUrl = factionIconName ? buildFactionIconUrl(factionIconName) : '';
   const posIconUrl = buildPosIconUrl(line);
 
-  // 스킬 조인 (UnitVM.skillIds → UnitSkillVM[id])
-  const skillIds = Array.isArray(unitRec?.skillIds) ? unitRec.skillIds : [];
+  // 스킬 조인 (UnitVM.skillList → SkillVM[id])  (unit_skill_vm.js 조인 방식 1-depth)
+  // [변경 후] (character_detail.js) 스킬 조인 (unit_skill_vm.js 방식: cardID->CardVM.cost_SN, ExSkillList 1-depth)
+  const skillIds = Array.isArray(unitRec?.skillList) ? unitRec.skillList : [];
   const skills = [];
 
   for (const it of skillIds) {
@@ -314,98 +489,324 @@ async function loadDetail(unitId) {
 
     if (!Number.isFinite(sid)) continue;
 
-    const s = unitSkillVm?.[String(sid)];
+    const s = skillVm?.[String(sid)];
     if (!s) continue;
 
-    const iconRel = String(s?.iconRel || '').trim();
-    const exSkillIds = Array.isArray(s?.ExSkillList) ? s.ExSkillList : [];
+    const iconRel = String(s?.iconRel || s?.iconPath || s?.IconPath || s?.icon || s?.Icon || '').trim();
+
+    const cardID = Number(s?.cardID);
+    const cardRec = Number.isFinite(cardID) ? cardById.get(cardID) || null : null;
+    const cost = cardRec && Number.isFinite(Number(cardRec?.cost_SN)) ? Number(cardRec.cost_SN) / 10000 : undefined;
+
+    const exListRaw = Array.isArray(s?.ExSkillList) ? s.ExSkillList : [];
+    const exSkillIds = [];
+
+    for (const ex of exListRaw) {
+      const exId = typeof ex === 'number' ? Number(ex) : Number(ex?.ExSkillName ?? ex?.id ?? ex);
+      if (Number.isFinite(exId)) exSkillIds.push(exId);
+    }
 
     const exSkills = [];
     for (const exId of exSkillIds) {
-      const exRec = unitSkillVm?.[String(exId)];
+      const exRec = skillVm?.[String(exId)];
       if (!exRec) continue;
 
-      const exIconRel = String(exRec?.iconRel || '').trim();
+      const exIconRel = String(exRec?.iconRel || exRec?.iconPath || exRec?.IconPath || exRec?.icon || exRec?.Icon || '').trim();
+
+      const exCardID = Number(exRec?.cardID);
+      const exCardRec = Number.isFinite(exCardID) ? cardById.get(exCardID) || null : null;
+      const exCost = exCardRec && Number.isFinite(Number(exCardRec?.cost_SN)) ? Number(exCardRec.cost_SN) / 10000 : undefined;
 
       exSkills.push({
         id: exRec?.id,
-        name: String(exRec?.name || '').trim(),
-        iconUrl: exIconRel ? buildAssetImageUrl(exIconRel) : '',
-        description: String(exRec?.description || '').trim(),
-        detailDescription: String(exRec?.detailDescription || '').trim(),
-        cost: exRec?.cost,
-        num: undefined, // ExSkillList에는 num 출처 없음
+        name: String(exRec?.name || exRec?.Name || '').trim(),
+        iconUrl: exIconRel
+          ? buildAssetImageUrl(
+              exIconRel
+                .replace(/\\/g, '/')
+                .replace(/^\/+/g, '')
+                .replace(/\.(png|webp|jpg|jpeg)$/i, '')
+            )
+          : '',
+        description: String(exRec?.description || exRec?.Description || exRec?.des || exRec?.Des || '').trim(),
+        detailDescription: String(exRec?.detailDescription || exRec?.DetailDescription || exRec?.detailDes || exRec?.DetailDes || '').trim(),
+        cost: exCost,
+        num: undefined,
         exSkills: []
       });
     }
 
     skills.push({
       id: s?.id,
-      name: String(s?.name || '').trim(),
-      iconUrl: iconRel ? buildAssetImageUrl(iconRel) : '',
-      description: String(s?.description || '').trim(),
-      detailDescription: String(s?.detailDescription || '').trim(),
-      cost: s?.cost,
+      name: String(s?.name || s?.Name || '').trim(),
+      iconUrl: iconRel
+        ? buildAssetImageUrl(
+            iconRel
+              .replace(/\\/g, '/')
+              .replace(/^\/+/g, '')
+              .replace(/\.(png|webp|jpg|jpeg)$/i, '')
+          )
+        : '',
+      description: String(s?.description || s?.Description || s?.des || s?.Des || '').trim(),
+      detailDescription: String(s?.detailDescription || s?.DetailDescription || s?.detailDes || s?.DetailDes || '').trim(),
+      cost,
       num: Number.isFinite(num) ? num : undefined,
       exSkills
     });
   }
 
-  // 변경 후 (return 직전에 talents 생성 + return에 talents 추가)
+  // talents (기존 구조 유지: unitRec.talentIds가 없으면 빈 배열)
+  // [변경 후] (character_detail.js) talents: UnitVM.talentList[].talentId -> TalentVM 조인 (unit_vm.js 방식)
   const talents = [];
-  const rawTalents = Array.isArray(unitRec?.talentIds) ? unitRec.talentIds : [];
+  const rawTalentList = Array.isArray(unitRec?.talentList) ? unitRec.talentList : [];
 
-  for (const t of rawTalents) {
-    const tPathRel = String(t?.path || '').trim();
-    const tIconUrl = tPathRel ? buildAssetImageUrl(tPathRel) : '';
+  for (const t of rawTalentList) {
+    const tid = Number(t?.talentId);
+    if (!Number.isFinite(tid) || tid <= 0) continue;
 
-    const skillIntensify = Number(t?.skillIntensify);
-    const intensifyRec = Number.isFinite(skillIntensify) && skillIntensify > 0 ? unitSkillVm?.[String(skillIntensify)] : null;
+    const trec = talentById.get(tid);
+    if (!trec) continue;
+
+    const name = String(trec?.name || trec?.Name || '').trim();
+    const desc = String(trec?.desc || trec?.Desc || trec?.description || trec?.Description || '').trim();
+
+    const pathRaw = String(trec?.path || trec?.Path || '').trim();
+    const pathRel = pathRaw
+      ? pathRaw
+          .replace(/\\/g, '/')
+          .replace(/^\/+/g, '')
+          .replace(/\.(png|webp|jpg|jpeg)$/i, '')
+      : '';
+
+    const tIconUrl = pathRel ? buildAssetImageUrl(pathRel) : '';
+
+    const skillIntensify = Number(trec?.skillIntensify);
+    const intensifyRec = Number.isFinite(skillIntensify) && skillIntensify > 0 ? skillVm?.[String(skillIntensify)] : null;
 
     let intensifySkill = null;
     if (intensifyRec) {
-      const ir = String(intensifyRec?.iconRel || '').trim();
+      const ir = String(intensifyRec?.iconRel || intensifyRec?.iconPath || intensifyRec?.IconPath || intensifyRec?.icon || intensifyRec?.Icon || '').trim();
       intensifySkill = {
         id: intensifyRec?.id,
-        name: String(intensifyRec?.name || '').trim(),
-        iconUrl: ir ? buildAssetImageUrl(ir) : '',
-        description: String(intensifyRec?.description || '').trim(),
-        detailDescription: String(intensifyRec?.detailDescription || '').trim(),
-        exSkills: [] // 공명 탭 하위항목에서는 추가 전개 없음
+        name: String(intensifyRec?.name || intensifyRec?.Name || '').trim(),
+        iconUrl: ir
+          ? buildAssetImageUrl(
+              ir
+                .replace(/\\/g, '/')
+                .replace(/^\/+/g, '')
+                .replace(/\.(png|webp|jpg|jpeg)$/i, '')
+            )
+          : '',
+        description: String(intensifyRec?.description || intensifyRec?.Description || intensifyRec?.des || intensifyRec?.Des || '').trim(),
+        detailDescription: String(intensifyRec?.detailDescription || intensifyRec?.DetailDescription || intensifyRec?.detailDes || intensifyRec?.DetailDes || '').trim(),
+        exSkills: []
       };
     }
 
     talents.push({
-      name: String(t?.name || '').trim(),
-      desc: String(t?.desc || '').trim(),
+      name,
+      desc,
       iconUrl: tIconUrl,
       skillIntensify: Number.isFinite(skillIntensify) ? skillIntensify : undefined,
       intensifySkill
     });
   }
 
-  const awakeListRaw = Array.isArray(unitRec?.awakeList) ? unitRec.awakeList : [];
+  // awakeList (UnitVM.breakthroughList -> BreakthroughVM 조인)
   const awakeList = [];
+  const rawBreakthroughList = Array.isArray(unitRec?.breakthroughList)
+    ? unitRec.breakthroughList
+    : [];
 
-  for (const a of awakeListRaw) {
-    const name = String(a?.name || a?.title || '').trim();
-    const desc = String(a?.desc || a?.des || a?.description || '').trim();
-    const detailDescription = String(a?.detailDescription || a?.detail || '').trim();
+  for (const b of rawBreakthroughList) {
+    const bid = Number(b?.breakthroughId);
+    if (!Number.isFinite(bid) || bid <= 0) continue;
 
-    const iconRel = String(a?.path || a?.iconRel || a?.icon || '').trim();
+    const brec = breakthroughById.get(bid);
+    if (!brec) continue;
+
+    const name = String(brec?.name || brec?.Name || '').trim();
+    const desc = String(brec?.desc || brec?.Desc || '').trim();
+    const detailDescription = String(
+      brec?.detailDescription || brec?.DetailDescription || ''
+    ).trim();
+
+    const iconRaw = String(brec?.path).trim();
+
+    const iconRel = iconRaw
+      ? iconRaw
+          .replace(/\\/g, '/')
+          .replace(/^\/+/g, '')
+          .replace(/\.(png|webp|jpg|jpeg)$/i, '')
+      : '';
+
     const iconUrl = iconRel ? buildAssetImageUrl(iconRel) : '';
 
-    awakeList.push({
-      name,
-      desc,
-      detailDescription,
-      iconUrl
-    });
+    if (name || desc || detailDescription || iconUrl) {
+      awakeList.push({
+        name,
+        desc,
+        detailDescription,
+        iconUrl
+      });
+    }
   }
 
-  const homeSkillList = Array.isArray(unitRec?.homeSkillList) ? unitRec.homeSkillList : [];
-  const profilePhotoPath = Array.isArray(unitRec?.profilePhotoPath) ? unitRec.profilePhotoPath : [];
-  const storyList = Array.isArray(unitRec?.storyList) ? unitRec.storyList : [];
+
+  // profilePhotoPath (UnitFactory.ProfilePhotoList[].id -> ProfilePhotoVM.imagePath)
+  const profilePhotoPath = [];
+  if (Array.isArray(unitRec?.ProfilePhotoList)) {
+    for (const p of unitRec.ProfilePhotoList) {
+      const pid = Number(p?.id);
+      if (!Number.isFinite(pid) || pid <= 0) continue;
+
+      const photoRec = photoById.get(pid);
+      if (!photoRec) continue;
+
+      const imgPathRaw = String(photoRec?.imagePath || photoRec?.ImagePath || '').trim();
+      if (!imgPathRaw) continue;
+
+      const rel = imgPathRaw
+        .replace(/\\/g, '/')
+        .replace(/^\/+/g, '')
+        .replace(/\.(png|webp|jpg|jpeg)$/i, '');
+      if (rel) profilePhotoPath.push(rel);
+    }
+  }
+
+  // storyList (UnitFactory.fileList[].file -> ListVM.id -> StoryList[])
+  const storyList = [];
+  const fileList = Array.isArray(unitRec?.fileList) ? unitRec.fileList : [];
+  const seenTitle = new Set();
+  const seenFileId = new Set();
+
+  for (const f of fileList) {
+    const fileId = Number(f?.file);
+    if (!Number.isFinite(fileId) || fileId <= 0) continue;
+
+    if (seenFileId.has(fileId)) continue;
+    seenFileId.add(fileId);
+
+    const listRec = listById.get(fileId);
+    if (!listRec) continue;
+
+    const rawStoryList = Array.isArray(listRec?.StoryList) ? listRec.StoryList : [];
+    for (const s of rawStoryList) {
+      const des = String(s?.des ?? '').trim();
+      const Title = String(s?.Title ?? '').trim();
+
+      if (Title && seenTitle.has(Title)) continue;
+
+      if (des || Title) {
+        if (Title) seenTitle.add(Title);
+        storyList.push({ des, Title });
+      }
+    }
+  }
+
+  // homeSkillList (UnitFactory.homeSkillList[].id -> HomeSkillVM, nextIndex 누적 param 치환)
+  const homeSkillList = [];
+  const rawHomeSkillList = Array.isArray(unitRec?.homeSkillList) ? unitRec.homeSkillList : [];
+
+  const accParamByIndex = new Map();
+  const HOME_PARAM_SCALE = 1000000;
+
+  // base param 스케일 저장
+  for (let i = 0; i < rawHomeSkillList.length; i++) {
+    const hs = rawHomeSkillList[i];
+    const hid = Number(hs?.id);
+    if (!Number.isFinite(hid) || hid <= 0) continue;
+
+    const hrec = homeSkillById.get(hid);
+    if (!hrec) continue;
+
+    const baseParam = Number(hrec?.param);
+    if (!Number.isFinite(baseParam)) continue;
+
+    const baseScaled = Math.trunc(baseParam * HOME_PARAM_SCALE);
+    accParamByIndex.set(i, baseScaled);
+  }
+
+  // nextIndex 체인 누적 (nextIndex는 1-based)
+  for (let i = 0; i < rawHomeSkillList.length; i++) {
+    const hs = rawHomeSkillList[i];
+    const nextIdx1 = Number(hs?.nextIndex);
+    if (!Number.isFinite(nextIdx1) || nextIdx1 <= 0) continue;
+
+    const nextIdx0 = nextIdx1 - 1;
+
+    if (nextIdx0 >= 0 && nextIdx0 < rawHomeSkillList.length && accParamByIndex.has(nextIdx0)) {
+      const prevScaled = accParamByIndex.get(i) || 0;
+      accParamByIndex.set(nextIdx0, accParamByIndex.get(nextIdx0) + prevScaled);
+    }
+  }
+
+  // 출력용 homeSkillList 생성
+  for (let i = 0; i < rawHomeSkillList.length; i++) {
+    const hs = rawHomeSkillList[i];
+    const hid = Number(hs?.id);
+    if (!Number.isFinite(hid) || hid <= 0) continue;
+
+    const hrec = homeSkillById.get(hid);
+    if (!hrec) continue;
+
+    const name = String(hrec?.name || hrec?.Name || '').trim();
+    const descTpl = String(hrec?.desc || hrec?.Desc || '').trim();
+    const resonanceLv = Number(hs?.resonanceLv);
+
+    const accScaled = accParamByIndex.get(i);
+    let paramText = '';
+
+    if (Number.isFinite(accScaled)) {
+      const accParam = accScaled / HOME_PARAM_SCALE;
+
+      if (descTpl.includes('%%')) {
+        const pct = accParam * 100;
+        const pctTrunc = Math.trunc(pct * 10) / 10;
+        paramText = pctTrunc.toFixed(1);
+      } else {
+        const vTrunc = Math.trunc(accParam * 1000) / 1000;
+        paramText = String(vTrunc);
+      }
+    }
+
+    const desc = descTpl ? descTpl.replace(/%s/g, paramText) : '';
+
+    if (name || desc || resonanceLv) {
+      homeSkillList.push({ name, desc, resonanceLv: Number.isFinite(resonanceLv) ? resonanceLv : undefined });
+    }
+  }
+
+  // SkinName (UnitViewVM에서 character==id인 스킨 목록 생성)
+  const SkinName = [];
+  if (viewVm && typeof viewVm === 'object') {
+    for (const key of Object.keys(viewVm)) {
+      const v = viewVm[key];
+      if (!v) continue;
+      if (Number(v.character) !== Number(id)) continue;
+
+      const skinName = String(v.SkinName || '').trim();
+      const resUrl = String(v.resUrl || '').trim();
+      if (!skinName || !resUrl) continue;
+
+      SkinName.push({ [skinName]: resUrl });
+    }
+
+    console.log('State2Res raw:', viewRec?.State2Res, 'typeof:', typeof viewRec?.State2Res, 'len:', String(viewRec?.State2Res ?? '').length);
+
+    const state2Res = viewRec ? String(viewRec.State2Res ?? '').trim() : '';
+    if (state2Res) {
+      const rec = { ['공명']: state2Res };
+
+      // index = 1 (두 번째)에 삽입
+      if (SkinName.length >= 1) {
+        SkinName.splice(1, 0, rec);
+      } else {
+        // 기본 스킨이 없는 예외 케이스
+        SkinName.push(rec);
+      }
+    }
+  }  
 
   return {
     id,
@@ -422,13 +823,13 @@ async function loadDetail(unitId) {
     birthplace: String(unitRec?.birthplace || '').trim(),
     ability: String(unitRec?.ability || '').trim(),
     identity: String(unitRec?.identity || '').trim(),
-    resumeList: Array.isArray(unitRec?.resumeList) ? unitRec.resumeList : [],
+    ResumeList: Array.isArray(unitRec?.ResumeList) ? unitRec.ResumeList : [],
 
     portraitRel,
     avatarRel,
     skillIds,
 
-    SkinName: Array.isArray(unitRec?.SkinName) ? unitRec.SkinName : [],
+    SkinName,
     awakeList,
     illustrationUrl,
     sideIconUrl,
@@ -452,7 +853,7 @@ function applyDom(detail) {
 
   // 기본 텍스트
   setText('char-name', detail.name || '');
-  setText('char-name-en', ''); // UnitVM/UnitSkillVM으로 확인 불가
+  setText('char-name-en', ''); 
 
   const rarityEl = qs('#char-rarity');
   if (rarityEl) {
@@ -462,7 +863,7 @@ function applyDom(detail) {
     if (r) {
       const img = document.createElement('img');
       img.alt = r;
-      img.src = assetPath(`UI/Common/${r}.png`);
+      img.src = buildAssetImageUrl(`UI/Common/${r}`);
       img.className = 'char-rarity-img';
       rarityEl.appendChild(img);
     }
@@ -483,10 +884,10 @@ function applyDom(detail) {
   if (resumeRoot) {
     clearChildren(resumeRoot);
 
-    if (!detail.resumeList || detail.resumeList.length === 0) {
+    if (!detail.ResumeList || detail.ResumeList.length === 0) {
       resumeRoot.textContent = '미확정';
     } else {
-      for (const r of detail.resumeList) {
+      for (const r of detail.ResumeList) {
         const p = document.createElement('p');
         p.className = 'record-line';
         p.textContent = r.des || '';
@@ -807,8 +1208,8 @@ function applyDom(detail) {
         skillRoot.appendChild(buildSkillRow(s));
       }
     }
-  }  
-  
+  }
+
   // 공명 (Resonance)
   const resRoot = qs('#char-resonance');
   if (resRoot) {
@@ -862,7 +1263,7 @@ function applyDom(detail) {
 
         const detailBox = document.createElement('div');
         detailBox.className = 'skill-detail muted';
-        
+
         // Resonance index(t) === homeSkillList.resonanceLv - 1 인 경우 desc 추가
         if (t.desc) {
           const d1 = document.createElement('div');

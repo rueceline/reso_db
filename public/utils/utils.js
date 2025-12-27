@@ -109,6 +109,11 @@ export function formatTextWithParamsToHtml(text) {
   return out;
 }
 
+export function safeNumber(v) {
+  if (v === null || v === undefined) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
 
 /**
  * HTML escape

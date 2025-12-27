@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 const BASE = import.meta.env.BASE_URL;
 ---
 
@@ -21,15 +21,9 @@ const BASE = import.meta.env.BASE_URL;
       <h1 class="page-title">장비 목록</h1>
 
       <div class="toolbar">
-        <input
-          id="searchInput"
-          class="input"
-          type="text"
-          placeholder="이름 검색"
-        />
+        <input id="searchInput" class="input" type="text" placeholder="이름 검색" />
         <span id="countBadge" class="pill">총 0개</span>
-        <button id="clearFilters" class="pill" type="button">필터 초기화</button
-        >
+        <button id="clearFilters" class="pill" type="button">필터 초기화</button>
       </div>
 
       <div id="filters" class="filter-grid">
@@ -60,6 +54,5 @@ const BASE = import.meta.env.BASE_URL;
   </main>
 
   <!-- ES Module 로드 -->
-  <script slot="scripts" type="module" src={`${BASE}pages/equipmentdb.js`}
-  ></script>
+  <script slot="scripts" type="module" src={`${BASE}pages/equipmentdb.js`}></script>
 </BaseLayout>

@@ -1,21 +1,122 @@
 import { dataPath, buildAssetImageUrl } from '../utils/path.js';
-import { getQueryParam, formatTextWithParamsToHtml } from '../utils/utils.js';
+import { safeNumber, getQueryParam, formatTextWithParamsToHtml, normalizePathSlash } from '../utils/utils.js';
 import { setText, setHtml, clearChildren } from '../utils/dom.js';
-import { safeNumber } from '../utils/data.js';
-
-import { DEFAULT_LANG } from '../utils/config.js';
-
-const EQUIP_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentVM.json');
-const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentSkillVM.json');
+import { DEFAULT_LANG, FETCH_CACHE_MODE } from '../utils/config.js';
 
 // =========================================================
 // Equipment Detail Page Script
-// - 실행 흐름: main() → loadEquipmentDetailData() → applyEquipmentToDom()
+// - 실행 흐름: main() → loadData() → applyToDom()
 // =========================================================
+
+// -------------------------
+// URLs
+// -------------------------
+
+const EQUIP_VM_URL = dataPath(DEFAULT_LANG, 'EquipmentVM.json');
+const SKILL_VM_URL = dataPath(DEFAULT_LANG, 'SkillVM.json');
+const TAG_VM_URL = dataPath(DEFAULT_LANG, 'TagVM.json');
+const GROWTH_VM_URL = dataPath(DEFAULT_LANG, 'GrowthVM.json');
+const LIST_VM_URL = dataPath(DEFAULT_LANG, 'ListVM.json');
 
 // -------------------------
 // helpers
 // -------------------------
+
+// 변경 후
+// -------------------------
+// helpers
+// -------------------------
+const RARITY_ORDER = ['UR', 'SSR', 'SR', 'R', 'N'];
+
+function mapQualityToRarity(quality) {
+  const m = {
+    Orange: RARITY_ORDER[0],
+    Golden: RARITY_ORDER[1],
+    Purple: RARITY_ORDER[2],
+    Blue: RARITY_ORDER[3],
+    White: RARITY_ORDER[4]
+  };
+  return m[String(quality)] || '-';
+}
+
+function resolveMainStat(e) {
+  if ((safeNumber(e?.attack_SN) ?? 0) > 0) return { key: 'atk', label: '공격력', sn: e.attack_SN };
+  if ((safeNumber(e?.healthPoint_SN) ?? 0) > 0) return { key: 'hp', label: '체력', sn: e.healthPoint_SN };
+  if ((safeNumber(e?.defence_SN) ?? 0) > 0) return { key: 'def', label: '방어력', sn: e.defence_SN };
+  return { key: '', label: '-', sn: 0 };
+}
+
+function calcEquipStatRange(equipSN, growthSN, maxLevel = 80) {
+  const equipBase = equipSN / 10000;
+  const growthInitial = growthSN / 1000;
+  const perLevel = growthSN / 10000;
+
+  const growthMax = growthInitial + perLevel * (maxLevel - 1);
+  const delta = equipBase - growthInitial;
+
+  return {
+    min: Math.round(equipBase),
+    max: Math.round(growthMax + delta)
+  };
+}
+
+function calcMainStatWithGrowth(e, growthRec) {
+  const main = resolveMainStat(e);
+
+  if (!main.key || !growthRec) {
+    return { label: main.label, min: '-', max: '-' };
+  }
+
+  let growthSN = 0;
+  if (main.key === 'atk') growthSN = growthRec.gAtk_SN;
+  if (main.key === 'hp') growthSN = growthRec.gHp_SN;
+  if (main.key === 'def') growthSN = growthRec.gDef_SN;
+
+  if (!growthSN) {
+    const v = Math.round(main.sn / 10000);
+    return { label: main.label, min: v, max: v };
+  }
+
+  const r = calcEquipStatRange(main.sn, growthSN);
+  return { label: main.label, min: r.min, max: r.max };
+}
+
+function pickFirstFixedSkillId(skillList) {
+  const list = Array.isArray(skillList) ? skillList : [];
+  for (const it of list) {
+    const sid = safeNumber(it?.skillId);
+    if (sid) return sid;
+  }
+  return null;
+}
+
+function resolveFactionLabelFromSkillRec(skillRec, tagById) {
+  const direct = String(skillRec?.sideName || '').trim();
+  if (direct) return direct;
+
+  const campList = Array.isArray(skillRec?.campList) ? skillRec.campList : [];
+  for (const it of campList) {
+    const tid = safeNumber(it?.tagId ?? it?.id);
+    if (!tid) continue;
+
+    const t = tagById.get(tid) || null;
+    const side = String(t?.sideName || '').trim();
+    if (side) return side;
+  }
+
+  const spList = Array.isArray(skillRec?.specialTagList) ? skillRec.specialTagList : [];
+  for (const it of spList) {
+    const tid = safeNumber(it?.tagId ?? it?.id);
+    if (!tid) continue;
+
+    const t = tagById.get(tid) || null;
+    const side = String(t?.sideName || '').trim();
+    if (side) return side;
+  }
+
+  return '';
+}
+
 
 function createOptionRow(htmlText) {
   const row = document.createElement('div');
@@ -106,80 +207,156 @@ function getFixedOptionMax(category) {
 // main flow
 // -------------------------
 
-async function loadEquipmentDetailData(id) {
-  const [equipRes, skillRes] = await Promise.all([fetch(EQUIP_VM_URL, { cache: 'force-cache' }), fetch(SKILL_VM_URL, { cache: 'force-cache' })]);
+// 변경 후
+async function loadData(id) {
+  const [equipRes, tagRes, growthRes, listRes, skillRes] = await Promise.all([fetch(EQUIP_VM_URL, { cache: FETCH_CACHE_MODE }), fetch(TAG_VM_URL, { cache: FETCH_CACHE_MODE }), fetch(GROWTH_VM_URL, { cache: FETCH_CACHE_MODE }), fetch(LIST_VM_URL, { cache: FETCH_CACHE_MODE }), fetch(SKILL_VM_URL, { cache: FETCH_CACHE_MODE })]);
 
-  if (!equipRes.ok) {
-    throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
-  }
-  if (!skillRes.ok) {
-    throw new Error(`EquipmentSkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
-  }
+  if (!equipRes.ok) throw new Error(`EquipmentVM fetch failed: ${equipRes.status} ${equipRes.statusText}`);
+  if (!tagRes.ok) throw new Error(`TagVM fetch failed: ${tagRes.status} ${tagRes.statusText}`);
+  if (!growthRes.ok) throw new Error(`GrowthVM fetch failed: ${growthRes.status} ${growthRes.statusText}`);
+  if (!listRes.ok) throw new Error(`ListVM fetch failed: ${listRes.status} ${listRes.statusText}`);
+  if (!skillRes.ok) throw new Error(`SkillVM fetch failed: ${skillRes.status} ${skillRes.statusText}`);
 
   const equipVm = await equipRes.json();
+  const tagVm = await tagRes.json();
+  const growthVm = await growthRes.json();
+  const listVm = await listRes.json(); // (조인 방식 통일용: 현재 detail에서는 random list 조인에 사용하지 않음)
   const skillVm = await skillRes.json();
 
-  const rec = equipVm ? equipVm[String(id)] : null;
-  if (!rec) {
+  const raw = equipVm ? equipVm[String(id)] : null;
+  if (!raw) {
     throw new Error(`EquipmentVM record missing: id=${id}`);
   }
 
-  return { vm: rec, skillVm };
+  const tagById = new Map();
+  if (tagVm && typeof tagVm === 'object') {
+    for (const k of Object.keys(tagVm)) {
+      const rec = tagVm[k];
+      const tid = safeNumber(rec?.id ?? k);
+      if (tid !== null) tagById.set(tid, rec);
+    }
+  }
+
+  const growthById = new Map();
+  if (growthVm && typeof growthVm === 'object') {
+    for (const k of Object.keys(growthVm)) {
+      const rec = growthVm[k];
+      const gid = safeNumber(rec?.id ?? k);
+      if (gid !== null) growthById.set(gid, rec);
+    }
+  }
+
+  const listById = new Map();
+  if (listVm && typeof listVm === 'object') {
+    for (const k of Object.keys(listVm)) {
+      const rec = listVm[k];
+      const lid = safeNumber(rec?.id ?? k);
+      if (lid !== null) listById.set(lid, rec);
+    }
+  }
+
+  const skillById = new Map();
+  if (skillVm && typeof skillVm === 'object') {
+    for (const k of Object.keys(skillVm)) {
+      const rec = skillVm[k];
+      const sid = safeNumber(rec?.id ?? k);
+      if (sid !== null) skillById.set(sid, rec);
+    }
+  }
+
+  // ----- equipmentdb.js 방식으로 필드 조인/계산 -----
+  const rarity = mapQualityToRarity(raw?.quality);
+
+  const equipTagId = safeNumber(raw?.equipTagId);
+  const campTagId = safeNumber(raw?.campTagId);
+
+  let category = '-';
+  if (equipTagId && tagById.has(equipTagId)) {
+    const t = tagById.get(equipTagId);
+    category = String(t?.Name || t?.tagName || '-');
+  }
+
+  let faction = '-';
+  if (campTagId && tagById.has(campTagId)) {
+    const t = tagById.get(campTagId);
+    faction = String(t?.sideName || '-');
+  }
+
+  const growthId = safeNumber(raw?.growthId);
+  const growthRec = growthId ? growthById.get(growthId) || null : null;
+  const stat = raw?.stat ? raw.stat : calcMainStatWithGrowth(raw, growthRec);
+
+  const tipsPath = String(raw?.tipsPath || raw?.iconPath || raw?.icon || raw?.imagePath || raw?.imageRel || '').trim();
+  const imageRel = tipsPath ? normalizePathSlash(tipsPath) : '';
+
+  // 변경 후
+  const fixed = safeNumber(raw?.fixed) ?? pickFirstFixedSkillId(raw?.skillList) ?? null;
+
+  // randomSkillList(ListId 목록) -> ListVM -> (EquipmentEntryList[].id = skillId)
+  const random = [];
+  const randomSkillList = Array.isArray(raw?.randomSkillList) ? raw.randomSkillList : [];
+
+  for (const it of randomSkillList) {
+    const listId = safeNumber(it?.skillId);
+    if (!listId) continue;
+
+    const listRec = listById.get(listId) || null;
+    const entries = Array.isArray(listRec?.EquipmentEntryList) ? listRec.EquipmentEntryList : [];
+
+    for (const ent of entries) {
+      const sid = safeNumber(ent?.id);
+      if (sid) random.push(sid);
+    }
+  }
+
+  const getway = Array.isArray(raw?.Getway) ? raw.Getway : [];
+  const acquire = getway
+    .map((x) => String(x?.DisplayName || '').trim())
+    .filter(Boolean)
+    .join('\n');
+
+  // 중복 제거
+  const uniqRandom = Array.from(new Set(random));
+
+  // detail UI가 기대하는 vm 형태로 변환
+  const vm = {
+    id: safeNumber(raw?.id),
+    name: String(raw?.name || '').trim() || '-',
+    rarity,
+    category,
+    faction,
+    imageRel,
+    stat: {
+      label: stat?.label ?? '-',
+      min: stat?.min ?? '-',
+      max: stat?.max ?? '-'
+    },
+    description: String(raw?.description || raw?.des || '').trim(),
+    acquire,
+    fixed,
+    random: uniqRandom
+  };
+
+  return { vm, skillById, tagById };
 }
 
-function applyEquipmentToDom(id, ctx) {
+
+function applyToDom(id, ctx) {
   const vm = ctx?.vm;
   if (!vm) {
     setText('equip-name', `장비를 찾을 수 없습니다. id=${id}`);
     return;
   }
 
-  const skillVm = ctx?.skillVm || null;
+  // 변경 후 (applyToDom 초반부)
+  const skillById = ctx?.skillById || new Map();
+  const tagById = ctx?.tagById || new Map();
 
-  const equipFaction = vm?.faction;
-  const factionSkillSet = new Set();
-  const commonSkillSet = new Set();
+  const equipFaction = String(vm?.faction || '').trim();
 
-  if (skillVm && typeof skillVm === 'object') {
-    // 내 장비 소속 스킬
-    if (equipFaction && Array.isArray(skillVm[equipFaction])) {
-      const arr = skillVm[equipFaction];
-
-      for (const it of arr) {
-        const id = it?.id;
-        if (id != null) {
-          factionSkillSet.add(id);
-        }
-      }
-    }
-
-    // 공용 스킬 (flat 스키마에서 "공용" 키)
-    if (Array.isArray(skillVm['공용'])) {
-      const arr = skillVm['공용'];
-
-      for (const it of arr) {
-        const id = it?.id;
-        if (id != null) {
-          commonSkillSet.add(id);
-        }
-      }
-    }
-  }
-
-  // skillId -> description (표시용)
   const descById = new Map();
-
-  // description 채우기: 모든 그룹을 순회 (표시용)
-  if (skillVm && typeof skillVm === 'object') {
-    for (const groupName of Object.keys(skillVm)) {
-      const arr = Array.isArray(skillVm[groupName]) ? skillVm[groupName] : [];
-      for (const it of arr) {
-        const id = it?.id;
-        if (id != null && !descById.has(id)) {
-          descById.set(id, String(it?.description ?? '').trim());
-        }
-      }
-    }
+  for (const [sid, s] of skillById.entries()) {
+    descById.set(sid, String(s?.description || s?.tempdescription || '').trim());
   }
 
   setText('equip-name', String(vm.name || '').trim() || '-');
@@ -268,7 +445,7 @@ function applyEquipmentToDom(id, ctx) {
   }
 
   // Random (skillId[] 평탄화)
-  const randomIds = Array.isArray(vm?.random) ? vm.random : [];
+  const randomIds = Array.isArray(vm?.random) ? vm.random : [];  
 
   const factionEl = document.getElementById('random-skill-faction');
   const commonEl = document.getElementById('random-skill-common');
@@ -283,16 +460,18 @@ function applyEquipmentToDom(id, ctx) {
   const factionIds = [];
   const commonIds = [];
 
-  for (const id of randomIds) {
-    if (factionSkillSet.has(id)) {
-      factionIds.push(id);
-    } else if (commonSkillSet.has(id)) {
-      commonIds.push(id);
+  // 변경 후 (random 분류: SkillVM(+TagVM)로 소속 판정)
+  for (const sid of randomIds) {
+    const s = skillById.get(sid) || null;
+    
+    console.log(sid, s?.campList, s?.campList.length)
+
+    // campList가 1개면 소속 처리
+    const campList = Array.isArray(s?.campList) ? s.campList : [];
+    if (campList.length === 1) {
+      factionIds.push(sid);
     } else {
-      // EquipmentSkillVM에 없는 id (매칭 누락/데이터 누락)
-      commonIds.push(id); // 기존 UI 유지
-      // 필요하면 여기서 console.log로 누락 id를 찍어도 됨
-      // console.log('unknown random skill id:', id);
+      commonIds.push(sid);
     }
   }
 
@@ -346,8 +525,8 @@ async function main() {
     return;
   }
 
-  const ctx = await loadEquipmentDetailData(id);
-  applyEquipmentToDom(id, ctx);
+  const ctx = await loadData(id);
+  applyToDom(id, ctx);
   setupSkillExpandToggle();
 }
 

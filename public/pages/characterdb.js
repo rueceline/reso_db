@@ -1,7 +1,7 @@
+// [변경 후] import 구간 (characterdb.js) :contentReference[oaicite:1]{index=1}
 import { dataPath, assetPath, pagePath, buildAssetImageUrl } from '../utils/path.js';
-import { fetchJson } from '../utils/utils.js';
 import { qs, setText, clearChildren } from '../utils/dom.js';
-import { DEFAULT_LANG } from '../utils/config.js';
+import { DEFAULT_LANG, FETCH_CACHE_MODE } from '../utils/config.js';
 
 // =========================================================
 // Character DB Page Script
@@ -12,6 +12,8 @@ import { DEFAULT_LANG } from '../utils/config.js';
 // URLs
 // -------------------------
 const UNIT_VM_URL = dataPath(DEFAULT_LANG, 'UnitVM.json');
+const UNIT_VIEW_VM_URL = dataPath(DEFAULT_LANG, 'UnitViewVM.json');
+const TAG_VM_URL = dataPath(DEFAULT_LANG, 'TagVM.json');
 
 // -------------------------
 // local helpers
@@ -39,7 +41,7 @@ function buildFactionIconUrl(iconRel) {
   }
 
   // 원래 URL(대소문자 포함) 유지: ext는 그대로 붙여서 assetPath로 생성
-  return assetPath(`${rel}.png`);
+  return buildAssetImageUrl(rel);
 }
 
 function buildPosIconUrl(line) {
@@ -49,9 +51,9 @@ function buildPosIconUrl(line) {
   }
 
   // line → Row 이미지 매핑 규칙
-  // 1 = Front  (UI/Common/row/RowFront.png)
-  // 2 = Middle (UI/Common/row/RowMiddle.png)
-  // 3 = Back   (UI/Common/row/RowBack.png)
+  // 1 = Front  (UI/Common/row/RowFront)
+  // 2 = Middle (UI/Common/row/RowMiddle)
+  // 3 = Back   (UI/Common/row/RowBack)
   if (n === 1) return buildAssetImageUrl('UI/Common/row/RowFront');
   if (n === 2) return buildAssetImageUrl('UI/Common/row/RowMiddle');
   if (n === 3) return buildAssetImageUrl('UI/Common/row/RowBack');
@@ -133,7 +135,7 @@ function buildRarityOptions(list) {
 function buildCard(item) {
   const a = document.createElement('a');
   a.className = 'char-card';
-  a.href = `${pagePath('character_detail.html')}?id=${encodeURIComponent(byString(item.id))}`;
+  a.href = `${pagePath('/character_detail')}?id=${encodeURIComponent(byString(item.id))}`;  
 
   const thumb = document.createElement('div');
   thumb.className = 'char-thumb';
@@ -144,7 +146,7 @@ function buildCard(item) {
     `url(${buildAssetImageUrl('UI/Common/characterlist/CharacterList_mask')})`
   );
 
-  const rarityKey = byString(item.rarity || 'N').toUpperCase() || 'N';
+  const rarityKey = byString(item.rarity || 'N').toUpperCase() || 'N';  
 
   const bgBack = document.createElement('img');
   bgBack.className = 'char-bg-rarity-back';
@@ -334,32 +336,125 @@ function applyFilters(list, query, state) {
 // main flow
 // -------------------------
 async function loadData() {
-  const vm = await fetchJson(UNIT_VM_URL);
+  const [unitRes, viewRes, tagRes] = await Promise.all([
+    fetch(UNIT_VM_URL, { cache: FETCH_CACHE_MODE }),
+    fetch(UNIT_VIEW_VM_URL, { cache: FETCH_CACHE_MODE }),
+    fetch(TAG_VM_URL, { cache: FETCH_CACHE_MODE })
+  ]);
+
+  if (!unitRes.ok) throw new Error(`UnitVM fetch failed: ${unitRes.status} ${unitRes.statusText}`);
+  if (!viewRes.ok) throw new Error(`UnitViewVM fetch failed: ${viewRes.status} ${viewRes.statusText}`);
+  if (!tagRes.ok) throw new Error(`TagVM fetch failed: ${tagRes.status} ${tagRes.statusText}`);
+
+  const unitVm = await unitRes.json();
+  const viewVm = await viewRes.json();
+  const tagVm = await tagRes.json();
+
+  // tagById (equipmentdb.js 방식) :contentReference[oaicite:8]{index=8}
+  const tagById = new Map();
+  if (tagVm && typeof tagVm === 'object') {
+    for (const k of Object.keys(tagVm)) {
+      const rec = tagVm[k];
+      const id = Number(rec?.id ?? k);
+      if (Number.isFinite(id)) tagById.set(id, rec);
+    }
+  }
+
+  // characterId -> "기본" viewRec (unit.viewId 단일 사용 조건) :contentReference[oaicite:9]{index=9}
+  const basicViewByCharId = {};
+  if (viewVm && typeof viewVm === 'object') {
+    for (const k of Object.keys(viewVm)) {
+      const v = viewVm[k];
+      if (!v) continue;
+      if (String(v.SkinName || '').trim() !== '기본') continue;
+
+      const cid = Number(v.character);
+      if (!Number.isFinite(cid)) continue;
+
+      if (basicViewByCharId[cid] === undefined) basicViewByCharId[cid] = v;
+    }
+  }
 
   // UnitVM은 { [id]: rec } 형태
-  const rawItems = Object.values(vm || {});
+  const rawItems = Object.values(unitVm || {});
 
   const items = rawItems.map((it) => {
-    const portraitRel = byString(it?.portraitRel);
-    const factionIconName = byString(it?.factionIconName);
+    // rarity (quality -> rarity) : equipmentdb.js 매핑과 동일 :contentReference[oaicite:10]{index=10}
+    const qualityRaw = String(it?.quality || '').trim();
+    const qualityKey = qualityRaw.toLowerCase();
+
+    let rarity = '-';
+    if (qualityKey === 'fivestar') rarity = 'SSR';
+    else if (qualityKey === 'fourstar') rarity = 'SR';
+    else if (qualityKey === 'threestar') rarity = 'R';
+    else if (qualityKey === 'twostar' || qualityKey === 'onestar') rarity = 'N';
+
+    // faction (sideId -> TagVM.sideName/icon) : unit_vm.js 방식 :contentReference[oaicite:11]{index=11}
+    const sideId = Number(it?.sideId);
+    const tagRec = Number.isFinite(sideId) ? (tagById.get(sideId) || null) : null;
+
+    const factionName = String(tagRec?.sideName || '').trim();
+
+    let factionIconName = '';
+    if (tagRec) {
+      const v1 = tagRec.icon;
+      const v2 = tagRec.Icon;
+      const s1 = v1 === null || v1 === undefined ? '' : String(v1).trim();
+      const s2 = v2 === null || v2 === undefined ? '' : String(v2).trim();
+      factionIconName = s1 || s2 || '';
+    }
+
+    // view join: unit.viewId 단일 사용 + "기본" 우선 
+    const viewId = Number(it?.viewId);
+    let viewRec =
+      (Number.isFinite(viewId) && viewVm)
+        ? (viewVm[String(viewId)] || viewVm[viewId] || null)
+        : null;
+
+    if (!viewRec || String(viewRec.SkinName || '').trim() !== '기본') {
+      const cid = Number(it?.id);
+      viewRec = (Number.isFinite(cid) && basicViewByCharId[cid]) ? basicViewByCharId[cid] : viewRec;
+    }
+
+    // portraitRel: roleListResUrl > squadsHalf1 > squadsHalf2 > bookHalf (unit_vm.js 방식) :contentReference[oaicite:13]{index=13}
+    let portraitSrc = '';
+    if (viewRec) {
+      const a = String(viewRec?.roleListResUrl ?? '').trim();
+      const b = String(viewRec?.squadsHalf1 ?? '').trim();
+      const c = String(viewRec?.squadsHalf2 ?? '').trim();
+      const d = String(viewRec?.bookHalf ?? '').trim();
+      portraitSrc = a || b || c || d || '';
+    }
+
+    // toRelNoExt (unit_vm.js 방식: slash normalize + leading slash 제거 + ext 제거) :contentReference[oaicite:14]{index=14}
+    const norm = String(portraitSrc || '')
+      .trim()
+      .replace(/\\/g, '/')
+      .replace(/^\/+/g, '')
+      .replace(/\.(png|webp|jpg|jpeg)$/i, '');
+
+    const name = String(it?.name || '').trim();
 
     return {
       ...it,
 
-      portraitUrl: buildAssetImageUrl(portraitRel),
+      // unit.viewId 단일 사용 유지: "기본" viewRec가 있으면 그 id로 치환
+      viewId: viewRec ? viewRec.id : it?.viewId,
+
+      portraitUrl: buildAssetImageUrl(norm),
       factionIconUrl: buildFactionIconUrl(factionIconName),
       posIconUrl: buildPosIconUrl(it?.line),
 
-      rarity: String(it?.rarity || '').trim().toUpperCase(),
-      name: String(it?.name || '').trim(),
+      rarity: String(rarity || '').trim().toUpperCase(),
+      name,
       gender: byString(it?.gender).trim(),
-      factionName: byString(it?.factionName).trim()
+      factionName
     };
   });
-  
-  // odder rarity -> id 
+
+  // odder rarity -> id
   items.sort((a, b) => {
-    const order = { SSR: 0, SR: 1, R: 2, N: 3 };
+    const order = { UR: 0, SSR: 1, SR: 2, R: 3, N: 4 };
     const ra = String(a?.rarity || '');
     const rb = String(b?.rarity || '');
     if (ra !== rb) {
@@ -370,6 +465,7 @@ async function loadData() {
 
   return items;
 }
+
 
 function applyDom(listAll) {
   const statusEl = document.getElementById('status');

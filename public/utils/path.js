@@ -39,7 +39,7 @@ function joinUrl() {
 
 // data/{lang}/{file}
 export function dataPath(lang, file) {
-  return joinUrl("factory", lang, file);
+  return joinUrl("data", lang, file);
 }
 
 // assets/{subPath}

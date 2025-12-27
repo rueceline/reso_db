@@ -29258,13 +29258,12 @@
     "FurnitureSkinDetail": "",
     "banswitchAnimation": false,
     "PictureUrl": "",
-    "VideoUrl": "Video/Skin/ChenShuXian/CSX",
     "SecondiconPath": "",
     "SecondtipsPath": ""
   },
   {
     "id": 90400681,
-    "idCN": "相框/星祷之骑士",
+    "idCN": "相框/星祷助手",
     "mod": "基础皮肤",
     "isInformalData": false,
     "tagList": [],
@@ -29297,7 +29296,6 @@
     "FurnitureSkinDetail": "",
     "banswitchAnimation": false,
     "PictureUrl": "",
-    "VideoUrl": "",
     "SecondiconPath": "",
     "SecondtipsPath": ""
   },
@@ -29336,46 +29334,6 @@
     "FurnitureSkinDetail": "",
     "banswitchAnimation": false,
     "PictureUrl": "",
-    "VideoUrl": "",
-    "SecondiconPath": "",
-    "SecondtipsPath": ""
-  },
-  {
-    "id": 90400683,
-    "idCN": "相框/持铳的忠誓者",
-    "mod": "基础皮肤",
-    "isInformalData": false,
-    "tagList": [],
-    "userMin": 1,
-    "opPosList": [],
-    "queueLinePos": [],
-    "nextQueueLinePos": [],
-    "trainManOpPosList": [],
-    "furnitureHoleList": [],
-    "resList": [
-      {
-        "offsetX": 0,
-        "offsetY": -0.939,
-        "offsetZ": -0.073,
-        "resPath": "Home/Furniture/3D/Prefabs/Home_Furniture_Painting_p/Home_Furniture_Painting_37",
-        "uiSprite": false
-      }
-    ],
-    "baseResList": [],
-    "furHeight": 0,
-    "furBaseHeight": 0,
-    "pileUpOffsetZ": 0,
-    "creaturePosList": [],
-    "animationList": [],
-    "specialFurIcon": false,
-    "name": "",
-    "iconPath": "Item/Furniture/Small/Picture_Tistar",
-    "RareType": "白",
-    "tipsPath": "Item/Furniture/Big/Picture_Tistar",
-    "FurnitureSkinDetail": "",
-    "banswitchAnimation": false,
-    "PictureUrl": "",
-    "VideoUrl": "",
     "SecondiconPath": "",
     "SecondtipsPath": ""
   }

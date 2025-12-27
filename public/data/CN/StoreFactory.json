@@ -225,10 +225,6 @@
         "weight": 1
       },
       {
-        "id": 40201674,
-        "weight": 1
-      },
-      {
         "id": 40200414,
         "weight": 1
       },
@@ -6997,11 +6993,11 @@
     "pngNotSelect": "UI/Home/HomeStore/chuang_notselect",
     "shopList": [
       {
-        "id": 40200553,
+        "id": 40200568,
         "weight": 1
       },
       {
-        "id": 40200568,
+        "id": 40200553,
         "weight": 1
       },
       {
@@ -7914,11 +7910,11 @@
         "weight": 1
       },
       {
-        "id": 40201327,
+        "id": 40201365,
         "weight": 1
       },
       {
-        "id": 40201366,
+        "id": 40201327,
         "weight": 1
       },
       {
@@ -8828,11 +8824,11 @@
         "weight": 1
       },
       {
-        "id": 40201330,
+        "id": 40201366,
         "weight": 1
       },
       {
-        "id": 40201367,
+        "id": 40201330,
         "weight": 1
       },
       {
@@ -9095,11 +9091,11 @@
         "weight": 1
       },
       {
-        "id": 40201334,
+        "id": 40201369,
         "weight": 1
       },
       {
-        "id": 40201678,
+        "id": 40201334,
         "weight": 1
       },
       {
@@ -9546,11 +9542,11 @@
         "weight": 1
       },
       {
-        "id": 40201333,
+        "id": 40201368,
         "weight": 1
       },
       {
-        "id": 40201369,
+        "id": 40201333,
         "weight": 1
       },
       {
@@ -10362,10 +10358,6 @@
         "weight": 1
       },
       {
-        "id": 40201365,
-        "weight": 1
-      },
-      {
         "id": 40200845,
         "weight": 1
       },
@@ -10917,11 +10909,11 @@
         "weight": 1
       },
       {
-        "id": 40201329,
+        "id": 40201367,
         "weight": 1
       },
       {
-        "id": 40201368,
+        "id": 40201329,
         "weight": 1
       },
       {
@@ -11338,18 +11330,6 @@
       },
       {
         "id": 40201236,
-        "weight": 1
-      },
-      {
-        "id": 40201326,
-        "weight": 1
-      },
-      {
-        "id": 40201336,
-        "weight": 1
-      },
-      {
-        "id": 40201679,
         "weight": 1
       },
       {
@@ -12426,10 +12406,6 @@
       },
       {
         "id": 40201359,
-        "weight": 1
-      },
-      {
-        "id": 40201680,
         "weight": 1
       },
       {
@@ -13832,10 +13808,6 @@
         "weight": 1
       },
       {
-        "id": 40201681,
-        "weight": 1
-      },
-      {
         "id": 40201589,
         "weight": 1
       },
@@ -14193,10 +14165,6 @@
       {
         "id": 40201624,
         "weight": 1
-      },
-      {
-        "id": 40201682,
-        "weight": 1
       }
     ],
     "storeType": "Regular",
@@ -14312,50 +14280,6 @@
       },
       {
         "id": 40201662,
-        "weight": 100
-      }
-    ],
-    "storeType": "Regular",
-    "TextLockId": -1,
-    "showUI": "Group_DiamondStore",
-    "commodityFixedList": [],
-    "isRecordTimes": false,
-    "rewardList": [],
-    "isStationRefresh": false,
-    "capacityType": [],
-    "refreshType": "Daily",
-    "isTime": false,
-    "startTime": "",
-    "endTime": "",
-    "currencyShow": []
-  },
-  {
-    "id": 40300190,
-    "idCN": "99其他/购买万象秘钥",
-    "mod": "商店",
-    "isInformalData": false,
-    "storeName": "",
-    "unlockConditions": false,
-    "conditions": -1,
-    "maxShopNum": 10,
-    "autoRefresh": true,
-    "refreshTimeList": [
-      {
-        "refreshTime": "00:00:00"
-      }
-    ],
-    "moneyList": [
-      {
-        "moneyID": 11400005,
-        "moneyNum": 50
-      }
-    ],
-    "freeRefreshNum": 1,
-    "pngSelect": "",
-    "pngNotSelect": "",
-    "shopList": [
-      {
-        "id": 40201664,
         "weight": 100
       }
     ],
