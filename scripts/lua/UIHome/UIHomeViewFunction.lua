@@ -1,2 +1,0 @@
-local ViewFunction = {}
-return ViewFunction

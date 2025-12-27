@@ -1,2 +1,0 @@
-local DataModel = {}
-return DataModel
